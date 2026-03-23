@@ -1,0 +1,58 @@
+# ========= 环境/路径 =========
+data_path: ./dataset
+checkpoint_dir: ./saved_ckpt
+reproducibility: True
+seed: 2026
+show_progress: True
+
+# ========= 数据集（MovieLens-1M / ml-1m）=========
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+RATING_FIELD: rating          # 修正：你原来写成 ratinga 会导致字段不匹配
+TIME_FIELD: timestamp
+
+load_col:
+  inter: [user_id, item_id, rating, timestamp]
+  item: [item_id, movie_title, release_year, genre]
+  user: [user_id, age, gender, occupation, zip_code]
+
+# 把显式评分转成隐式正反馈：保留 rating >= 4 的交互（与注释一致）
+val_interval:
+  rating: "[4,inf)"
+
+# k-core：过滤交互太少的 user/item（在阈值化之后生效）
+user_inter_num_interval: "[10,inf)"
+item_inter_num_interval: "[10,inf)"
+
+# ========= 模型：LightGCN =========
+model: LightGCN
+embedding_size: 64
+n_layers: 3
+reg_weight: 1e-4
+require_pow: True
+
+# ========= 训练（LightGCN pairwise 负采样）=========
+epochs: 1000
+train_batch_size: 4096
+learning_rate: 0.001
+gpu_id: "3"
+learner: adam
+train_neg_sample_args:
+  uniform: 1
+
+# ========= 评估：留一法 + 全量候选集评估 =========
+eval_args:
+  group_by: user
+  order: TO                      # 关键：按时间排序（Time Order），才能做“最后一条留出”
+  split: {'LS': 'valid_and_test'} # 关键：Leave-One-Out，倒数第2作valid，最后1条作test
+  mode: full                      # 全量候选集（更可信）
+
+metrics: [Recall, NDCG, Hit]
+topk: [20]
+valid_metric: NDCG@20
+valid_metric_bigger: True
+
+eval_batch_size: 4096
+stopping_step: 10
+eval_step: 1
+metric_decimal_place: 4
