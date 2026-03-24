@@ -1,0 +1,777 @@
+{
+  "request_id": "diversity_dominant_genre-031",
+  "user_id": "1135",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1242",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-031",
+      "user_summary": "The user is a Male who is 50-55 years old and works as a retired. Historically prefers Sci-Fi and Action titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "1233",
+        "title": "Boat, The (Das Boot)",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1981,
+        "base_score": 9.333873748779297
+      },
+      {
+        "item_id": "2028",
+        "title": "Saving Private Ryan",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 9.086009979248047
+      },
+      {
+        "item_id": "1242",
+        "title": "Glory",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 7.5205230712890625
+      },
+      {
+        "item_id": "2890",
+        "title": "Three Kings",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.425404071807861
+      },
+      {
+        "item_id": "1094",
+        "title": "Crying Game, The",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 7.40118932723999
+      },
+      {
+        "item_id": "1090",
+        "title": "Platoon",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1986,
+        "base_score": 7.389031887054443
+      },
+      {
+        "item_id": "593",
+        "title": "Silence of the Lambs, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1991,
+        "base_score": 7.382511138916016
+      },
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.110774993896484
+      },
+      {
+        "item_id": "1408",
+        "title": "Last of the Mohicans, The",
+        "genre": [
+          "Action",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 6.972527027130127
+      },
+      {
+        "item_id": "1250",
+        "title": "Bridge on the River Kwai, The",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1957,
+        "base_score": 6.848524570465088
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.4111111111111111
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "1233",
+        "title": "Boat, The (Das Boot)",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1981,
+        "base_score": 9.333873748779297
+      },
+      {
+        "item_id": "2028",
+        "title": "Saving Private Ryan",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 9.086009979248047
+      },
+      {
+        "item_id": "1242",
+        "title": "Glory",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 7.5205230712890625
+      },
+      {
+        "item_id": "2890",
+        "title": "Three Kings",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.425404071807861
+      },
+      {
+        "item_id": "1094",
+        "title": "Crying Game, The",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 7.40118932723999
+      },
+      {
+        "item_id": "1090",
+        "title": "Platoon",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1986,
+        "base_score": 7.389031887054443
+      },
+      {
+        "item_id": "593",
+        "title": "Silence of the Lambs, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1991,
+        "base_score": 7.382511138916016
+      },
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.110774993896484
+      },
+      {
+        "item_id": "1408",
+        "title": "Last of the Mohicans, The",
+        "genre": [
+          "Action",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 6.972527027130127
+      },
+      {
+        "item_id": "1250",
+        "title": "Bridge on the River Kwai, The",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1957,
+        "base_score": 6.848524570465088
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.4111111111111111
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.1183730880729854,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1233",
+              "title": "Boat, The (Das Boot)",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1981,
+              "base_score": 9.333873748779297
+            },
+            {
+              "item_id": "2890",
+              "title": "Three Kings",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.425404071807861
+            },
+            {
+              "item_id": "1266",
+              "title": "Unforgiven",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1992,
+              "base_score": 6.175833702087402
+            },
+            {
+              "item_id": "2028",
+              "title": "Saving Private Ryan",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 9.086009979248047
+            },
+            {
+              "item_id": "1094",
+              "title": "Crying Game, The",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 7.40118932723999
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 6.124788284301758
+            },
+            {
+              "item_id": "1242",
+              "title": "Glory",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 7.5205230712890625
+            },
+            {
+              "item_id": "1090",
+              "title": "Platoon",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1986,
+              "base_score": 7.389031887054443
+            },
+            {
+              "item_id": "2997",
+              "title": "Being John Malkovich",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.867822170257568
+            },
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.110774993896484
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6444444444444444
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.31546487678572877,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2890",
+              "title": "Three Kings",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.425404071807861
+            },
+            {
+              "item_id": "1233",
+              "title": "Boat, The (Das Boot)",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1981,
+              "base_score": 9.333873748779297
+            },
+            {
+              "item_id": "1266",
+              "title": "Unforgiven",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1992,
+              "base_score": 6.175833702087402
+            },
+            {
+              "item_id": "1094",
+              "title": "Crying Game, The",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 7.40118932723999
+            },
+            {
+              "item_id": "2028",
+              "title": "Saving Private Ryan",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 9.086009979248047
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 6.124788284301758
+            },
+            {
+              "item_id": "1090",
+              "title": "Platoon",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1986,
+              "base_score": 7.389031887054443
+            },
+            {
+              "item_id": "1242",
+              "title": "Glory",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 7.5205230712890625
+            },
+            {
+              "item_id": "2997",
+              "title": "Being John Malkovich",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.867822170257568
+            },
+            {
+              "item_id": "593",
+              "title": "Silence of the Lambs, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1991,
+              "base_score": 7.382511138916016
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7148148148148149
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.491646052338183,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3562071871080222,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 6,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "589",
+            "title": "Terminator 2: Judgment Day",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1991,
+            "base_score": 5.736348628997803
+          },
+          {
+            "item_id": "1233",
+            "title": "Boat, The (Das Boot)",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1981,
+            "base_score": 9.333873748779297
+          },
+          {
+            "item_id": "2890",
+            "title": "Three Kings",
+            "genre": [
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 7.425404071807861
+          },
+          {
+            "item_id": "2028",
+            "title": "Saving Private Ryan",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 9.086009979248047
+          },
+          {
+            "item_id": "1266",
+            "title": "Unforgiven",
+            "genre": [
+              "Western"
+            ],
+            "dominant_genre": "Western",
+            "release_year": 1992,
+            "base_score": 6.175833702087402
+          },
+          {
+            "item_id": "1242",
+            "title": "Glory",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1989,
+            "base_score": 7.5205230712890625
+          },
+          {
+            "item_id": "593",
+            "title": "Silence of the Lambs, The",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1991,
+            "base_score": 7.382511138916016
+          },
+          {
+            "item_id": "110",
+            "title": "Braveheart",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 7.110774993896484
+          },
+          {
+            "item_id": "527",
+            "title": "Schindler's List",
+            "genre": [
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 6.689515590667725
+          },
+          {
+            "item_id": "1408",
+            "title": "Last of the Mohicans, The",
+            "genre": [
+              "Action",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1992,
+            "base_score": 6.972527027130127
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.75,
+        "ild_score": 0.6055555555555555
+      }
+    ]
+  }
+}

@@ -1,0 +1,825 @@
+{
+  "request_id": "quota_children-073",
+  "user_id": "2189",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "3793",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-073",
+      "user_summary": "The user is a Male who is under 18 years old and works as a K-12 student. Historically prefers Comedy and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 8.693687438964844
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.531991958618164
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 8.506282806396484
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 8.107954025268555
+      },
+      {
+        "item_id": "2700",
+        "title": "South Park: Bigger, Longer and Uncut",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 7.901008129119873
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 7.695968151092529
+      },
+      {
+        "item_id": "3157",
+        "title": "Stuart Little",
+        "genre": [
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1999,
+        "base_score": 7.35367488861084
+      },
+      {
+        "item_id": "2702",
+        "title": "Summer of Sam",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.212565898895264
+      },
+      {
+        "item_id": "2396",
+        "title": "Shakespeare in Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 7.1538238525390625
+      },
+      {
+        "item_id": "3384",
+        "title": "Taking of Pelham One Two Three, The",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1974,
+        "base_score": 6.798091411590576
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8899999999999999
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 1000007.6959681511
+      },
+      {
+        "item_id": "3157",
+        "title": "Stuart Little",
+        "genre": [
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1999,
+        "base_score": 1000007.3536748886
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 8.693687438964844
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.531991958618164
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 8.506282806396484
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 8.107954025268555
+      },
+      {
+        "item_id": "2700",
+        "title": "South Park: Bigger, Longer and Uncut",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 7.901008129119873
+      },
+      {
+        "item_id": "2702",
+        "title": "Summer of Sam",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.212565898895264
+      },
+      {
+        "item_id": "2396",
+        "title": "Shakespeare in Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 7.1538238525390625
+      },
+      {
+        "item_id": "3384",
+        "title": "Taking of Pelham One Two Three, The",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1974,
+        "base_score": 6.798091411590576
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8899999999999999
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.1267506452277303,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 8.693687438964844
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 8.531991958618164
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 8.506282806396484
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 8.107954025268555
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 7.901008129119873
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 7.695968151092529
+            },
+            {
+              "item_id": "3157",
+              "title": "Stuart Little",
+              "genre": [
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1999,
+              "base_score": 7.35367488861084
+            },
+            {
+              "item_id": "2702",
+              "title": "Summer of Sam",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.212565898895264
+            },
+            {
+              "item_id": "2396",
+              "title": "Shakespeare in Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 7.1538238525390625
+            },
+            {
+              "item_id": "3384",
+              "title": "Taking of Pelham One Two Three, The",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1974,
+              "base_score": 6.798091411590576
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8899999999999999
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 8.693687438964844
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 8.531991958618164
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 8.506282806396484
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 8.107954025268555
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 7.901008129119873
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 7.695968151092529
+            },
+            {
+              "item_id": "3157",
+              "title": "Stuart Little",
+              "genre": [
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1999,
+              "base_score": 7.35367488861084
+            },
+            {
+              "item_id": "2702",
+              "title": "Summer of Sam",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.212565898895264
+            },
+            {
+              "item_id": "2396",
+              "title": "Shakespeare in Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 7.1538238525390625
+            },
+            {
+              "item_id": "3384",
+              "title": "Taking of Pelham One Two Three, The",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1974,
+              "base_score": 6.798091411590576
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8899999999999999
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9267371273599565,
+        "hit@10": 1.0,
+        "ndcg@10": 0.31546487678572877,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 8.506282806396484
+          },
+          {
+            "item_id": "2987",
+            "title": "Who Framed Roger Rabbit?",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1988,
+            "base_score": 8.693687438964844
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 7.695968151092529
+          },
+          {
+            "item_id": "2700",
+            "title": "South Park: Bigger, Longer and Uncut",
+            "genre": [
+              "Animation",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 7.901008129119873
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 8.531991958618164
+          },
+          {
+            "item_id": "2763",
+            "title": "Thomas Crown Affair, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 8.107954025268555
+          },
+          {
+            "item_id": "3157",
+            "title": "Stuart Little",
+            "genre": [
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1999,
+            "base_score": 7.35367488861084
+          },
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 6.387314319610596
+          },
+          {
+            "item_id": "2841",
+            "title": "Stir of Echoes",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 6.379128456115723
+          },
+          {
+            "item_id": "3798",
+            "title": "What Lies Beneath",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 2000,
+            "base_score": 5.315649032592773
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8177777777777778
+      }
+    ]
+  }
+}

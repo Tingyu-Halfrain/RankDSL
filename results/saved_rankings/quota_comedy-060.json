@@ -1,0 +1,808 @@
+{
+  "request_id": "quota_comedy-060",
+  "user_id": "1288",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "3550",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-060",
+      "user_summary": "The user is a Female who is 35-44 years old and works as a unemployed. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.2890648263178879,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "152",
+        "title": "Addiction, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1995,
+        "base_score": 7.0522637367248535
+      },
+      {
+        "item_id": "532",
+        "title": "Serial Mom",
+        "genre": [
+          "Comedy",
+          "Crime",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 7.016890048980713
+      },
+      {
+        "item_id": "366",
+        "title": "Wes Craven's New Nightmare",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1994,
+        "base_score": 6.964231967926025
+      },
+      {
+        "item_id": "2710",
+        "title": "Blair Witch Project, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1999,
+        "base_score": 6.781068801879883
+      },
+      {
+        "item_id": "565",
+        "title": "Cronos",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1992,
+        "base_score": 6.683152198791504
+      },
+      {
+        "item_id": "3499",
+        "title": "Misery",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1990,
+        "base_score": 6.575838565826416
+      },
+      {
+        "item_id": "1407",
+        "title": "Scream",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1996,
+        "base_score": 6.523022174835205
+      },
+      {
+        "item_id": "253",
+        "title": "Interview with the Vampire",
+        "genre": [
+          "Drama",
+          "Horror"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 6.439765930175781
+      },
+      {
+        "item_id": "3081",
+        "title": "Sleepy Hollow",
+        "genre": [
+          "Horror",
+          "Romance"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1999,
+        "base_score": 6.431000232696533
+      },
+      {
+        "item_id": "3550",
+        "title": "Hunger, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1983,
+        "base_score": 6.391054630279541
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 1,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.38333333333333336
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "532",
+        "title": "Serial Mom",
+        "genre": [
+          "Comedy",
+          "Crime",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 1000007.016890049
+      },
+      {
+        "item_id": "2747",
+        "title": "Little Shop of Horrors, The",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1960,
+        "base_score": 1000006.0670070648
+      },
+      {
+        "item_id": "2746",
+        "title": "Little Shop of Horrors",
+        "genre": [
+          "Comedy",
+          "Horror",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 1000006.0062947273
+      },
+      {
+        "item_id": "152",
+        "title": "Addiction, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1995,
+        "base_score": 7.0522637367248535
+      },
+      {
+        "item_id": "366",
+        "title": "Wes Craven's New Nightmare",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1994,
+        "base_score": 6.964231967926025
+      },
+      {
+        "item_id": "2710",
+        "title": "Blair Witch Project, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1999,
+        "base_score": 6.781068801879883
+      },
+      {
+        "item_id": "565",
+        "title": "Cronos",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1992,
+        "base_score": 6.683152198791504
+      },
+      {
+        "item_id": "3499",
+        "title": "Misery",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1990,
+        "base_score": 6.575838565826416
+      },
+      {
+        "item_id": "1407",
+        "title": "Scream",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1996,
+        "base_score": 6.523022174835205
+      },
+      {
+        "item_id": "253",
+        "title": "Interview with the Vampire",
+        "genre": [
+          "Drama",
+          "Horror"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 6.439765930175781
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.45185185185185184
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3634656169451773,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "532",
+              "title": "Serial Mom",
+              "genre": [
+                "Comedy",
+                "Crime",
+                "Horror"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 7.016890048980713
+            },
+            {
+              "item_id": "152",
+              "title": "Addiction, The",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1995,
+              "base_score": 7.0522637367248535
+            },
+            {
+              "item_id": "366",
+              "title": "Wes Craven's New Nightmare",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1994,
+              "base_score": 6.964231967926025
+            },
+            {
+              "item_id": "2710",
+              "title": "Blair Witch Project, The",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1999,
+              "base_score": 6.781068801879883
+            },
+            {
+              "item_id": "565",
+              "title": "Cronos",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1992,
+              "base_score": 6.683152198791504
+            },
+            {
+              "item_id": "3499",
+              "title": "Misery",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1990,
+              "base_score": 6.575838565826416
+            },
+            {
+              "item_id": "1407",
+              "title": "Scream",
+              "genre": [
+                "Horror",
+                "Thriller"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1996,
+              "base_score": 6.523022174835205
+            },
+            {
+              "item_id": "253",
+              "title": "Interview with the Vampire",
+              "genre": [
+                "Drama",
+                "Horror"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 6.439765930175781
+            },
+            {
+              "item_id": "2747",
+              "title": "Little Shop of Horrors, The",
+              "genre": [
+                "Comedy",
+                "Horror"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1960,
+              "base_score": 6.067007064819336
+            },
+            {
+              "item_id": "2746",
+              "title": "Little Shop of Horrors",
+              "genre": [
+                "Comedy",
+                "Horror",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1986,
+              "base_score": 6.0062947273254395
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4518518518518519
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "532",
+              "title": "Serial Mom",
+              "genre": [
+                "Comedy",
+                "Crime",
+                "Horror"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 7.016890048980713
+            },
+            {
+              "item_id": "152",
+              "title": "Addiction, The",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1995,
+              "base_score": 7.0522637367248535
+            },
+            {
+              "item_id": "366",
+              "title": "Wes Craven's New Nightmare",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1994,
+              "base_score": 6.964231967926025
+            },
+            {
+              "item_id": "2710",
+              "title": "Blair Witch Project, The",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1999,
+              "base_score": 6.781068801879883
+            },
+            {
+              "item_id": "565",
+              "title": "Cronos",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1992,
+              "base_score": 6.683152198791504
+            },
+            {
+              "item_id": "3499",
+              "title": "Misery",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1990,
+              "base_score": 6.575838565826416
+            },
+            {
+              "item_id": "1407",
+              "title": "Scream",
+              "genre": [
+                "Horror",
+                "Thriller"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1996,
+              "base_score": 6.523022174835205
+            },
+            {
+              "item_id": "253",
+              "title": "Interview with the Vampire",
+              "genre": [
+                "Drama",
+                "Horror"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 6.439765930175781
+            },
+            {
+              "item_id": "2747",
+              "title": "Little Shop of Horrors, The",
+              "genre": [
+                "Comedy",
+                "Horror"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1960,
+              "base_score": 6.067007064819336
+            },
+            {
+              "item_id": "2746",
+              "title": "Little Shop of Horrors",
+              "genre": [
+                "Comedy",
+                "Horror",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1986,
+              "base_score": 6.0062947273254395
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4518518518518519
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.0632761721499264,
+        "hit@10": 1.0,
+        "ndcg@10": 0.2890648263178879,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "152",
+            "title": "Addiction, The",
+            "genre": [
+              "Horror"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1995,
+            "base_score": 7.0522637367248535
+          },
+          {
+            "item_id": "532",
+            "title": "Serial Mom",
+            "genre": [
+              "Comedy",
+              "Crime",
+              "Horror"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 7.016890048980713
+          },
+          {
+            "item_id": "253",
+            "title": "Interview with the Vampire",
+            "genre": [
+              "Drama",
+              "Horror"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 6.439765930175781
+          },
+          {
+            "item_id": "2747",
+            "title": "Little Shop of Horrors, The",
+            "genre": [
+              "Comedy",
+              "Horror"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1960,
+            "base_score": 6.067007064819336
+          },
+          {
+            "item_id": "2746",
+            "title": "Little Shop of Horrors",
+            "genre": [
+              "Comedy",
+              "Horror",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1986,
+            "base_score": 6.0062947273254395
+          },
+          {
+            "item_id": "366",
+            "title": "Wes Craven's New Nightmare",
+            "genre": [
+              "Horror"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1994,
+            "base_score": 6.964231967926025
+          },
+          {
+            "item_id": "2710",
+            "title": "Blair Witch Project, The",
+            "genre": [
+              "Horror"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1999,
+            "base_score": 6.781068801879883
+          },
+          {
+            "item_id": "1407",
+            "title": "Scream",
+            "genre": [
+              "Horror",
+              "Thriller"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1996,
+            "base_score": 6.523022174835205
+          },
+          {
+            "item_id": "3499",
+            "title": "Misery",
+            "genre": [
+              "Horror"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1990,
+            "base_score": 6.575838565826416
+          },
+          {
+            "item_id": "3550",
+            "title": "Hunger, The",
+            "genre": [
+              "Horror"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1983,
+            "base_score": 6.391054630279541
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 3,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.4518518518518519
+      }
+    ]
+  }
+}

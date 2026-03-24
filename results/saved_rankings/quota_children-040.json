@@ -1,0 +1,844 @@
+{
+  "request_id": "quota_children-040",
+  "user_id": "1746",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "2926",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-040",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a college/grad student. Historically prefers Sci-Fi and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 8.171136856079102
+      },
+      {
+        "item_id": "1060",
+        "title": "Swingers",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 8.078559875488281
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.755416393280029
+      },
+      {
+        "item_id": "1257",
+        "title": "Better Off Dead...",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 7.646462917327881
+      },
+      {
+        "item_id": "562",
+        "title": "Welcome to the Dollhouse",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.5657958984375
+      },
+      {
+        "item_id": "1220",
+        "title": "Blues Brothers, The",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1980,
+        "base_score": 7.320053577423096
+      },
+      {
+        "item_id": "52",
+        "title": "Mighty Aphrodite",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.28171443939209
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 7.247196674346924
+      },
+      {
+        "item_id": "39",
+        "title": "Clueless",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.165321350097656
+      },
+      {
+        "item_id": "2000",
+        "title": "Lethal Weapon",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 7.136195182800293
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6383068783068784
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 1000008.1711368561
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000007.2471966743
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 1000007.1105628014
+      },
+      {
+        "item_id": "1060",
+        "title": "Swingers",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 8.078559875488281
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.755416393280029
+      },
+      {
+        "item_id": "1257",
+        "title": "Better Off Dead...",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 7.646462917327881
+      },
+      {
+        "item_id": "562",
+        "title": "Welcome to the Dollhouse",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.5657958984375
+      },
+      {
+        "item_id": "1220",
+        "title": "Blues Brothers, The",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1980,
+        "base_score": 7.320053577423096
+      },
+      {
+        "item_id": "52",
+        "title": "Mighty Aphrodite",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.28171443939209
+      },
+      {
+        "item_id": "39",
+        "title": "Clueless",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.165321350097656
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 3,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6344444444444447
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.392531900200993,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 8.171136856079102
+            },
+            {
+              "item_id": "1060",
+              "title": "Swingers",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 8.078559875488281
+            },
+            {
+              "item_id": "2797",
+              "title": "Big",
+              "genre": [
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.755416393280029
+            },
+            {
+              "item_id": "1257",
+              "title": "Better Off Dead...",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 7.646462917327881
+            },
+            {
+              "item_id": "562",
+              "title": "Welcome to the Dollhouse",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.5657958984375
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 7.247196674346924
+            },
+            {
+              "item_id": "1220",
+              "title": "Blues Brothers, The",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1980,
+              "base_score": 7.320053577423096
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.110562801361084
+            },
+            {
+              "item_id": "52",
+              "title": "Mighty Aphrodite",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.28171443939209
+            },
+            {
+              "item_id": "39",
+              "title": "Clueless",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.165321350097656
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 3,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6344444444444446
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 8.171136856079102
+            },
+            {
+              "item_id": "1060",
+              "title": "Swingers",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 8.078559875488281
+            },
+            {
+              "item_id": "2797",
+              "title": "Big",
+              "genre": [
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.755416393280029
+            },
+            {
+              "item_id": "1257",
+              "title": "Better Off Dead...",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 7.646462917327881
+            },
+            {
+              "item_id": "562",
+              "title": "Welcome to the Dollhouse",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.5657958984375
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 7.247196674346924
+            },
+            {
+              "item_id": "1220",
+              "title": "Blues Brothers, The",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1980,
+              "base_score": 7.320053577423096
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.110562801361084
+            },
+            {
+              "item_id": "52",
+              "title": "Mighty Aphrodite",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.28171443939209
+            },
+            {
+              "item_id": "39",
+              "title": "Clueless",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.165321350097656
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 3,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6344444444444446
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.6582030677236617,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "551",
+            "title": "Nightmare Before Christmas, The",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1993,
+            "base_score": 8.171136856079102
+          },
+          {
+            "item_id": "1060",
+            "title": "Swingers",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 8.078559875488281
+          },
+          {
+            "item_id": "2797",
+            "title": "Big",
+            "genre": [
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 7.755416393280029
+          },
+          {
+            "item_id": "1257",
+            "title": "Better Off Dead...",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 7.646462917327881
+          },
+          {
+            "item_id": "1220",
+            "title": "Blues Brothers, The",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1980,
+            "base_score": 7.320053577423096
+          },
+          {
+            "item_id": "1073",
+            "title": "Willy Wonka and the Chocolate Factory",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 7.247196674346924
+          },
+          {
+            "item_id": "588",
+            "title": "Aladdin",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1992,
+            "base_score": 7.110562801361084
+          },
+          {
+            "item_id": "39",
+            "title": "Clueless",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.165321350097656
+          },
+          {
+            "item_id": "52",
+            "title": "Mighty Aphrodite",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.28171443939209
+          },
+          {
+            "item_id": "514",
+            "title": "Ref, The",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 7.029426574707031
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 3,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6100000000000001
+      }
+    ]
+  }
+}

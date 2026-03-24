@@ -1,0 +1,806 @@
+{
+  "request_id": "filter_horror-069",
+  "user_id": "1536",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "1953",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-069",
+      "user_summary": "The user is a Female who is 35-44 years old and works as a clerical/admin. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "1387",
+        "title": "Jaws",
+        "genre": [
+          "Action",
+          "Horror"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1975,
+        "base_score": 8.942011833190918
+      },
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 8.412154197692871
+      },
+      {
+        "item_id": "1304",
+        "title": "Butch Cassidy and the Sundance Kid",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1969,
+        "base_score": 7.866828918457031
+      },
+      {
+        "item_id": "1036",
+        "title": "Die Hard",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1988,
+        "base_score": 7.765556335449219
+      },
+      {
+        "item_id": "858",
+        "title": "Godfather, The",
+        "genre": [
+          "Action",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1972,
+        "base_score": 7.452285289764404
+      },
+      {
+        "item_id": "2571",
+        "title": "Matrix, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.223568439483643
+      },
+      {
+        "item_id": "457",
+        "title": "Fugitive, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 7.21969747543335
+      },
+      {
+        "item_id": "1198",
+        "title": "Raiders of the Lost Ark",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1981,
+        "base_score": 7.149993896484375
+      },
+      {
+        "item_id": "2366",
+        "title": "King Kong",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Horror"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1933,
+        "base_score": 7.0339226722717285
+      },
+      {
+        "item_id": "1197",
+        "title": "Princess Bride, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 7.030411720275879
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6881481481481483
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 8.412154197692871
+      },
+      {
+        "item_id": "1304",
+        "title": "Butch Cassidy and the Sundance Kid",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1969,
+        "base_score": 7.866828918457031
+      },
+      {
+        "item_id": "1036",
+        "title": "Die Hard",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1988,
+        "base_score": 7.765556335449219
+      },
+      {
+        "item_id": "858",
+        "title": "Godfather, The",
+        "genre": [
+          "Action",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1972,
+        "base_score": 7.452285289764404
+      },
+      {
+        "item_id": "2571",
+        "title": "Matrix, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.223568439483643
+      },
+      {
+        "item_id": "457",
+        "title": "Fugitive, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 7.21969747543335
+      },
+      {
+        "item_id": "1198",
+        "title": "Raiders of the Lost Ark",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1981,
+        "base_score": 7.149993896484375
+      },
+      {
+        "item_id": "1197",
+        "title": "Princess Bride, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 7.030411720275879
+      },
+      {
+        "item_id": "1291",
+        "title": "Indiana Jones and the Last Crusade",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 6.845627307891846
+      },
+      {
+        "item_id": "2194",
+        "title": "Untouchables, The",
+        "genre": [
+          "Action",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 6.796998500823975
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6659259259259259
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.6572676659561694,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 8.412154197692871
+            },
+            {
+              "item_id": "1304",
+              "title": "Butch Cassidy and the Sundance Kid",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Western"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1969,
+              "base_score": 7.866828918457031
+            },
+            {
+              "item_id": "1036",
+              "title": "Die Hard",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1988,
+              "base_score": 7.765556335449219
+            },
+            {
+              "item_id": "858",
+              "title": "Godfather, The",
+              "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1972,
+              "base_score": 7.452285289764404
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.223568439483643
+            },
+            {
+              "item_id": "457",
+              "title": "Fugitive, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 7.21969747543335
+            },
+            {
+              "item_id": "1198",
+              "title": "Raiders of the Lost Ark",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1981,
+              "base_score": 7.149993896484375
+            },
+            {
+              "item_id": "1197",
+              "title": "Princess Bride, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 7.030411720275879
+            },
+            {
+              "item_id": "1291",
+              "title": "Indiana Jones and the Last Crusade",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 6.845627307891846
+            },
+            {
+              "item_id": "2194",
+              "title": "Untouchables, The",
+              "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 6.796998500823975
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6659259259259259
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 8.412154197692871
+            },
+            {
+              "item_id": "1304",
+              "title": "Butch Cassidy and the Sundance Kid",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Western"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1969,
+              "base_score": 7.866828918457031
+            },
+            {
+              "item_id": "1036",
+              "title": "Die Hard",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1988,
+              "base_score": 7.765556335449219
+            },
+            {
+              "item_id": "858",
+              "title": "Godfather, The",
+              "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1972,
+              "base_score": 7.452285289764404
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.223568439483643
+            },
+            {
+              "item_id": "457",
+              "title": "Fugitive, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 7.21969747543335
+            },
+            {
+              "item_id": "1198",
+              "title": "Raiders of the Lost Ark",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1981,
+              "base_score": 7.149993896484375
+            },
+            {
+              "item_id": "1197",
+              "title": "Princess Bride, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 7.030411720275879
+            },
+            {
+              "item_id": "1291",
+              "title": "Indiana Jones and the Last Crusade",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 6.845627307891846
+            },
+            {
+              "item_id": "2194",
+              "title": "Untouchables, The",
+              "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 6.796998500823975
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6659259259259259
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9032564447261393,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "110",
+            "title": "Braveheart",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 8.412154197692871
+          },
+          {
+            "item_id": "1304",
+            "title": "Butch Cassidy and the Sundance Kid",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Western"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1969,
+            "base_score": 7.866828918457031
+          },
+          {
+            "item_id": "1036",
+            "title": "Die Hard",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1988,
+            "base_score": 7.765556335449219
+          },
+          {
+            "item_id": "858",
+            "title": "Godfather, The",
+            "genre": [
+              "Action",
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1972,
+            "base_score": 7.452285289764404
+          },
+          {
+            "item_id": "2571",
+            "title": "Matrix, The",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 7.223568439483643
+          },
+          {
+            "item_id": "457",
+            "title": "Fugitive, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 7.21969747543335
+          },
+          {
+            "item_id": "1198",
+            "title": "Raiders of the Lost Ark",
+            "genre": [
+              "Action",
+              "Adventure"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1981,
+            "base_score": 7.149993896484375
+          },
+          {
+            "item_id": "1197",
+            "title": "Princess Bride, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 7.030411720275879
+          },
+          {
+            "item_id": "1291",
+            "title": "Indiana Jones and the Last Crusade",
+            "genre": [
+              "Action",
+              "Adventure"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1989,
+            "base_score": 6.845627307891846
+          },
+          {
+            "item_id": "2194",
+            "title": "Untouchables, The",
+            "genre": [
+              "Action",
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 6.796998500823975
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6659259259259259
+      }
+    ]
+  }
+}

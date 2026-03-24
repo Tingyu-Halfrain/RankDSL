@@ -1,0 +1,837 @@
+{
+  "request_id": "quota_comedy-097",
+  "user_id": "1466",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "2735",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-097",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a college/grad student. Historically prefers Action and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2410",
+        "title": "Rocky III",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1982,
+        "base_score": 9.533184051513672
+      },
+      {
+        "item_id": "2411",
+        "title": "Rocky IV",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1985,
+        "base_score": 8.965785026550293
+      },
+      {
+        "item_id": "2421",
+        "title": "Karate Kid, Part II, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 8.72952938079834
+      },
+      {
+        "item_id": "3444",
+        "title": "Bloodsport",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1988,
+        "base_score": 8.662845611572266
+      },
+      {
+        "item_id": "2815",
+        "title": "Iron Eagle",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 8.554116249084473
+      },
+      {
+        "item_id": "2402",
+        "title": "Rambo: First Blood Part II",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1985,
+        "base_score": 8.462385177612305
+      },
+      {
+        "item_id": "3441",
+        "title": "Red Dawn",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 8.456467628479004
+      },
+      {
+        "item_id": "466",
+        "title": "Hot Shots! Part Deux",
+        "genre": [
+          "Action",
+          "Comedy",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.203011512756348
+      },
+      {
+        "item_id": "3698",
+        "title": "Running Man, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.195868492126465
+      },
+      {
+        "item_id": "1479",
+        "title": "Saint, The",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.034222602844238
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 1,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5907407407407409
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "466",
+        "title": "Hot Shots! Part Deux",
+        "genre": [
+          "Action",
+          "Comedy",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 1000008.2030115128
+      },
+      {
+        "item_id": "420",
+        "title": "Beverly Hills Cop III",
+        "genre": [
+          "Action",
+          "Comedy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 1000007.801958561
+      },
+      {
+        "item_id": "2735",
+        "title": "Golden Child, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 1000007.768755436
+      },
+      {
+        "item_id": "2410",
+        "title": "Rocky III",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1982,
+        "base_score": 9.533184051513672
+      },
+      {
+        "item_id": "2411",
+        "title": "Rocky IV",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1985,
+        "base_score": 8.965785026550293
+      },
+      {
+        "item_id": "2421",
+        "title": "Karate Kid, Part II, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 8.72952938079834
+      },
+      {
+        "item_id": "3444",
+        "title": "Bloodsport",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1988,
+        "base_score": 8.662845611572266
+      },
+      {
+        "item_id": "2815",
+        "title": "Iron Eagle",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 8.554116249084473
+      },
+      {
+        "item_id": "2402",
+        "title": "Rambo: First Blood Part II",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1985,
+        "base_score": 8.462385177612305
+      },
+      {
+        "item_id": "3441",
+        "title": "Red Dawn",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 8.456467628479004
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5492592592592593
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.5366360708139837,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.2890648263178879,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2410",
+              "title": "Rocky III",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1982,
+              "base_score": 9.533184051513672
+            },
+            {
+              "item_id": "2411",
+              "title": "Rocky IV",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1985,
+              "base_score": 8.965785026550293
+            },
+            {
+              "item_id": "2421",
+              "title": "Karate Kid, Part II, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 8.72952938079834
+            },
+            {
+              "item_id": "3444",
+              "title": "Bloodsport",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1988,
+              "base_score": 8.662845611572266
+            },
+            {
+              "item_id": "2815",
+              "title": "Iron Eagle",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 8.554116249084473
+            },
+            {
+              "item_id": "2402",
+              "title": "Rambo: First Blood Part II",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1985,
+              "base_score": 8.462385177612305
+            },
+            {
+              "item_id": "3441",
+              "title": "Red Dawn",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 8.456467628479004
+            },
+            {
+              "item_id": "466",
+              "title": "Hot Shots! Part Deux",
+              "genre": [
+                "Action",
+                "Comedy",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.203011512756348
+            },
+            {
+              "item_id": "420",
+              "title": "Beverly Hills Cop III",
+              "genre": [
+                "Action",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 7.8019585609436035
+            },
+            {
+              "item_id": "2735",
+              "title": "Golden Child, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 7.7687554359436035
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5492592592592593
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.2890648263178879,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2410",
+              "title": "Rocky III",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1982,
+              "base_score": 9.533184051513672
+            },
+            {
+              "item_id": "2411",
+              "title": "Rocky IV",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1985,
+              "base_score": 8.965785026550293
+            },
+            {
+              "item_id": "2421",
+              "title": "Karate Kid, Part II, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 8.72952938079834
+            },
+            {
+              "item_id": "3444",
+              "title": "Bloodsport",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1988,
+              "base_score": 8.662845611572266
+            },
+            {
+              "item_id": "2815",
+              "title": "Iron Eagle",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 8.554116249084473
+            },
+            {
+              "item_id": "2402",
+              "title": "Rambo: First Blood Part II",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1985,
+              "base_score": 8.462385177612305
+            },
+            {
+              "item_id": "3441",
+              "title": "Red Dawn",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 8.456467628479004
+            },
+            {
+              "item_id": "466",
+              "title": "Hot Shots! Part Deux",
+              "genre": [
+                "Action",
+                "Comedy",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.203011512756348
+            },
+            {
+              "item_id": "420",
+              "title": "Beverly Hills Cop III",
+              "genre": [
+                "Action",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 7.8019585609436035
+            },
+            {
+              "item_id": "2735",
+              "title": "Golden Child, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 7.7687554359436035
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5492592592592593
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9042581859976053,
+        "hit@10": 1.0,
+        "ndcg@10": 0.43067655807339306,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "2410",
+            "title": "Rocky III",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1982,
+            "base_score": 9.533184051513672
+          },
+          {
+            "item_id": "466",
+            "title": "Hot Shots! Part Deux",
+            "genre": [
+              "Action",
+              "Comedy",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 8.203011512756348
+          },
+          {
+            "item_id": "420",
+            "title": "Beverly Hills Cop III",
+            "genre": [
+              "Action",
+              "Comedy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 7.8019585609436035
+          },
+          {
+            "item_id": "2735",
+            "title": "Golden Child, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1986,
+            "base_score": 7.7687554359436035
+          },
+          {
+            "item_id": "2411",
+            "title": "Rocky IV",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1985,
+            "base_score": 8.965785026550293
+          },
+          {
+            "item_id": "2421",
+            "title": "Karate Kid, Part II, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1986,
+            "base_score": 8.72952938079834
+          },
+          {
+            "item_id": "3444",
+            "title": "Bloodsport",
+            "genre": [
+              "Action"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1988,
+            "base_score": 8.662845611572266
+          },
+          {
+            "item_id": "2815",
+            "title": "Iron Eagle",
+            "genre": [
+              "Action",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1986,
+            "base_score": 8.554116249084473
+          },
+          {
+            "item_id": "2402",
+            "title": "Rambo: First Blood Part II",
+            "genre": [
+              "Action",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1985,
+            "base_score": 8.462385177612305
+          },
+          {
+            "item_id": "3698",
+            "title": "Running Man, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 8.195868492126465
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 3,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5911111111111113
+      }
+    ]
+  }
+}

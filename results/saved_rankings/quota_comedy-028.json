@@ -1,0 +1,839 @@
+{
+  "request_id": "quota_comedy-028",
+  "user_id": "1160",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "2714",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-028",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a sales/marketing. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.73745059967041
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 6.489713668823242
+      },
+      {
+        "item_id": "3798",
+        "title": "What Lies Beneath",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 2000,
+        "base_score": 6.3573408126831055
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.293925762176514
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.143149375915527
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.089658260345459
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.071671485900879
+      },
+      {
+        "item_id": "3745",
+        "title": "Titan A.E.",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 2000,
+        "base_score": 5.989973068237305
+      },
+      {
+        "item_id": "2693",
+        "title": "Trekkies",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 1997,
+        "base_score": 5.905981540679932
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.57740592956543
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 2,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8896296296296295
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 1000006.0896582603
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000005.5774059296
+      },
+      {
+        "item_id": "2700",
+        "title": "South Park: Bigger, Longer and Uncut",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 1000005.0318689346
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000004.7960839272
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.73745059967041
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 6.489713668823242
+      },
+      {
+        "item_id": "3798",
+        "title": "What Lies Beneath",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 2000,
+        "base_score": 6.3573408126831055
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.293925762176514
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.143149375915527
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.071671485900879
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 4,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.854074074074074
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8274902631528676,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.73745059967041
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 6.489713668823242
+            },
+            {
+              "item_id": "3798",
+              "title": "What Lies Beneath",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 2000,
+              "base_score": 6.3573408126831055
+            },
+            {
+              "item_id": "2600",
+              "title": "eXistenZ",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.293925762176514
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.089658260345459
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.143149375915527
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.071671485900879
+            },
+            {
+              "item_id": "3745",
+              "title": "Titan A.E.",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 5.989973068237305
+            },
+            {
+              "item_id": "3481",
+              "title": "High Fidelity",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.57740592956543
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 5.031868934631348
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8525925925925928
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.73745059967041
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 6.489713668823242
+            },
+            {
+              "item_id": "3798",
+              "title": "What Lies Beneath",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 2000,
+              "base_score": 6.3573408126831055
+            },
+            {
+              "item_id": "2600",
+              "title": "eXistenZ",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.293925762176514
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.089658260345459
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.143149375915527
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.071671485900879
+            },
+            {
+              "item_id": "3745",
+              "title": "Titan A.E.",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 5.989973068237305
+            },
+            {
+              "item_id": "3481",
+              "title": "High Fidelity",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.57740592956543
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 5.031868934631348
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8525925925925928
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.989310735370964,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 11,
+        "ranking": [
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 7.73745059967041
+          },
+          {
+            "item_id": "2987",
+            "title": "Who Framed Roger Rabbit?",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1988,
+            "base_score": 6.489713668823242
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 6.089658260345459
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 6.071671485900879
+          },
+          {
+            "item_id": "3481",
+            "title": "High Fidelity",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.57740592956543
+          },
+          {
+            "item_id": "2858",
+            "title": "American Beauty",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 4.796083927154541
+          },
+          {
+            "item_id": "2600",
+            "title": "eXistenZ",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 6.293925762176514
+          },
+          {
+            "item_id": "3798",
+            "title": "What Lies Beneath",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 2000,
+            "base_score": 6.3573408126831055
+          },
+          {
+            "item_id": "260",
+            "title": "Star Wars: Episode IV - A New Hope",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1977,
+            "base_score": 5.3886895179748535
+          },
+          {
+            "item_id": "2700",
+            "title": "South Park: Bigger, Longer and Uncut",
+            "genre": [
+              "Animation",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 5.031868934631348
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 4,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8692592592592593
+      }
+    ]
+  }
+}

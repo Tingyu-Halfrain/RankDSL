@@ -1,0 +1,799 @@
+{
+  "request_id": "diversity_dominant_genre-056",
+  "user_id": "1249",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2968",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-056",
+      "user_summary": "The user is a Male who is 35-44 years old and works as a artist. Historically prefers Sci-Fi and Action titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1240",
+        "title": "Terminator, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 11.01848316192627
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 9.723275184631348
+      },
+      {
+        "item_id": "2455",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1986,
+        "base_score": 9.291379928588867
+      },
+      {
+        "item_id": "2968",
+        "title": "Time Bandits",
+        "genre": [
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1981,
+        "base_score": 9.279473304748535
+      },
+      {
+        "item_id": "1653",
+        "title": "Gattaca",
+        "genre": [
+          "Drama",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 8.912174224853516
+      },
+      {
+        "item_id": "589",
+        "title": "Terminator 2: Judgment Day",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 8.859861373901367
+      },
+      {
+        "item_id": "1253",
+        "title": "Day the Earth Stood Still, The",
+        "genre": [
+          "Drama",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1951,
+        "base_score": 8.838166236877441
+      },
+      {
+        "item_id": "1127",
+        "title": "Abyss, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 8.81445026397705
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 8.777520179748535
+      },
+      {
+        "item_id": "2985",
+        "title": "Robocop",
+        "genre": [
+          "Action",
+          "Crime",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.669371604919434
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.6364550264550266
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1240",
+        "title": "Terminator, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 11.01848316192627
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 9.723275184631348
+      },
+      {
+        "item_id": "2455",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1986,
+        "base_score": 9.291379928588867
+      },
+      {
+        "item_id": "2968",
+        "title": "Time Bandits",
+        "genre": [
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1981,
+        "base_score": 9.279473304748535
+      },
+      {
+        "item_id": "1653",
+        "title": "Gattaca",
+        "genre": [
+          "Drama",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 8.912174224853516
+      },
+      {
+        "item_id": "589",
+        "title": "Terminator 2: Judgment Day",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 8.859861373901367
+      },
+      {
+        "item_id": "1253",
+        "title": "Day the Earth Stood Still, The",
+        "genre": [
+          "Drama",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1951,
+        "base_score": 8.838166236877441
+      },
+      {
+        "item_id": "1127",
+        "title": "Abyss, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 8.81445026397705
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 8.777520179748535
+      },
+      {
+        "item_id": "2985",
+        "title": "Robocop",
+        "genre": [
+          "Action",
+          "Crime",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.669371604919434
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.6364550264550266
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.41940691601485,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.43067655807339306,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "1240",
+              "title": "Terminator, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 11.01848316192627
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 9.723275184631348
+            },
+            {
+              "item_id": "2455",
+              "title": "Fly, The",
+              "genre": [
+                "Horror",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1986,
+              "base_score": 9.291379928588867
+            },
+            {
+              "item_id": "2968",
+              "title": "Time Bandits",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1981,
+              "base_score": 9.279473304748535
+            },
+            {
+              "item_id": "1653",
+              "title": "Gattaca",
+              "genre": [
+                "Drama",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 8.912174224853516
+            },
+            {
+              "item_id": "589",
+              "title": "Terminator 2: Judgment Day",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 8.859861373901367
+            },
+            {
+              "item_id": "3070",
+              "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.355114936828613
+            },
+            {
+              "item_id": "1253",
+              "title": "Day the Earth Stood Still, The",
+              "genre": [
+                "Drama",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1951,
+              "base_score": 8.838166236877441
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 8.81445026397705
+            },
+            {
+              "item_id": "968",
+              "title": "Night of the Living Dead",
+              "genre": [
+                "Horror",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1968,
+              "base_score": 8.080626487731934
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.662751322751323
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.38685280723454163,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "1240",
+              "title": "Terminator, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 11.01848316192627
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 9.723275184631348
+            },
+            {
+              "item_id": "2455",
+              "title": "Fly, The",
+              "genre": [
+                "Horror",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1986,
+              "base_score": 9.291379928588867
+            },
+            {
+              "item_id": "589",
+              "title": "Terminator 2: Judgment Day",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 8.859861373901367
+            },
+            {
+              "item_id": "2968",
+              "title": "Time Bandits",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1981,
+              "base_score": 9.279473304748535
+            },
+            {
+              "item_id": "1653",
+              "title": "Gattaca",
+              "genre": [
+                "Drama",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 8.912174224853516
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 8.81445026397705
+            },
+            {
+              "item_id": "3070",
+              "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.355114936828613
+            },
+            {
+              "item_id": "1253",
+              "title": "Day the Earth Stood Still, The",
+              "genre": [
+                "Drama",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1951,
+              "base_score": 8.838166236877441
+            },
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 8.777520179748535
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6523809523809525
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.5760730020701885,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3333333333333333,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 3,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "1240",
+            "title": "Terminator, The",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1984,
+            "base_score": 11.01848316192627
+          },
+          {
+            "item_id": "1097",
+            "title": "E.T. the Extra-Terrestrial",
+            "genre": [
+              "Children's",
+              "Drama",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1982,
+            "base_score": 9.723275184631348
+          },
+          {
+            "item_id": "2455",
+            "title": "Fly, The",
+            "genre": [
+              "Horror",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1986,
+            "base_score": 9.291379928588867
+          },
+          {
+            "item_id": "1653",
+            "title": "Gattaca",
+            "genre": [
+              "Drama",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 8.912174224853516
+          },
+          {
+            "item_id": "589",
+            "title": "Terminator 2: Judgment Day",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1991,
+            "base_score": 8.859861373901367
+          },
+          {
+            "item_id": "1127",
+            "title": "Abyss, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1989,
+            "base_score": 8.81445026397705
+          },
+          {
+            "item_id": "2968",
+            "title": "Time Bandits",
+            "genre": [
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1981,
+            "base_score": 9.279473304748535
+          },
+          {
+            "item_id": "1253",
+            "title": "Day the Earth Stood Still, The",
+            "genre": [
+              "Drama",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1951,
+            "base_score": 8.838166236877441
+          },
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 8.777520179748535
+          },
+          {
+            "item_id": "2288",
+            "title": "Thing, The",
+            "genre": [
+              "Action",
+              "Horror",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1982,
+            "base_score": 8.645462036132812
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.375,
+        "ild_score": 0.616984126984127
+      }
+    ]
+  }
+}

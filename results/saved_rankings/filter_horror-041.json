@@ -1,0 +1,815 @@
+{
+  "request_id": "filter_horror-041",
+  "user_id": "1359",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "3175",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-041",
+      "user_summary": "The user is a Male who is 35-44 years old and works as a academic/educator. Historically prefers Animation and Children's titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2716",
+        "title": "Ghostbusters",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 7.306474685668945
+      },
+      {
+        "item_id": "3175",
+        "title": "Galaxy Quest",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1999,
+        "base_score": 7.123566627502441
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 6.406391143798828
+      },
+      {
+        "item_id": "2571",
+        "title": "Matrix, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.918254375457764
+      },
+      {
+        "item_id": "3510",
+        "title": "Frequency",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 5.800768852233887
+      },
+      {
+        "item_id": "2392",
+        "title": "Jack Frost",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 5.706841945648193
+      },
+      {
+        "item_id": "2628",
+        "title": "Star Wars: Episode I - The Phantom Menace",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.579738140106201
+      },
+      {
+        "item_id": "316",
+        "title": "Stargate",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 5.442988872528076
+      },
+      {
+        "item_id": "10",
+        "title": "GoldenEye",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 5.3014068603515625
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.112279415130615
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7525925925925928
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "3175",
+        "title": "Galaxy Quest",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1999,
+        "base_score": 7.123566627502441
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 6.406391143798828
+      },
+      {
+        "item_id": "2571",
+        "title": "Matrix, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.918254375457764
+      },
+      {
+        "item_id": "3510",
+        "title": "Frequency",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 5.800768852233887
+      },
+      {
+        "item_id": "2392",
+        "title": "Jack Frost",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 5.706841945648193
+      },
+      {
+        "item_id": "2628",
+        "title": "Star Wars: Episode I - The Phantom Menace",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.579738140106201
+      },
+      {
+        "item_id": "316",
+        "title": "Stargate",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 5.442988872528076
+      },
+      {
+        "item_id": "10",
+        "title": "GoldenEye",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 5.3014068603515625
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.112279415130615
+      },
+      {
+        "item_id": "1967",
+        "title": "Labyrinth",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 5.0860772132873535
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7440740740740742
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9544450752437115,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "3175",
+              "title": "Galaxy Quest",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1999,
+              "base_score": 7.123566627502441
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 6.406391143798828
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.918254375457764
+            },
+            {
+              "item_id": "3510",
+              "title": "Frequency",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.800768852233887
+            },
+            {
+              "item_id": "2392",
+              "title": "Jack Frost",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.706841945648193
+            },
+            {
+              "item_id": "2628",
+              "title": "Star Wars: Episode I - The Phantom Menace",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.579738140106201
+            },
+            {
+              "item_id": "316",
+              "title": "Stargate",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 5.442988872528076
+            },
+            {
+              "item_id": "10",
+              "title": "GoldenEye",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 5.3014068603515625
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.112279415130615
+            },
+            {
+              "item_id": "1967",
+              "title": "Labyrinth",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 5.0860772132873535
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7440740740740742
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "3175",
+              "title": "Galaxy Quest",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1999,
+              "base_score": 7.123566627502441
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 6.406391143798828
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.918254375457764
+            },
+            {
+              "item_id": "3510",
+              "title": "Frequency",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.800768852233887
+            },
+            {
+              "item_id": "2392",
+              "title": "Jack Frost",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.706841945648193
+            },
+            {
+              "item_id": "2628",
+              "title": "Star Wars: Episode I - The Phantom Menace",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.579738140106201
+            },
+            {
+              "item_id": "316",
+              "title": "Stargate",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 5.442988872528076
+            },
+            {
+              "item_id": "10",
+              "title": "GoldenEye",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 5.3014068603515625
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.112279415130615
+            },
+            {
+              "item_id": "1967",
+              "title": "Labyrinth",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 5.0860772132873535
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7440740740740742
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.57669385522604,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "3175",
+            "title": "Galaxy Quest",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1999,
+            "base_score": 7.123566627502441
+          },
+          {
+            "item_id": "1580",
+            "title": "Men in Black",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 6.406391143798828
+          },
+          {
+            "item_id": "2628",
+            "title": "Star Wars: Episode I - The Phantom Menace",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 5.579738140106201
+          },
+          {
+            "item_id": "1967",
+            "title": "Labyrinth",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 5.0860772132873535
+          },
+          {
+            "item_id": "2709",
+            "title": "Muppets From Space",
+            "genre": [
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1999,
+            "base_score": 4.917819499969482
+          },
+          {
+            "item_id": "1582",
+            "title": "Wild America",
+            "genre": [
+              "Adventure",
+              "Children's"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1997,
+            "base_score": 4.9932990074157715
+          },
+          {
+            "item_id": "1015",
+            "title": "Homeward Bound: The Incredible Journey",
+            "genre": [
+              "Adventure",
+              "Children's"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1993,
+            "base_score": 4.899030685424805
+          },
+          {
+            "item_id": "2723",
+            "title": "Mystery Men",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 4.737624645233154
+          },
+          {
+            "item_id": "316",
+            "title": "Stargate",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 5.442988872528076
+          },
+          {
+            "item_id": "10",
+            "title": "GoldenEye",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 5.3014068603515625
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6440740740740741
+      }
+    ]
+  }
+}

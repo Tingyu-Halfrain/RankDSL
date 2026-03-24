@@ -1,0 +1,797 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-030",
+  "user_id": "219",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "2763",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-030",
+      "user_summary": "The user is a Female who is 25-34 years old and works as a college/grad student. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 5,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 10.613916397094727
+      },
+      {
+        "item_id": "2700",
+        "title": "South Park: Bigger, Longer and Uncut",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 9.869486808776855
+      },
+      {
+        "item_id": "2396",
+        "title": "Shakespeare in Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 9.240594863891602
+      },
+      {
+        "item_id": "2724",
+        "title": "Runaway Bride",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 8.86432933807373
+      },
+      {
+        "item_id": "2702",
+        "title": "Summer of Sam",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.576678276062012
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 8.345194816589355
+      },
+      {
+        "item_id": "2395",
+        "title": "Rushmore",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 7.806108474731445
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.730044364929199
+      },
+      {
+        "item_id": "2598",
+        "title": "Pushing Tin",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.561521530151367
+      },
+      {
+        "item_id": "314",
+        "title": "Secret of Roan Inish, The",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.356637477874756
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 0,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.8240740740740742
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 2,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 1000007.3432517052
+      },
+      {
+        "item_id": "3157",
+        "title": "Stuart Little",
+        "genre": [
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1999,
+        "base_score": 1000006.4413461685
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 10.613916397094727
+      },
+      {
+        "item_id": "2700",
+        "title": "South Park: Bigger, Longer and Uncut",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 9.869486808776855
+      },
+      {
+        "item_id": "2396",
+        "title": "Shakespeare in Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 9.240594863891602
+      },
+      {
+        "item_id": "2724",
+        "title": "Runaway Bride",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 8.86432933807373
+      },
+      {
+        "item_id": "2702",
+        "title": "Summer of Sam",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.576678276062012
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 8.345194816589355
+      },
+      {
+        "item_id": "2395",
+        "title": "Rushmore",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 7.806108474731445
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.730044364929199
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.25,
+    "ild_score": 0.8233333333333335
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 0.0,
+    "canonical_program_agreement": 0.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 10.349789146799594,
+        "raw_dsl": null,
+        "compiled_dsl": null,
+        "compiled_dsl_canonical": null,
+        "compile_error": [
+          {
+            "code": "infeasible_on_candidates",
+            "error_type": "feasibility",
+            "message": "Not enough candidates remain after filter constraints",
+            "suggestion": "Relax filters or lower quota requirements so the candidate set can still fill top_k.",
+            "offending_field": null,
+            "details": {
+              "available": 1,
+              "top_k": 10
+            }
+          }
+        ],
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "compile_parse_error": null,
+        "repair_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"!=\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_parse_error": null,
+        "fallback_used": true,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 5,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 10.613916397094727
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 9.869486808776855
+            },
+            {
+              "item_id": "2396",
+              "title": "Shakespeare in Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 9.240594863891602
+            },
+            {
+              "item_id": "2724",
+              "title": "Runaway Bride",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 8.86432933807373
+            },
+            {
+              "item_id": "2702",
+              "title": "Summer of Sam",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 8.576678276062012
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 8.345194816589355
+            },
+            {
+              "item_id": "2395",
+              "title": "Rushmore",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 7.806108474731445
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.730044364929199
+            },
+            {
+              "item_id": "2598",
+              "title": "Pushing Tin",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.561521530151367
+            },
+            {
+              "item_id": "314",
+              "title": "Secret of Roan Inish, The",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 7.356637477874756
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 0,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": false
+            }
+          ],
+          "quota_satisfaction": 0.0,
+          "diversity_satisfaction": 0.0,
+          "sliding_window_ok": false,
+          "max_rep_in_any_window": 2,
+          "sliding_violation_rate": 0.5,
+          "ild_score": 0.8240740740740742
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 5,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 10.613916397094727
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 9.869486808776855
+            },
+            {
+              "item_id": "2396",
+              "title": "Shakespeare in Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 9.240594863891602
+            },
+            {
+              "item_id": "2724",
+              "title": "Runaway Bride",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 8.86432933807373
+            },
+            {
+              "item_id": "2702",
+              "title": "Summer of Sam",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 8.576678276062012
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 8.345194816589355
+            },
+            {
+              "item_id": "2395",
+              "title": "Rushmore",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 7.806108474731445
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.730044364929199
+            },
+            {
+              "item_id": "2598",
+              "title": "Pushing Tin",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.561521530151367
+            },
+            {
+              "item_id": "314",
+              "title": "Secret of Roan Inish, The",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 7.356637477874756
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 0,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": false
+            }
+          ],
+          "quota_satisfaction": 0.0,
+          "diversity_satisfaction": 0.0,
+          "sliding_window_ok": false,
+          "max_rep_in_any_window": 2,
+          "sliding_violation_rate": 0.5,
+          "ild_score": 0.8240740740740742
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.6028825351968408,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 3,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 10.613916397094727
+          },
+          {
+            "item_id": "2700",
+            "title": "South Park: Bigger, Longer and Uncut",
+            "genre": [
+              "Animation",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 9.869486808776855
+          },
+          {
+            "item_id": "2396",
+            "title": "Shakespeare in Love",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 9.240594863891602
+          },
+          {
+            "item_id": "2987",
+            "title": "Who Framed Roger Rabbit?",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1988,
+            "base_score": 8.345194816589355
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 7.343251705169678
+          },
+          {
+            "item_id": "2702",
+            "title": "Summer of Sam",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 8.576678276062012
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 7.730044364929199
+          },
+          {
+            "item_id": "3157",
+            "title": "Stuart Little",
+            "genre": [
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1999,
+            "base_score": 6.441346168518066
+          },
+          {
+            "item_id": "2395",
+            "title": "Rushmore",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 7.806108474731445
+          },
+          {
+            "item_id": "2724",
+            "title": "Runaway Bride",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 8.86432933807373
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.375,
+        "ild_score": 0.8233333333333335
+      }
+    ]
+  }
+}

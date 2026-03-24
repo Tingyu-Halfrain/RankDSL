@@ -1,0 +1,770 @@
+{
+  "request_id": "diversity_dominant_genre-092",
+  "user_id": "137",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1391",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-092",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a doctor/health care. Historically prefers Action and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2012",
+        "title": "Back to the Future Part III",
+        "genre": [
+          "Comedy",
+          "Sci-Fi",
+          "Western"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 5.786618232727051
+      },
+      {
+        "item_id": "1266",
+        "title": "Unforgiven",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1992,
+        "base_score": 5.70491886138916
+      },
+      {
+        "item_id": "1391",
+        "title": "Mars Attacks!",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 5.303835391998291
+      },
+      {
+        "item_id": "383",
+        "title": "Wyatt Earp",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1994,
+        "base_score": 5.222270965576172
+      },
+      {
+        "item_id": "1917",
+        "title": "Armageddon",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 5.031122207641602
+      },
+      {
+        "item_id": "2393",
+        "title": "Star Trek: Insurrection",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 5.006015300750732
+      },
+      {
+        "item_id": "196",
+        "title": "Species",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1995,
+        "base_score": 4.912258148193359
+      },
+      {
+        "item_id": "553",
+        "title": "Tombstone",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1993,
+        "base_score": 4.812534332275391
+      },
+      {
+        "item_id": "185",
+        "title": "Net, The",
+        "genre": [
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Sci-Fi",
+        "release_year": 1995,
+        "base_score": 4.785364627838135
+      },
+      {
+        "item_id": "2701",
+        "title": "Wild Wild West",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 4.689856052398682
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.7285185185185187
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2012",
+        "title": "Back to the Future Part III",
+        "genre": [
+          "Comedy",
+          "Sci-Fi",
+          "Western"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 5.786618232727051
+      },
+      {
+        "item_id": "1266",
+        "title": "Unforgiven",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1992,
+        "base_score": 5.70491886138916
+      },
+      {
+        "item_id": "1391",
+        "title": "Mars Attacks!",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 5.303835391998291
+      },
+      {
+        "item_id": "383",
+        "title": "Wyatt Earp",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1994,
+        "base_score": 5.222270965576172
+      },
+      {
+        "item_id": "1917",
+        "title": "Armageddon",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 5.031122207641602
+      },
+      {
+        "item_id": "2393",
+        "title": "Star Trek: Insurrection",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 5.006015300750732
+      },
+      {
+        "item_id": "196",
+        "title": "Species",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1995,
+        "base_score": 4.912258148193359
+      },
+      {
+        "item_id": "553",
+        "title": "Tombstone",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1993,
+        "base_score": 4.812534332275391
+      },
+      {
+        "item_id": "185",
+        "title": "Net, The",
+        "genre": [
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Sci-Fi",
+        "release_year": 1995,
+        "base_score": 4.785364627838135
+      },
+      {
+        "item_id": "2701",
+        "title": "Wild Wild West",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 4.689856052398682
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.7285185185185187
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.7704976983368397,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2012",
+              "title": "Back to the Future Part III",
+              "genre": [
+                "Comedy",
+                "Sci-Fi",
+                "Western"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 5.786618232727051
+            },
+            {
+              "item_id": "1266",
+              "title": "Unforgiven",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1992,
+              "base_score": 5.70491886138916
+            },
+            {
+              "item_id": "1391",
+              "title": "Mars Attacks!",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 5.303835391998291
+            },
+            {
+              "item_id": "196",
+              "title": "Species",
+              "genre": [
+                "Horror",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1995,
+              "base_score": 4.912258148193359
+            },
+            {
+              "item_id": "383",
+              "title": "Wyatt Earp",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1994,
+              "base_score": 5.222270965576172
+            },
+            {
+              "item_id": "1917",
+              "title": "Armageddon",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 5.031122207641602
+            },
+            {
+              "item_id": "185",
+              "title": "Net, The",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 1995,
+              "base_score": 4.785364627838135
+            },
+            {
+              "item_id": "553",
+              "title": "Tombstone",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1993,
+              "base_score": 4.812534332275391
+            },
+            {
+              "item_id": "2393",
+              "title": "Star Trek: Insurrection",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 5.006015300750732
+            },
+            {
+              "item_id": "590",
+              "title": "Dances with Wolves",
+              "genre": [
+                "Adventure",
+                "Drama",
+                "Western"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1990,
+              "base_score": 4.6536760330200195
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7751851851851852
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1391",
+              "title": "Mars Attacks!",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 5.303835391998291
+            },
+            {
+              "item_id": "2012",
+              "title": "Back to the Future Part III",
+              "genre": [
+                "Comedy",
+                "Sci-Fi",
+                "Western"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 5.786618232727051
+            },
+            {
+              "item_id": "1266",
+              "title": "Unforgiven",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1992,
+              "base_score": 5.70491886138916
+            },
+            {
+              "item_id": "1917",
+              "title": "Armageddon",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 5.031122207641602
+            },
+            {
+              "item_id": "196",
+              "title": "Species",
+              "genre": [
+                "Horror",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1995,
+              "base_score": 4.912258148193359
+            },
+            {
+              "item_id": "383",
+              "title": "Wyatt Earp",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1994,
+              "base_score": 5.222270965576172
+            },
+            {
+              "item_id": "2393",
+              "title": "Star Trek: Insurrection",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 5.006015300750732
+            },
+            {
+              "item_id": "185",
+              "title": "Net, The",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 1995,
+              "base_score": 4.785364627838135
+            },
+            {
+              "item_id": "553",
+              "title": "Tombstone",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1993,
+              "base_score": 4.812534332275391
+            },
+            {
+              "item_id": "2701",
+              "title": "Wild Wild West",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Western"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 4.689856052398682
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7285185185185187
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.841237802989781,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3562071871080222,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "1917",
+            "title": "Armageddon",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 5.031122207641602
+          },
+          {
+            "item_id": "1266",
+            "title": "Unforgiven",
+            "genre": [
+              "Western"
+            ],
+            "dominant_genre": "Western",
+            "release_year": 1992,
+            "base_score": 5.70491886138916
+          },
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 4.6392903327941895
+          },
+          {
+            "item_id": "2012",
+            "title": "Back to the Future Part III",
+            "genre": [
+              "Comedy",
+              "Sci-Fi",
+              "Western"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1990,
+            "base_score": 5.786618232727051
+          },
+          {
+            "item_id": "593",
+            "title": "Silence of the Lambs, The",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1991,
+            "base_score": 4.4781012535095215
+          },
+          {
+            "item_id": "1391",
+            "title": "Mars Attacks!",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Sci-Fi",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 5.303835391998291
+          },
+          {
+            "item_id": "590",
+            "title": "Dances with Wolves",
+            "genre": [
+              "Adventure",
+              "Drama",
+              "Western"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1990,
+            "base_score": 4.6536760330200195
+          },
+          {
+            "item_id": "185",
+            "title": "Net, The",
+            "genre": [
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Sci-Fi",
+            "release_year": 1995,
+            "base_score": 4.785364627838135
+          },
+          {
+            "item_id": "303",
+            "title": "Quick and the Dead, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Western"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 4.586076259613037
+          },
+          {
+            "item_id": "157",
+            "title": "Canadian Bacon",
+            "genre": [
+              "Comedy",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 4.497259616851807
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 1,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8385185185185186
+      }
+    ]
+  }
+}

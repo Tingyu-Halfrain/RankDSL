@@ -1,0 +1,784 @@
+{
+  "request_id": "filter_horror-061",
+  "user_id": "1477",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "1212",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-061",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a academic/educator. Historically prefers Thriller and Mystery titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1212",
+        "title": "Third Man, The",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1949,
+        "base_score": 10.42801284790039
+      },
+      {
+        "item_id": "1086",
+        "title": "Dial M for Murder",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1954,
+        "base_score": 9.225154876708984
+      },
+      {
+        "item_id": "3730",
+        "title": "Conversation, The",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1974,
+        "base_score": 8.240452766418457
+      },
+      {
+        "item_id": "2208",
+        "title": "Lady Vanishes, The",
+        "genre": [
+          "Comedy",
+          "Mystery",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1938,
+        "base_score": 8.210647583007812
+      },
+      {
+        "item_id": "1252",
+        "title": "Chinatown",
+        "genre": [
+          "Film-Noir",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Film-Noir",
+        "release_year": 1974,
+        "base_score": 8.20847225189209
+      },
+      {
+        "item_id": "1219",
+        "title": "Psycho",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1960,
+        "base_score": 8.007413864135742
+      },
+      {
+        "item_id": "2206",
+        "title": "Suspicion",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1941,
+        "base_score": 7.992990493774414
+      },
+      {
+        "item_id": "906",
+        "title": "Gaslight",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1944,
+        "base_score": 7.903356552124023
+      },
+      {
+        "item_id": "3788",
+        "title": "Blowup",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1966,
+        "base_score": 7.67461633682251
+      },
+      {
+        "item_id": "2076",
+        "title": "Blue Velvet",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1986,
+        "base_score": 7.012955188751221
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5288888888888891
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "1212",
+        "title": "Third Man, The",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1949,
+        "base_score": 10.42801284790039
+      },
+      {
+        "item_id": "1086",
+        "title": "Dial M for Murder",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1954,
+        "base_score": 9.225154876708984
+      },
+      {
+        "item_id": "3730",
+        "title": "Conversation, The",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1974,
+        "base_score": 8.240452766418457
+      },
+      {
+        "item_id": "2208",
+        "title": "Lady Vanishes, The",
+        "genre": [
+          "Comedy",
+          "Mystery",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1938,
+        "base_score": 8.210647583007812
+      },
+      {
+        "item_id": "1252",
+        "title": "Chinatown",
+        "genre": [
+          "Film-Noir",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Film-Noir",
+        "release_year": 1974,
+        "base_score": 8.20847225189209
+      },
+      {
+        "item_id": "2206",
+        "title": "Suspicion",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1941,
+        "base_score": 7.992990493774414
+      },
+      {
+        "item_id": "906",
+        "title": "Gaslight",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1944,
+        "base_score": 7.903356552124023
+      },
+      {
+        "item_id": "3788",
+        "title": "Blowup",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1966,
+        "base_score": 7.67461633682251
+      },
+      {
+        "item_id": "2076",
+        "title": "Blue Velvet",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1986,
+        "base_score": 7.012955188751221
+      },
+      {
+        "item_id": "2945",
+        "title": "Mike's Murder",
+        "genre": [
+          "Mystery"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1984,
+        "base_score": 6.867951393127441
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.477777777777778
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.110752034932375,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1212",
+              "title": "Third Man, The",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1949,
+              "base_score": 10.42801284790039
+            },
+            {
+              "item_id": "1086",
+              "title": "Dial M for Murder",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1954,
+              "base_score": 9.225154876708984
+            },
+            {
+              "item_id": "3730",
+              "title": "Conversation, The",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1974,
+              "base_score": 8.240452766418457
+            },
+            {
+              "item_id": "2208",
+              "title": "Lady Vanishes, The",
+              "genre": [
+                "Comedy",
+                "Mystery",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1938,
+              "base_score": 8.210647583007812
+            },
+            {
+              "item_id": "1252",
+              "title": "Chinatown",
+              "genre": [
+                "Film-Noir",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Film-Noir",
+              "release_year": 1974,
+              "base_score": 8.20847225189209
+            },
+            {
+              "item_id": "2206",
+              "title": "Suspicion",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1941,
+              "base_score": 7.992990493774414
+            },
+            {
+              "item_id": "906",
+              "title": "Gaslight",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1944,
+              "base_score": 7.903356552124023
+            },
+            {
+              "item_id": "3788",
+              "title": "Blowup",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1966,
+              "base_score": 7.67461633682251
+            },
+            {
+              "item_id": "2076",
+              "title": "Blue Velvet",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1986,
+              "base_score": 7.012955188751221
+            },
+            {
+              "item_id": "2945",
+              "title": "Mike's Murder",
+              "genre": [
+                "Mystery"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1984,
+              "base_score": 6.867951393127441
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.477777777777778
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1212",
+              "title": "Third Man, The",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1949,
+              "base_score": 10.42801284790039
+            },
+            {
+              "item_id": "1086",
+              "title": "Dial M for Murder",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1954,
+              "base_score": 9.225154876708984
+            },
+            {
+              "item_id": "3730",
+              "title": "Conversation, The",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1974,
+              "base_score": 8.240452766418457
+            },
+            {
+              "item_id": "2208",
+              "title": "Lady Vanishes, The",
+              "genre": [
+                "Comedy",
+                "Mystery",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1938,
+              "base_score": 8.210647583007812
+            },
+            {
+              "item_id": "1252",
+              "title": "Chinatown",
+              "genre": [
+                "Film-Noir",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Film-Noir",
+              "release_year": 1974,
+              "base_score": 8.20847225189209
+            },
+            {
+              "item_id": "2206",
+              "title": "Suspicion",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1941,
+              "base_score": 7.992990493774414
+            },
+            {
+              "item_id": "906",
+              "title": "Gaslight",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1944,
+              "base_score": 7.903356552124023
+            },
+            {
+              "item_id": "3788",
+              "title": "Blowup",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1966,
+              "base_score": 7.67461633682251
+            },
+            {
+              "item_id": "2076",
+              "title": "Blue Velvet",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1986,
+              "base_score": 7.012955188751221
+            },
+            {
+              "item_id": "2945",
+              "title": "Mike's Murder",
+              "genre": [
+                "Mystery"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1984,
+              "base_score": 6.867951393127441
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.477777777777778
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9564937921240926,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "1212",
+            "title": "Third Man, The",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1949,
+            "base_score": 10.42801284790039
+          },
+          {
+            "item_id": "1086",
+            "title": "Dial M for Murder",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1954,
+            "base_score": 9.225154876708984
+          },
+          {
+            "item_id": "1252",
+            "title": "Chinatown",
+            "genre": [
+              "Film-Noir",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Film-Noir",
+            "release_year": 1974,
+            "base_score": 8.20847225189209
+          },
+          {
+            "item_id": "2208",
+            "title": "Lady Vanishes, The",
+            "genre": [
+              "Comedy",
+              "Mystery",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1938,
+            "base_score": 8.210647583007812
+          },
+          {
+            "item_id": "3730",
+            "title": "Conversation, The",
+            "genre": [
+              "Drama",
+              "Mystery"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1974,
+            "base_score": 8.240452766418457
+          },
+          {
+            "item_id": "2206",
+            "title": "Suspicion",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1941,
+            "base_score": 7.992990493774414
+          },
+          {
+            "item_id": "906",
+            "title": "Gaslight",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1944,
+            "base_score": 7.903356552124023
+          },
+          {
+            "item_id": "903",
+            "title": "Vertigo",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1958,
+            "base_score": 6.837155342102051
+          },
+          {
+            "item_id": "904",
+            "title": "Rear Window",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1954,
+            "base_score": 6.79476261138916
+          },
+          {
+            "item_id": "3044",
+            "title": "Dead Again",
+            "genre": [
+              "Mystery",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1991,
+            "base_score": 6.803930759429932
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.32555555555555554
+      }
+    ]
+  }
+}

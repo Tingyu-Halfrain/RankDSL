@@ -1,0 +1,901 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-074",
+  "user_id": "3875",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "2701",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-074",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a other or not specified. Historically prefers Comedy and Children's titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 3,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.8789191246032715
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 7.707005023956299
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.642956256866455
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.109142303466797
+      },
+      {
+        "item_id": "3798",
+        "title": "What Lies Beneath",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 2000,
+        "base_score": 6.020576000213623
+      },
+      {
+        "item_id": "589",
+        "title": "Terminator 2: Judgment Day",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 5.9243903160095215
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.8415679931640625
+      },
+      {
+        "item_id": "86",
+        "title": "White Squall",
+        "genre": [
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1996,
+        "base_score": 5.82499885559082
+      },
+      {
+        "item_id": "2701",
+        "title": "Wild Wild West",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.811525821685791
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.732175827026367
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.25,
+    "ild_score": 0.8051851851851852
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.2890648263178879,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 2,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 1000006.6429562569
+      },
+      {
+        "item_id": "3157",
+        "title": "Stuart Little",
+        "genre": [
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1999,
+        "base_score": 1000005.3633108139
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.8789191246032715
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 7.707005023956299
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.109142303466797
+      },
+      {
+        "item_id": "3798",
+        "title": "What Lies Beneath",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 2000,
+        "base_score": 6.020576000213623
+      },
+      {
+        "item_id": "589",
+        "title": "Terminator 2: Judgment Day",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 5.9243903160095215
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.8415679931640625
+      },
+      {
+        "item_id": "86",
+        "title": "White Squall",
+        "genre": [
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1996,
+        "base_score": 5.82499885559082
+      },
+      {
+        "item_id": "2701",
+        "title": "Wild Wild West",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 5.811525821685791
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.25,
+    "ild_score": 0.8651851851851851
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 5.0292353900149465,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.8789191246032715
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 7.707005023956299
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.642956256866455
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.109142303466797
+            },
+            {
+              "item_id": "3798",
+              "title": "What Lies Beneath",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 2000,
+              "base_score": 6.020576000213623
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.8415679931640625
+            },
+            {
+              "item_id": "589",
+              "title": "Terminator 2: Judgment Day",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 5.9243903160095215
+            },
+            {
+              "item_id": "86",
+              "title": "White Squall",
+              "genre": [
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1996,
+              "base_score": 5.82499885559082
+            },
+            {
+              "item_id": "2693",
+              "title": "Trekkies",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 1997,
+              "base_score": 5.655763149261475
+            },
+            {
+              "item_id": "3157",
+              "title": "Stuart Little",
+              "genre": [
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1999,
+              "base_score": 5.363310813903809
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8966666666666667
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.2890648263178879,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.8789191246032715
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 7.707005023956299
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.642956256866455
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.109142303466797
+            },
+            {
+              "item_id": "3798",
+              "title": "What Lies Beneath",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 2000,
+              "base_score": 6.020576000213623
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.8415679931640625
+            },
+            {
+              "item_id": "589",
+              "title": "Terminator 2: Judgment Day",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 5.9243903160095215
+            },
+            {
+              "item_id": "86",
+              "title": "White Squall",
+              "genre": [
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1996,
+              "base_score": 5.82499885559082
+            },
+            {
+              "item_id": "3157",
+              "title": "Stuart Little",
+              "genre": [
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1999,
+              "base_score": 5.363310813903809
+            },
+            {
+              "item_id": "2701",
+              "title": "Wild Wild West",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Western"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.811525821685791
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8651851851851853
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.5236648619174957,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 1,
+        "genre_coverage": 11,
+        "ranking": [
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 7.8789191246032715
+          },
+          {
+            "item_id": "2987",
+            "title": "Who Framed Roger Rabbit?",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1988,
+            "base_score": 7.707005023956299
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 6.642956256866455
+          },
+          {
+            "item_id": "3157",
+            "title": "Stuart Little",
+            "genre": [
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1999,
+            "base_score": 5.363310813903809
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 5.8415679931640625
+          },
+          {
+            "item_id": "3745",
+            "title": "Titan A.E.",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 2000,
+            "base_score": 5.237432956695557
+          },
+          {
+            "item_id": "589",
+            "title": "Terminator 2: Judgment Day",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1991,
+            "base_score": 5.9243903160095215
+          },
+          {
+            "item_id": "3798",
+            "title": "What Lies Beneath",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 2000,
+            "base_score": 6.020576000213623
+          },
+          {
+            "item_id": "260",
+            "title": "Star Wars: Episode IV - A New Hope",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1977,
+            "base_score": 5.332668304443359
+          },
+          {
+            "item_id": "1259",
+            "title": "Stand by Me",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 5.070251941680908
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.125,
+        "ild_score": 0.8614814814814816
+      }
+    ]
+  }
+}

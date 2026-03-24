@@ -1,0 +1,852 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-005",
+  "user_id": "1223",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "223",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-005",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a artist. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 9,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "223",
+        "title": "Clerks",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 6.944028854370117
+      },
+      {
+        "item_id": "2706",
+        "title": "American Pie",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.800076961517334
+      },
+      {
+        "item_id": "3298",
+        "title": "Boiler Room",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 5.746351718902588
+      },
+      {
+        "item_id": "2683",
+        "title": "Austin Powers: The Spy Who Shagged Me",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.5735602378845215
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.5340800285339355
+      },
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.515710353851318
+      },
+      {
+        "item_id": "2355",
+        "title": "Bug's Life, A",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 5.357272624969482
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.3338093757629395
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.186861515045166
+      },
+      {
+        "item_id": "2770",
+        "title": "Bowfinger",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.064557075500488
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.38703703703703696
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "2355",
+        "title": "Bug's Life, A",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 1000005.357272625
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 1000004.4494929314
+      },
+      {
+        "item_id": "223",
+        "title": "Clerks",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 6.944028854370117
+      },
+      {
+        "item_id": "2706",
+        "title": "American Pie",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.800076961517334
+      },
+      {
+        "item_id": "3298",
+        "title": "Boiler Room",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 5.746351718902588
+      },
+      {
+        "item_id": "2683",
+        "title": "Austin Powers: The Spy Who Shagged Me",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.5735602378845215
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.5340800285339355
+      },
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.515710353851318
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.3338093757629395
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.186861515045166
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.4666666666666667
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 5.215570297092199,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "223",
+              "title": "Clerks",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 6.944028854370117
+            },
+            {
+              "item_id": "3298",
+              "title": "Boiler Room",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.746351718902588
+            },
+            {
+              "item_id": "2355",
+              "title": "Bug's Life, A",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 5.357272624969482
+            },
+            {
+              "item_id": "2706",
+              "title": "American Pie",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.800076961517334
+            },
+            {
+              "item_id": "3160",
+              "title": "Magnolia",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 4.839664936065674
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 4.449492931365967
+            },
+            {
+              "item_id": "2683",
+              "title": "Austin Powers: The Spy Who Shagged Me",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.5735602378845215
+            },
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 4.569673538208008
+            },
+            {
+              "item_id": "3863",
+              "title": "Cell, The",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 2000,
+              "base_score": 4.5072526931762695
+            },
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.5340800285339355
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7185185185185186
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "223",
+              "title": "Clerks",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 6.944028854370117
+            },
+            {
+              "item_id": "3298",
+              "title": "Boiler Room",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.746351718902588
+            },
+            {
+              "item_id": "2355",
+              "title": "Bug's Life, A",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 5.357272624969482
+            },
+            {
+              "item_id": "2706",
+              "title": "American Pie",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.800076961517334
+            },
+            {
+              "item_id": "3160",
+              "title": "Magnolia",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 4.839664936065674
+            },
+            {
+              "item_id": "3863",
+              "title": "Cell, The",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 2000,
+              "base_score": 4.5072526931762695
+            },
+            {
+              "item_id": "2683",
+              "title": "Austin Powers: The Spy Who Shagged Me",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.5735602378845215
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 4.449492931365967
+            },
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 4.569673538208008
+            },
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.5340800285339355
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7185185185185186
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.127200677990913,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 4,
+        "genre_coverage": 4,
+        "ranking": [
+          {
+            "item_id": "223",
+            "title": "Clerks",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 6.944028854370117
+          },
+          {
+            "item_id": "3298",
+            "title": "Boiler Room",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 5.746351718902588
+          },
+          {
+            "item_id": "2355",
+            "title": "Bug's Life, A",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 5.357272624969482
+          },
+          {
+            "item_id": "2858",
+            "title": "American Beauty",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.186861515045166
+          },
+          {
+            "item_id": "3751",
+            "title": "Chicken Run",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 2000,
+            "base_score": 4.449492931365967
+          },
+          {
+            "item_id": "2959",
+            "title": "Fight Club",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 4.569673538208008
+          },
+          {
+            "item_id": "2706",
+            "title": "American Pie",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.800076961517334
+          },
+          {
+            "item_id": "3481",
+            "title": "High Fidelity",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.3338093757629395
+          },
+          {
+            "item_id": "2599",
+            "title": "Election",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.5340800285339355
+          },
+          {
+            "item_id": "2997",
+            "title": "Being John Malkovich",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.515710353851318
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 3,
+        "sliding_violation_rate": 0.5,
+        "ild_score": 0.5703703703703705
+      }
+    ]
+  }
+}

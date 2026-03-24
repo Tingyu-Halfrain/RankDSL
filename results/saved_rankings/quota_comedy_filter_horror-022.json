@@ -1,0 +1,855 @@
+{
+  "request_id": "quota_comedy_filter_horror-022",
+  "user_id": "1270",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "3755",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-022",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a doctor/health care. Historically prefers Drama and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3755",
+        "title": "Perfect Storm, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.170570373535156
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 7.112945556640625
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 6.602935791015625
+      },
+      {
+        "item_id": "3598",
+        "title": "Hamlet",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 6.42300271987915
+      },
+      {
+        "item_id": "3745",
+        "title": "Titan A.E.",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 2000,
+        "base_score": 6.30687141418457
+      },
+      {
+        "item_id": "3618",
+        "title": "Small Time Crooks",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.27828311920166
+      },
+      {
+        "item_id": "3720",
+        "title": "Sunshine",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.196172714233398
+      },
+      {
+        "item_id": "3752",
+        "title": "Me, Myself and Irene",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.990747451782227
+      },
+      {
+        "item_id": "3623",
+        "title": "Mission: Impossible 2",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.975681304931641
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.9480299949646
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8422222222222222
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 1000007.1129455566
+      },
+      {
+        "item_id": "3618",
+        "title": "Small Time Crooks",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000006.2782831192
+      },
+      {
+        "item_id": "3752",
+        "title": "Me, Myself and Irene",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000005.9907474518
+      },
+      {
+        "item_id": "3794",
+        "title": "Chuck & Buck",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000005.6130051613
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000005.5190749168
+      },
+      {
+        "item_id": "3755",
+        "title": "Perfect Storm, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.170570373535156
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 6.602935791015625
+      },
+      {
+        "item_id": "3598",
+        "title": "Hamlet",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 6.42300271987915
+      },
+      {
+        "item_id": "3745",
+        "title": "Titan A.E.",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 2000,
+        "base_score": 6.30687141418457
+      },
+      {
+        "item_id": "3720",
+        "title": "Sunshine",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.196172714233398
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 5,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.794074074074074
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.343613436911255,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 7.112945556640625
+            },
+            {
+              "item_id": "3755",
+              "title": "Perfect Storm, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.170570373535156
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.602935791015625
+            },
+            {
+              "item_id": "3618",
+              "title": "Small Time Crooks",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.27828311920166
+            },
+            {
+              "item_id": "3598",
+              "title": "Hamlet",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 6.42300271987915
+            },
+            {
+              "item_id": "3745",
+              "title": "Titan A.E.",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 6.30687141418457
+            },
+            {
+              "item_id": "3720",
+              "title": "Sunshine",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.196172714233398
+            },
+            {
+              "item_id": "3752",
+              "title": "Me, Myself and Irene",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.990747451782227
+            },
+            {
+              "item_id": "3623",
+              "title": "Mission: Impossible 2",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.975681304931641
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.9480299949646
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8422222222222222
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 7.112945556640625
+            },
+            {
+              "item_id": "3755",
+              "title": "Perfect Storm, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.170570373535156
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.602935791015625
+            },
+            {
+              "item_id": "3618",
+              "title": "Small Time Crooks",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.27828311920166
+            },
+            {
+              "item_id": "3598",
+              "title": "Hamlet",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 6.42300271987915
+            },
+            {
+              "item_id": "3745",
+              "title": "Titan A.E.",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 6.30687141418457
+            },
+            {
+              "item_id": "3720",
+              "title": "Sunshine",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.196172714233398
+            },
+            {
+              "item_id": "3752",
+              "title": "Me, Myself and Irene",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.990747451782227
+            },
+            {
+              "item_id": "3623",
+              "title": "Mission: Impossible 2",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.975681304931641
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.9480299949646
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8422222222222222
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.689749099779874,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "3755",
+            "title": "Perfect Storm, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 7.170570373535156
+          },
+          {
+            "item_id": "3751",
+            "title": "Chicken Run",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 2000,
+            "base_score": 7.112945556640625
+          },
+          {
+            "item_id": "3618",
+            "title": "Small Time Crooks",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 6.27828311920166
+          },
+          {
+            "item_id": "3752",
+            "title": "Me, Myself and Irene",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.990747451782227
+          },
+          {
+            "item_id": "3481",
+            "title": "High Fidelity",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.5190749168396
+          },
+          {
+            "item_id": "3794",
+            "title": "Chuck & Buck",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.6130051612854
+          },
+          {
+            "item_id": "3578",
+            "title": "Gladiator",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.9480299949646
+          },
+          {
+            "item_id": "3798",
+            "title": "What Lies Beneath",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 2000,
+            "base_score": 5.485611915588379
+          },
+          {
+            "item_id": "3408",
+            "title": "Erin Brockovich",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 5.460270881652832
+          },
+          {
+            "item_id": "3720",
+            "title": "Sunshine",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 6.196172714233398
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 5,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.7851851851851851
+      }
+    ]
+  }
+}

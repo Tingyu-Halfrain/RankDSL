@@ -1,0 +1,888 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-093",
+  "user_id": "4456",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "1035",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-093",
+      "user_summary": "The user is a Female who is 35-44 years old and works as a artist. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 10,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.289322853088379
+      },
+      {
+        "item_id": "2746",
+        "title": "Little Shop of Horrors",
+        "genre": [
+          "Comedy",
+          "Horror",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 7.931083679199219
+      },
+      {
+        "item_id": "1380",
+        "title": "Grease",
+        "genre": [
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1978,
+        "base_score": 7.905439376831055
+      },
+      {
+        "item_id": "1947",
+        "title": "West Side Story",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1961,
+        "base_score": 7.730299472808838
+      },
+      {
+        "item_id": "1951",
+        "title": "Oliver!",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1968,
+        "base_score": 7.493912696838379
+      },
+      {
+        "item_id": "3549",
+        "title": "Guys and Dolls",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1955,
+        "base_score": 7.4564337730407715
+      },
+      {
+        "item_id": "1081",
+        "title": "Victor/Victoria",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 7.391477584838867
+      },
+      {
+        "item_id": "1088",
+        "title": "Dirty Dancing",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1987,
+        "base_score": 7.347599029541016
+      },
+      {
+        "item_id": "1057",
+        "title": "Everyone Says I Love You",
+        "genre": [
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 7.320625305175781
+      },
+      {
+        "item_id": "2941",
+        "title": "South Pacific",
+        "genre": [
+          "Musical",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1958,
+        "base_score": 7.317928791046143
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 0,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.48629629629629634
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 5,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000006.6306757927
+      },
+      {
+        "item_id": "1028",
+        "title": "Mary Poppins",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1964,
+        "base_score": 1000006.5911903381
+      },
+      {
+        "item_id": "1031",
+        "title": "Bedknobs and Broomsticks",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000006.5673103333
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.289322853088379
+      },
+      {
+        "item_id": "1380",
+        "title": "Grease",
+        "genre": [
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1978,
+        "base_score": 7.905439376831055
+      },
+      {
+        "item_id": "1947",
+        "title": "West Side Story",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1961,
+        "base_score": 7.730299472808838
+      },
+      {
+        "item_id": "1951",
+        "title": "Oliver!",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1968,
+        "base_score": 7.493912696838379
+      },
+      {
+        "item_id": "3549",
+        "title": "Guys and Dolls",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1955,
+        "base_score": 7.4564337730407715
+      },
+      {
+        "item_id": "1081",
+        "title": "Victor/Victoria",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 7.391477584838867
+      },
+      {
+        "item_id": "1088",
+        "title": "Dirty Dancing",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1987,
+        "base_score": 7.347599029541016
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 3,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.625,
+    "ild_score": 0.5503703703703704
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.697481967043132,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.289322853088379
+            },
+            {
+              "item_id": "1380",
+              "title": "Grease",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1978,
+              "base_score": 7.905439376831055
+            },
+            {
+              "item_id": "199",
+              "title": "Umbrellas of Cherbourg, The (Parapluies de Cherbourg, Les)",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1964,
+              "base_score": 7.119494915008545
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 7.730299472808838
+            },
+            {
+              "item_id": "1081",
+              "title": "Victor/Victoria",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 7.391477584838867
+            },
+            {
+              "item_id": "1416",
+              "title": "Evita",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 6.935362339019775
+            },
+            {
+              "item_id": "1951",
+              "title": "Oliver!",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1968,
+              "base_score": 7.493912696838379
+            },
+            {
+              "item_id": "1057",
+              "title": "Everyone Says I Love You",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.320625305175781
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 6.630675792694092
+            },
+            {
+              "item_id": "1028",
+              "title": "Mary Poppins",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1964,
+              "base_score": 6.591190338134766
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5707407407407408
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.289322853088379
+            },
+            {
+              "item_id": "1380",
+              "title": "Grease",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1978,
+              "base_score": 7.905439376831055
+            },
+            {
+              "item_id": "199",
+              "title": "Umbrellas of Cherbourg, The (Parapluies de Cherbourg, Les)",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1964,
+              "base_score": 7.119494915008545
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 7.730299472808838
+            },
+            {
+              "item_id": "1081",
+              "title": "Victor/Victoria",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 7.391477584838867
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 6.630675792694092
+            },
+            {
+              "item_id": "1951",
+              "title": "Oliver!",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1968,
+              "base_score": 7.493912696838379
+            },
+            {
+              "item_id": "1057",
+              "title": "Everyone Says I Love You",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.320625305175781
+            },
+            {
+              "item_id": "1028",
+              "title": "Mary Poppins",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1964,
+              "base_score": 6.591190338134766
+            },
+            {
+              "item_id": "3549",
+              "title": "Guys and Dolls",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1955,
+              "base_score": 7.4564337730407715
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5448148148148149
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.521008193027228,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 2,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "1035",
+            "title": "Sound of Music, The",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1965,
+            "base_score": 8.289322853088379
+          },
+          {
+            "item_id": "1380",
+            "title": "Grease",
+            "genre": [
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1978,
+            "base_score": 7.905439376831055
+          },
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 6.630675792694092
+          },
+          {
+            "item_id": "1028",
+            "title": "Mary Poppins",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1964,
+            "base_score": 6.591190338134766
+          },
+          {
+            "item_id": "1081",
+            "title": "Victor/Victoria",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 7.391477584838867
+          },
+          {
+            "item_id": "199",
+            "title": "Umbrellas of Cherbourg, The (Parapluies de Cherbourg, Les)",
+            "genre": [
+              "Drama",
+              "Musical"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1964,
+            "base_score": 7.119494915008545
+          },
+          {
+            "item_id": "1416",
+            "title": "Evita",
+            "genre": [
+              "Drama",
+              "Musical"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 6.935362339019775
+          },
+          {
+            "item_id": "1088",
+            "title": "Dirty Dancing",
+            "genre": [
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1987,
+            "base_score": 7.347599029541016
+          },
+          {
+            "item_id": "1057",
+            "title": "Everyone Says I Love You",
+            "genre": [
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 7.320625305175781
+          },
+          {
+            "item_id": "1220",
+            "title": "Blues Brothers, The",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1980,
+            "base_score": 6.529294490814209
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.25,
+        "ild_score": 0.5903703703703704
+      }
+    ]
+  }
+}

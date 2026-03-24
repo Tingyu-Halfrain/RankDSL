@@ -1,0 +1,720 @@
+{
+  "request_id": "filter_horror-009",
+  "user_id": "1143",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "2949",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-009",
+      "user_summary": "The user is a Male who is 50-55 years old and works as a executive/managerial. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "2949",
+        "title": "Dr. No",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1962,
+        "base_score": 8.496582984924316
+      },
+      {
+        "item_id": "2993",
+        "title": "Thunderball",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1965,
+        "base_score": 8.239315032958984
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 7.70799446105957
+      },
+      {
+        "item_id": "2951",
+        "title": "Fistful of Dollars, A",
+        "genre": [
+          "Action",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1964,
+        "base_score": 7.236072063446045
+      },
+      {
+        "item_id": "2870",
+        "title": "Barefoot in the Park",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1967,
+        "base_score": 7.226691722869873
+      },
+      {
+        "item_id": "3296",
+        "title": "To Sir with Love",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1967,
+        "base_score": 7.039850234985352
+      },
+      {
+        "item_id": "1333",
+        "title": "Birds, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1963,
+        "base_score": 7.020036220550537
+      },
+      {
+        "item_id": "2947",
+        "title": "Goldfinger",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1964,
+        "base_score": 7.009462356567383
+      },
+      {
+        "item_id": "2085",
+        "title": "101 Dalmatians",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1961,
+        "base_score": 7.002810478210449
+      },
+      {
+        "item_id": "911",
+        "title": "Charade",
+        "genre": [
+          "Comedy",
+          "Mystery",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1963,
+        "base_score": 6.818924427032471
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8166666666666667
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "2949",
+        "title": "Dr. No",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1962,
+        "base_score": 8.496582984924316
+      },
+      {
+        "item_id": "2993",
+        "title": "Thunderball",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1965,
+        "base_score": 8.239315032958984
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 7.70799446105957
+      },
+      {
+        "item_id": "2951",
+        "title": "Fistful of Dollars, A",
+        "genre": [
+          "Action",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1964,
+        "base_score": 7.236072063446045
+      },
+      {
+        "item_id": "2870",
+        "title": "Barefoot in the Park",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1967,
+        "base_score": 7.226691722869873
+      },
+      {
+        "item_id": "3296",
+        "title": "To Sir with Love",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1967,
+        "base_score": 7.039850234985352
+      },
+      {
+        "item_id": "2947",
+        "title": "Goldfinger",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1964,
+        "base_score": 7.009462356567383
+      },
+      {
+        "item_id": "2085",
+        "title": "101 Dalmatians",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1961,
+        "base_score": 7.002810478210449
+      },
+      {
+        "item_id": "911",
+        "title": "Charade",
+        "genre": [
+          "Comedy",
+          "Mystery",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1963,
+        "base_score": 6.818924427032471
+      },
+      {
+        "item_id": "3633",
+        "title": "On Her Majesty's Secret Service",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1969,
+        "base_score": 6.816712856292725
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7166666666666667
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 0.0,
+    "canonical_program_agreement": 0.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 6.024784795939922,
+        "raw_dsl": null,
+        "compiled_dsl": null,
+        "compiled_dsl_canonical": null,
+        "compile_error": [
+          {
+            "code": "infeasible_on_candidates",
+            "error_type": "feasibility",
+            "message": "Not enough candidates remain after filter constraints",
+            "suggestion": "Relax filters or lower quota requirements so the candidate set can still fill top_k.",
+            "offending_field": null,
+            "details": {
+              "available": 1,
+              "top_k": 10
+            }
+          }
+        ],
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"!=\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "compile_parse_error": null,
+        "repair_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"!=\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_parse_error": null,
+        "fallback_used": true,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 1,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2949",
+              "title": "Dr. No",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1962,
+              "base_score": 8.496582984924316
+            },
+            {
+              "item_id": "2993",
+              "title": "Thunderball",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1965,
+              "base_score": 8.239315032958984
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 7.70799446105957
+            },
+            {
+              "item_id": "2951",
+              "title": "Fistful of Dollars, A",
+              "genre": [
+                "Action",
+                "Western"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1964,
+              "base_score": 7.236072063446045
+            },
+            {
+              "item_id": "2870",
+              "title": "Barefoot in the Park",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1967,
+              "base_score": 7.226691722869873
+            },
+            {
+              "item_id": "3296",
+              "title": "To Sir with Love",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1967,
+              "base_score": 7.039850234985352
+            },
+            {
+              "item_id": "1333",
+              "title": "Birds, The",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1963,
+              "base_score": 7.020036220550537
+            },
+            {
+              "item_id": "2947",
+              "title": "Goldfinger",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1964,
+              "base_score": 7.009462356567383
+            },
+            {
+              "item_id": "2085",
+              "title": "101 Dalmatians",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1961,
+              "base_score": 7.002810478210449
+            },
+            {
+              "item_id": "911",
+              "title": "Charade",
+              "genre": [
+                "Comedy",
+                "Mystery",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1963,
+              "base_score": 6.818924427032471
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": false,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8166666666666667
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 1,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2949",
+              "title": "Dr. No",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1962,
+              "base_score": 8.496582984924316
+            },
+            {
+              "item_id": "2993",
+              "title": "Thunderball",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1965,
+              "base_score": 8.239315032958984
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 7.70799446105957
+            },
+            {
+              "item_id": "2951",
+              "title": "Fistful of Dollars, A",
+              "genre": [
+                "Action",
+                "Western"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1964,
+              "base_score": 7.236072063446045
+            },
+            {
+              "item_id": "2870",
+              "title": "Barefoot in the Park",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1967,
+              "base_score": 7.226691722869873
+            },
+            {
+              "item_id": "3296",
+              "title": "To Sir with Love",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1967,
+              "base_score": 7.039850234985352
+            },
+            {
+              "item_id": "1333",
+              "title": "Birds, The",
+              "genre": [
+                "Horror"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1963,
+              "base_score": 7.020036220550537
+            },
+            {
+              "item_id": "2947",
+              "title": "Goldfinger",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1964,
+              "base_score": 7.009462356567383
+            },
+            {
+              "item_id": "2085",
+              "title": "101 Dalmatians",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1961,
+              "base_score": 7.002810478210449
+            },
+            {
+              "item_id": "911",
+              "title": "Charade",
+              "genre": [
+                "Comedy",
+                "Mystery",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1963,
+              "base_score": 6.818924427032471
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": false,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8166666666666667
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.1495638960041106,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "2870",
+            "title": "Barefoot in the Park",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1967,
+            "base_score": 7.226691722869873
+          },
+          {
+            "item_id": "911",
+            "title": "Charade",
+            "genre": [
+              "Comedy",
+              "Mystery",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1963,
+            "base_score": 6.818924427032471
+          },
+          {
+            "item_id": "3507",
+            "title": "Odd Couple, The",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1968,
+            "base_score": 6.5130414962768555
+          },
+          {
+            "item_id": "3451",
+            "title": "Guess Who's Coming to Dinner",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1967,
+            "base_score": 6.486448287963867
+          },
+          {
+            "item_id": "3296",
+            "title": "To Sir with Love",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1967,
+            "base_score": 7.039850234985352
+          },
+          {
+            "item_id": "1247",
+            "title": "Graduate, The",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1967,
+            "base_score": 6.787253379821777
+          },
+          {
+            "item_id": "2067",
+            "title": "Doctor Zhivago",
+            "genre": [
+              "Drama",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1965,
+            "base_score": 6.6371612548828125
+          },
+          {
+            "item_id": "902",
+            "title": "Breakfast at Tiffany's",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1961,
+            "base_score": 6.531683921813965
+          },
+          {
+            "item_id": "3062",
+            "title": "Longest Day, The",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1962,
+            "base_score": 6.653283596038818
+          },
+          {
+            "item_id": "2944",
+            "title": "Dirty Dozen, The",
+            "genre": [
+              "Action",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1967,
+            "base_score": 6.454782962799072
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.7588888888888891
+      }
+    ]
+  }
+}

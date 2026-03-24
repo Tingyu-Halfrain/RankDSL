@@ -1,0 +1,711 @@
+{
+  "request_id": "diversity_dominant_genre-012",
+  "user_id": "1041",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2599",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-012",
+      "user_summary": "The user is a Male who is 45-49 years old and works as a artist. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 3,
+    "ranking": [
+      {
+        "item_id": "3543",
+        "title": "Diner",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 9.85828685760498
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 9.520635604858398
+      },
+      {
+        "item_id": "2759",
+        "title": "Dick",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 8.43207836151123
+      },
+      {
+        "item_id": "2959",
+        "title": "Fight Club",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.28688907623291
+      },
+      {
+        "item_id": "2336",
+        "title": "Elizabeth",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 8.274015426635742
+      },
+      {
+        "item_id": "233",
+        "title": "Exotica",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 8.260283470153809
+      },
+      {
+        "item_id": "3408",
+        "title": "Erin Brockovich",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 8.173548698425293
+      },
+      {
+        "item_id": "2908",
+        "title": "Boys Don't Cry",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.001317024230957
+      },
+      {
+        "item_id": "3203",
+        "title": "Dead Calm",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1989,
+        "base_score": 7.949426174163818
+      },
+      {
+        "item_id": "2575",
+        "title": "Dreamlife of Angels, The (La Vie rêvée des anges)",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 7.867137432098389
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.5555555555555556
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 3,
+    "ranking": [
+      {
+        "item_id": "3543",
+        "title": "Diner",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 9.85828685760498
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 9.520635604858398
+      },
+      {
+        "item_id": "2759",
+        "title": "Dick",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 8.43207836151123
+      },
+      {
+        "item_id": "2959",
+        "title": "Fight Club",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.28688907623291
+      },
+      {
+        "item_id": "2336",
+        "title": "Elizabeth",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 8.274015426635742
+      },
+      {
+        "item_id": "233",
+        "title": "Exotica",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 8.260283470153809
+      },
+      {
+        "item_id": "3408",
+        "title": "Erin Brockovich",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 8.173548698425293
+      },
+      {
+        "item_id": "2908",
+        "title": "Boys Don't Cry",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 8.001317024230957
+      },
+      {
+        "item_id": "3203",
+        "title": "Dead Calm",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1989,
+        "base_score": 7.949426174163818
+      },
+      {
+        "item_id": "2575",
+        "title": "Dreamlife of Angels, The (La Vie rêvée des anges)",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 7.867137432098389
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.5555555555555556
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9874003441073,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.43067655807339306,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "3543",
+              "title": "Diner",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 9.85828685760498
+            },
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 8.28688907623291
+            },
+            {
+              "item_id": "3203",
+              "title": "Dead Calm",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1989,
+              "base_score": 7.949426174163818
+            },
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 9.520635604858398
+            },
+            {
+              "item_id": "2336",
+              "title": "Elizabeth",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 8.274015426635742
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.958468437194824
+            },
+            {
+              "item_id": "2759",
+              "title": "Dick",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 8.43207836151123
+            },
+            {
+              "item_id": "233",
+              "title": "Exotica",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 8.260283470153809
+            },
+            {
+              "item_id": "2580",
+              "title": "Go",
+              "genre": [
+                "Crime"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1999,
+              "base_score": 6.9193620681762695
+            },
+            {
+              "item_id": "2318",
+              "title": "Happiness",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 7.305271148681641
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7592592592592594
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.38685280723454163,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 8.28688907623291
+            },
+            {
+              "item_id": "3543",
+              "title": "Diner",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 9.85828685760498
+            },
+            {
+              "item_id": "3203",
+              "title": "Dead Calm",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1989,
+              "base_score": 7.949426174163818
+            },
+            {
+              "item_id": "2336",
+              "title": "Elizabeth",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 8.274015426635742
+            },
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 9.520635604858398
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.958468437194824
+            },
+            {
+              "item_id": "233",
+              "title": "Exotica",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 8.260283470153809
+            },
+            {
+              "item_id": "2759",
+              "title": "Dick",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 8.43207836151123
+            },
+            {
+              "item_id": "2580",
+              "title": "Go",
+              "genre": [
+                "Crime"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1999,
+              "base_score": 6.9193620681762695
+            },
+            {
+              "item_id": "3408",
+              "title": "Erin Brockovich",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 8.173548698425293
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7259259259259261
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 7.658498314674944,
+        "hit@10": 1.0,
+        "ndcg@10": 0.5,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 4,
+        "genre_coverage": 4,
+        "ranking": [
+          {
+            "item_id": "3543",
+            "title": "Diner",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 9.85828685760498
+          },
+          {
+            "item_id": "2959",
+            "title": "Fight Club",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 8.28688907623291
+          },
+          {
+            "item_id": "2599",
+            "title": "Election",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 9.520635604858398
+          },
+          {
+            "item_id": "2336",
+            "title": "Elizabeth",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 8.274015426635742
+          },
+          {
+            "item_id": "2759",
+            "title": "Dick",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 8.43207836151123
+          },
+          {
+            "item_id": "3203",
+            "title": "Dead Calm",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1989,
+            "base_score": 7.949426174163818
+          },
+          {
+            "item_id": "233",
+            "title": "Exotica",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 8.260283470153809
+          },
+          {
+            "item_id": "2318",
+            "title": "Happiness",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 7.305271148681641
+          },
+          {
+            "item_id": "3408",
+            "title": "Erin Brockovich",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 8.173548698425293
+          },
+          {
+            "item_id": "3578",
+            "title": "Gladiator",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 6.958468437194824
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.5,
+        "ild_score": 0.6703703703703704
+      }
+    ]
+  }
+}

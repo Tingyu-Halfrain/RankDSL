@@ -1,0 +1,753 @@
+{
+  "request_id": "diversity_dominant_genre-014",
+  "user_id": "1047",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2959",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-014",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a other or not specified. Historically prefers Sci-Fi and Action titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2268",
+        "title": "Few Good Men, A",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1992,
+        "base_score": 7.0970635414123535
+      },
+      {
+        "item_id": "2959",
+        "title": "Fight Club",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.989102363586426
+      },
+      {
+        "item_id": "1682",
+        "title": "Truman Show, The",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 6.924437046051025
+      },
+      {
+        "item_id": "590",
+        "title": "Dances with Wolves",
+        "genre": [
+          "Adventure",
+          "Drama",
+          "Western"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1990,
+        "base_score": 6.572102069854736
+      },
+      {
+        "item_id": "1639",
+        "title": "Chasing Amy",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 6.373661041259766
+      },
+      {
+        "item_id": "3147",
+        "title": "Green Mile, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.33928918838501
+      },
+      {
+        "item_id": "1246",
+        "title": "Dead Poets Society",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1989,
+        "base_score": 6.28199577331543
+      },
+      {
+        "item_id": "1704",
+        "title": "Good Will Hunting",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 6.179161071777344
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 6.171051502227783
+      },
+      {
+        "item_id": "2890",
+        "title": "Three Kings",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.14415168762207
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.49814814814814823
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2268",
+        "title": "Few Good Men, A",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1992,
+        "base_score": 7.0970635414123535
+      },
+      {
+        "item_id": "2959",
+        "title": "Fight Club",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.989102363586426
+      },
+      {
+        "item_id": "1682",
+        "title": "Truman Show, The",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 6.924437046051025
+      },
+      {
+        "item_id": "590",
+        "title": "Dances with Wolves",
+        "genre": [
+          "Adventure",
+          "Drama",
+          "Western"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1990,
+        "base_score": 6.572102069854736
+      },
+      {
+        "item_id": "1639",
+        "title": "Chasing Amy",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 6.373661041259766
+      },
+      {
+        "item_id": "3147",
+        "title": "Green Mile, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.33928918838501
+      },
+      {
+        "item_id": "1246",
+        "title": "Dead Poets Society",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1989,
+        "base_score": 6.28199577331543
+      },
+      {
+        "item_id": "1704",
+        "title": "Good Will Hunting",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 6.179161071777344
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 6.171051502227783
+      },
+      {
+        "item_id": "2890",
+        "title": "Three Kings",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.14415168762207
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.49814814814814823
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.279893819708377,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.989102363586426
+            },
+            {
+              "item_id": "2268",
+              "title": "Few Good Men, A",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1992,
+              "base_score": 7.0970635414123535
+            },
+            {
+              "item_id": "590",
+              "title": "Dances with Wolves",
+              "genre": [
+                "Adventure",
+                "Drama",
+                "Western"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1990,
+              "base_score": 6.572102069854736
+            },
+            {
+              "item_id": "1682",
+              "title": "Truman Show, The",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 6.924437046051025
+            },
+            {
+              "item_id": "1466",
+              "title": "Donnie Brasco",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1997,
+              "base_score": 5.8530120849609375
+            },
+            {
+              "item_id": "1060",
+              "title": "Swingers",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 5.725658893585205
+            },
+            {
+              "item_id": "1639",
+              "title": "Chasing Amy",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 6.373661041259766
+            },
+            {
+              "item_id": "293",
+              "title": "Professional, The (a.k.a. Leon: The Professional)",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1994,
+              "base_score": 5.776273727416992
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 5.69096040725708
+            },
+            {
+              "item_id": "3147",
+              "title": "Green Mile, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.33928918838501
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6312698412698415
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.989102363586426
+            },
+            {
+              "item_id": "2268",
+              "title": "Few Good Men, A",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1992,
+              "base_score": 7.0970635414123535
+            },
+            {
+              "item_id": "590",
+              "title": "Dances with Wolves",
+              "genre": [
+                "Adventure",
+                "Drama",
+                "Western"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1990,
+              "base_score": 6.572102069854736
+            },
+            {
+              "item_id": "1682",
+              "title": "Truman Show, The",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 6.924437046051025
+            },
+            {
+              "item_id": "1466",
+              "title": "Donnie Brasco",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1997,
+              "base_score": 5.8530120849609375
+            },
+            {
+              "item_id": "1060",
+              "title": "Swingers",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 5.725658893585205
+            },
+            {
+              "item_id": "1639",
+              "title": "Chasing Amy",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 6.373661041259766
+            },
+            {
+              "item_id": "293",
+              "title": "Professional, The (a.k.a. Leon: The Professional)",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1994,
+              "base_score": 5.776273727416992
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 5.69096040725708
+            },
+            {
+              "item_id": "3147",
+              "title": "Green Mile, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.33928918838501
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6312698412698415
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.0904030790552497,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 3,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "2959",
+            "title": "Fight Club",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 6.989102363586426
+          },
+          {
+            "item_id": "2268",
+            "title": "Few Good Men, A",
+            "genre": [
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1992,
+            "base_score": 7.0970635414123535
+          },
+          {
+            "item_id": "1682",
+            "title": "Truman Show, The",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 6.924437046051025
+          },
+          {
+            "item_id": "590",
+            "title": "Dances with Wolves",
+            "genre": [
+              "Adventure",
+              "Drama",
+              "Western"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1990,
+            "base_score": 6.572102069854736
+          },
+          {
+            "item_id": "1097",
+            "title": "E.T. the Extra-Terrestrial",
+            "genre": [
+              "Children's",
+              "Drama",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1982,
+            "base_score": 5.69096040725708
+          },
+          {
+            "item_id": "3147",
+            "title": "Green Mile, The",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 6.33928918838501
+          },
+          {
+            "item_id": "1466",
+            "title": "Donnie Brasco",
+            "genre": [
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1997,
+            "base_score": 5.8530120849609375
+          },
+          {
+            "item_id": "1246",
+            "title": "Dead Poets Society",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1989,
+            "base_score": 6.28199577331543
+          },
+          {
+            "item_id": "1060",
+            "title": "Swingers",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 5.725658893585205
+          },
+          {
+            "item_id": "2890",
+            "title": "Three Kings",
+            "genre": [
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 6.14415168762207
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.375,
+        "ild_score": 0.5851851851851854
+      }
+    ]
+  }
+}

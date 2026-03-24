@@ -21,6 +21,12 @@ cd path/to/mmm/RankDSL
 bash run_rankdsl_experiment.sh --help
 ```
 
+如果你想直接走 DeepSeek API，现在也可以用包装命令：
+
+```bash
+./run_rankdsl_experiment.sh deepseek --help
+```
+
 ## 1. 当前代码结构
 
 - `core/`
@@ -204,7 +210,25 @@ outputs/ml1m_suitable_requests_600.jsonl
 
 ## 7. 第四步：跑真实 Claude API 实验
 
-先设置环境变量。不要把 key 直接写进命令历史里。
+先设置环境变量，或者创建 `.env.deepseek`。不要把 key 直接写进命令历史里。
+
+推荐方式是新建仓库根目录下的 `.env.deepseek`：
+
+```bash
+cat > .env.deepseek <<'EOF'
+DEEPSEEK_API_KEY=sk-xxxx
+DEEPSEEK_BASE_URL=https://api.deepseek.com/v1
+DEEPSEEK_MODEL=deepseek-chat
+EOF
+```
+
+脚本 `./run_rankdsl_experiment.sh deepseek ...` 会自动按下面顺序加载：
+
+1. `.env.deepseek` 或 `$DEEPSEEK_ENV_FILE`
+2. `DEEPSEEK_API_KEY` / `DEEPSEEK_BASE_URL` / `DEEPSEEK_MODEL`
+3. `RANKDSL_API_KEY` / `RANKDSL_BASE_URL`
+
+如果你更喜欢手动 export，也可以：
 
 ```bash
 export RANKDSL_API_KEY="cr_e8fdb7d247ccec1edfed8ade3fb489b560a5fca09c0f5e4ffb591b68ffeb3b67"
@@ -215,13 +239,18 @@ export RANKDSL_BASE_URL="https://cursor.scihub.edu.kg/api/v1"
 export RANKDSL_API_KEY="sk-88eaede7830d4200bdc72765074cb705"
 export RANKDSL_BASE_URL="https://api.deepseek.com/v1"
 ```
+cat > .env.deepseek <<'EOF'
+DEEPSEEK_API_KEY=sk-88eaede7830d4200bdc72765074cb705
+DEEPSEEK_BASE_URL=https://api.deepseek.com/v1
+DEEPSEEK_MODEL=deepseek-chat
+EOF
 
 如果你已经在 `AIresearcher/testAPI.py` 里验证过接口，可以直接复用那套配置；这里只是建议改成环境变量，不要把 key 再复制到新代码里。
 
 然后跑实验：
 
 ```bash
-./run_rankdsl_experiment.sh \
+./run_rankdsl_experiment.sh deepseek \
   --dataset-dir dataset/ml-1m \
   --requests-file outputs/ml1m_suitable_requests_600.jsonl \
   --candidates outputs/ml1m_candidates_sasrec.jsonl \
@@ -231,12 +260,14 @@ export RANKDSL_BASE_URL="https://api.deepseek.com/v1"
   --max-eval-users 0 \
   --num-paraphrases 1 \
   --save-results \
-  --llm-mode api \
-  --model claude-opus-4-6
+  --load-from-cache
 ```
 
---model claude-opus-4-6 // 
---model deepseek-chat
+如果你想临时覆盖默认模型，也可以显式传：
+
+```bash
+./run_rankdsl_experiment.sh deepseek --model deepseek-chat ...
+```
 
 说明：
 
@@ -245,8 +276,7 @@ export RANKDSL_BASE_URL="https://api.deepseek.com/v1"
 - `--save-results` 会把每个 request 的完整结果保存到 `results/saved_rankings/{request_id}.json`，后续改指标不需要重新调用 LLM。
 - `--load-from-cache` 会优先读取 `results/saved_rankings/` 里的文件，命中时不再跑 LLM。
 - 默认会评估全部符合条件的用户；`--max-eval-users 0` 表示不设上限。
-- `--llm-mode api` 会调用真实 Claude。
-- `--model` 默认就是 `claude-opus-4-6`，这里只是显式写出来。
+- `deepseek` 子命令会自动补上 `--llm-mode api`，并默认使用 `deepseek-chat`。
 - `--llm-log-path` 会把每次 LLM 的输入 messages 和原始输出追加写到 JSONL，方便排查 JSON 解析失败。
 - `--llm-parse-log-path` 会把 JSON 提取与解析细节单独写到 JSONL，包括 `raw_preview`、候选 JSON 起始位置、提取出的 JSON 片段预览、parse error、verifier error。
 - compile 失败时，`RankDSL` 现在会自动 fallback 到 `base_recall` ranking，而不是直接记成空 ranking 和硬 0。

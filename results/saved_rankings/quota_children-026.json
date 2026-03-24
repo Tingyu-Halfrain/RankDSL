@@ -1,0 +1,864 @@
+{
+  "request_id": "quota_children-026",
+  "user_id": "1506",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "539",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-026",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a executive/managerial. Historically prefers Drama and Action titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3333333333333333,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "349",
+        "title": "Clear and Present Danger",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 4.53825044631958
+      },
+      {
+        "item_id": "1721",
+        "title": "Titanic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 4.524614334106445
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 4.500755786895752
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 4.482872009277344
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 4.439626216888428
+      },
+      {
+        "item_id": "587",
+        "title": "Ghost",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 4.418545722961426
+      },
+      {
+        "item_id": "539",
+        "title": "Sleepless in Seattle",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 4.379696846008301
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 4.336638450622559
+      },
+      {
+        "item_id": "500",
+        "title": "Mrs. Doubtfire",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 4.1257853507995605
+      },
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 4.123039245605469
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7422222222222223
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000004.1230392456
+      },
+      {
+        "item_id": "1907",
+        "title": "Mulan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 1000003.8436050415
+      },
+      {
+        "item_id": "349",
+        "title": "Clear and Present Danger",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 4.53825044631958
+      },
+      {
+        "item_id": "1721",
+        "title": "Titanic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 4.524614334106445
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 4.500755786895752
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 4.482872009277344
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 4.439626216888428
+      },
+      {
+        "item_id": "587",
+        "title": "Ghost",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 4.418545722961426
+      },
+      {
+        "item_id": "539",
+        "title": "Sleepless in Seattle",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 4.379696846008301
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 4.336638450622559
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7662962962962966
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3830286720767617,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "349",
+              "title": "Clear and Present Danger",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 4.53825044631958
+            },
+            {
+              "item_id": "1721",
+              "title": "Titanic",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 4.524614334106445
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 4.500755786895752
+            },
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 4.482872009277344
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 4.439626216888428
+            },
+            {
+              "item_id": "587",
+              "title": "Ghost",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 4.418545722961426
+            },
+            {
+              "item_id": "539",
+              "title": "Sleepless in Seattle",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 4.379696846008301
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 4.336638450622559
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 4.123039245605469
+            },
+            {
+              "item_id": "1907",
+              "title": "Mulan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 3.8436050415039062
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7662962962962965
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "349",
+              "title": "Clear and Present Danger",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 4.53825044631958
+            },
+            {
+              "item_id": "1721",
+              "title": "Titanic",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 4.524614334106445
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 4.500755786895752
+            },
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 4.482872009277344
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 4.439626216888428
+            },
+            {
+              "item_id": "587",
+              "title": "Ghost",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 4.418545722961426
+            },
+            {
+              "item_id": "539",
+              "title": "Sleepless in Seattle",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 4.379696846008301
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 4.336638450622559
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 4.123039245605469
+            },
+            {
+              "item_id": "1907",
+              "title": "Mulan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 3.8436050415039062
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7662962962962965
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.408560947049409,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3010299956639812,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "349",
+            "title": "Clear and Present Danger",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 4.53825044631958
+          },
+          {
+            "item_id": "1721",
+            "title": "Titanic",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 4.524614334106445
+          },
+          {
+            "item_id": "356",
+            "title": "Forrest Gump",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 4.500755786895752
+          },
+          {
+            "item_id": "380",
+            "title": "True Lies",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 4.482872009277344
+          },
+          {
+            "item_id": "2006",
+            "title": "Mask of Zorro, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 4.439626216888428
+          },
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 4.123039245605469
+          },
+          {
+            "item_id": "1907",
+            "title": "Mulan",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 3.8436050415039062
+          },
+          {
+            "item_id": "587",
+            "title": "Ghost",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1990,
+            "base_score": 4.418545722961426
+          },
+          {
+            "item_id": "539",
+            "title": "Sleepless in Seattle",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 4.379696846008301
+          },
+          {
+            "item_id": "11",
+            "title": "American President, The",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 4.336638450622559
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.7662962962962965
+      }
+    ]
+  }
+}

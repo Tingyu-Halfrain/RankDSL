@@ -1,0 +1,881 @@
+{
+  "request_id": "quota_children-080",
+  "user_id": "2256",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "60",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-080",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a scientist. Historically prefers Comedy and Action titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.2890648263178879,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2",
+        "title": "Jumanji",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 9.224822998046875
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 8.657763481140137
+      },
+      {
+        "item_id": "736",
+        "title": "Twister",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.627634048461914
+      },
+      {
+        "item_id": "552",
+        "title": "Three Musketeers, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.56344223022461
+      },
+      {
+        "item_id": "2094",
+        "title": "Rocketeer, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 8.555293083190918
+      },
+      {
+        "item_id": "2822",
+        "title": "Medicine Man",
+        "genre": [
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1992,
+        "base_score": 8.318319320678711
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.295145034790039
+      },
+      {
+        "item_id": "1894",
+        "title": "Six Days Seven Nights",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1998,
+        "base_score": 8.181365013122559
+      },
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 8.087483406066895
+      },
+      {
+        "item_id": "60",
+        "title": "Indian in the Cupboard, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 8.060051918029785
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 3,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6181481481481482
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2",
+        "title": "Jumanji",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000009.224822998
+      },
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000008.0874834061
+      },
+      {
+        "item_id": "60",
+        "title": "Indian in the Cupboard, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000008.060051918
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 8.657763481140137
+      },
+      {
+        "item_id": "736",
+        "title": "Twister",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.627634048461914
+      },
+      {
+        "item_id": "552",
+        "title": "Three Musketeers, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.56344223022461
+      },
+      {
+        "item_id": "2094",
+        "title": "Rocketeer, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 8.555293083190918
+      },
+      {
+        "item_id": "2822",
+        "title": "Medicine Man",
+        "genre": [
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1992,
+        "base_score": 8.318319320678711
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.295145034790039
+      },
+      {
+        "item_id": "1894",
+        "title": "Six Days Seven Nights",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1998,
+        "base_score": 8.181365013122559
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 3,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6181481481481483
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.6272258330136538,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3010299956639812,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2",
+              "title": "Jumanji",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1995,
+              "base_score": 9.224822998046875
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 8.657763481140137
+            },
+            {
+              "item_id": "736",
+              "title": "Twister",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.627634048461914
+            },
+            {
+              "item_id": "552",
+              "title": "Three Musketeers, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.56344223022461
+            },
+            {
+              "item_id": "2094",
+              "title": "Rocketeer, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 8.555293083190918
+            },
+            {
+              "item_id": "2822",
+              "title": "Medicine Man",
+              "genre": [
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1992,
+              "base_score": 8.318319320678711
+            },
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.295145034790039
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 8.087483406066895
+            },
+            {
+              "item_id": "60",
+              "title": "Indian in the Cupboard, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1995,
+              "base_score": 8.060051918029785
+            },
+            {
+              "item_id": "1894",
+              "title": "Six Days Seven Nights",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1998,
+              "base_score": 8.181365013122559
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 3,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6181481481481482
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3010299956639812,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2",
+              "title": "Jumanji",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1995,
+              "base_score": 9.224822998046875
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 8.657763481140137
+            },
+            {
+              "item_id": "736",
+              "title": "Twister",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.627634048461914
+            },
+            {
+              "item_id": "552",
+              "title": "Three Musketeers, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.56344223022461
+            },
+            {
+              "item_id": "2094",
+              "title": "Rocketeer, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 8.555293083190918
+            },
+            {
+              "item_id": "2822",
+              "title": "Medicine Man",
+              "genre": [
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1992,
+              "base_score": 8.318319320678711
+            },
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.295145034790039
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 8.087483406066895
+            },
+            {
+              "item_id": "60",
+              "title": "Indian in the Cupboard, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1995,
+              "base_score": 8.060051918029785
+            },
+            {
+              "item_id": "1894",
+              "title": "Six Days Seven Nights",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1998,
+              "base_score": 8.181365013122559
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 3,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6181481481481482
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.591743632219732,
+        "hit@10": 1.0,
+        "ndcg@10": 0.31546487678572877,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "2",
+            "title": "Jumanji",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1995,
+            "base_score": 9.224822998046875
+          },
+          {
+            "item_id": "2006",
+            "title": "Mask of Zorro, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 8.657763481140137
+          },
+          {
+            "item_id": "736",
+            "title": "Twister",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 8.627634048461914
+          },
+          {
+            "item_id": "552",
+            "title": "Three Musketeers, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 8.56344223022461
+          },
+          {
+            "item_id": "2094",
+            "title": "Rocketeer, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1991,
+            "base_score": 8.555293083190918
+          },
+          {
+            "item_id": "380",
+            "title": "True Lies",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.295145034790039
+          },
+          {
+            "item_id": "2046",
+            "title": "Flight of the Navigator",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 8.087483406066895
+          },
+          {
+            "item_id": "60",
+            "title": "Indian in the Cupboard, The",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1995,
+            "base_score": 8.060051918029785
+          },
+          {
+            "item_id": "733",
+            "title": "Rock, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 8.036273002624512
+          },
+          {
+            "item_id": "648",
+            "title": "Mission: Impossible",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Mystery"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 7.773264408111572
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 3,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6155555555555557
+      }
+    ]
+  }
+}

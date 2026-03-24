@@ -1,0 +1,504 @@
+{
+  "request_id": "diversity_dominant_genre-085",
+  "user_id": "135",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2791",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-085",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a college/grad student. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 7.751525402069092
+      },
+      {
+        "item_id": "2918",
+        "title": "Ferris Bueller's Day Off",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 7.702271461486816
+      },
+      {
+        "item_id": "1079",
+        "title": "Fish Called Wanda, A",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.604691028594971
+      },
+      {
+        "item_id": "1259",
+        "title": "Stand by Me",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 6.995600700378418
+      },
+      {
+        "item_id": "1270",
+        "title": "Back to the Future",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 6.971189498901367
+      },
+      {
+        "item_id": "1257",
+        "title": "Better Off Dead...",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 6.752753734588623
+      },
+      {
+        "item_id": "2248",
+        "title": "Say Anything...",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 6.363137722015381
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 6.336604595184326
+      },
+      {
+        "item_id": "1285",
+        "title": "Heathers",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 6.166252136230469
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 6.134142875671387
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.46111111111111114
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 7.751525402069092
+      },
+      {
+        "item_id": "2918",
+        "title": "Ferris Bueller's Day Off",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 7.702271461486816
+      },
+      {
+        "item_id": "1079",
+        "title": "Fish Called Wanda, A",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.604691028594971
+      },
+      {
+        "item_id": "1259",
+        "title": "Stand by Me",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 6.995600700378418
+      },
+      {
+        "item_id": "1270",
+        "title": "Back to the Future",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 6.971189498901367
+      },
+      {
+        "item_id": "1257",
+        "title": "Better Off Dead...",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 6.752753734588623
+      },
+      {
+        "item_id": "2248",
+        "title": "Say Anything...",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 6.363137722015381
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 6.336604595184326
+      },
+      {
+        "item_id": "1285",
+        "title": "Heathers",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 6.166252136230469
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 6.134142875671387
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.46111111111111114
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.4699971680529416,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "greedy"
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          }
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8668646211735904,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 7,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "2791",
+            "title": "Airplane!",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1980,
+            "base_score": 7.751525402069092
+          },
+          {
+            "item_id": "1259",
+            "title": "Stand by Me",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 6.995600700378418
+          },
+          {
+            "item_id": "2918",
+            "title": "Ferris Bueller's Day Off",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1986,
+            "base_score": 7.702271461486816
+          },
+          {
+            "item_id": "2000",
+            "title": "Lethal Weapon",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 6.13112211227417
+          },
+          {
+            "item_id": "1079",
+            "title": "Fish Called Wanda, A",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 7.604691028594971
+          },
+          {
+            "item_id": "1270",
+            "title": "Back to the Future",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 6.971189498901367
+          },
+          {
+            "item_id": "1220",
+            "title": "Blues Brothers, The",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1980,
+            "base_score": 5.8435540199279785
+          },
+          {
+            "item_id": "1257",
+            "title": "Better Off Dead...",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 6.752753734588623
+          },
+          {
+            "item_id": "2248",
+            "title": "Say Anything...",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1989,
+            "base_score": 6.363137722015381
+          },
+          {
+            "item_id": "2797",
+            "title": "Big",
+            "genre": [
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 6.336604595184326
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 3,
+        "sliding_violation_rate": 0.875,
+        "ild_score": 0.5703703703703705
+      }
+    ]
+  }
+}

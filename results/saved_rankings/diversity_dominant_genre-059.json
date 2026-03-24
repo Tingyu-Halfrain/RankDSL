@@ -1,0 +1,762 @@
+{
+  "request_id": "diversity_dominant_genre-059",
+  "user_id": "1254",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1888",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-059",
+      "user_summary": "The user is a Female who is 18-24 years old and works as a academic/educator. Historically prefers Romance and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2316",
+        "title": "Practical Magic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 8.080963134765625
+      },
+      {
+        "item_id": "2146",
+        "title": "St. Elmo's Fire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 7.510388374328613
+      },
+      {
+        "item_id": "605",
+        "title": "One Fine Day",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.50412654876709
+      },
+      {
+        "item_id": "2154",
+        "title": "How Stella Got Her Groove Back",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 7.363645553588867
+      },
+      {
+        "item_id": "105",
+        "title": "Bridges of Madison County, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.178205966949463
+      },
+      {
+        "item_id": "207",
+        "title": "Walk in the Clouds, A",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.127496242523193
+      },
+      {
+        "item_id": "266",
+        "title": "Legends of the Fall",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War",
+          "Western"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.111232757568359
+      },
+      {
+        "item_id": "3528",
+        "title": "Prince of Tides, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1991,
+        "base_score": 6.962709903717041
+      },
+      {
+        "item_id": "2875",
+        "title": "Sommersby",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 6.9286723136901855
+      },
+      {
+        "item_id": "1353",
+        "title": "Mirror Has Two Faces, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 6.892784118652344
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.28111111111111114
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2316",
+        "title": "Practical Magic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 8.080963134765625
+      },
+      {
+        "item_id": "2146",
+        "title": "St. Elmo's Fire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 7.510388374328613
+      },
+      {
+        "item_id": "605",
+        "title": "One Fine Day",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.50412654876709
+      },
+      {
+        "item_id": "2154",
+        "title": "How Stella Got Her Groove Back",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 7.363645553588867
+      },
+      {
+        "item_id": "105",
+        "title": "Bridges of Madison County, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.178205966949463
+      },
+      {
+        "item_id": "207",
+        "title": "Walk in the Clouds, A",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.127496242523193
+      },
+      {
+        "item_id": "266",
+        "title": "Legends of the Fall",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War",
+          "Western"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.111232757568359
+      },
+      {
+        "item_id": "3528",
+        "title": "Prince of Tides, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1991,
+        "base_score": 6.962709903717041
+      },
+      {
+        "item_id": "2875",
+        "title": "Sommersby",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 6.9286723136901855
+      },
+      {
+        "item_id": "1353",
+        "title": "Mirror Has Two Faces, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 6.892784118652344
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.28111111111111114
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.34467607177794,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2316",
+              "title": "Practical Magic",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 8.080963134765625
+            },
+            {
+              "item_id": "1353",
+              "title": "Mirror Has Two Faces, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 6.892784118652344
+            },
+            {
+              "item_id": "638",
+              "title": "Jack and Sarah",
+              "genre": [
+                "Romance"
+              ],
+              "dominant_genre": "Romance",
+              "release_year": 1995,
+              "base_score": 6.559243679046631
+            },
+            {
+              "item_id": "2146",
+              "title": "St. Elmo's Fire",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 7.510388374328613
+            },
+            {
+              "item_id": "236",
+              "title": "French Kiss",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 6.8442583084106445
+            },
+            {
+              "item_id": "1894",
+              "title": "Six Days Seven Nights",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1998,
+              "base_score": 6.549539566040039
+            },
+            {
+              "item_id": "605",
+              "title": "One Fine Day",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.50412654876709
+            },
+            {
+              "item_id": "1541",
+              "title": "Addicted to Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 6.686966419219971
+            },
+            {
+              "item_id": "168",
+              "title": "First Knight",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 6.379815578460693
+            },
+            {
+              "item_id": "2154",
+              "title": "How Stella Got Her Groove Back",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 7.363645553588867
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.48703703703703705
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2316",
+              "title": "Practical Magic",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 8.080963134765625
+            },
+            {
+              "item_id": "1353",
+              "title": "Mirror Has Two Faces, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 6.892784118652344
+            },
+            {
+              "item_id": "638",
+              "title": "Jack and Sarah",
+              "genre": [
+                "Romance"
+              ],
+              "dominant_genre": "Romance",
+              "release_year": 1995,
+              "base_score": 6.559243679046631
+            },
+            {
+              "item_id": "2146",
+              "title": "St. Elmo's Fire",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 7.510388374328613
+            },
+            {
+              "item_id": "236",
+              "title": "French Kiss",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 6.8442583084106445
+            },
+            {
+              "item_id": "1894",
+              "title": "Six Days Seven Nights",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1998,
+              "base_score": 6.549539566040039
+            },
+            {
+              "item_id": "605",
+              "title": "One Fine Day",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.50412654876709
+            },
+            {
+              "item_id": "1541",
+              "title": "Addicted to Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 6.686966419219971
+            },
+            {
+              "item_id": "168",
+              "title": "First Knight",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 6.379815578460693
+            },
+            {
+              "item_id": "2154",
+              "title": "How Stella Got Her Groove Back",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 7.363645553588867
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.48703703703703705
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.7612917027436197,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 7,
+        "genre_coverage": 3,
+        "ranking": [
+          {
+            "item_id": "2316",
+            "title": "Practical Magic",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 8.080963134765625
+          },
+          {
+            "item_id": "1353",
+            "title": "Mirror Has Two Faces, The",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 6.892784118652344
+          },
+          {
+            "item_id": "605",
+            "title": "One Fine Day",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 7.50412654876709
+          },
+          {
+            "item_id": "236",
+            "title": "French Kiss",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 6.8442583084106445
+          },
+          {
+            "item_id": "2146",
+            "title": "St. Elmo's Fire",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1985,
+            "base_score": 7.510388374328613
+          },
+          {
+            "item_id": "1541",
+            "title": "Addicted to Love",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 6.686966419219971
+          },
+          {
+            "item_id": "2154",
+            "title": "How Stella Got Her Groove Back",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 7.363645553588867
+          },
+          {
+            "item_id": "289",
+            "title": "Only You",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 6.538585186004639
+          },
+          {
+            "item_id": "105",
+            "title": "Bridges of Madison County, The",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 7.178205966949463
+          },
+          {
+            "item_id": "638",
+            "title": "Jack and Sarah",
+            "genre": [
+              "Romance"
+            ],
+            "dominant_genre": "Romance",
+            "release_year": 1995,
+            "base_score": 6.559243679046631
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.875,
+        "ild_score": 0.39629629629629626
+      }
+    ]
+  }
+}

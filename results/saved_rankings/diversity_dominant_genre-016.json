@@ -1,0 +1,775 @@
+{
+  "request_id": "diversity_dominant_genre-016",
+  "user_id": "1049",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "34",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-016",
+      "user_summary": "The user is a Male who is 45-49 years old and works as a sales/marketing. Historically prefers Drama and Sci-Fi titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "265",
+        "title": "Like Water for Chocolate (Como agua para chocolate)",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 8.10706615447998
+      },
+      {
+        "item_id": "296",
+        "title": "Pulp Fiction",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1994,
+        "base_score": 7.859055995941162
+      },
+      {
+        "item_id": "608",
+        "title": "Fargo",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1996,
+        "base_score": 7.563998222351074
+      },
+      {
+        "item_id": "800",
+        "title": "Lone Star",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.546404838562012
+      },
+      {
+        "item_id": "17",
+        "title": "Sense and Sensibility",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.462430953979492
+      },
+      {
+        "item_id": "1179",
+        "title": "Grifters, The",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1990,
+        "base_score": 7.408298492431641
+      },
+      {
+        "item_id": "247",
+        "title": "Heavenly Creatures",
+        "genre": [
+          "Drama",
+          "Fantasy",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.271483421325684
+      },
+      {
+        "item_id": "1358",
+        "title": "Sling Blade",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.167919158935547
+      },
+      {
+        "item_id": "446",
+        "title": "Farewell My Concubine",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 7.022378444671631
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 6.747970104217529
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.612962962962963
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "265",
+        "title": "Like Water for Chocolate (Como agua para chocolate)",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 8.10706615447998
+      },
+      {
+        "item_id": "296",
+        "title": "Pulp Fiction",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1994,
+        "base_score": 7.859055995941162
+      },
+      {
+        "item_id": "608",
+        "title": "Fargo",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1996,
+        "base_score": 7.563998222351074
+      },
+      {
+        "item_id": "800",
+        "title": "Lone Star",
+        "genre": [
+          "Drama",
+          "Mystery"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.546404838562012
+      },
+      {
+        "item_id": "17",
+        "title": "Sense and Sensibility",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.462430953979492
+      },
+      {
+        "item_id": "1179",
+        "title": "Grifters, The",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1990,
+        "base_score": 7.408298492431641
+      },
+      {
+        "item_id": "247",
+        "title": "Heavenly Creatures",
+        "genre": [
+          "Drama",
+          "Fantasy",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.271483421325684
+      },
+      {
+        "item_id": "1358",
+        "title": "Sling Blade",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.167919158935547
+      },
+      {
+        "item_id": "446",
+        "title": "Farewell My Concubine",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 7.022378444671631
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 6.747970104217529
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.612962962962963
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.579438908956945,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "265",
+              "title": "Like Water for Chocolate (Como agua para chocolate)",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 8.10706615447998
+            },
+            {
+              "item_id": "296",
+              "title": "Pulp Fiction",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1994,
+              "base_score": 7.859055995941162
+            },
+            {
+              "item_id": "2858",
+              "title": "American Beauty",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.747970104217529
+            },
+            {
+              "item_id": "800",
+              "title": "Lone Star",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.546404838562012
+            },
+            {
+              "item_id": "608",
+              "title": "Fargo",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1996,
+              "base_score": 7.563998222351074
+            },
+            {
+              "item_id": "34",
+              "title": "Babe",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1995,
+              "base_score": 6.541871547698975
+            },
+            {
+              "item_id": "17",
+              "title": "Sense and Sensibility",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 7.462430953979492
+            },
+            {
+              "item_id": "1179",
+              "title": "Grifters, The",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1990,
+              "base_score": 7.408298492431641
+            },
+            {
+              "item_id": "2324",
+              "title": "Life Is Beautiful (La Vita è bella)",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 6.276134014129639
+            },
+            {
+              "item_id": "247",
+              "title": "Heavenly Creatures",
+              "genre": [
+                "Drama",
+                "Fantasy",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 7.271483421325684
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.645925925925926
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "265",
+              "title": "Like Water for Chocolate (Como agua para chocolate)",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 8.10706615447998
+            },
+            {
+              "item_id": "296",
+              "title": "Pulp Fiction",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1994,
+              "base_score": 7.859055995941162
+            },
+            {
+              "item_id": "2858",
+              "title": "American Beauty",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.747970104217529
+            },
+            {
+              "item_id": "800",
+              "title": "Lone Star",
+              "genre": [
+                "Drama",
+                "Mystery"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.546404838562012
+            },
+            {
+              "item_id": "608",
+              "title": "Fargo",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1996,
+              "base_score": 7.563998222351074
+            },
+            {
+              "item_id": "34",
+              "title": "Babe",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1995,
+              "base_score": 6.541871547698975
+            },
+            {
+              "item_id": "17",
+              "title": "Sense and Sensibility",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 7.462430953979492
+            },
+            {
+              "item_id": "1179",
+              "title": "Grifters, The",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1990,
+              "base_score": 7.408298492431641
+            },
+            {
+              "item_id": "2324",
+              "title": "Life Is Beautiful (La Vita è bella)",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 6.276134014129639
+            },
+            {
+              "item_id": "247",
+              "title": "Heavenly Creatures",
+              "genre": [
+                "Drama",
+                "Fantasy",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 7.271483421325684
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.645925925925926
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8857287713326514,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3333333333333333,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 3,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "296",
+            "title": "Pulp Fiction",
+            "genre": [
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1994,
+            "base_score": 7.859055995941162
+          },
+          {
+            "item_id": "265",
+            "title": "Like Water for Chocolate (Como agua para chocolate)",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1992,
+            "base_score": 8.10706615447998
+          },
+          {
+            "item_id": "608",
+            "title": "Fargo",
+            "genre": [
+              "Crime",
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1996,
+            "base_score": 7.563998222351074
+          },
+          {
+            "item_id": "2858",
+            "title": "American Beauty",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 6.747970104217529
+          },
+          {
+            "item_id": "800",
+            "title": "Lone Star",
+            "genre": [
+              "Drama",
+              "Mystery"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 7.546404838562012
+          },
+          {
+            "item_id": "1179",
+            "title": "Grifters, The",
+            "genre": [
+              "Crime",
+              "Drama",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1990,
+            "base_score": 7.408298492431641
+          },
+          {
+            "item_id": "34",
+            "title": "Babe",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1995,
+            "base_score": 6.541871547698975
+          },
+          {
+            "item_id": "17",
+            "title": "Sense and Sensibility",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 7.462430953979492
+          },
+          {
+            "item_id": "247",
+            "title": "Heavenly Creatures",
+            "genre": [
+              "Drama",
+              "Fantasy",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 7.271483421325684
+          },
+          {
+            "item_id": "1704",
+            "title": "Good Will Hunting",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 6.682617664337158
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 3,
+        "sliding_violation_rate": 0.375,
+        "ild_score": 0.644814814814815
+      }
+    ]
+  }
+}

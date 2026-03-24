@@ -1,0 +1,757 @@
+{
+  "request_id": "diversity_dominant_genre-062",
+  "user_id": "1269",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2987",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-062",
+      "user_summary": "The user is a Female who is over 56 years old and works as a retired. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 9.008574485778809
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.564497947692871
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.496123790740967
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.301921367645264
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.999547004699707
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 6.770350456237793
+      },
+      {
+        "item_id": "2070",
+        "title": "Tender Mercies",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1983,
+        "base_score": 6.584689140319824
+      },
+      {
+        "item_id": "86",
+        "title": "White Squall",
+        "genre": [
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1996,
+        "base_score": 6.5613837242126465
+      },
+      {
+        "item_id": "2693",
+        "title": "Trekkies",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 1997,
+        "base_score": 6.546148777008057
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.44900369644165
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.125,
+    "ild_score": 0.8929629629629628
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 9.008574485778809
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.564497947692871
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.496123790740967
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.301921367645264
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.999547004699707
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 6.770350456237793
+      },
+      {
+        "item_id": "2070",
+        "title": "Tender Mercies",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1983,
+        "base_score": 6.584689140319824
+      },
+      {
+        "item_id": "86",
+        "title": "White Squall",
+        "genre": [
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1996,
+        "base_score": 6.5613837242126465
+      },
+      {
+        "item_id": "2693",
+        "title": "Trekkies",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 1997,
+        "base_score": 6.546148777008057
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 6.44900369644165
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.125,
+    "ild_score": 0.8929629629629628
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.572791565209627,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 9.008574485778809
+            },
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.564497947692871
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.496123790740967
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.999547004699707
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.301921367645264
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 6.770350456237793
+            },
+            {
+              "item_id": "2070",
+              "title": "Tender Mercies",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1983,
+              "base_score": 6.584689140319824
+            },
+            {
+              "item_id": "86",
+              "title": "White Squall",
+              "genre": [
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1996,
+              "base_score": 6.5613837242126465
+            },
+            {
+              "item_id": "2693",
+              "title": "Trekkies",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 1997,
+              "base_score": 6.546148777008057
+            },
+            {
+              "item_id": "2600",
+              "title": "eXistenZ",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.44900369644165
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8929629629629628
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 9.008574485778809
+            },
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.564497947692871
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.496123790740967
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.999547004699707
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.301921367645264
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 6.770350456237793
+            },
+            {
+              "item_id": "2070",
+              "title": "Tender Mercies",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1983,
+              "base_score": 6.584689140319824
+            },
+            {
+              "item_id": "86",
+              "title": "White Squall",
+              "genre": [
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1996,
+              "base_score": 6.5613837242126465
+            },
+            {
+              "item_id": "2693",
+              "title": "Trekkies",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 1997,
+              "base_score": 6.546148777008057
+            },
+            {
+              "item_id": "2600",
+              "title": "eXistenZ",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 6.44900369644165
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8929629629629628
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.4159934539347887,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 11,
+        "ranking": [
+          {
+            "item_id": "2987",
+            "title": "Who Framed Roger Rabbit?",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1988,
+            "base_score": 9.008574485778809
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 7.496123790740967
+          },
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 6.770350456237793
+          },
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 7.564497947692871
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 6.999547004699707
+          },
+          {
+            "item_id": "2070",
+            "title": "Tender Mercies",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1983,
+            "base_score": 6.584689140319824
+          },
+          {
+            "item_id": "2763",
+            "title": "Thomas Crown Affair, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 7.301921367645264
+          },
+          {
+            "item_id": "2693",
+            "title": "Trekkies",
+            "genre": [
+              "Documentary"
+            ],
+            "dominant_genre": "Documentary",
+            "release_year": 1997,
+            "base_score": 6.546148777008057
+          },
+          {
+            "item_id": "86",
+            "title": "White Squall",
+            "genre": [
+              "Adventure",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1996,
+            "base_score": 6.5613837242126465
+          },
+          {
+            "item_id": "2961",
+            "title": "Story of Us, The",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.858588218688965
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 1,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.9048148148148147
+      }
+    ]
+  }
+}

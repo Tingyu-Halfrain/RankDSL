@@ -1,0 +1,761 @@
+{
+  "request_id": "diversity_dominant_genre-046",
+  "user_id": "1217",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "3624",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-046",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a programmer. Historically prefers Action and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 6,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.388598442077637
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 7.089673042297363
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.345668792724609
+      },
+      {
+        "item_id": "3555",
+        "title": "U-571",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 6.0090532302856445
+      },
+      {
+        "item_id": "3566",
+        "title": "Big Kahuna, The",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.005241394042969
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.979805946350098
+      },
+      {
+        "item_id": "3536",
+        "title": "Keeping the Faith",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.792725086212158
+      },
+      {
+        "item_id": "3755",
+        "title": "Perfect Storm, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.791208744049072
+      },
+      {
+        "item_id": "3624",
+        "title": "Shanghai Noon",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.610306262969971
+      },
+      {
+        "item_id": "3538",
+        "title": "East is East",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.605697154998779
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.75,
+    "ild_score": 0.7974074074074073
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 6,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.388598442077637
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 7.089673042297363
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.345668792724609
+      },
+      {
+        "item_id": "3555",
+        "title": "U-571",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 6.0090532302856445
+      },
+      {
+        "item_id": "3566",
+        "title": "Big Kahuna, The",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.005241394042969
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.979805946350098
+      },
+      {
+        "item_id": "3536",
+        "title": "Keeping the Faith",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.792725086212158
+      },
+      {
+        "item_id": "3755",
+        "title": "Perfect Storm, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.791208744049072
+      },
+      {
+        "item_id": "3624",
+        "title": "Shanghai Noon",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.610306262969971
+      },
+      {
+        "item_id": "3538",
+        "title": "East is East",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.605697154998779
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.75,
+    "ild_score": 0.7974074074074073
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2511534933000803,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.388598442077637
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 7.089673042297363
+            },
+            {
+              "item_id": "3481",
+              "title": "High Fidelity",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.345668792724609
+            },
+            {
+              "item_id": "3555",
+              "title": "U-571",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.0090532302856445
+            },
+            {
+              "item_id": "3512",
+              "title": "Return to Me",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.4596476554870605
+            },
+            {
+              "item_id": "3566",
+              "title": "Big Kahuna, The",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.005241394042969
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.979805946350098
+            },
+            {
+              "item_id": "3745",
+              "title": "Titan A.E.",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 5.34920597076416
+            },
+            {
+              "item_id": "3536",
+              "title": "Keeping the Faith",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.792725086212158
+            },
+            {
+              "item_id": "3755",
+              "title": "Perfect Storm, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.791208744049072
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8496296296296296
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.388598442077637
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 7.089673042297363
+            },
+            {
+              "item_id": "3481",
+              "title": "High Fidelity",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.345668792724609
+            },
+            {
+              "item_id": "3555",
+              "title": "U-571",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.0090532302856445
+            },
+            {
+              "item_id": "3512",
+              "title": "Return to Me",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.4596476554870605
+            },
+            {
+              "item_id": "3566",
+              "title": "Big Kahuna, The",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.005241394042969
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.979805946350098
+            },
+            {
+              "item_id": "3745",
+              "title": "Titan A.E.",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 5.34920597076416
+            },
+            {
+              "item_id": "3536",
+              "title": "Keeping the Faith",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.792725086212158
+            },
+            {
+              "item_id": "3755",
+              "title": "Perfect Storm, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.791208744049072
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8496296296296296
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.6740645710378885,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 4,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "3578",
+            "title": "Gladiator",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 7.388598442077637
+          },
+          {
+            "item_id": "3751",
+            "title": "Chicken Run",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 2000,
+            "base_score": 7.089673042297363
+          },
+          {
+            "item_id": "3481",
+            "title": "High Fidelity",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 6.345668792724609
+          },
+          {
+            "item_id": "3555",
+            "title": "U-571",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 6.0090532302856445
+          },
+          {
+            "item_id": "3566",
+            "title": "Big Kahuna, The",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 6.005241394042969
+          },
+          {
+            "item_id": "3753",
+            "title": "Patriot, The",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.979805946350098
+          },
+          {
+            "item_id": "3536",
+            "title": "Keeping the Faith",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.792725086212158
+          },
+          {
+            "item_id": "3745",
+            "title": "Titan A.E.",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 2000,
+            "base_score": 5.34920597076416
+          },
+          {
+            "item_id": "3512",
+            "title": "Return to Me",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 5.4596476554870605
+          },
+          {
+            "item_id": "3510",
+            "title": "Frequency",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 5.282284736633301
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.5,
+        "ild_score": 0.8437037037037037
+      }
+    ]
+  }
+}

@@ -1,0 +1,782 @@
+{
+  "request_id": "filter_horror-030",
+  "user_id": "1273",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "3448",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-030",
+      "user_summary": "The user is a Male who is 35-44 years old and works as a artist. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2463",
+        "title": "Ruthless People",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 8.207757949829102
+      },
+      {
+        "item_id": "3255",
+        "title": "League of Their Own, A",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 7.929145336151123
+      },
+      {
+        "item_id": "1476",
+        "title": "Private Parts",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 7.748632907867432
+      },
+      {
+        "item_id": "2406",
+        "title": "Romancing the Stone",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 7.6158928871154785
+      },
+      {
+        "item_id": "3261",
+        "title": "Singles",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 7.583704471588135
+      },
+      {
+        "item_id": "3448",
+        "title": "Good Morning, Vietnam",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1987,
+        "base_score": 7.549489498138428
+      },
+      {
+        "item_id": "440",
+        "title": "Dave",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.427905559539795
+      },
+      {
+        "item_id": "3087",
+        "title": "Scrooged",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.273030757904053
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 7.2544050216674805
+      },
+      {
+        "item_id": "3099",
+        "title": "Shampoo",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.237670421600342
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5518518518518519
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2463",
+        "title": "Ruthless People",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 8.207757949829102
+      },
+      {
+        "item_id": "3255",
+        "title": "League of Their Own, A",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 7.929145336151123
+      },
+      {
+        "item_id": "1476",
+        "title": "Private Parts",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 7.748632907867432
+      },
+      {
+        "item_id": "2406",
+        "title": "Romancing the Stone",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 7.6158928871154785
+      },
+      {
+        "item_id": "3261",
+        "title": "Singles",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 7.583704471588135
+      },
+      {
+        "item_id": "3448",
+        "title": "Good Morning, Vietnam",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1987,
+        "base_score": 7.549489498138428
+      },
+      {
+        "item_id": "440",
+        "title": "Dave",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.427905559539795
+      },
+      {
+        "item_id": "3087",
+        "title": "Scrooged",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.273030757904053
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 7.2544050216674805
+      },
+      {
+        "item_id": "3099",
+        "title": "Shampoo",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.237670421600342
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5518518518518519
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9099327488802373,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "2463",
+              "title": "Ruthless People",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1986,
+              "base_score": 8.207757949829102
+            },
+            {
+              "item_id": "3255",
+              "title": "League of Their Own, A",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 7.929145336151123
+            },
+            {
+              "item_id": "1476",
+              "title": "Private Parts",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 7.748632907867432
+            },
+            {
+              "item_id": "2406",
+              "title": "Romancing the Stone",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 7.6158928871154785
+            },
+            {
+              "item_id": "3261",
+              "title": "Singles",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 7.583704471588135
+            },
+            {
+              "item_id": "3448",
+              "title": "Good Morning, Vietnam",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1987,
+              "base_score": 7.549489498138428
+            },
+            {
+              "item_id": "440",
+              "title": "Dave",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.427905559539795
+            },
+            {
+              "item_id": "3087",
+              "title": "Scrooged",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.273030757904053
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 7.2544050216674805
+            },
+            {
+              "item_id": "3099",
+              "title": "Shampoo",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.237670421600342
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5518518518518519
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "2463",
+              "title": "Ruthless People",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1986,
+              "base_score": 8.207757949829102
+            },
+            {
+              "item_id": "3255",
+              "title": "League of Their Own, A",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 7.929145336151123
+            },
+            {
+              "item_id": "1476",
+              "title": "Private Parts",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 7.748632907867432
+            },
+            {
+              "item_id": "2406",
+              "title": "Romancing the Stone",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 7.6158928871154785
+            },
+            {
+              "item_id": "3261",
+              "title": "Singles",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 7.583704471588135
+            },
+            {
+              "item_id": "3448",
+              "title": "Good Morning, Vietnam",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1987,
+              "base_score": 7.549489498138428
+            },
+            {
+              "item_id": "440",
+              "title": "Dave",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.427905559539795
+            },
+            {
+              "item_id": "3087",
+              "title": "Scrooged",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.273030757904053
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 7.2544050216674805
+            },
+            {
+              "item_id": "3099",
+              "title": "Shampoo",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.237670421600342
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5518518518518519
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8936623479239643,
+        "hit@10": 1.0,
+        "ndcg@10": 0.38685280723454163,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "2463",
+            "title": "Ruthless People",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1986,
+            "base_score": 8.207757949829102
+          },
+          {
+            "item_id": "3255",
+            "title": "League of Their Own, A",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1992,
+            "base_score": 7.929145336151123
+          },
+          {
+            "item_id": "1476",
+            "title": "Private Parts",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 7.748632907867432
+          },
+          {
+            "item_id": "3261",
+            "title": "Singles",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1992,
+            "base_score": 7.583704471588135
+          },
+          {
+            "item_id": "3448",
+            "title": "Good Morning, Vietnam",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1987,
+            "base_score": 7.549489498138428
+          },
+          {
+            "item_id": "2406",
+            "title": "Romancing the Stone",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1984,
+            "base_score": 7.6158928871154785
+          },
+          {
+            "item_id": "3087",
+            "title": "Scrooged",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 7.273030757904053
+          },
+          {
+            "item_id": "2407",
+            "title": "Cocoon",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 7.2544050216674805
+          },
+          {
+            "item_id": "3099",
+            "title": "Shampoo",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1975,
+            "base_score": 7.237670421600342
+          },
+          {
+            "item_id": "2100",
+            "title": "Splash",
+            "genre": [
+              "Comedy",
+              "Fantasy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1984,
+            "base_score": 7.230607986450195
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5792592592592594
+      }
+    ]
+  }
+}

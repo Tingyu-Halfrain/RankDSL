@@ -1,0 +1,866 @@
+{
+  "request_id": "quota_comedy_filter_horror-063",
+  "user_id": "1652",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "804",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-063",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a self-employed. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.31546487678572877,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "3",
+        "title": "Grumpier Old Men",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.1528239250183105
+      },
+      {
+        "item_id": "1544",
+        "title": "Lost World: Jurassic Park, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 7.083324432373047
+      },
+      {
+        "item_id": "524",
+        "title": "Rudy",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 6.933529853820801
+      },
+      {
+        "item_id": "3173",
+        "title": "Any Given Sunday",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.9204182624816895
+      },
+      {
+        "item_id": "3450",
+        "title": "Grumpy Old Men",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 6.894106864929199
+      },
+      {
+        "item_id": "2792",
+        "title": "Airplane II: The Sequel",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 6.874461650848389
+      },
+      {
+        "item_id": "266",
+        "title": "Legends of the Fall",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War",
+          "Western"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 6.707888603210449
+      },
+      {
+        "item_id": "804",
+        "title": "She's the One",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 6.674567222595215
+      },
+      {
+        "item_id": "277",
+        "title": "Miracle on 34th Street",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 6.657759666442871
+      },
+      {
+        "item_id": "648",
+        "title": "Mission: Impossible",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Mystery"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 6.554827690124512
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 4,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.81
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3",
+        "title": "Grumpier Old Men",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000007.152823925
+      },
+      {
+        "item_id": "3450",
+        "title": "Grumpy Old Men",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 1000006.8941068649
+      },
+      {
+        "item_id": "2792",
+        "title": "Airplane II: The Sequel",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 1000006.8744616508
+      },
+      {
+        "item_id": "804",
+        "title": "She's the One",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 1000006.6745672226
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 1000006.5080666542
+      },
+      {
+        "item_id": "144",
+        "title": "Brothers McMullen, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000005.9541254044
+      },
+      {
+        "item_id": "1544",
+        "title": "Lost World: Jurassic Park, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 7.083324432373047
+      },
+      {
+        "item_id": "524",
+        "title": "Rudy",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 6.933529853820801
+      },
+      {
+        "item_id": "3173",
+        "title": "Any Given Sunday",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.9204182624816895
+      },
+      {
+        "item_id": "266",
+        "title": "Legends of the Fall",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War",
+          "Western"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 6.707888603210449
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 6,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7633333333333334
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.132266859058291,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3",
+              "title": "Grumpier Old Men",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.1528239250183105
+            },
+            {
+              "item_id": "3450",
+              "title": "Grumpy Old Men",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 6.894106864929199
+            },
+            {
+              "item_id": "1544",
+              "title": "Lost World: Jurassic Park, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 7.083324432373047
+            },
+            {
+              "item_id": "2792",
+              "title": "Airplane II: The Sequel",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 6.874461650848389
+            },
+            {
+              "item_id": "524",
+              "title": "Rudy",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1993,
+              "base_score": 6.933529853820801
+            },
+            {
+              "item_id": "3173",
+              "title": "Any Given Sunday",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.9204182624816895
+            },
+            {
+              "item_id": "804",
+              "title": "She's the One",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 6.674567222595215
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 6.508066654205322
+            },
+            {
+              "item_id": "266",
+              "title": "Legends of the Fall",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 6.707888603210449
+            },
+            {
+              "item_id": "277",
+              "title": "Miracle on 34th Street",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 6.657759666442871
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7855555555555556
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3",
+              "title": "Grumpier Old Men",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.1528239250183105
+            },
+            {
+              "item_id": "3450",
+              "title": "Grumpy Old Men",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 6.894106864929199
+            },
+            {
+              "item_id": "1544",
+              "title": "Lost World: Jurassic Park, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 7.083324432373047
+            },
+            {
+              "item_id": "2792",
+              "title": "Airplane II: The Sequel",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 6.874461650848389
+            },
+            {
+              "item_id": "524",
+              "title": "Rudy",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1993,
+              "base_score": 6.933529853820801
+            },
+            {
+              "item_id": "3173",
+              "title": "Any Given Sunday",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.9204182624816895
+            },
+            {
+              "item_id": "804",
+              "title": "She's the One",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 6.674567222595215
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 6.508066654205322
+            },
+            {
+              "item_id": "266",
+              "title": "Legends of the Fall",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 6.707888603210449
+            },
+            {
+              "item_id": "277",
+              "title": "Miracle on 34th Street",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 6.657759666442871
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7855555555555556
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.647397633176297,
+        "hit@10": 1.0,
+        "ndcg@10": 0.31546487678572877,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "3",
+            "title": "Grumpier Old Men",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.1528239250183105
+          },
+          {
+            "item_id": "1544",
+            "title": "Lost World: Jurassic Park, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 7.083324432373047
+          },
+          {
+            "item_id": "524",
+            "title": "Rudy",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 6.933529853820801
+          },
+          {
+            "item_id": "3173",
+            "title": "Any Given Sunday",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 6.9204182624816895
+          },
+          {
+            "item_id": "3450",
+            "title": "Grumpy Old Men",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 6.894106864929199
+          },
+          {
+            "item_id": "2792",
+            "title": "Airplane II: The Sequel",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 6.874461650848389
+          },
+          {
+            "item_id": "266",
+            "title": "Legends of the Fall",
+            "genre": [
+              "Drama",
+              "Romance",
+              "War",
+              "Western"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 6.707888603210449
+          },
+          {
+            "item_id": "804",
+            "title": "She's the One",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 6.674567222595215
+          },
+          {
+            "item_id": "648",
+            "title": "Mission: Impossible",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Mystery"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 6.554827690124512
+          },
+          {
+            "item_id": "1580",
+            "title": "Men in Black",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 6.508066654205322
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 5,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8177777777777777
+      }
+    ]
+  }
+}

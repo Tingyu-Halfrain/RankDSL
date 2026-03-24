@@ -1,0 +1,736 @@
+{
+  "request_id": "filter_horror-068",
+  "user_id": "1535",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "1235",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-068",
+      "user_summary": "The user is a Female who is 18-24 years old and works as a writer. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "3040",
+        "title": "Meatballs",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 9.121691703796387
+      },
+      {
+        "item_id": "1278",
+        "title": "Young Frankenstein",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1974,
+        "base_score": 8.745091438293457
+      },
+      {
+        "item_id": "2095",
+        "title": "Shaggy D.A., The",
+        "genre": [
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1976,
+        "base_score": 8.104697227478027
+      },
+      {
+        "item_id": "3200",
+        "title": "Last Detail, The",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 8.018640518188477
+      },
+      {
+        "item_id": "2657",
+        "title": "Rocky Horror Picture Show, The",
+        "genre": [
+          "Comedy",
+          "Horror",
+          "Musical",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.960211277008057
+      },
+      {
+        "item_id": "1292",
+        "title": "Being There",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 7.906142234802246
+      },
+      {
+        "item_id": "3099",
+        "title": "Shampoo",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.897248268127441
+      },
+      {
+        "item_id": "1244",
+        "title": "Manhattan",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 7.721818447113037
+      },
+      {
+        "item_id": "3244",
+        "title": "Goodbye Girl, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1977,
+        "base_score": 7.71142578125
+      },
+      {
+        "item_id": "2239",
+        "title": "Swept Away (Travolti da un insolito destino nell'azzurro mare d'Agosto)",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.618041038513184
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5703703703703704
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "3040",
+        "title": "Meatballs",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 9.121691703796387
+      },
+      {
+        "item_id": "2095",
+        "title": "Shaggy D.A., The",
+        "genre": [
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1976,
+        "base_score": 8.104697227478027
+      },
+      {
+        "item_id": "3200",
+        "title": "Last Detail, The",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 8.018640518188477
+      },
+      {
+        "item_id": "1292",
+        "title": "Being There",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 7.906142234802246
+      },
+      {
+        "item_id": "3099",
+        "title": "Shampoo",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.897248268127441
+      },
+      {
+        "item_id": "1244",
+        "title": "Manhattan",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 7.721818447113037
+      },
+      {
+        "item_id": "3244",
+        "title": "Goodbye Girl, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1977,
+        "base_score": 7.71142578125
+      },
+      {
+        "item_id": "2239",
+        "title": "Swept Away (Travolti da un insolito destino nell'azzurro mare d'Agosto)",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.618041038513184
+      },
+      {
+        "item_id": "3812",
+        "title": "Everything You Always Wanted to Know About Sex",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1972,
+        "base_score": 7.451075077056885
+      },
+      {
+        "item_id": "2109",
+        "title": "Jerk, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 7.410228729248047
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4462962962962964
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 0.0,
+    "canonical_program_agreement": 0.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 5.991285698954016,
+        "raw_dsl": null,
+        "compiled_dsl": null,
+        "compiled_dsl_canonical": null,
+        "compile_error": [
+          {
+            "code": "infeasible_on_candidates",
+            "error_type": "feasibility",
+            "message": "Not enough candidates remain after filter constraints",
+            "suggestion": "Relax filters or lower quota requirements so the candidate set can still fill top_k.",
+            "offending_field": null,
+            "details": {
+              "available": 2,
+              "top_k": 10
+            }
+          }
+        ],
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"!=\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "compile_parse_error": null,
+        "repair_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"!=\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_parse_error": null,
+        "fallback_used": true,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 1,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "3040",
+              "title": "Meatballs",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 9.121691703796387
+            },
+            {
+              "item_id": "1278",
+              "title": "Young Frankenstein",
+              "genre": [
+                "Comedy",
+                "Horror"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1974,
+              "base_score": 8.745091438293457
+            },
+            {
+              "item_id": "2095",
+              "title": "Shaggy D.A., The",
+              "genre": [
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1976,
+              "base_score": 8.104697227478027
+            },
+            {
+              "item_id": "3200",
+              "title": "Last Detail, The",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1973,
+              "base_score": 8.018640518188477
+            },
+            {
+              "item_id": "2657",
+              "title": "Rocky Horror Picture Show, The",
+              "genre": [
+                "Comedy",
+                "Horror",
+                "Musical",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.960211277008057
+            },
+            {
+              "item_id": "1292",
+              "title": "Being There",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 7.906142234802246
+            },
+            {
+              "item_id": "3099",
+              "title": "Shampoo",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.897248268127441
+            },
+            {
+              "item_id": "1244",
+              "title": "Manhattan",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 7.721818447113037
+            },
+            {
+              "item_id": "3244",
+              "title": "Goodbye Girl, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1977,
+              "base_score": 7.71142578125
+            },
+            {
+              "item_id": "2239",
+              "title": "Swept Away (Travolti da un insolito destino nell'azzurro mare d'Agosto)",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.618041038513184
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": false,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5703703703703704
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 1,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "3040",
+              "title": "Meatballs",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 9.121691703796387
+            },
+            {
+              "item_id": "1278",
+              "title": "Young Frankenstein",
+              "genre": [
+                "Comedy",
+                "Horror"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1974,
+              "base_score": 8.745091438293457
+            },
+            {
+              "item_id": "2095",
+              "title": "Shaggy D.A., The",
+              "genre": [
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1976,
+              "base_score": 8.104697227478027
+            },
+            {
+              "item_id": "3200",
+              "title": "Last Detail, The",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1973,
+              "base_score": 8.018640518188477
+            },
+            {
+              "item_id": "2657",
+              "title": "Rocky Horror Picture Show, The",
+              "genre": [
+                "Comedy",
+                "Horror",
+                "Musical",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.960211277008057
+            },
+            {
+              "item_id": "1292",
+              "title": "Being There",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 7.906142234802246
+            },
+            {
+              "item_id": "3099",
+              "title": "Shampoo",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.897248268127441
+            },
+            {
+              "item_id": "1244",
+              "title": "Manhattan",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 7.721818447113037
+            },
+            {
+              "item_id": "3244",
+              "title": "Goodbye Girl, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1977,
+              "base_score": 7.71142578125
+            },
+            {
+              "item_id": "2239",
+              "title": "Swept Away (Travolti da un insolito destino nell'azzurro mare d'Agosto)",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1975,
+              "base_score": 7.618041038513184
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": false,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5703703703703704
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.798537630122155,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 4,
+        "ranking": [
+          {
+            "item_id": "3040",
+            "title": "Meatballs",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1979,
+            "base_score": 9.121691703796387
+          },
+          {
+            "item_id": "3200",
+            "title": "Last Detail, The",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1973,
+            "base_score": 8.018640518188477
+          },
+          {
+            "item_id": "1292",
+            "title": "Being There",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1979,
+            "base_score": 7.906142234802246
+          },
+          {
+            "item_id": "3099",
+            "title": "Shampoo",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1975,
+            "base_score": 7.897248268127441
+          },
+          {
+            "item_id": "1244",
+            "title": "Manhattan",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1979,
+            "base_score": 7.721818447113037
+          },
+          {
+            "item_id": "3244",
+            "title": "Goodbye Girl, The",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1977,
+            "base_score": 7.71142578125
+          },
+          {
+            "item_id": "2239",
+            "title": "Swept Away (Travolti da un insolito destino nell'azzurro mare d'Agosto)",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1975,
+            "base_score": 7.618041038513184
+          },
+          {
+            "item_id": "3812",
+            "title": "Everything You Always Wanted to Know About Sex",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1972,
+            "base_score": 7.451075077056885
+          },
+          {
+            "item_id": "2109",
+            "title": "Jerk, The",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1979,
+            "base_score": 7.410228729248047
+          },
+          {
+            "item_id": "3671",
+            "title": "Blazing Saddles",
+            "genre": [
+              "Comedy",
+              "Western"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1974,
+            "base_score": 7.382143974304199
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.44629629629629636
+      }
+    ]
+  }
+}

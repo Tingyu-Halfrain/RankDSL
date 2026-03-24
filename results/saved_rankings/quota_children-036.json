@@ -1,0 +1,856 @@
+{
+  "request_id": "quota_children-036",
+  "user_id": "1722",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "3704",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-036",
+      "user_summary": "The user is a Male who is 35-44 years old and works as a other or not specified. Historically prefers Horror and Sci-Fi titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "2009",
+        "title": "Soylent Green",
+        "genre": [
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Sci-Fi",
+        "release_year": 1973,
+        "base_score": 9.326109886169434
+      },
+      {
+        "item_id": "1019",
+        "title": "20,000 Leagues Under the Sea",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1954,
+        "base_score": 9.007946968078613
+      },
+      {
+        "item_id": "2985",
+        "title": "Robocop",
+        "genre": [
+          "Action",
+          "Crime",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.960600852966309
+      },
+      {
+        "item_id": "3927",
+        "title": "Fantastic Voyage",
+        "genre": [
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1966,
+        "base_score": 8.912114143371582
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 8.624467849731445
+      },
+      {
+        "item_id": "2011",
+        "title": "Back to the Future Part II",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 8.514896392822266
+      },
+      {
+        "item_id": "3770",
+        "title": "Dreamscape",
+        "genre": [
+          "Adventure",
+          "Crime",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 8.235570907592773
+      },
+      {
+        "item_id": "780",
+        "title": "Independence Day (ID4)",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.214204788208008
+      },
+      {
+        "item_id": "76",
+        "title": "Screamers",
+        "genre": [
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Sci-Fi",
+        "release_year": 1995,
+        "base_score": 8.166123390197754
+      },
+      {
+        "item_id": "2021",
+        "title": "Dune",
+        "genre": [
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Fantasy",
+        "release_year": 1984,
+        "base_score": 8.147229194641113
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6674074074074077
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1019",
+        "title": "20,000 Leagues Under the Sea",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1954,
+        "base_score": 1000009.0079469681
+      },
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000007.8309822083
+      },
+      {
+        "item_id": "2009",
+        "title": "Soylent Green",
+        "genre": [
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Sci-Fi",
+        "release_year": 1973,
+        "base_score": 9.326109886169434
+      },
+      {
+        "item_id": "2985",
+        "title": "Robocop",
+        "genre": [
+          "Action",
+          "Crime",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.960600852966309
+      },
+      {
+        "item_id": "3927",
+        "title": "Fantastic Voyage",
+        "genre": [
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1966,
+        "base_score": 8.912114143371582
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 8.624467849731445
+      },
+      {
+        "item_id": "2011",
+        "title": "Back to the Future Part II",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 8.514896392822266
+      },
+      {
+        "item_id": "3770",
+        "title": "Dreamscape",
+        "genre": [
+          "Adventure",
+          "Crime",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 8.235570907592773
+      },
+      {
+        "item_id": "780",
+        "title": "Independence Day (ID4)",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.214204788208008
+      },
+      {
+        "item_id": "76",
+        "title": "Screamers",
+        "genre": [
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Sci-Fi",
+        "release_year": 1995,
+        "base_score": 8.166123390197754
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6596296296296297
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.312848576810211,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2009",
+              "title": "Soylent Green",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 1973,
+              "base_score": 9.326109886169434
+            },
+            {
+              "item_id": "1019",
+              "title": "20,000 Leagues Under the Sea",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1954,
+              "base_score": 9.007946968078613
+            },
+            {
+              "item_id": "2985",
+              "title": "Robocop",
+              "genre": [
+                "Action",
+                "Crime",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 8.960600852966309
+            },
+            {
+              "item_id": "3927",
+              "title": "Fantastic Voyage",
+              "genre": [
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1966,
+              "base_score": 8.912114143371582
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 8.624467849731445
+            },
+            {
+              "item_id": "2011",
+              "title": "Back to the Future Part II",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1989,
+              "base_score": 8.514896392822266
+            },
+            {
+              "item_id": "3770",
+              "title": "Dreamscape",
+              "genre": [
+                "Adventure",
+                "Crime",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.235570907592773
+            },
+            {
+              "item_id": "780",
+              "title": "Independence Day (ID4)",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.214204788208008
+            },
+            {
+              "item_id": "76",
+              "title": "Screamers",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 1995,
+              "base_score": 8.166123390197754
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.830982208251953
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6596296296296298
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2009",
+              "title": "Soylent Green",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 1973,
+              "base_score": 9.326109886169434
+            },
+            {
+              "item_id": "1019",
+              "title": "20,000 Leagues Under the Sea",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1954,
+              "base_score": 9.007946968078613
+            },
+            {
+              "item_id": "2985",
+              "title": "Robocop",
+              "genre": [
+                "Action",
+                "Crime",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 8.960600852966309
+            },
+            {
+              "item_id": "3927",
+              "title": "Fantastic Voyage",
+              "genre": [
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1966,
+              "base_score": 8.912114143371582
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 8.624467849731445
+            },
+            {
+              "item_id": "2011",
+              "title": "Back to the Future Part II",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1989,
+              "base_score": 8.514896392822266
+            },
+            {
+              "item_id": "3770",
+              "title": "Dreamscape",
+              "genre": [
+                "Adventure",
+                "Crime",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.235570907592773
+            },
+            {
+              "item_id": "780",
+              "title": "Independence Day (ID4)",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.214204788208008
+            },
+            {
+              "item_id": "76",
+              "title": "Screamers",
+              "genre": [
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Sci-Fi",
+              "release_year": 1995,
+              "base_score": 8.166123390197754
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.830982208251953
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6596296296296298
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8820276390761137,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "2009",
+            "title": "Soylent Green",
+            "genre": [
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Sci-Fi",
+            "release_year": 1973,
+            "base_score": 9.326109886169434
+          },
+          {
+            "item_id": "1019",
+            "title": "20,000 Leagues Under the Sea",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1954,
+            "base_score": 9.007946968078613
+          },
+          {
+            "item_id": "2985",
+            "title": "Robocop",
+            "genre": [
+              "Action",
+              "Crime",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 8.960600852966309
+          },
+          {
+            "item_id": "3927",
+            "title": "Fantastic Voyage",
+            "genre": [
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1966,
+            "base_score": 8.912114143371582
+          },
+          {
+            "item_id": "2046",
+            "title": "Flight of the Navigator",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 7.830982208251953
+          },
+          {
+            "item_id": "2454",
+            "title": "Fly, The",
+            "genre": [
+              "Horror",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1958,
+            "base_score": 7.9298248291015625
+          },
+          {
+            "item_id": "780",
+            "title": "Independence Day (ID4)",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 8.214204788208008
+          },
+          {
+            "item_id": "2021",
+            "title": "Dune",
+            "genre": [
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Fantasy",
+            "release_year": 1984,
+            "base_score": 8.147229194641113
+          },
+          {
+            "item_id": "76",
+            "title": "Screamers",
+            "genre": [
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Sci-Fi",
+            "release_year": 1995,
+            "base_score": 8.166123390197754
+          },
+          {
+            "item_id": "3032",
+            "title": "Omega Man, The",
+            "genre": [
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Sci-Fi",
+            "release_year": 1971,
+            "base_score": 8.138102531433105
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6555555555555558
+      }
+    ]
+  }
+}

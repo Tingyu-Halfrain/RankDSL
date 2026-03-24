@@ -1,0 +1,832 @@
+{
+  "request_id": "quota_comedy-023",
+  "user_id": "1138",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "1597",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-023",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a programmer. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "1777",
+        "title": "Wedding Singer, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 3.9458773136138916
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 3.676107406616211
+      },
+      {
+        "item_id": "3186",
+        "title": "Girl, Interrupted",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 3.6368396282196045
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 3.5800907611846924
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 3.548959255218506
+      },
+      {
+        "item_id": "1680",
+        "title": "Sliding Doors",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 3.5488595962524414
+      },
+      {
+        "item_id": "1059",
+        "title": "William Shakespeare's Romeo and Juliet",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 3.5438809394836426
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 3.5264222621917725
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 3.4909708499908447
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 3.440690755844116
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 5,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.767037037037037
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "1777",
+        "title": "Wedding Singer, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 1000003.9458773136
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000003.6761074066
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 1000003.5800907612
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 1000003.49097085
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 1000003.4406907558
+      },
+      {
+        "item_id": "597",
+        "title": "Pretty Woman",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 1000003.4334154129
+      },
+      {
+        "item_id": "2572",
+        "title": "10 Things I Hate About You",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000003.4138381481
+      },
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000003.232260704
+      },
+      {
+        "item_id": "3186",
+        "title": "Girl, Interrupted",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 3.6368396282196045
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 3.548959255218506
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 8,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6744444444444445
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3774819909594953,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1777",
+              "title": "Wedding Singer, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 3.9458773136138916
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 3.676107406616211
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 3.5800907611846924
+            },
+            {
+              "item_id": "1784",
+              "title": "As Good As It Gets",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 3.4909708499908447
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 3.440690755844116
+            },
+            {
+              "item_id": "3186",
+              "title": "Girl, Interrupted",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 3.6368396282196045
+            },
+            {
+              "item_id": "597",
+              "title": "Pretty Woman",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 3.433415412902832
+            },
+            {
+              "item_id": "2572",
+              "title": "10 Things I Hate About You",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 3.4138381481170654
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 3.548959255218506
+            },
+            {
+              "item_id": "1680",
+              "title": "Sliding Doors",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 3.5488595962524414
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 7,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6800000000000002
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1777",
+              "title": "Wedding Singer, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 3.9458773136138916
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 3.676107406616211
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 3.5800907611846924
+            },
+            {
+              "item_id": "1784",
+              "title": "As Good As It Gets",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 3.4909708499908447
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 3.440690755844116
+            },
+            {
+              "item_id": "3186",
+              "title": "Girl, Interrupted",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 3.6368396282196045
+            },
+            {
+              "item_id": "597",
+              "title": "Pretty Woman",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 3.433415412902832
+            },
+            {
+              "item_id": "2572",
+              "title": "10 Things I Hate About You",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 3.4138381481170654
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 3.548959255218506
+            },
+            {
+              "item_id": "1680",
+              "title": "Sliding Doors",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 3.5488595962524414
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 7,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6800000000000002
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.7227491340599954,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "1777",
+            "title": "Wedding Singer, The",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 3.9458773136138916
+          },
+          {
+            "item_id": "11",
+            "title": "American President, The",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 3.676107406616211
+          },
+          {
+            "item_id": "3186",
+            "title": "Girl, Interrupted",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 3.6368396282196045
+          },
+          {
+            "item_id": "1",
+            "title": "Toy Story",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 3.5800907611846924
+          },
+          {
+            "item_id": "2763",
+            "title": "Thomas Crown Affair, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 3.548959255218506
+          },
+          {
+            "item_id": "1680",
+            "title": "Sliding Doors",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 3.5488595962524414
+          },
+          {
+            "item_id": "1059",
+            "title": "William Shakespeare's Romeo and Juliet",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 3.5438809394836426
+          },
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 3.5264222621917725
+          },
+          {
+            "item_id": "1784",
+            "title": "As Good As It Gets",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 3.4909708499908447
+          },
+          {
+            "item_id": "356",
+            "title": "Forrest Gump",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 3.440690755844116
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 5,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.767037037037037
+      }
+    ]
+  }
+}

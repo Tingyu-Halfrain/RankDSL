@@ -1,0 +1,775 @@
+{
+  "request_id": "filter_horror-025",
+  "user_id": "1251",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "2987",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-025",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a executive/managerial. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 13,
+    "ranking": [
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 8.0270414352417
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 7.75461483001709
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.656011581420898
+      },
+      {
+        "item_id": "2693",
+        "title": "Trekkies",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 1997,
+        "base_score": 7.127651691436768
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.019289016723633
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.967004299163818
+      },
+      {
+        "item_id": "2337",
+        "title": "Velvet Goldmine",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 6.537701606750488
+      },
+      {
+        "item_id": "3798",
+        "title": "What Lies Beneath",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 2000,
+        "base_score": 6.324137210845947
+      },
+      {
+        "item_id": "3081",
+        "title": "Sleepy Hollow",
+        "genre": [
+          "Horror",
+          "Romance"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1999,
+        "base_score": 6.312367916107178
+      },
+      {
+        "item_id": "2702",
+        "title": "Summer of Sam",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.2780656814575195
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.9244444444444445
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 8.0270414352417
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 7.75461483001709
+      },
+      {
+        "item_id": "2600",
+        "title": "eXistenZ",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.656011581420898
+      },
+      {
+        "item_id": "2693",
+        "title": "Trekkies",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 1997,
+        "base_score": 7.127651691436768
+      },
+      {
+        "item_id": "3176",
+        "title": "Talented Mr. Ripley, The",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.019289016723633
+      },
+      {
+        "item_id": "3114",
+        "title": "Toy Story 2",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.967004299163818
+      },
+      {
+        "item_id": "2337",
+        "title": "Velvet Goldmine",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 6.537701606750488
+      },
+      {
+        "item_id": "3798",
+        "title": "What Lies Beneath",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 2000,
+        "base_score": 6.324137210845947
+      },
+      {
+        "item_id": "2702",
+        "title": "Summer of Sam",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 6.2780656814575195
+      },
+      {
+        "item_id": "2700",
+        "title": "South Park: Bigger, Longer and Uncut",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.251272678375244
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.9040740740740744
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.902358958031982,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 8.0270414352417
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 7.75461483001709
+            },
+            {
+              "item_id": "2600",
+              "title": "eXistenZ",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.656011581420898
+            },
+            {
+              "item_id": "2693",
+              "title": "Trekkies",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 1997,
+              "base_score": 7.127651691436768
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.019289016723633
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.967004299163818
+            },
+            {
+              "item_id": "2337",
+              "title": "Velvet Goldmine",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 6.537701606750488
+            },
+            {
+              "item_id": "3798",
+              "title": "What Lies Beneath",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 2000,
+              "base_score": 6.324137210845947
+            },
+            {
+              "item_id": "2702",
+              "title": "Summer of Sam",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.2780656814575195
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.251272678375244
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.9040740740740744
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 8.0270414352417
+            },
+            {
+              "item_id": "2987",
+              "title": "Who Framed Roger Rabbit?",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Film-Noir"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1988,
+              "base_score": 7.75461483001709
+            },
+            {
+              "item_id": "2600",
+              "title": "eXistenZ",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.656011581420898
+            },
+            {
+              "item_id": "2693",
+              "title": "Trekkies",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 1997,
+              "base_score": 7.127651691436768
+            },
+            {
+              "item_id": "3176",
+              "title": "Talented Mr. Ripley, The",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.019289016723633
+            },
+            {
+              "item_id": "3114",
+              "title": "Toy Story 2",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.967004299163818
+            },
+            {
+              "item_id": "2337",
+              "title": "Velvet Goldmine",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 6.537701606750488
+            },
+            {
+              "item_id": "3798",
+              "title": "What Lies Beneath",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 2000,
+              "base_score": 6.324137210845947
+            },
+            {
+              "item_id": "2702",
+              "title": "Summer of Sam",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.2780656814575195
+            },
+            {
+              "item_id": "2700",
+              "title": "South Park: Bigger, Longer and Uncut",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.251272678375244
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.9040740740740744
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.578468916937709,
+        "hit@10": 1.0,
+        "ndcg@10": 0.6309297535714575,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 8.0270414352417
+          },
+          {
+            "item_id": "2987",
+            "title": "Who Framed Roger Rabbit?",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Film-Noir"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1988,
+            "base_score": 7.75461483001709
+          },
+          {
+            "item_id": "2600",
+            "title": "eXistenZ",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 7.656011581420898
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 7.019289016723633
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 6.967004299163818
+          },
+          {
+            "item_id": "2337",
+            "title": "Velvet Goldmine",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 6.537701606750488
+          },
+          {
+            "item_id": "2700",
+            "title": "South Park: Bigger, Longer and Uncut",
+            "genre": [
+              "Animation",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 6.251272678375244
+          },
+          {
+            "item_id": "2763",
+            "title": "Thomas Crown Affair, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 6.032597064971924
+          },
+          {
+            "item_id": "86",
+            "title": "White Squall",
+            "genre": [
+              "Adventure",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1996,
+            "base_score": 5.952110767364502
+          },
+          {
+            "item_id": "589",
+            "title": "Terminator 2: Judgment Day",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1991,
+            "base_score": 5.919954776763916
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8422222222222223
+      }
+    ]
+  }
+}

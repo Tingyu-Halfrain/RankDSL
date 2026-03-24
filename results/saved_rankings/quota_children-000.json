@@ -1,0 +1,857 @@
+{
+  "request_id": "quota_children-000",
+  "user_id": "1",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "48",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-000",
+      "user_summary": "The user is a Female who is under 18 years old and works as a K-12 student. Historically prefers Drama and Children's titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 8.864689826965332
+      },
+      {
+        "item_id": "1907",
+        "title": "Mulan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 8.003463745117188
+      },
+      {
+        "item_id": "2394",
+        "title": "Prince of Egypt, The",
+        "genre": [
+          "Animation",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 7.145549297332764
+      },
+      {
+        "item_id": "1022",
+        "title": "Cinderella",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1950,
+        "base_score": 7.025487899780273
+      },
+      {
+        "item_id": "2294",
+        "title": "Antz",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 6.943503379821777
+      },
+      {
+        "item_id": "2687",
+        "title": "Tarzan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.9263834953308105
+      },
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 6.813825607299805
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 6.6876373291015625
+      },
+      {
+        "item_id": "1029",
+        "title": "Dumbo",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1941,
+        "base_score": 6.56222677230835
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 6.543215751647949
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 9,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.28518518518518526
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000008.864689827
+      },
+      {
+        "item_id": "1907",
+        "title": "Mulan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 1000008.0034637451
+      },
+      {
+        "item_id": "1022",
+        "title": "Cinderella",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1950,
+        "base_score": 1000007.0254878998
+      },
+      {
+        "item_id": "2294",
+        "title": "Antz",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 1000006.9435033798
+      },
+      {
+        "item_id": "2687",
+        "title": "Tarzan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 1000006.9263834953
+      },
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 1000006.8138256073
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 1000006.6876373291
+      },
+      {
+        "item_id": "1029",
+        "title": "Dumbo",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1941,
+        "base_score": 1000006.5622267723
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 1000006.5432157516
+      },
+      {
+        "item_id": "1688",
+        "title": "Anastasia",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1997,
+        "base_score": 1000006.4550304413
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 10,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.22037037037037036
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.6025351868011057,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 4,
+          "ranking": [
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 8.864689826965332
+            },
+            {
+              "item_id": "1907",
+              "title": "Mulan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 8.003463745117188
+            },
+            {
+              "item_id": "1022",
+              "title": "Cinderella",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1950,
+              "base_score": 7.025487899780273
+            },
+            {
+              "item_id": "2394",
+              "title": "Prince of Egypt, The",
+              "genre": [
+                "Animation",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 7.145549297332764
+            },
+            {
+              "item_id": "2294",
+              "title": "Antz",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 6.943503379821777
+            },
+            {
+              "item_id": "2687",
+              "title": "Tarzan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.9263834953308105
+            },
+            {
+              "item_id": "2018",
+              "title": "Bambi",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1942,
+              "base_score": 6.813825607299805
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 6.6876373291015625
+            },
+            {
+              "item_id": "1029",
+              "title": "Dumbo",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1941,
+              "base_score": 6.56222677230835
+            },
+            {
+              "item_id": "1032",
+              "title": "Alice in Wonderland",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1951,
+              "base_score": 6.543215751647949
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 9,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.2851851851851853
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 4,
+          "ranking": [
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 8.864689826965332
+            },
+            {
+              "item_id": "1907",
+              "title": "Mulan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 8.003463745117188
+            },
+            {
+              "item_id": "1022",
+              "title": "Cinderella",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1950,
+              "base_score": 7.025487899780273
+            },
+            {
+              "item_id": "2394",
+              "title": "Prince of Egypt, The",
+              "genre": [
+                "Animation",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 7.145549297332764
+            },
+            {
+              "item_id": "2294",
+              "title": "Antz",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 6.943503379821777
+            },
+            {
+              "item_id": "2687",
+              "title": "Tarzan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.9263834953308105
+            },
+            {
+              "item_id": "2018",
+              "title": "Bambi",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1942,
+              "base_score": 6.813825607299805
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 6.6876373291015625
+            },
+            {
+              "item_id": "1029",
+              "title": "Dumbo",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1941,
+              "base_score": 6.56222677230835
+            },
+            {
+              "item_id": "1032",
+              "title": "Alice in Wonderland",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1951,
+              "base_score": 6.543215751647949
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 9,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.2851851851851853
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8323761359788477,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 4,
+        "ranking": [
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 8.864689826965332
+          },
+          {
+            "item_id": "1907",
+            "title": "Mulan",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 8.003463745117188
+          },
+          {
+            "item_id": "1022",
+            "title": "Cinderella",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1950,
+            "base_score": 7.025487899780273
+          },
+          {
+            "item_id": "588",
+            "title": "Aladdin",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1992,
+            "base_score": 6.6876373291015625
+          },
+          {
+            "item_id": "2294",
+            "title": "Antz",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 6.943503379821777
+          },
+          {
+            "item_id": "2687",
+            "title": "Tarzan",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 6.9263834953308105
+          },
+          {
+            "item_id": "2018",
+            "title": "Bambi",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1942,
+            "base_score": 6.813825607299805
+          },
+          {
+            "item_id": "1029",
+            "title": "Dumbo",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1941,
+            "base_score": 6.56222677230835
+          },
+          {
+            "item_id": "1032",
+            "title": "Alice in Wonderland",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1951,
+            "base_score": 6.543215751647949
+          },
+          {
+            "item_id": "1688",
+            "title": "Anastasia",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1997,
+            "base_score": 6.45503044128418
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 10,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.22037037037037044
+      }
+    ]
+  }
+}

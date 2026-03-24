@@ -1,0 +1,758 @@
+{
+  "request_id": "diversity_dominant_genre-032",
+  "user_id": "1138",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1597",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-032",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a programmer. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "1777",
+        "title": "Wedding Singer, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 3.9458773136138916
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 3.676107406616211
+      },
+      {
+        "item_id": "3186",
+        "title": "Girl, Interrupted",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 3.6368396282196045
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 3.5800907611846924
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 3.548959255218506
+      },
+      {
+        "item_id": "1680",
+        "title": "Sliding Doors",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 3.5488595962524414
+      },
+      {
+        "item_id": "1059",
+        "title": "William Shakespeare's Romeo and Juliet",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 3.5438809394836426
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 3.5264222621917725
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 3.4909708499908447
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 3.440690755844116
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.767037037037037
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "1777",
+        "title": "Wedding Singer, The",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 3.9458773136138916
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 3.676107406616211
+      },
+      {
+        "item_id": "3186",
+        "title": "Girl, Interrupted",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 3.6368396282196045
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 3.5800907611846924
+      },
+      {
+        "item_id": "2763",
+        "title": "Thomas Crown Affair, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 3.548959255218506
+      },
+      {
+        "item_id": "1680",
+        "title": "Sliding Doors",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 3.5488595962524414
+      },
+      {
+        "item_id": "1059",
+        "title": "William Shakespeare's Romeo and Juliet",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 3.5438809394836426
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 3.5264222621917725
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 3.4909708499908447
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 3.440690755844116
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.767037037037037
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.0888737007044256,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1777",
+              "title": "Wedding Singer, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 3.9458773136138916
+            },
+            {
+              "item_id": "3186",
+              "title": "Girl, Interrupted",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 3.6368396282196045
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 3.5800907611846924
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 3.676107406616211
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 3.548959255218506
+            },
+            {
+              "item_id": "1680",
+              "title": "Sliding Doors",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 3.5488595962524414
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 3.5264222621917725
+            },
+            {
+              "item_id": "1784",
+              "title": "As Good As It Gets",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 3.4909708499908447
+            },
+            {
+              "item_id": "1059",
+              "title": "William Shakespeare's Romeo and Juliet",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 3.5438809394836426
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 3.4359827041625977
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7918518518518517
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1777",
+              "title": "Wedding Singer, The",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 3.9458773136138916
+            },
+            {
+              "item_id": "3186",
+              "title": "Girl, Interrupted",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 3.6368396282196045
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 3.5800907611846924
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 3.676107406616211
+            },
+            {
+              "item_id": "2763",
+              "title": "Thomas Crown Affair, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 3.548959255218506
+            },
+            {
+              "item_id": "1680",
+              "title": "Sliding Doors",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 3.5488595962524414
+            },
+            {
+              "item_id": "1784",
+              "title": "As Good As It Gets",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 3.4909708499908447
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 3.5264222621917725
+            },
+            {
+              "item_id": "1059",
+              "title": "William Shakespeare's Romeo and Juliet",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 3.5438809394836426
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 3.440690755844116
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.767037037037037
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.6397375320084393,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 1,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "1777",
+            "title": "Wedding Singer, The",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 3.9458773136138916
+          },
+          {
+            "item_id": "3186",
+            "title": "Girl, Interrupted",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 3.6368396282196045
+          },
+          {
+            "item_id": "2763",
+            "title": "Thomas Crown Affair, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 3.548959255218506
+          },
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 3.5264222621917725
+          },
+          {
+            "item_id": "356",
+            "title": "Forrest Gump",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 3.440690755844116
+          },
+          {
+            "item_id": "2571",
+            "title": "Matrix, The",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 3.4359827041625977
+          },
+          {
+            "item_id": "3176",
+            "title": "Talented Mr. Ripley, The",
+            "genre": [
+              "Drama",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 3.405975103378296
+          },
+          {
+            "item_id": "1",
+            "title": "Toy Story",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 3.5800907611846924
+          },
+          {
+            "item_id": "1680",
+            "title": "Sliding Doors",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 3.5488595962524414
+          },
+          {
+            "item_id": "2997",
+            "title": "Being John Malkovich",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 3.2322607040405273
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.125,
+        "ild_score": 0.8614814814814816
+      }
+    ]
+  }
+}

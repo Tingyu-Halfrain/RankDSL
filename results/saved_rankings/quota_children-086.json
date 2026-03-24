@@ -1,0 +1,838 @@
+{
+  "request_id": "quota_children-086",
+  "user_id": "2343",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "3605",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-086",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a academic/educator. Historically prefers Musical and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "1088",
+        "title": "Dirty Dancing",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1987,
+        "base_score": 8.669023513793945
+      },
+      {
+        "item_id": "2941",
+        "title": "South Pacific",
+        "genre": [
+          "Musical",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1958,
+        "base_score": 8.629341125488281
+      },
+      {
+        "item_id": "1081",
+        "title": "Victor/Victoria",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 8.02741527557373
+      },
+      {
+        "item_id": "1416",
+        "title": "Evita",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.897294044494629
+      },
+      {
+        "item_id": "901",
+        "title": "Funny Face",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1957,
+        "base_score": 7.16677713394165
+      },
+      {
+        "item_id": "3604",
+        "title": "Gypsy",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1962,
+        "base_score": 7.093283653259277
+      },
+      {
+        "item_id": "3600",
+        "title": "Blue Hawaii",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1961,
+        "base_score": 6.910008430480957
+      },
+      {
+        "item_id": "3599",
+        "title": "Anchors Aweigh",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1945,
+        "base_score": 6.857461929321289
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 6.788863182067871
+      },
+      {
+        "item_id": "1487",
+        "title": "Selena",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 6.78380012512207
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 0,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "48",
+        "title": "Pocahontas",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 1000006.5283894539
+      },
+      {
+        "item_id": "1688",
+        "title": "Anastasia",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1997,
+        "base_score": 1000006.4449596405
+      },
+      {
+        "item_id": "783",
+        "title": "Hunchback of Notre Dame, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1996,
+        "base_score": 1000006.3267254829
+      },
+      {
+        "item_id": "2099",
+        "title": "Song of the South",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1946,
+        "base_score": 1000006.2616000175
+      },
+      {
+        "item_id": "1088",
+        "title": "Dirty Dancing",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1987,
+        "base_score": 8.669023513793945
+      },
+      {
+        "item_id": "2941",
+        "title": "South Pacific",
+        "genre": [
+          "Musical",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1958,
+        "base_score": 8.629341125488281
+      },
+      {
+        "item_id": "1081",
+        "title": "Victor/Victoria",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 8.02741527557373
+      },
+      {
+        "item_id": "1416",
+        "title": "Evita",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.897294044494629
+      },
+      {
+        "item_id": "901",
+        "title": "Funny Face",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1957,
+        "base_score": 7.16677713394165
+      },
+      {
+        "item_id": "3604",
+        "title": "Gypsy",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1962,
+        "base_score": 7.093283653259277
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 4,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6211111111111113
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.028839521110058,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "1088",
+              "title": "Dirty Dancing",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1987,
+              "base_score": 8.669023513793945
+            },
+            {
+              "item_id": "2941",
+              "title": "South Pacific",
+              "genre": [
+                "Musical",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1958,
+              "base_score": 8.629341125488281
+            },
+            {
+              "item_id": "1081",
+              "title": "Victor/Victoria",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 8.02741527557373
+            },
+            {
+              "item_id": "1416",
+              "title": "Evita",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.897294044494629
+            },
+            {
+              "item_id": "901",
+              "title": "Funny Face",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1957,
+              "base_score": 7.16677713394165
+            },
+            {
+              "item_id": "3604",
+              "title": "Gypsy",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1962,
+              "base_score": 7.093283653259277
+            },
+            {
+              "item_id": "3600",
+              "title": "Blue Hawaii",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1961,
+              "base_score": 6.910008430480957
+            },
+            {
+              "item_id": "3599",
+              "title": "Anchors Aweigh",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1945,
+              "base_score": 6.857461929321289
+            },
+            {
+              "item_id": "48",
+              "title": "Pocahontas",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 6.5283894538879395
+            },
+            {
+              "item_id": "1688",
+              "title": "Anastasia",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1997,
+              "base_score": 6.44495964050293
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5737037037037038
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "1088",
+              "title": "Dirty Dancing",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1987,
+              "base_score": 8.669023513793945
+            },
+            {
+              "item_id": "2941",
+              "title": "South Pacific",
+              "genre": [
+                "Musical",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1958,
+              "base_score": 8.629341125488281
+            },
+            {
+              "item_id": "1081",
+              "title": "Victor/Victoria",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 8.02741527557373
+            },
+            {
+              "item_id": "1416",
+              "title": "Evita",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.897294044494629
+            },
+            {
+              "item_id": "901",
+              "title": "Funny Face",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1957,
+              "base_score": 7.16677713394165
+            },
+            {
+              "item_id": "3604",
+              "title": "Gypsy",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1962,
+              "base_score": 7.093283653259277
+            },
+            {
+              "item_id": "3600",
+              "title": "Blue Hawaii",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1961,
+              "base_score": 6.910008430480957
+            },
+            {
+              "item_id": "3599",
+              "title": "Anchors Aweigh",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1945,
+              "base_score": 6.857461929321289
+            },
+            {
+              "item_id": "48",
+              "title": "Pocahontas",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 6.5283894538879395
+            },
+            {
+              "item_id": "1688",
+              "title": "Anastasia",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1997,
+              "base_score": 6.44495964050293
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5737037037037038
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2301677810028195,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "1088",
+            "title": "Dirty Dancing",
+            "genre": [
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1987,
+            "base_score": 8.669023513793945
+          },
+          {
+            "item_id": "2941",
+            "title": "South Pacific",
+            "genre": [
+              "Musical",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1958,
+            "base_score": 8.629341125488281
+          },
+          {
+            "item_id": "1081",
+            "title": "Victor/Victoria",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 8.02741527557373
+          },
+          {
+            "item_id": "1416",
+            "title": "Evita",
+            "genre": [
+              "Drama",
+              "Musical"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 7.897294044494629
+          },
+          {
+            "item_id": "901",
+            "title": "Funny Face",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1957,
+            "base_score": 7.16677713394165
+          },
+          {
+            "item_id": "3604",
+            "title": "Gypsy",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1962,
+            "base_score": 7.093283653259277
+          },
+          {
+            "item_id": "3600",
+            "title": "Blue Hawaii",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1961,
+            "base_score": 6.910008430480957
+          },
+          {
+            "item_id": "1035",
+            "title": "Sound of Music, The",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1965,
+            "base_score": 6.788863182067871
+          },
+          {
+            "item_id": "48",
+            "title": "Pocahontas",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 6.5283894538879395
+          },
+          {
+            "item_id": "1688",
+            "title": "Anastasia",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1997,
+            "base_score": 6.44495964050293
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5837037037037037
+      }
+    ]
+  }
+}

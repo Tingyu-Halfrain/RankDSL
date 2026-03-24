@@ -1,0 +1,844 @@
+{
+  "request_id": "quota_comedy_filter_horror-037",
+  "user_id": "1379",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "2355",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-037",
+      "user_summary": "The user is a Female who is over 56 years old and works as a retired. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.677319526672363
+      },
+      {
+        "item_id": "2683",
+        "title": "Austin Powers: The Spy Who Shagged Me",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 6.930014610290527
+      },
+      {
+        "item_id": "3203",
+        "title": "Dead Calm",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1989,
+        "base_score": 6.231108665466309
+      },
+      {
+        "item_id": "1127",
+        "title": "Abyss, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 6.0126447677612305
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.999046802520752
+      },
+      {
+        "item_id": "223",
+        "title": "Clerks",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 5.9467315673828125
+      },
+      {
+        "item_id": "3298",
+        "title": "Boiler Room",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 5.70918607711792
+      },
+      {
+        "item_id": "2908",
+        "title": "Boys Don't Cry",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.4141645431518555
+      },
+      {
+        "item_id": "3285",
+        "title": "Beach, The",
+        "genre": [
+          "Adventure",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 2000,
+        "base_score": 5.33339262008667
+      },
+      {
+        "item_id": "2710",
+        "title": "Blair Witch Project, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1999,
+        "base_score": 5.236266136169434
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 4,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8159259259259259
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000007.6773195267
+      },
+      {
+        "item_id": "2683",
+        "title": "Austin Powers: The Spy Who Shagged Me",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000006.9300146103
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000005.9990468025
+      },
+      {
+        "item_id": "223",
+        "title": "Clerks",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 1000005.9467315674
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 1000005.1167941093
+      },
+      {
+        "item_id": "2699",
+        "title": "Arachnophobia",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 1000005.1154117584
+      },
+      {
+        "item_id": "2706",
+        "title": "American Pie",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000005.0890417099
+      },
+      {
+        "item_id": "3516",
+        "title": "Bell, Book and Candle",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1958,
+        "base_score": 1000005.0724668503
+      },
+      {
+        "item_id": "2355",
+        "title": "Bug's Life, A",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 1000004.9920158386
+      },
+      {
+        "item_id": "3203",
+        "title": "Dead Calm",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1989,
+        "base_score": 6.231108665466309
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 9,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6225925925925927
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.113936609122902,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2997",
+              "title": "Being John Malkovich",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.677319526672363
+            },
+            {
+              "item_id": "2683",
+              "title": "Austin Powers: The Spy Who Shagged Me",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.930014610290527
+            },
+            {
+              "item_id": "3203",
+              "title": "Dead Calm",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1989,
+              "base_score": 6.231108665466309
+            },
+            {
+              "item_id": "2858",
+              "title": "American Beauty",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.999046802520752
+            },
+            {
+              "item_id": "223",
+              "title": "Clerks",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 5.9467315673828125
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 6.0126447677612305
+            },
+            {
+              "item_id": "3298",
+              "title": "Boiler Room",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.70918607711792
+            },
+            {
+              "item_id": "2908",
+              "title": "Boys Don't Cry",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.4141645431518555
+            },
+            {
+              "item_id": "3285",
+              "title": "Beach, The",
+              "genre": [
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 5.33339262008667
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 5.116794109344482
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7881481481481482
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2997",
+              "title": "Being John Malkovich",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.677319526672363
+            },
+            {
+              "item_id": "2683",
+              "title": "Austin Powers: The Spy Who Shagged Me",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.930014610290527
+            },
+            {
+              "item_id": "3203",
+              "title": "Dead Calm",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1989,
+              "base_score": 6.231108665466309
+            },
+            {
+              "item_id": "2858",
+              "title": "American Beauty",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.999046802520752
+            },
+            {
+              "item_id": "223",
+              "title": "Clerks",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 5.9467315673828125
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 6.0126447677612305
+            },
+            {
+              "item_id": "3298",
+              "title": "Boiler Room",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 5.70918607711792
+            },
+            {
+              "item_id": "2908",
+              "title": "Boys Don't Cry",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.4141645431518555
+            },
+            {
+              "item_id": "3285",
+              "title": "Beach, The",
+              "genre": [
+                "Adventure",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 2000,
+              "base_score": 5.33339262008667
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 5.116794109344482
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7881481481481482
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.0340408822521567,
+        "hit@10": 1.0,
+        "ndcg@10": 0.43067655807339306,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 5,
+        "ranking": [
+          {
+            "item_id": "2858",
+            "title": "American Beauty",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.999046802520752
+          },
+          {
+            "item_id": "2997",
+            "title": "Being John Malkovich",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 7.677319526672363
+          },
+          {
+            "item_id": "1",
+            "title": "Toy Story",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 5.116794109344482
+          },
+          {
+            "item_id": "2355",
+            "title": "Bug's Life, A",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 4.992015838623047
+          },
+          {
+            "item_id": "3408",
+            "title": "Erin Brockovich",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 5.026912212371826
+          },
+          {
+            "item_id": "3298",
+            "title": "Boiler Room",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 5.70918607711792
+          },
+          {
+            "item_id": "3285",
+            "title": "Beach, The",
+            "genre": [
+              "Adventure",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 2000,
+            "base_score": 5.33339262008667
+          },
+          {
+            "item_id": "2908",
+            "title": "Boys Don't Cry",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 5.4141645431518555
+          },
+          {
+            "item_id": "2433",
+            "title": "Civil Action, A",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 5.158867835998535
+          },
+          {
+            "item_id": "2706",
+            "title": "American Pie",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.089041709899902
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 5,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.662962962962963
+      }
+    ]
+  }
+}

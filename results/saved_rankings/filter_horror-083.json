@@ -1,0 +1,787 @@
+{
+  "request_id": "filter_horror-083",
+  "user_id": "166",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "2186",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-083",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a college/grad student. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "904",
+        "title": "Rear Window",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1954,
+        "base_score": 8.055739402770996
+      },
+      {
+        "item_id": "903",
+        "title": "Vertigo",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1958,
+        "base_score": 6.479198932647705
+      },
+      {
+        "item_id": "908",
+        "title": "North by Northwest",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1959,
+        "base_score": 6.168374061584473
+      },
+      {
+        "item_id": "924",
+        "title": "2001: A Space Odyssey",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1968,
+        "base_score": 5.9188456535339355
+      },
+      {
+        "item_id": "50",
+        "title": "Usual Suspects, The",
+        "genre": [
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1995,
+        "base_score": 5.4323906898498535
+      },
+      {
+        "item_id": "928",
+        "title": "Rebecca",
+        "genre": [
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Romance",
+        "release_year": 1940,
+        "base_score": 5.404964923858643
+      },
+      {
+        "item_id": "1617",
+        "title": "L.A. Confidential",
+        "genre": [
+          "Crime",
+          "Film-Noir",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1997,
+        "base_score": 5.178232669830322
+      },
+      {
+        "item_id": "913",
+        "title": "Maltese Falcon, The",
+        "genre": [
+          "Film-Noir",
+          "Mystery"
+        ],
+        "dominant_genre": "Film-Noir",
+        "release_year": 1941,
+        "base_score": 5.122113227844238
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 5.119929313659668
+      },
+      {
+        "item_id": "1219",
+        "title": "Psycho",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1960,
+        "base_score": 4.834053039550781
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6651851851851853
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "904",
+        "title": "Rear Window",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1954,
+        "base_score": 8.055739402770996
+      },
+      {
+        "item_id": "903",
+        "title": "Vertigo",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1958,
+        "base_score": 6.479198932647705
+      },
+      {
+        "item_id": "908",
+        "title": "North by Northwest",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1959,
+        "base_score": 6.168374061584473
+      },
+      {
+        "item_id": "924",
+        "title": "2001: A Space Odyssey",
+        "genre": [
+          "Drama",
+          "Mystery",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1968,
+        "base_score": 5.9188456535339355
+      },
+      {
+        "item_id": "50",
+        "title": "Usual Suspects, The",
+        "genre": [
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1995,
+        "base_score": 5.4323906898498535
+      },
+      {
+        "item_id": "928",
+        "title": "Rebecca",
+        "genre": [
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Romance",
+        "release_year": 1940,
+        "base_score": 5.404964923858643
+      },
+      {
+        "item_id": "1617",
+        "title": "L.A. Confidential",
+        "genre": [
+          "Crime",
+          "Film-Noir",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1997,
+        "base_score": 5.178232669830322
+      },
+      {
+        "item_id": "913",
+        "title": "Maltese Falcon, The",
+        "genre": [
+          "Film-Noir",
+          "Mystery"
+        ],
+        "dominant_genre": "Film-Noir",
+        "release_year": 1941,
+        "base_score": 5.122113227844238
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 5.119929313659668
+      },
+      {
+        "item_id": "1625",
+        "title": "Game, The",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1997,
+        "base_score": 4.782743453979492
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.614814814814815
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2848191778175533,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "904",
+              "title": "Rear Window",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1954,
+              "base_score": 8.055739402770996
+            },
+            {
+              "item_id": "903",
+              "title": "Vertigo",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1958,
+              "base_score": 6.479198932647705
+            },
+            {
+              "item_id": "908",
+              "title": "North by Northwest",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1959,
+              "base_score": 6.168374061584473
+            },
+            {
+              "item_id": "924",
+              "title": "2001: A Space Odyssey",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1968,
+              "base_score": 5.9188456535339355
+            },
+            {
+              "item_id": "50",
+              "title": "Usual Suspects, The",
+              "genre": [
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1995,
+              "base_score": 5.4323906898498535
+            },
+            {
+              "item_id": "928",
+              "title": "Rebecca",
+              "genre": [
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Romance",
+              "release_year": 1940,
+              "base_score": 5.404964923858643
+            },
+            {
+              "item_id": "1617",
+              "title": "L.A. Confidential",
+              "genre": [
+                "Crime",
+                "Film-Noir",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1997,
+              "base_score": 5.178232669830322
+            },
+            {
+              "item_id": "913",
+              "title": "Maltese Falcon, The",
+              "genre": [
+                "Film-Noir",
+                "Mystery"
+              ],
+              "dominant_genre": "Film-Noir",
+              "release_year": 1941,
+              "base_score": 5.122113227844238
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 5.119929313659668
+            },
+            {
+              "item_id": "1625",
+              "title": "Game, The",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 4.782743453979492
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.614814814814815
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "904",
+              "title": "Rear Window",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1954,
+              "base_score": 8.055739402770996
+            },
+            {
+              "item_id": "903",
+              "title": "Vertigo",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1958,
+              "base_score": 6.479198932647705
+            },
+            {
+              "item_id": "908",
+              "title": "North by Northwest",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1959,
+              "base_score": 6.168374061584473
+            },
+            {
+              "item_id": "924",
+              "title": "2001: A Space Odyssey",
+              "genre": [
+                "Drama",
+                "Mystery",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1968,
+              "base_score": 5.9188456535339355
+            },
+            {
+              "item_id": "50",
+              "title": "Usual Suspects, The",
+              "genre": [
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1995,
+              "base_score": 5.4323906898498535
+            },
+            {
+              "item_id": "928",
+              "title": "Rebecca",
+              "genre": [
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Romance",
+              "release_year": 1940,
+              "base_score": 5.404964923858643
+            },
+            {
+              "item_id": "1617",
+              "title": "L.A. Confidential",
+              "genre": [
+                "Crime",
+                "Film-Noir",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1997,
+              "base_score": 5.178232669830322
+            },
+            {
+              "item_id": "913",
+              "title": "Maltese Falcon, The",
+              "genre": [
+                "Film-Noir",
+                "Mystery"
+              ],
+              "dominant_genre": "Film-Noir",
+              "release_year": 1941,
+              "base_score": 5.122113227844238
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 5.119929313659668
+            },
+            {
+              "item_id": "1625",
+              "title": "Game, The",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 4.782743453979492
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.614814814814815
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.836973947007209,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "904",
+            "title": "Rear Window",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1954,
+            "base_score": 8.055739402770996
+          },
+          {
+            "item_id": "908",
+            "title": "North by Northwest",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1959,
+            "base_score": 6.168374061584473
+          },
+          {
+            "item_id": "50",
+            "title": "Usual Suspects, The",
+            "genre": [
+              "Crime",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1995,
+            "base_score": 5.4323906898498535
+          },
+          {
+            "item_id": "913",
+            "title": "Maltese Falcon, The",
+            "genre": [
+              "Film-Noir",
+              "Mystery"
+            ],
+            "dominant_genre": "Film-Noir",
+            "release_year": 1941,
+            "base_score": 5.122113227844238
+          },
+          {
+            "item_id": "1617",
+            "title": "L.A. Confidential",
+            "genre": [
+              "Crime",
+              "Film-Noir",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1997,
+            "base_score": 5.178232669830322
+          },
+          {
+            "item_id": "910",
+            "title": "Some Like It Hot",
+            "genre": [
+              "Comedy",
+              "Crime"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1959,
+            "base_score": 4.550567150115967
+          },
+          {
+            "item_id": "933",
+            "title": "To Catch a Thief",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1955,
+            "base_score": 4.128645420074463
+          },
+          {
+            "item_id": "1625",
+            "title": "Game, The",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1997,
+            "base_score": 4.782743453979492
+          },
+          {
+            "item_id": "608",
+            "title": "Fargo",
+            "genre": [
+              "Crime",
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1996,
+            "base_score": 4.738610744476318
+          },
+          {
+            "item_id": "111",
+            "title": "Taxi Driver",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1976,
+            "base_score": 4.68805456161499
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.7048148148148149
+      }
+    ]
+  }
+}

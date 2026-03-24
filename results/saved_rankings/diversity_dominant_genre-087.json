@@ -1,0 +1,774 @@
+{
+  "request_id": "diversity_dominant_genre-087",
+  "user_id": "1355",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1947",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-087",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a writer. Historically prefers Romance and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 6,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "357",
+        "title": "Four Weddings and a Funeral",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 8.293495178222656
+      },
+      {
+        "item_id": "1094",
+        "title": "Crying Game, The",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 8.09728717803955
+      },
+      {
+        "item_id": "58",
+        "title": "Postino, Il (The Postman)",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.996986389160156
+      },
+      {
+        "item_id": "39",
+        "title": "Clueless",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.862863063812256
+      },
+      {
+        "item_id": "377",
+        "title": "Speed",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 7.710066318511963
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 7.701025485992432
+      },
+      {
+        "item_id": "25",
+        "title": "Leaving Las Vegas",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.6957855224609375
+      },
+      {
+        "item_id": "534",
+        "title": "Shadowlands",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 7.6900153160095215
+      },
+      {
+        "item_id": "509",
+        "title": "Piano, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 7.595458507537842
+      },
+      {
+        "item_id": "2020",
+        "title": "Dangerous Liaisons",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1988,
+        "base_score": 7.496712684631348
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.75,
+    "ild_score": 0.48000000000000004
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 6,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "357",
+        "title": "Four Weddings and a Funeral",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 8.293495178222656
+      },
+      {
+        "item_id": "1094",
+        "title": "Crying Game, The",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 8.09728717803955
+      },
+      {
+        "item_id": "58",
+        "title": "Postino, Il (The Postman)",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 7.996986389160156
+      },
+      {
+        "item_id": "39",
+        "title": "Clueless",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.862863063812256
+      },
+      {
+        "item_id": "377",
+        "title": "Speed",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 7.710066318511963
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 7.701025485992432
+      },
+      {
+        "item_id": "25",
+        "title": "Leaving Las Vegas",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 7.6957855224609375
+      },
+      {
+        "item_id": "534",
+        "title": "Shadowlands",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 7.6900153160095215
+      },
+      {
+        "item_id": "509",
+        "title": "Piano, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 7.595458507537842
+      },
+      {
+        "item_id": "2020",
+        "title": "Dangerous Liaisons",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1988,
+        "base_score": 7.496712684631348
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.75,
+    "ild_score": 0.48000000000000004
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.1834913841448724,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "357",
+              "title": "Four Weddings and a Funeral",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 8.293495178222656
+            },
+            {
+              "item_id": "1094",
+              "title": "Crying Game, The",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 8.09728717803955
+            },
+            {
+              "item_id": "377",
+              "title": "Speed",
+              "genre": [
+                "Action",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 7.710066318511963
+            },
+            {
+              "item_id": "39",
+              "title": "Clueless",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.862863063812256
+            },
+            {
+              "item_id": "58",
+              "title": "Postino, Il (The Postman)",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 7.996986389160156
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 7.484035968780518
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 7.701025485992432
+            },
+            {
+              "item_id": "25",
+              "title": "Leaving Las Vegas",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 7.6957855224609375
+            },
+            {
+              "item_id": "1210",
+              "title": "Star Wars: Episode VI - Return of the Jedi",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1983,
+              "base_score": 7.16635274887085
+            },
+            {
+              "item_id": "915",
+              "title": "Sabrina",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1954,
+              "base_score": 6.96635103225708
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6188888888888888
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "1094",
+              "title": "Crying Game, The",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 8.09728717803955
+            },
+            {
+              "item_id": "357",
+              "title": "Four Weddings and a Funeral",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 8.293495178222656
+            },
+            {
+              "item_id": "377",
+              "title": "Speed",
+              "genre": [
+                "Action",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 7.710066318511963
+            },
+            {
+              "item_id": "58",
+              "title": "Postino, Il (The Postman)",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 7.996986389160156
+            },
+            {
+              "item_id": "39",
+              "title": "Clueless",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.862863063812256
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 7.484035968780518
+            },
+            {
+              "item_id": "25",
+              "title": "Leaving Las Vegas",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 7.6957855224609375
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 7.701025485992432
+            },
+            {
+              "item_id": "1210",
+              "title": "Star Wars: Episode VI - Return of the Jedi",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1983,
+              "base_score": 7.16635274887085
+            },
+            {
+              "item_id": "534",
+              "title": "Shadowlands",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1993,
+              "base_score": 7.6900153160095215
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6188888888888889
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.6903649158775806,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3333333333333333,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 3,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "357",
+            "title": "Four Weddings and a Funeral",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 8.293495178222656
+          },
+          {
+            "item_id": "1094",
+            "title": "Crying Game, The",
+            "genre": [
+              "Drama",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1992,
+            "base_score": 8.09728717803955
+          },
+          {
+            "item_id": "377",
+            "title": "Speed",
+            "genre": [
+              "Action",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 7.710066318511963
+          },
+          {
+            "item_id": "58",
+            "title": "Postino, Il (The Postman)",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 7.996986389160156
+          },
+          {
+            "item_id": "39",
+            "title": "Clueless",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.862863063812256
+          },
+          {
+            "item_id": "25",
+            "title": "Leaving Las Vegas",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 7.6957855224609375
+          },
+          {
+            "item_id": "1947",
+            "title": "West Side Story",
+            "genre": [
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1961,
+            "base_score": 7.484035968780518
+          },
+          {
+            "item_id": "356",
+            "title": "Forrest Gump",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 7.701025485992432
+          },
+          {
+            "item_id": "534",
+            "title": "Shadowlands",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 7.6900153160095215
+          },
+          {
+            "item_id": "509",
+            "title": "Piano, The",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 7.595458507537842
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.375,
+        "ild_score": 0.5485185185185186
+      }
+    ]
+  }
+}

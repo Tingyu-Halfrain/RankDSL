@@ -1,0 +1,761 @@
+{
+  "request_id": "filter_horror-099",
+  "user_id": "1826",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "1394",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-099",
+      "user_summary": "The user is a Male who is 45-49 years old and works as a lawyer. Historically prefers Sci-Fi and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2396",
+        "title": "Shakespeare in Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 9.06192684173584
+      },
+      {
+        "item_id": "1394",
+        "title": "Raising Arizona",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1987,
+        "base_score": 8.668889045715332
+      },
+      {
+        "item_id": "3361",
+        "title": "Bull Durham",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 8.480069160461426
+      },
+      {
+        "item_id": "3363",
+        "title": "American Graffiti",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 8.359502792358398
+      },
+      {
+        "item_id": "2716",
+        "title": "Ghostbusters",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 7.925180435180664
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 7.814932346343994
+      },
+      {
+        "item_id": "34",
+        "title": "Babe",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1995,
+        "base_score": 7.736744403839111
+      },
+      {
+        "item_id": "3504",
+        "title": "Network",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1976,
+        "base_score": 7.662024974822998
+      },
+      {
+        "item_id": "1079",
+        "title": "Fish Called Wanda, A",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.636843681335449
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.614545822143555
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.49629629629629635
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "2396",
+        "title": "Shakespeare in Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 9.06192684173584
+      },
+      {
+        "item_id": "1394",
+        "title": "Raising Arizona",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1987,
+        "base_score": 8.668889045715332
+      },
+      {
+        "item_id": "3361",
+        "title": "Bull Durham",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 8.480069160461426
+      },
+      {
+        "item_id": "3363",
+        "title": "American Graffiti",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 8.359502792358398
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 7.814932346343994
+      },
+      {
+        "item_id": "34",
+        "title": "Babe",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1995,
+        "base_score": 7.736744403839111
+      },
+      {
+        "item_id": "3504",
+        "title": "Network",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1976,
+        "base_score": 7.662024974822998
+      },
+      {
+        "item_id": "1079",
+        "title": "Fish Called Wanda, A",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.636843681335449
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.614545822143555
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.539143085479736
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4814814814814815
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2890339330770075,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2396",
+              "title": "Shakespeare in Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 9.06192684173584
+            },
+            {
+              "item_id": "1394",
+              "title": "Raising Arizona",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1987,
+              "base_score": 8.668889045715332
+            },
+            {
+              "item_id": "3361",
+              "title": "Bull Durham",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 8.480069160461426
+            },
+            {
+              "item_id": "3363",
+              "title": "American Graffiti",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1973,
+              "base_score": 8.359502792358398
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 7.814932346343994
+            },
+            {
+              "item_id": "34",
+              "title": "Babe",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1995,
+              "base_score": 7.736744403839111
+            },
+            {
+              "item_id": "3504",
+              "title": "Network",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1976,
+              "base_score": 7.662024974822998
+            },
+            {
+              "item_id": "1079",
+              "title": "Fish Called Wanda, A",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.636843681335449
+            },
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.614545822143555
+            },
+            {
+              "item_id": "1265",
+              "title": "Groundhog Day",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.539143085479736
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4814814814814815
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "2396",
+              "title": "Shakespeare in Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 9.06192684173584
+            },
+            {
+              "item_id": "1394",
+              "title": "Raising Arizona",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1987,
+              "base_score": 8.668889045715332
+            },
+            {
+              "item_id": "3361",
+              "title": "Bull Durham",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 8.480069160461426
+            },
+            {
+              "item_id": "3363",
+              "title": "American Graffiti",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1973,
+              "base_score": 8.359502792358398
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 7.814932346343994
+            },
+            {
+              "item_id": "34",
+              "title": "Babe",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1995,
+              "base_score": 7.736744403839111
+            },
+            {
+              "item_id": "3504",
+              "title": "Network",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1976,
+              "base_score": 7.662024974822998
+            },
+            {
+              "item_id": "1079",
+              "title": "Fish Called Wanda, A",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.636843681335449
+            },
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.614545822143555
+            },
+            {
+              "item_id": "1265",
+              "title": "Groundhog Day",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.539143085479736
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4814814814814815
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.965303015895188,
+        "hit@10": 1.0,
+        "ndcg@10": 0.6309297535714575,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "1270",
+            "title": "Back to the Future",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 7.284017086029053
+          },
+          {
+            "item_id": "1394",
+            "title": "Raising Arizona",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1987,
+            "base_score": 8.668889045715332
+          },
+          {
+            "item_id": "3361",
+            "title": "Bull Durham",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 8.480069160461426
+          },
+          {
+            "item_id": "3363",
+            "title": "American Graffiti",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1973,
+            "base_score": 8.359502792358398
+          },
+          {
+            "item_id": "1",
+            "title": "Toy Story",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 7.814932346343994
+          },
+          {
+            "item_id": "3504",
+            "title": "Network",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1976,
+            "base_score": 7.662024974822998
+          },
+          {
+            "item_id": "1079",
+            "title": "Fish Called Wanda, A",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 7.636843681335449
+          },
+          {
+            "item_id": "2599",
+            "title": "Election",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 7.614545822143555
+          },
+          {
+            "item_id": "1265",
+            "title": "Groundhog Day",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 7.539143085479736
+          },
+          {
+            "item_id": "3114",
+            "title": "Toy Story 2",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1999,
+            "base_score": 7.474399089813232
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5037037037037038
+      }
+    ]
+  }
+}

@@ -1,0 +1,833 @@
+{
+  "request_id": "quota_comedy-066",
+  "user_id": "1320",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "1244",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-066",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a college/grad student. Historically prefers Action and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 8.38185977935791
+      },
+      {
+        "item_id": "1247",
+        "title": "Graduate, The",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1967,
+        "base_score": 7.8915228843688965
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.77235221862793
+      },
+      {
+        "item_id": "1276",
+        "title": "Cool Hand Luke",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1967,
+        "base_score": 7.6820831298828125
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 7.410682678222656
+      },
+      {
+        "item_id": "1244",
+        "title": "Manhattan",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 7.353108882904053
+      },
+      {
+        "item_id": "1256",
+        "title": "Duck Soup",
+        "genre": [
+          "Comedy",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1933,
+        "base_score": 7.302042484283447
+      },
+      {
+        "item_id": "1230",
+        "title": "Annie Hall",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1977,
+        "base_score": 7.2917914390563965
+      },
+      {
+        "item_id": "1259",
+        "title": "Stand by Me",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 7.229653835296631
+      },
+      {
+        "item_id": "1270",
+        "title": "Back to the Future",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 6.878111362457275
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 9,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6503703703703704
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.38685280723454163,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000008.3818597794
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 1000007.7723522186
+      },
+      {
+        "item_id": "1276",
+        "title": "Cool Hand Luke",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1967,
+        "base_score": 1000007.6820831299
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 1000007.4106826782
+      },
+      {
+        "item_id": "1244",
+        "title": "Manhattan",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 1000007.3531088829
+      },
+      {
+        "item_id": "1256",
+        "title": "Duck Soup",
+        "genre": [
+          "Comedy",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1933,
+        "base_score": 1000007.3020424843
+      },
+      {
+        "item_id": "1230",
+        "title": "Annie Hall",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1977,
+        "base_score": 1000007.291791439
+      },
+      {
+        "item_id": "1259",
+        "title": "Stand by Me",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000007.2296538353
+      },
+      {
+        "item_id": "1270",
+        "title": "Back to the Future",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 1000006.8781113625
+      },
+      {
+        "item_id": "1278",
+        "title": "Young Frankenstein",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1974,
+        "base_score": 1000006.6883273125
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 10,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6281481481481482
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.5452699391171336,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2997",
+              "title": "Being John Malkovich",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 8.38185977935791
+            },
+            {
+              "item_id": "1265",
+              "title": "Groundhog Day",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.77235221862793
+            },
+            {
+              "item_id": "1247",
+              "title": "Graduate, The",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1967,
+              "base_score": 7.8915228843688965
+            },
+            {
+              "item_id": "1276",
+              "title": "Cool Hand Luke",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1967,
+              "base_score": 7.6820831298828125
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 7.410682678222656
+            },
+            {
+              "item_id": "1244",
+              "title": "Manhattan",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 7.353108882904053
+            },
+            {
+              "item_id": "1256",
+              "title": "Duck Soup",
+              "genre": [
+                "Comedy",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1933,
+              "base_score": 7.302042484283447
+            },
+            {
+              "item_id": "1230",
+              "title": "Annie Hall",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1977,
+              "base_score": 7.2917914390563965
+            },
+            {
+              "item_id": "1259",
+              "title": "Stand by Me",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.229653835296631
+            },
+            {
+              "item_id": "1270",
+              "title": "Back to the Future",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 6.878111362457275
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 9,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6503703703703704
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2997",
+              "title": "Being John Malkovich",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 8.38185977935791
+            },
+            {
+              "item_id": "1265",
+              "title": "Groundhog Day",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.77235221862793
+            },
+            {
+              "item_id": "1247",
+              "title": "Graduate, The",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1967,
+              "base_score": 7.8915228843688965
+            },
+            {
+              "item_id": "1276",
+              "title": "Cool Hand Luke",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1967,
+              "base_score": 7.6820831298828125
+            },
+            {
+              "item_id": "1",
+              "title": "Toy Story",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1995,
+              "base_score": 7.410682678222656
+            },
+            {
+              "item_id": "1244",
+              "title": "Manhattan",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1979,
+              "base_score": 7.353108882904053
+            },
+            {
+              "item_id": "1256",
+              "title": "Duck Soup",
+              "genre": [
+                "Comedy",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1933,
+              "base_score": 7.302042484283447
+            },
+            {
+              "item_id": "1230",
+              "title": "Annie Hall",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1977,
+              "base_score": 7.2917914390563965
+            },
+            {
+              "item_id": "1259",
+              "title": "Stand by Me",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.229653835296631
+            },
+            {
+              "item_id": "1270",
+              "title": "Back to the Future",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 6.878111362457275
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 9,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6503703703703704
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.0253672380931675,
+        "hit@10": 1.0,
+        "ndcg@10": 0.43067655807339306,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "2997",
+            "title": "Being John Malkovich",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 8.38185977935791
+          },
+          {
+            "item_id": "1265",
+            "title": "Groundhog Day",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 7.77235221862793
+          },
+          {
+            "item_id": "1276",
+            "title": "Cool Hand Luke",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1967,
+            "base_score": 7.6820831298828125
+          },
+          {
+            "item_id": "1244",
+            "title": "Manhattan",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1979,
+            "base_score": 7.353108882904053
+          },
+          {
+            "item_id": "1230",
+            "title": "Annie Hall",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1977,
+            "base_score": 7.2917914390563965
+          },
+          {
+            "item_id": "1259",
+            "title": "Stand by Me",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 7.229653835296631
+          },
+          {
+            "item_id": "1270",
+            "title": "Back to the Future",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 6.878111362457275
+          },
+          {
+            "item_id": "1278",
+            "title": "Young Frankenstein",
+            "genre": [
+              "Comedy",
+              "Horror"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1974,
+            "base_score": 6.688327312469482
+          },
+          {
+            "item_id": "1136",
+            "title": "Monty Python and the Holy Grail",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1974,
+            "base_score": 6.340875625610352
+          },
+          {
+            "item_id": "1234",
+            "title": "Sting, The",
+            "genre": [
+              "Comedy",
+              "Crime"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1973,
+            "base_score": 6.3108320236206055
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 10,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5740740740740742
+      }
+    ]
+  }
+}

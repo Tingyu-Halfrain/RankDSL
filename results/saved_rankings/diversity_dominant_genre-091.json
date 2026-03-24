@@ -1,0 +1,497 @@
+{
+  "request_id": "diversity_dominant_genre-091",
+  "user_id": "1366",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1682",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-091",
+      "user_summary": "The user is a Male who is under 18 years old and works as a K-12 student. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1682",
+        "title": "Truman Show, The",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 5.022939682006836
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 4.805125713348389
+      },
+      {
+        "item_id": "628",
+        "title": "Primal Fear",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 4.803381443023682
+      },
+      {
+        "item_id": "104",
+        "title": "Happy Gilmore",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 4.678677082061768
+      },
+      {
+        "item_id": "1517",
+        "title": "Austin Powers: International Man of Mystery",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 4.563276290893555
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 4.509599208831787
+      },
+      {
+        "item_id": "1923",
+        "title": "There's Something About Mary",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 4.445143699645996
+      },
+      {
+        "item_id": "1721",
+        "title": "Titanic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 4.377408981323242
+      },
+      {
+        "item_id": "1302",
+        "title": "Field of Dreams",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1989,
+        "base_score": 4.3201799392700195
+      },
+      {
+        "item_id": "440",
+        "title": "Dave",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 4.133781909942627
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.875,
+    "ild_score": 0.7592592592592592
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1682",
+        "title": "Truman Show, The",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 5.022939682006836
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 4.805125713348389
+      },
+      {
+        "item_id": "628",
+        "title": "Primal Fear",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 4.803381443023682
+      },
+      {
+        "item_id": "104",
+        "title": "Happy Gilmore",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 4.678677082061768
+      },
+      {
+        "item_id": "1517",
+        "title": "Austin Powers: International Man of Mystery",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 4.563276290893555
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 4.509599208831787
+      },
+      {
+        "item_id": "1923",
+        "title": "There's Something About Mary",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 4.445143699645996
+      },
+      {
+        "item_id": "1721",
+        "title": "Titanic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 4.377408981323242
+      },
+      {
+        "item_id": "1302",
+        "title": "Field of Dreams",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1989,
+        "base_score": 4.3201799392700195
+      },
+      {
+        "item_id": "440",
+        "title": "Dave",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 4.133781909942627
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.875,
+    "ild_score": 0.7592592592592592
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3623117529787123,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "greedy"
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          }
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2883413867093623,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 5,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "1682",
+            "title": "Truman Show, The",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 5.022939682006836
+          },
+          {
+            "item_id": "104",
+            "title": "Happy Gilmore",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 4.678677082061768
+          },
+          {
+            "item_id": "480",
+            "title": "Jurassic Park",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 4.509599208831787
+          },
+          {
+            "item_id": "1393",
+            "title": "Jerry Maguire",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 4.805125713348389
+          },
+          {
+            "item_id": "1517",
+            "title": "Austin Powers: International Man of Mystery",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 4.563276290893555
+          },
+          {
+            "item_id": "628",
+            "title": "Primal Fear",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 4.803381443023682
+          },
+          {
+            "item_id": "1923",
+            "title": "There's Something About Mary",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 4.445143699645996
+          },
+          {
+            "item_id": "1721",
+            "title": "Titanic",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 4.377408981323242
+          },
+          {
+            "item_id": "1302",
+            "title": "Field of Dreams",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1989,
+            "base_score": 4.3201799392700195
+          },
+          {
+            "item_id": "440",
+            "title": "Dave",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 4.133781909942627
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.625,
+        "ild_score": 0.7592592592592592
+      }
+    ]
+  }
+}

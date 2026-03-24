@@ -6,3 +6,4 @@ outputs/
 log/
 log_tensorboard/
 saved_ckpt/
+.env.deepseek

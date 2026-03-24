@@ -1,0 +1,888 @@
+{
+  "request_id": "quota_children-079",
+  "user_id": "2253",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "60",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-079",
+      "user_summary": "The user is a Female who is 50-55 years old and works as a other or not specified. Historically prefers Adventure and Action titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.523406982421875
+      },
+      {
+        "item_id": "329",
+        "title": "Star Trek: Generations",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.264679908752441
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 8.165858268737793
+      },
+      {
+        "item_id": "552",
+        "title": "Three Musketeers, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.099889755249023
+      },
+      {
+        "item_id": "349",
+        "title": "Clear and Present Danger",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.051423072814941
+      },
+      {
+        "item_id": "1049",
+        "title": "Ghost and the Darkness, The",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.015594482421875
+      },
+      {
+        "item_id": "10",
+        "title": "GoldenEye",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.887342929840088
+      },
+      {
+        "item_id": "736",
+        "title": "Twister",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 7.828763008117676
+      },
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 7.609163761138916
+      },
+      {
+        "item_id": "316",
+        "title": "Stargate",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 7.518861770629883
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.48814814814814816
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000007.6091637611
+      },
+      {
+        "item_id": "2054",
+        "title": "Honey, I Shrunk the Kids",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1989,
+        "base_score": 1000007.4048547745
+      },
+      {
+        "item_id": "1031",
+        "title": "Bedknobs and Broomsticks",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000007.3910737038
+      },
+      {
+        "item_id": "60",
+        "title": "Indian in the Cupboard, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000007.3371129036
+      },
+      {
+        "item_id": "1019",
+        "title": "20,000 Leagues Under the Sea",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1954,
+        "base_score": 1000007.1173539162
+      },
+      {
+        "item_id": "2005",
+        "title": "Goonies, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 1000007.0657896996
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.523406982421875
+      },
+      {
+        "item_id": "329",
+        "title": "Star Trek: Generations",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.264679908752441
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 8.165858268737793
+      },
+      {
+        "item_id": "552",
+        "title": "Three Musketeers, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.099889755249023
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 6,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.603968253968254
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2775093116797507,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.523406982421875
+            },
+            {
+              "item_id": "329",
+              "title": "Star Trek: Generations",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.264679908752441
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 8.165858268737793
+            },
+            {
+              "item_id": "552",
+              "title": "Three Musketeers, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.099889755249023
+            },
+            {
+              "item_id": "349",
+              "title": "Clear and Present Danger",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.051423072814941
+            },
+            {
+              "item_id": "1049",
+              "title": "Ghost and the Darkness, The",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.015594482421875
+            },
+            {
+              "item_id": "10",
+              "title": "GoldenEye",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.887342929840088
+            },
+            {
+              "item_id": "736",
+              "title": "Twister",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 7.828763008117676
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.609163761138916
+            },
+            {
+              "item_id": "2054",
+              "title": "Honey, I Shrunk the Kids",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1989,
+              "base_score": 7.404854774475098
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.548015873015873
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.523406982421875
+            },
+            {
+              "item_id": "329",
+              "title": "Star Trek: Generations",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.264679908752441
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 8.165858268737793
+            },
+            {
+              "item_id": "552",
+              "title": "Three Musketeers, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.099889755249023
+            },
+            {
+              "item_id": "349",
+              "title": "Clear and Present Danger",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.051423072814941
+            },
+            {
+              "item_id": "1049",
+              "title": "Ghost and the Darkness, The",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.015594482421875
+            },
+            {
+              "item_id": "10",
+              "title": "GoldenEye",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.887342929840088
+            },
+            {
+              "item_id": "736",
+              "title": "Twister",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 7.828763008117676
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.609163761138916
+            },
+            {
+              "item_id": "2054",
+              "title": "Honey, I Shrunk the Kids",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1989,
+              "base_score": 7.404854774475098
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.548015873015873
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.722113259136677,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "380",
+            "title": "True Lies",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.523406982421875
+          },
+          {
+            "item_id": "329",
+            "title": "Star Trek: Generations",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.264679908752441
+          },
+          {
+            "item_id": "2006",
+            "title": "Mask of Zorro, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 8.165858268737793
+          },
+          {
+            "item_id": "552",
+            "title": "Three Musketeers, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 8.099889755249023
+          },
+          {
+            "item_id": "349",
+            "title": "Clear and Present Danger",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.051423072814941
+          },
+          {
+            "item_id": "1049",
+            "title": "Ghost and the Darkness, The",
+            "genre": [
+              "Action",
+              "Adventure"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 8.015594482421875
+          },
+          {
+            "item_id": "10",
+            "title": "GoldenEye",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 7.887342929840088
+          },
+          {
+            "item_id": "2046",
+            "title": "Flight of the Navigator",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 7.609163761138916
+          },
+          {
+            "item_id": "2054",
+            "title": "Honey, I Shrunk the Kids",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1989,
+            "base_score": 7.404854774475098
+          },
+          {
+            "item_id": "1031",
+            "title": "Bedknobs and Broomsticks",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 7.391073703765869
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 3,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5967195767195769
+      }
+    ]
+  }
+}

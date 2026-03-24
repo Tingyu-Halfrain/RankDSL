@@ -1,0 +1,906 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-036",
+  "user_id": "24",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "2657",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-036",
+      "user_summary": "The user is a Female who is 25-34 years old and works as a executive/managerial. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 5,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "2877",
+        "title": "Tommy",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1975,
+        "base_score": 4.573141098022461
+      },
+      {
+        "item_id": "1380",
+        "title": "Grease",
+        "genre": [
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1978,
+        "base_score": 4.326513767242432
+      },
+      {
+        "item_id": "1031",
+        "title": "Bedknobs and Broomsticks",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 4.018052577972412
+      },
+      {
+        "item_id": "2657",
+        "title": "Rocky Horror Picture Show, The",
+        "genre": [
+          "Comedy",
+          "Horror",
+          "Musical",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 3.9666388034820557
+      },
+      {
+        "item_id": "2640",
+        "title": "Superman",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1978,
+        "base_score": 3.721330404281616
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 3.6939215660095215
+      },
+      {
+        "item_id": "1954",
+        "title": "Rocky",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1976,
+        "base_score": 3.6224772930145264
+      },
+      {
+        "item_id": "1193",
+        "title": "One Flew Over the Cuckoo's Nest",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1975,
+        "base_score": 3.5021047592163086
+      },
+      {
+        "item_id": "260",
+        "title": "Star Wars: Episode IV - A New Hope",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1977,
+        "base_score": 3.4429221153259277
+      },
+      {
+        "item_id": "2115",
+        "title": "Indiana Jones and the Temple of Doom",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 3.329982280731201
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.8258730158730158
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 5,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "1031",
+        "title": "Bedknobs and Broomsticks",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000004.018052578
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000003.693921566
+      },
+      {
+        "item_id": "2137",
+        "title": "Charlotte's Web",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1973,
+        "base_score": 1000002.7642560005
+      },
+      {
+        "item_id": "2877",
+        "title": "Tommy",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1975,
+        "base_score": 4.573141098022461
+      },
+      {
+        "item_id": "1380",
+        "title": "Grease",
+        "genre": [
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1978,
+        "base_score": 4.326513767242432
+      },
+      {
+        "item_id": "2640",
+        "title": "Superman",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1978,
+        "base_score": 3.721330404281616
+      },
+      {
+        "item_id": "1954",
+        "title": "Rocky",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1976,
+        "base_score": 3.6224772930145264
+      },
+      {
+        "item_id": "1193",
+        "title": "One Flew Over the Cuckoo's Nest",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1975,
+        "base_score": 3.5021047592163086
+      },
+      {
+        "item_id": "260",
+        "title": "Star Wars: Episode IV - A New Hope",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1977,
+        "base_score": 3.4429221153259277
+      },
+      {
+        "item_id": "2115",
+        "title": "Indiana Jones and the Temple of Doom",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 3.329982280731201
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 3,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.625,
+    "ild_score": 0.842962962962963
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 5.0562427886761725,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2877",
+              "title": "Tommy",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1975,
+              "base_score": 4.573141098022461
+            },
+            {
+              "item_id": "1380",
+              "title": "Grease",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1978,
+              "base_score": 4.326513767242432
+            },
+            {
+              "item_id": "1031",
+              "title": "Bedknobs and Broomsticks",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 4.018052577972412
+            },
+            {
+              "item_id": "2640",
+              "title": "Superman",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1978,
+              "base_score": 3.721330404281616
+            },
+            {
+              "item_id": "1193",
+              "title": "One Flew Over the Cuckoo's Nest",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1975,
+              "base_score": 3.5021047592163086
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 3.6939215660095215
+            },
+            {
+              "item_id": "1954",
+              "title": "Rocky",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1976,
+              "base_score": 3.6224772930145264
+            },
+            {
+              "item_id": "1136",
+              "title": "Monty Python and the Holy Grail",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1974,
+              "base_score": 3.2278268337249756
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 3.157485008239746
+            },
+            {
+              "item_id": "260",
+              "title": "Star Wars: Episode IV - A New Hope",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1977,
+              "base_score": 3.4429221153259277
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8574074074074073
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2640",
+              "title": "Superman",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1978,
+              "base_score": 3.721330404281616
+            },
+            {
+              "item_id": "2877",
+              "title": "Tommy",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1975,
+              "base_score": 4.573141098022461
+            },
+            {
+              "item_id": "1380",
+              "title": "Grease",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1978,
+              "base_score": 4.326513767242432
+            },
+            {
+              "item_id": "1954",
+              "title": "Rocky",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1976,
+              "base_score": 3.6224772930145264
+            },
+            {
+              "item_id": "1031",
+              "title": "Bedknobs and Broomsticks",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 4.018052577972412
+            },
+            {
+              "item_id": "1193",
+              "title": "One Flew Over the Cuckoo's Nest",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1975,
+              "base_score": 3.5021047592163086
+            },
+            {
+              "item_id": "260",
+              "title": "Star Wars: Episode IV - A New Hope",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1977,
+              "base_score": 3.4429221153259277
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 3.6939215660095215
+            },
+            {
+              "item_id": "1136",
+              "title": "Monty Python and the Holy Grail",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1974,
+              "base_score": 3.2278268337249756
+            },
+            {
+              "item_id": "2115",
+              "title": "Indiana Jones and the Temple of Doom",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 3.329982280731201
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 17,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.84
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.6226300159469247,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 6,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "1031",
+            "title": "Bedknobs and Broomsticks",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 4.018052577972412
+          },
+          {
+            "item_id": "1073",
+            "title": "Willy Wonka and the Chocolate Factory",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 3.6939215660095215
+          },
+          {
+            "item_id": "1380",
+            "title": "Grease",
+            "genre": [
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1978,
+            "base_score": 4.326513767242432
+          },
+          {
+            "item_id": "1136",
+            "title": "Monty Python and the Holy Grail",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1974,
+            "base_score": 3.2278268337249756
+          },
+          {
+            "item_id": "1954",
+            "title": "Rocky",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1976,
+            "base_score": 3.6224772930145264
+          },
+          {
+            "item_id": "1193",
+            "title": "One Flew Over the Cuckoo's Nest",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1975,
+            "base_score": 3.5021047592163086
+          },
+          {
+            "item_id": "260",
+            "title": "Star Wars: Episode IV - A New Hope",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1977,
+            "base_score": 3.4429221153259277
+          },
+          {
+            "item_id": "480",
+            "title": "Jurassic Park",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 3.0362722873687744
+          },
+          {
+            "item_id": "1955",
+            "title": "Kramer Vs. Kramer",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1979,
+            "base_score": 3.0829756259918213
+          },
+          {
+            "item_id": "2137",
+            "title": "Charlotte's Web",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1973,
+            "base_score": 2.764256000518799
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 3,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.75,
+        "ild_score": 0.8696296296296298
+      }
+    ]
+  }
+}

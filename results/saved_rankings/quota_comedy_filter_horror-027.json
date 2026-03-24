@@ -1,0 +1,863 @@
+{
+  "request_id": "quota_comedy_filter_horror-027",
+  "user_id": "1313",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "3755",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-027",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a college/grad student. Historically prefers Action and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 2,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "3623",
+        "title": "Mission: Impossible 2",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 6.3683648109436035
+      },
+      {
+        "item_id": "3301",
+        "title": "Whole Nine Yards, The",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.843533992767334
+      },
+      {
+        "item_id": "3452",
+        "title": "Romeo Must Die",
+        "genre": [
+          "Action",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.8007001876831055
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.672070026397705
+      },
+      {
+        "item_id": "3273",
+        "title": "Scream 3",
+        "genre": [
+          "Horror",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 2000,
+        "base_score": 5.572647571563721
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.501644134521484
+      },
+      {
+        "item_id": "648",
+        "title": "Mission: Impossible",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Mystery"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 5.501349925994873
+      },
+      {
+        "item_id": "3624",
+        "title": "Shanghai Noon",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.4459052085876465
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.283650875091553
+      },
+      {
+        "item_id": "3744",
+        "title": "Shaft",
+        "genre": [
+          "Action",
+          "Crime"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.210630416870117
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 2,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8003703703703705
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3301",
+        "title": "Whole Nine Yards, The",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000005.8435339928
+      },
+      {
+        "item_id": "2858",
+        "title": "American Beauty",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000005.2836508751
+      },
+      {
+        "item_id": "3752",
+        "title": "Me, Myself and Irene",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000004.6524500847
+      },
+      {
+        "item_id": "3623",
+        "title": "Mission: Impossible 2",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 6.3683648109436035
+      },
+      {
+        "item_id": "3452",
+        "title": "Romeo Must Die",
+        "genre": [
+          "Action",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.8007001876831055
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.672070026397705
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.501644134521484
+      },
+      {
+        "item_id": "648",
+        "title": "Mission: Impossible",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Mystery"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 5.501349925994873
+      },
+      {
+        "item_id": "3624",
+        "title": "Shanghai Noon",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.4459052085876465
+      },
+      {
+        "item_id": "3744",
+        "title": "Shaft",
+        "genre": [
+          "Action",
+          "Crime"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 5.210630416870117
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7881481481481482
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.271305785048753,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3623",
+              "title": "Mission: Impossible 2",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.3683648109436035
+            },
+            {
+              "item_id": "3301",
+              "title": "Whole Nine Yards, The",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.843533992767334
+            },
+            {
+              "item_id": "3452",
+              "title": "Romeo Must Die",
+              "genre": [
+                "Action",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.8007001876831055
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.672070026397705
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.501644134521484
+            },
+            {
+              "item_id": "648",
+              "title": "Mission: Impossible",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Mystery"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 5.501349925994873
+            },
+            {
+              "item_id": "2858",
+              "title": "American Beauty",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.283650875091553
+            },
+            {
+              "item_id": "3624",
+              "title": "Shanghai Noon",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.4459052085876465
+            },
+            {
+              "item_id": "3744",
+              "title": "Shaft",
+              "genre": [
+                "Action",
+                "Crime"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.210630416870117
+            },
+            {
+              "item_id": "3752",
+              "title": "Me, Myself and Irene",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 4.652450084686279
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7881481481481482
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3623",
+              "title": "Mission: Impossible 2",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 6.3683648109436035
+            },
+            {
+              "item_id": "3301",
+              "title": "Whole Nine Yards, The",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 5.843533992767334
+            },
+            {
+              "item_id": "3452",
+              "title": "Romeo Must Die",
+              "genre": [
+                "Action",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.8007001876831055
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.672070026397705
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.501644134521484
+            },
+            {
+              "item_id": "648",
+              "title": "Mission: Impossible",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Mystery"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 5.501349925994873
+            },
+            {
+              "item_id": "2858",
+              "title": "American Beauty",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.283650875091553
+            },
+            {
+              "item_id": "3624",
+              "title": "Shanghai Noon",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.4459052085876465
+            },
+            {
+              "item_id": "3744",
+              "title": "Shaft",
+              "genre": [
+                "Action",
+                "Crime"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.210630416870117
+            },
+            {
+              "item_id": "3752",
+              "title": "Me, Myself and Irene",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 4.652450084686279
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7881481481481482
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.371000141836703,
+        "hit@10": 1.0,
+        "ndcg@10": 0.31546487678572877,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "3623",
+            "title": "Mission: Impossible 2",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 6.3683648109436035
+          },
+          {
+            "item_id": "3301",
+            "title": "Whole Nine Yards, The",
+            "genre": [
+              "Comedy",
+              "Crime"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.843533992767334
+          },
+          {
+            "item_id": "3452",
+            "title": "Romeo Must Die",
+            "genre": [
+              "Action",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.8007001876831055
+          },
+          {
+            "item_id": "3578",
+            "title": "Gladiator",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.501644134521484
+          },
+          {
+            "item_id": "648",
+            "title": "Mission: Impossible",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Mystery"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 5.501349925994873
+          },
+          {
+            "item_id": "2858",
+            "title": "American Beauty",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.283650875091553
+          },
+          {
+            "item_id": "3744",
+            "title": "Shaft",
+            "genre": [
+              "Action",
+              "Crime"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.210630416870117
+          },
+          {
+            "item_id": "3755",
+            "title": "Perfect Storm, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.023705005645752
+          },
+          {
+            "item_id": "3555",
+            "title": "U-571",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 4.984644889831543
+          },
+          {
+            "item_id": "3752",
+            "title": "Me, Myself and Irene",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 4.652450084686279
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 3,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.7814814814814818
+      }
+    ]
+  }
+}

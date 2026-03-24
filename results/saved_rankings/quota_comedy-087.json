@@ -1,0 +1,797 @@
+{
+  "request_id": "quota_comedy-087",
+  "user_id": "1400",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "1923",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-087",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a executive/managerial. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 6.260819435119629
+      },
+      {
+        "item_id": "3100",
+        "title": "River Runs Through It, A",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 5.889470100402832
+      },
+      {
+        "item_id": "2321",
+        "title": "Pleasantville",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 5.7101287841796875
+      },
+      {
+        "item_id": "150",
+        "title": "Apollo 13",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 5.627751350402832
+      },
+      {
+        "item_id": "1704",
+        "title": "Good Will Hunting",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 5.541500091552734
+      },
+      {
+        "item_id": "3105",
+        "title": "Awakenings",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1990,
+        "base_score": 5.526183128356934
+      },
+      {
+        "item_id": "1500",
+        "title": "Grosse Pointe Blank",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 5.516177654266357
+      },
+      {
+        "item_id": "2359",
+        "title": "Waking Ned Devine",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 5.400551795959473
+      },
+      {
+        "item_id": "1923",
+        "title": "There's Something About Mary",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 5.395291805267334
+      },
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 5.392452716827393
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 4,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6870370370370371
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "2321",
+        "title": "Pleasantville",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 1000005.7101287842
+      },
+      {
+        "item_id": "1500",
+        "title": "Grosse Pointe Blank",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 1000005.5161776543
+      },
+      {
+        "item_id": "2359",
+        "title": "Waking Ned Devine",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 1000005.400551796
+      },
+      {
+        "item_id": "1923",
+        "title": "There's Something About Mary",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 1000005.3952918053
+      },
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 1000005.3731589317
+      },
+      {
+        "item_id": "1517",
+        "title": "Austin Powers: International Man of Mystery",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 1000005.1483106613
+      },
+      {
+        "item_id": "2302",
+        "title": "My Cousin Vinny",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 1000005.1376361847
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 1000005.1048111916
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 6.260819435119629
+      },
+      {
+        "item_id": "3100",
+        "title": "River Runs Through It, A",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 5.889470100402832
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 8,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.575925925925926
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.12229549465701,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "1393",
+              "title": "Jerry Maguire",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 6.260819435119629
+            },
+            {
+              "item_id": "2321",
+              "title": "Pleasantville",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.7101287841796875
+            },
+            {
+              "item_id": "3100",
+              "title": "River Runs Through It, A",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 5.889470100402832
+            },
+            {
+              "item_id": "1500",
+              "title": "Grosse Pointe Blank",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 5.516177654266357
+            },
+            {
+              "item_id": "150",
+              "title": "Apollo 13",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 5.627751350402832
+            },
+            {
+              "item_id": "2359",
+              "title": "Waking Ned Devine",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.400551795959473
+            },
+            {
+              "item_id": "1923",
+              "title": "There's Something About Mary",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.395291805267334
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 5.373158931732178
+            },
+            {
+              "item_id": "1704",
+              "title": "Good Will Hunting",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 5.541500091552734
+            },
+            {
+              "item_id": "3105",
+              "title": "Awakenings",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1990,
+              "base_score": 5.526183128356934
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6888888888888889
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3333333333333333,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "1393",
+              "title": "Jerry Maguire",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 6.260819435119629
+            },
+            {
+              "item_id": "2321",
+              "title": "Pleasantville",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.7101287841796875
+            },
+            {
+              "item_id": "3100",
+              "title": "River Runs Through It, A",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 5.889470100402832
+            },
+            {
+              "item_id": "1500",
+              "title": "Grosse Pointe Blank",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 5.516177654266357
+            },
+            {
+              "item_id": "150",
+              "title": "Apollo 13",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 5.627751350402832
+            },
+            {
+              "item_id": "2359",
+              "title": "Waking Ned Devine",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.400551795959473
+            },
+            {
+              "item_id": "1923",
+              "title": "There's Something About Mary",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 5.395291805267334
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 5.373158931732178
+            },
+            {
+              "item_id": "1704",
+              "title": "Good Will Hunting",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 5.541500091552734
+            },
+            {
+              "item_id": "3105",
+              "title": "Awakenings",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1990,
+              "base_score": 5.526183128356934
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6888888888888889
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.031818480230868,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3562071871080222,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 5,
+        "ranking": [
+          {
+            "item_id": "1393",
+            "title": "Jerry Maguire",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 6.260819435119629
+          },
+          {
+            "item_id": "2321",
+            "title": "Pleasantville",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 5.7101287841796875
+          },
+          {
+            "item_id": "150",
+            "title": "Apollo 13",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 5.627751350402832
+          },
+          {
+            "item_id": "1704",
+            "title": "Good Will Hunting",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 5.541500091552734
+          },
+          {
+            "item_id": "356",
+            "title": "Forrest Gump",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 5.373158931732178
+          },
+          {
+            "item_id": "1923",
+            "title": "There's Something About Mary",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 5.395291805267334
+          },
+          {
+            "item_id": "2359",
+            "title": "Waking Ned Devine",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 5.400551795959473
+          },
+          {
+            "item_id": "1500",
+            "title": "Grosse Pointe Blank",
+            "genre": [
+              "Comedy",
+              "Crime"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 5.516177654266357
+          },
+          {
+            "item_id": "1517",
+            "title": "Austin Powers: International Man of Mystery",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 5.148310661315918
+          },
+          {
+            "item_id": "1784",
+            "title": "As Good As It Gets",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 5.104811191558838
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 7,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6500000000000001
+      }
+    ]
+  }
+}

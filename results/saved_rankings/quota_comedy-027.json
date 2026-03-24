@@ -1,0 +1,818 @@
+{
+  "request_id": "quota_comedy-027",
+  "user_id": "1154",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "3534",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-027",
+      "user_summary": "The user is a Female who is under 18 years old and works as a K-12 student. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3534",
+        "title": "28 Days",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 7.972161293029785
+      },
+      {
+        "item_id": "2505",
+        "title": "8MM",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 6.97038459777832
+      },
+      {
+        "item_id": "344",
+        "title": "Ace Ventura: Pet Detective",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 6.79238224029541
+      },
+      {
+        "item_id": "2572",
+        "title": "10 Things I Hate About You",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 6.745286464691162
+      },
+      {
+        "item_id": "1459",
+        "title": "Absolute Power",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1997,
+        "base_score": 6.660498142242432
+      },
+      {
+        "item_id": "1203",
+        "title": "12 Angry Men",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1957,
+        "base_score": 6.58097505569458
+      },
+      {
+        "item_id": "1127",
+        "title": "Abyss, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 6.428646087646484
+      },
+      {
+        "item_id": "2262",
+        "title": "About Last Night...",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 6.197066307067871
+      },
+      {
+        "item_id": "932",
+        "title": "Affair to Remember, An",
+        "genre": [
+          "Romance"
+        ],
+        "dominant_genre": "Romance",
+        "release_year": 1957,
+        "base_score": 6.182658672332764
+      },
+      {
+        "item_id": "969",
+        "title": "African Queen, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1951,
+        "base_score": 6.0881829261779785
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 4,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8577777777777779
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "3534",
+        "title": "28 Days",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 1000007.972161293
+      },
+      {
+        "item_id": "344",
+        "title": "Ace Ventura: Pet Detective",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 1000006.7923822403
+      },
+      {
+        "item_id": "2572",
+        "title": "10 Things I Hate About You",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000006.7452864647
+      },
+      {
+        "item_id": "2262",
+        "title": "About Last Night...",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 1000006.1970663071
+      },
+      {
+        "item_id": "1541",
+        "title": "Addicted to Love",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 1000006.0261735916
+      },
+      {
+        "item_id": "2706",
+        "title": "American Pie",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000005.9662890434
+      },
+      {
+        "item_id": "3070",
+        "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 1000005.7947068214
+      },
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 1000005.6735601425
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 1000005.6728448868
+      },
+      {
+        "item_id": "19",
+        "title": "Ace Ventura: When Nature Calls",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000005.5904479027
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 10,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.48111111111111116
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3496688180603087,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "3534",
+              "title": "28 Days",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 7.972161293029785
+            },
+            {
+              "item_id": "344",
+              "title": "Ace Ventura: Pet Detective",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 6.79238224029541
+            },
+            {
+              "item_id": "2505",
+              "title": "8MM",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 6.97038459777832
+            },
+            {
+              "item_id": "2572",
+              "title": "10 Things I Hate About You",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.745286464691162
+            },
+            {
+              "item_id": "1459",
+              "title": "Absolute Power",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 6.660498142242432
+            },
+            {
+              "item_id": "1203",
+              "title": "12 Angry Men",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1957,
+              "base_score": 6.58097505569458
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 6.428646087646484
+            },
+            {
+              "item_id": "2262",
+              "title": "About Last Night...",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1986,
+              "base_score": 6.197066307067871
+            },
+            {
+              "item_id": "1541",
+              "title": "Addicted to Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 6.0261735916137695
+            },
+            {
+              "item_id": "932",
+              "title": "Affair to Remember, An",
+              "genre": [
+                "Romance"
+              ],
+              "dominant_genre": "Romance",
+              "release_year": 1957,
+              "base_score": 6.182658672332764
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8085185185185186
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "3534",
+              "title": "28 Days",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 7.972161293029785
+            },
+            {
+              "item_id": "344",
+              "title": "Ace Ventura: Pet Detective",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 6.79238224029541
+            },
+            {
+              "item_id": "2505",
+              "title": "8MM",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 6.97038459777832
+            },
+            {
+              "item_id": "2572",
+              "title": "10 Things I Hate About You",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.745286464691162
+            },
+            {
+              "item_id": "1459",
+              "title": "Absolute Power",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 6.660498142242432
+            },
+            {
+              "item_id": "1203",
+              "title": "12 Angry Men",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1957,
+              "base_score": 6.58097505569458
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 6.428646087646484
+            },
+            {
+              "item_id": "2262",
+              "title": "About Last Night...",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1986,
+              "base_score": 6.197066307067871
+            },
+            {
+              "item_id": "1541",
+              "title": "Addicted to Love",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 6.0261735916137695
+            },
+            {
+              "item_id": "932",
+              "title": "Affair to Remember, An",
+              "genre": [
+                "Romance"
+              ],
+              "dominant_genre": "Romance",
+              "release_year": 1957,
+              "base_score": 6.182658672332764
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 5,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8085185185185186
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8650954188778996,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "3534",
+            "title": "28 Days",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 7.972161293029785
+          },
+          {
+            "item_id": "2572",
+            "title": "10 Things I Hate About You",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 6.745286464691162
+          },
+          {
+            "item_id": "344",
+            "title": "Ace Ventura: Pet Detective",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 6.79238224029541
+          },
+          {
+            "item_id": "2706",
+            "title": "American Pie",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.966289043426514
+          },
+          {
+            "item_id": "2858",
+            "title": "American Beauty",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.553767204284668
+          },
+          {
+            "item_id": "1541",
+            "title": "Addicted to Love",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 6.0261735916137695
+          },
+          {
+            "item_id": "2262",
+            "title": "About Last Night...",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1986,
+            "base_score": 6.197066307067871
+          },
+          {
+            "item_id": "1203",
+            "title": "12 Angry Men",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1957,
+            "base_score": 6.58097505569458
+          },
+          {
+            "item_id": "2439",
+            "title": "Affliction",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 5.919018745422363
+          },
+          {
+            "item_id": "588",
+            "title": "Aladdin",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1992,
+            "base_score": 5.672844886779785
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 8,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6366666666666667
+      }
+    ]
+  }
+}

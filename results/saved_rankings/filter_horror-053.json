@@ -1,0 +1,750 @@
+{
+  "request_id": "filter_horror-053",
+  "user_id": "1416",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "2959",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-053",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a sales/marketing. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2716",
+        "title": "Ghostbusters",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 11.105611801147461
+      },
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 11.098337173461914
+      },
+      {
+        "item_id": "2712",
+        "title": "Eyes Wide Shut",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 10.524173736572266
+      },
+      {
+        "item_id": "2959",
+        "title": "Fight Club",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 9.673542022705078
+      },
+      {
+        "item_id": "2580",
+        "title": "Go",
+        "genre": [
+          "Crime"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1999,
+        "base_score": 9.654980659484863
+      },
+      {
+        "item_id": "3543",
+        "title": "Diner",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 9.508565902709961
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 9.115690231323242
+      },
+      {
+        "item_id": "3175",
+        "title": "Galaxy Quest",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1999,
+        "base_score": 9.099793434143066
+      },
+      {
+        "item_id": "3510",
+        "title": "Frequency",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 9.070172309875488
+      },
+      {
+        "item_id": "2336",
+        "title": "Elizabeth",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 8.996973037719727
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7629629629629632
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2599",
+        "title": "Election",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 11.098337173461914
+      },
+      {
+        "item_id": "2712",
+        "title": "Eyes Wide Shut",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 10.524173736572266
+      },
+      {
+        "item_id": "2959",
+        "title": "Fight Club",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 9.673542022705078
+      },
+      {
+        "item_id": "2580",
+        "title": "Go",
+        "genre": [
+          "Crime"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1999,
+        "base_score": 9.654980659484863
+      },
+      {
+        "item_id": "3543",
+        "title": "Diner",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 9.508565902709961
+      },
+      {
+        "item_id": "3578",
+        "title": "Gladiator",
+        "genre": [
+          "Action",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 9.115690231323242
+      },
+      {
+        "item_id": "3175",
+        "title": "Galaxy Quest",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1999,
+        "base_score": 9.099793434143066
+      },
+      {
+        "item_id": "3510",
+        "title": "Frequency",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 9.070172309875488
+      },
+      {
+        "item_id": "2336",
+        "title": "Elizabeth",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 8.996973037719727
+      },
+      {
+        "item_id": "1093",
+        "title": "Doors, The",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1991,
+        "base_score": 8.704790115356445
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7314814814814816
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8952979063615203,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 11.098337173461914
+            },
+            {
+              "item_id": "2712",
+              "title": "Eyes Wide Shut",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 10.524173736572266
+            },
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 9.673542022705078
+            },
+            {
+              "item_id": "2580",
+              "title": "Go",
+              "genre": [
+                "Crime"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1999,
+              "base_score": 9.654980659484863
+            },
+            {
+              "item_id": "3543",
+              "title": "Diner",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 9.508565902709961
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 9.115690231323242
+            },
+            {
+              "item_id": "3175",
+              "title": "Galaxy Quest",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1999,
+              "base_score": 9.099793434143066
+            },
+            {
+              "item_id": "3510",
+              "title": "Frequency",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 9.070172309875488
+            },
+            {
+              "item_id": "2336",
+              "title": "Elizabeth",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 8.996973037719727
+            },
+            {
+              "item_id": "1093",
+              "title": "Doors, The",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1991,
+              "base_score": 8.704790115356445
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7314814814814816
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2599",
+              "title": "Election",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 11.098337173461914
+            },
+            {
+              "item_id": "2712",
+              "title": "Eyes Wide Shut",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 10.524173736572266
+            },
+            {
+              "item_id": "2959",
+              "title": "Fight Club",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 9.673542022705078
+            },
+            {
+              "item_id": "2580",
+              "title": "Go",
+              "genre": [
+                "Crime"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1999,
+              "base_score": 9.654980659484863
+            },
+            {
+              "item_id": "3543",
+              "title": "Diner",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 9.508565902709961
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 9.115690231323242
+            },
+            {
+              "item_id": "3175",
+              "title": "Galaxy Quest",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1999,
+              "base_score": 9.099793434143066
+            },
+            {
+              "item_id": "3510",
+              "title": "Frequency",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 9.070172309875488
+            },
+            {
+              "item_id": "2336",
+              "title": "Elizabeth",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 8.996973037719727
+            },
+            {
+              "item_id": "1093",
+              "title": "Doors, The",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1991,
+              "base_score": 8.704790115356445
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7314814814814816
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.6164434356614947,
+        "hit@10": 1.0,
+        "ndcg@10": 0.5,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "2599",
+            "title": "Election",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 11.098337173461914
+          },
+          {
+            "item_id": "2712",
+            "title": "Eyes Wide Shut",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 10.524173736572266
+          },
+          {
+            "item_id": "2959",
+            "title": "Fight Club",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 9.673542022705078
+          },
+          {
+            "item_id": "3543",
+            "title": "Diner",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 9.508565902709961
+          },
+          {
+            "item_id": "3578",
+            "title": "Gladiator",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 9.115690231323242
+          },
+          {
+            "item_id": "3175",
+            "title": "Galaxy Quest",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1999,
+            "base_score": 9.099793434143066
+          },
+          {
+            "item_id": "3510",
+            "title": "Frequency",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 9.070172309875488
+          },
+          {
+            "item_id": "2336",
+            "title": "Elizabeth",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 8.996973037719727
+          },
+          {
+            "item_id": "3408",
+            "title": "Erin Brockovich",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 8.703020095825195
+          },
+          {
+            "item_id": "2718",
+            "title": "Drop Dead Gorgeous",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 8.580655097961426
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6462962962962964
+      }
+    ]
+  }
+}

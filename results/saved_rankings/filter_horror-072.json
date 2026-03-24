@@ -1,0 +1,796 @@
+{
+  "request_id": "filter_horror-072",
+  "user_id": "1554",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "377",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-072",
+      "user_summary": "The user is a Female who is 35-44 years old and works as a programmer. Historically prefers Thriller and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "733",
+        "title": "Rock, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 7.644768714904785
+      },
+      {
+        "item_id": "377",
+        "title": "Speed",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 7.470685958862305
+      },
+      {
+        "item_id": "3256",
+        "title": "Patriot Games",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 7.237433910369873
+      },
+      {
+        "item_id": "1610",
+        "title": "Hunt for Red October, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.128933429718018
+      },
+      {
+        "item_id": "1674",
+        "title": "Witness",
+        "genre": [
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 6.921182155609131
+      },
+      {
+        "item_id": "3763",
+        "title": "F/X",
+        "genre": [
+          "Action",
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 6.894705772399902
+      },
+      {
+        "item_id": "474",
+        "title": "In the Line of Fire",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 6.829006195068359
+      },
+      {
+        "item_id": "1240",
+        "title": "Terminator, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 6.812402725219727
+      },
+      {
+        "item_id": "454",
+        "title": "Firm, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 6.749514102935791
+      },
+      {
+        "item_id": "1994",
+        "title": "Poltergeist",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1982,
+        "base_score": 6.747247695922852
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5311111111111112
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "733",
+        "title": "Rock, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 7.644768714904785
+      },
+      {
+        "item_id": "377",
+        "title": "Speed",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 7.470685958862305
+      },
+      {
+        "item_id": "3256",
+        "title": "Patriot Games",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 7.237433910369873
+      },
+      {
+        "item_id": "1610",
+        "title": "Hunt for Red October, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.128933429718018
+      },
+      {
+        "item_id": "1674",
+        "title": "Witness",
+        "genre": [
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 6.921182155609131
+      },
+      {
+        "item_id": "3763",
+        "title": "F/X",
+        "genre": [
+          "Action",
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 6.894705772399902
+      },
+      {
+        "item_id": "474",
+        "title": "In the Line of Fire",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 6.829006195068359
+      },
+      {
+        "item_id": "1240",
+        "title": "Terminator, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 6.812402725219727
+      },
+      {
+        "item_id": "454",
+        "title": "Firm, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1993,
+        "base_score": 6.749514102935791
+      },
+      {
+        "item_id": "1625",
+        "title": "Game, The",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1997,
+        "base_score": 6.616183757781982
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5311111111111112
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.1277705719694495,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "733",
+              "title": "Rock, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 7.644768714904785
+            },
+            {
+              "item_id": "377",
+              "title": "Speed",
+              "genre": [
+                "Action",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 7.470685958862305
+            },
+            {
+              "item_id": "3256",
+              "title": "Patriot Games",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1992,
+              "base_score": 7.237433910369873
+            },
+            {
+              "item_id": "1610",
+              "title": "Hunt for Red October, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.128933429718018
+            },
+            {
+              "item_id": "1674",
+              "title": "Witness",
+              "genre": [
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 6.921182155609131
+            },
+            {
+              "item_id": "3763",
+              "title": "F/X",
+              "genre": [
+                "Action",
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 6.894705772399902
+            },
+            {
+              "item_id": "474",
+              "title": "In the Line of Fire",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 6.829006195068359
+            },
+            {
+              "item_id": "1240",
+              "title": "Terminator, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 6.812402725219727
+            },
+            {
+              "item_id": "454",
+              "title": "Firm, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1993,
+              "base_score": 6.749514102935791
+            },
+            {
+              "item_id": "1625",
+              "title": "Game, The",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 6.616183757781982
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5311111111111112
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "733",
+              "title": "Rock, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 7.644768714904785
+            },
+            {
+              "item_id": "377",
+              "title": "Speed",
+              "genre": [
+                "Action",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 7.470685958862305
+            },
+            {
+              "item_id": "3256",
+              "title": "Patriot Games",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1992,
+              "base_score": 7.237433910369873
+            },
+            {
+              "item_id": "1610",
+              "title": "Hunt for Red October, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.128933429718018
+            },
+            {
+              "item_id": "1674",
+              "title": "Witness",
+              "genre": [
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 6.921182155609131
+            },
+            {
+              "item_id": "3763",
+              "title": "F/X",
+              "genre": [
+                "Action",
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1986,
+              "base_score": 6.894705772399902
+            },
+            {
+              "item_id": "474",
+              "title": "In the Line of Fire",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 6.829006195068359
+            },
+            {
+              "item_id": "1240",
+              "title": "Terminator, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 6.812402725219727
+            },
+            {
+              "item_id": "454",
+              "title": "Firm, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1993,
+              "base_score": 6.749514102935791
+            },
+            {
+              "item_id": "1625",
+              "title": "Game, The",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 6.616183757781982
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5311111111111112
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.6943263900466263,
+        "hit@10": 1.0,
+        "ndcg@10": 0.6309297535714575,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "733",
+            "title": "Rock, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 7.644768714904785
+          },
+          {
+            "item_id": "377",
+            "title": "Speed",
+            "genre": [
+              "Action",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 7.470685958862305
+          },
+          {
+            "item_id": "3256",
+            "title": "Patriot Games",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1992,
+            "base_score": 7.237433910369873
+          },
+          {
+            "item_id": "1610",
+            "title": "Hunt for Red October, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1990,
+            "base_score": 7.128933429718018
+          },
+          {
+            "item_id": "1674",
+            "title": "Witness",
+            "genre": [
+              "Drama",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1985,
+            "base_score": 6.921182155609131
+          },
+          {
+            "item_id": "3763",
+            "title": "F/X",
+            "genre": [
+              "Action",
+              "Crime",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1986,
+            "base_score": 6.894705772399902
+          },
+          {
+            "item_id": "474",
+            "title": "In the Line of Fire",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 6.829006195068359
+          },
+          {
+            "item_id": "1240",
+            "title": "Terminator, The",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1984,
+            "base_score": 6.812402725219727
+          },
+          {
+            "item_id": "454",
+            "title": "Firm, The",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 6.749514102935791
+          },
+          {
+            "item_id": "1625",
+            "title": "Game, The",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1997,
+            "base_score": 6.616183757781982
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5311111111111112
+      }
+    ]
+  }
+}

@@ -1,0 +1,866 @@
+{
+  "request_id": "quota_comedy-055",
+  "user_id": "1275",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "2944",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-055",
+      "user_summary": "The user is a Male who is 50-55 years old and works as a technician/engineer. Historically prefers War and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1222",
+        "title": "Full Metal Jacket",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.728578567504883
+      },
+      {
+        "item_id": "2944",
+        "title": "Dirty Dozen, The",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1967,
+        "base_score": 8.366498947143555
+      },
+      {
+        "item_id": "1090",
+        "title": "Platoon",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1986,
+        "base_score": 8.212827682495117
+      },
+      {
+        "item_id": "1210",
+        "title": "Star Wars: Episode VI - Return of the Jedi",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1983,
+        "base_score": 8.104828834533691
+      },
+      {
+        "item_id": "1208",
+        "title": "Apocalypse Now",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1979,
+        "base_score": 8.097018241882324
+      },
+      {
+        "item_id": "1242",
+        "title": "Glory",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 7.898524284362793
+      },
+      {
+        "item_id": "2028",
+        "title": "Saving Private Ryan",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 7.830857276916504
+      },
+      {
+        "item_id": "1094",
+        "title": "Crying Game, The",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 7.7599592208862305
+      },
+      {
+        "item_id": "1200",
+        "title": "Aliens",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1986,
+        "base_score": 7.586180686950684
+      },
+      {
+        "item_id": "1263",
+        "title": "Deer Hunter, The",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1978,
+        "base_score": 7.326314449310303
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 0,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.46777777777777785
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.38685280723454163,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "356",
+        "title": "Forrest Gump",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1994,
+        "base_score": 1000007.1820950508
+      },
+      {
+        "item_id": "1078",
+        "title": "Bananas",
+        "genre": [
+          "Comedy",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1971,
+        "base_score": 1000007.035135746
+      },
+      {
+        "item_id": "3448",
+        "title": "Good Morning, Vietnam",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1987,
+        "base_score": 1000006.6982522011
+      },
+      {
+        "item_id": "1222",
+        "title": "Full Metal Jacket",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 8.728578567504883
+      },
+      {
+        "item_id": "2944",
+        "title": "Dirty Dozen, The",
+        "genre": [
+          "Action",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1967,
+        "base_score": 8.366498947143555
+      },
+      {
+        "item_id": "1090",
+        "title": "Platoon",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1986,
+        "base_score": 8.212827682495117
+      },
+      {
+        "item_id": "1210",
+        "title": "Star Wars: Episode VI - Return of the Jedi",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1983,
+        "base_score": 8.104828834533691
+      },
+      {
+        "item_id": "1208",
+        "title": "Apocalypse Now",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1979,
+        "base_score": 8.097018241882324
+      },
+      {
+        "item_id": "1242",
+        "title": "Glory",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 7.898524284362793
+      },
+      {
+        "item_id": "2028",
+        "title": "Saving Private Ryan",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 7.830857276916504
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.532010582010582
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3323505418375134,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "1222",
+              "title": "Full Metal Jacket",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 8.728578567504883
+            },
+            {
+              "item_id": "2944",
+              "title": "Dirty Dozen, The",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1967,
+              "base_score": 8.366498947143555
+            },
+            {
+              "item_id": "1090",
+              "title": "Platoon",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1986,
+              "base_score": 8.212827682495117
+            },
+            {
+              "item_id": "1210",
+              "title": "Star Wars: Episode VI - Return of the Jedi",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1983,
+              "base_score": 8.104828834533691
+            },
+            {
+              "item_id": "1208",
+              "title": "Apocalypse Now",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1979,
+              "base_score": 8.097018241882324
+            },
+            {
+              "item_id": "1242",
+              "title": "Glory",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 7.898524284362793
+            },
+            {
+              "item_id": "2028",
+              "title": "Saving Private Ryan",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 7.830857276916504
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 7.182095050811768
+            },
+            {
+              "item_id": "1078",
+              "title": "Bananas",
+              "genre": [
+                "Comedy",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1971,
+              "base_score": 7.035135746002197
+            },
+            {
+              "item_id": "3448",
+              "title": "Good Morning, Vietnam",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1987,
+              "base_score": 6.698252201080322
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.532010582010582
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "1222",
+              "title": "Full Metal Jacket",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 8.728578567504883
+            },
+            {
+              "item_id": "2944",
+              "title": "Dirty Dozen, The",
+              "genre": [
+                "Action",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1967,
+              "base_score": 8.366498947143555
+            },
+            {
+              "item_id": "1090",
+              "title": "Platoon",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1986,
+              "base_score": 8.212827682495117
+            },
+            {
+              "item_id": "1210",
+              "title": "Star Wars: Episode VI - Return of the Jedi",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance",
+                "Sci-Fi",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1983,
+              "base_score": 8.104828834533691
+            },
+            {
+              "item_id": "1208",
+              "title": "Apocalypse Now",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1979,
+              "base_score": 8.097018241882324
+            },
+            {
+              "item_id": "1242",
+              "title": "Glory",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 7.898524284362793
+            },
+            {
+              "item_id": "2028",
+              "title": "Saving Private Ryan",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 7.830857276916504
+            },
+            {
+              "item_id": "356",
+              "title": "Forrest Gump",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1994,
+              "base_score": 7.182095050811768
+            },
+            {
+              "item_id": "1078",
+              "title": "Bananas",
+              "genre": [
+                "Comedy",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1971,
+              "base_score": 7.035135746002197
+            },
+            {
+              "item_id": "3448",
+              "title": "Good Morning, Vietnam",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1987,
+              "base_score": 6.698252201080322
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 3,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.532010582010582
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.263682438991964,
+        "hit@10": 1.0,
+        "ndcg@10": 0.6309297535714575,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "1222",
+            "title": "Full Metal Jacket",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 8.728578567504883
+          },
+          {
+            "item_id": "2944",
+            "title": "Dirty Dozen, The",
+            "genre": [
+              "Action",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1967,
+            "base_score": 8.366498947143555
+          },
+          {
+            "item_id": "1090",
+            "title": "Platoon",
+            "genre": [
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1986,
+            "base_score": 8.212827682495117
+          },
+          {
+            "item_id": "1210",
+            "title": "Star Wars: Episode VI - Return of the Jedi",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Romance",
+              "Sci-Fi",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1983,
+            "base_score": 8.104828834533691
+          },
+          {
+            "item_id": "1208",
+            "title": "Apocalypse Now",
+            "genre": [
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1979,
+            "base_score": 8.097018241882324
+          },
+          {
+            "item_id": "356",
+            "title": "Forrest Gump",
+            "genre": [
+              "Comedy",
+              "Romance",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1994,
+            "base_score": 7.182095050811768
+          },
+          {
+            "item_id": "1078",
+            "title": "Bananas",
+            "genre": [
+              "Comedy",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1971,
+            "base_score": 7.035135746002197
+          },
+          {
+            "item_id": "3448",
+            "title": "Good Morning, Vietnam",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1987,
+            "base_score": 6.698252201080322
+          },
+          {
+            "item_id": "1242",
+            "title": "Glory",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1989,
+            "base_score": 7.898524284362793
+          },
+          {
+            "item_id": "2028",
+            "title": "Saving Private Ryan",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 7.830857276916504
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 3,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.532010582010582
+      }
+    ]
+  }
+}

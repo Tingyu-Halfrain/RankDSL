@@ -1,0 +1,745 @@
+{
+  "request_id": "filter_horror-096",
+  "user_id": "1796",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "3549",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-096",
+      "user_summary": "The user is a Male who is 50-55 years old and works as a lawyer. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "3606",
+        "title": "On the Town",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1949,
+        "base_score": 9.122404098510742
+      },
+      {
+        "item_id": "938",
+        "title": "Gigi",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1958,
+        "base_score": 9.045228958129883
+      },
+      {
+        "item_id": "1947",
+        "title": "West Side Story",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1961,
+        "base_score": 8.79794979095459
+      },
+      {
+        "item_id": "2565",
+        "title": "King and I, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1956,
+        "base_score": 8.593332290649414
+      },
+      {
+        "item_id": "3675",
+        "title": "White Christmas",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1954,
+        "base_score": 8.591763496398926
+      },
+      {
+        "item_id": "3549",
+        "title": "Guys and Dolls",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1955,
+        "base_score": 8.585081100463867
+      },
+      {
+        "item_id": "2857",
+        "title": "Yellow Submarine",
+        "genre": [
+          "Animation",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1968,
+        "base_score": 8.40304946899414
+      },
+      {
+        "item_id": "3545",
+        "title": "Cabaret",
+        "genre": [
+          "Musical",
+          "War"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1972,
+        "base_score": 8.27627944946289
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.085312843322754
+      },
+      {
+        "item_id": "2863",
+        "title": "Hard Day's Night, A",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1964,
+        "base_score": 7.887212753295898
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.3555555555555555
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "3606",
+        "title": "On the Town",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1949,
+        "base_score": 9.122404098510742
+      },
+      {
+        "item_id": "938",
+        "title": "Gigi",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1958,
+        "base_score": 9.045228958129883
+      },
+      {
+        "item_id": "1947",
+        "title": "West Side Story",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1961,
+        "base_score": 8.79794979095459
+      },
+      {
+        "item_id": "2565",
+        "title": "King and I, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1956,
+        "base_score": 8.593332290649414
+      },
+      {
+        "item_id": "3675",
+        "title": "White Christmas",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1954,
+        "base_score": 8.591763496398926
+      },
+      {
+        "item_id": "3549",
+        "title": "Guys and Dolls",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1955,
+        "base_score": 8.585081100463867
+      },
+      {
+        "item_id": "2857",
+        "title": "Yellow Submarine",
+        "genre": [
+          "Animation",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1968,
+        "base_score": 8.40304946899414
+      },
+      {
+        "item_id": "3545",
+        "title": "Cabaret",
+        "genre": [
+          "Musical",
+          "War"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1972,
+        "base_score": 8.27627944946289
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.085312843322754
+      },
+      {
+        "item_id": "2863",
+        "title": "Hard Day's Night, A",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1964,
+        "base_score": 7.887212753295898
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.3555555555555555
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9197721839882433,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "3606",
+              "title": "On the Town",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1949,
+              "base_score": 9.122404098510742
+            },
+            {
+              "item_id": "938",
+              "title": "Gigi",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1958,
+              "base_score": 9.045228958129883
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 8.79794979095459
+            },
+            {
+              "item_id": "2565",
+              "title": "King and I, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1956,
+              "base_score": 8.593332290649414
+            },
+            {
+              "item_id": "3675",
+              "title": "White Christmas",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1954,
+              "base_score": 8.591763496398926
+            },
+            {
+              "item_id": "3549",
+              "title": "Guys and Dolls",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1955,
+              "base_score": 8.585081100463867
+            },
+            {
+              "item_id": "2857",
+              "title": "Yellow Submarine",
+              "genre": [
+                "Animation",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1968,
+              "base_score": 8.40304946899414
+            },
+            {
+              "item_id": "3545",
+              "title": "Cabaret",
+              "genre": [
+                "Musical",
+                "War"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1972,
+              "base_score": 8.27627944946289
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.085312843322754
+            },
+            {
+              "item_id": "2863",
+              "title": "Hard Day's Night, A",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1964,
+              "base_score": 7.887212753295898
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.3555555555555555
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 5,
+          "ranking": [
+            {
+              "item_id": "3606",
+              "title": "On the Town",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1949,
+              "base_score": 9.122404098510742
+            },
+            {
+              "item_id": "938",
+              "title": "Gigi",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1958,
+              "base_score": 9.045228958129883
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 8.79794979095459
+            },
+            {
+              "item_id": "2565",
+              "title": "King and I, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1956,
+              "base_score": 8.593332290649414
+            },
+            {
+              "item_id": "3675",
+              "title": "White Christmas",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1954,
+              "base_score": 8.591763496398926
+            },
+            {
+              "item_id": "3549",
+              "title": "Guys and Dolls",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1955,
+              "base_score": 8.585081100463867
+            },
+            {
+              "item_id": "2857",
+              "title": "Yellow Submarine",
+              "genre": [
+                "Animation",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1968,
+              "base_score": 8.40304946899414
+            },
+            {
+              "item_id": "3545",
+              "title": "Cabaret",
+              "genre": [
+                "Musical",
+                "War"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1972,
+              "base_score": 8.27627944946289
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.085312843322754
+            },
+            {
+              "item_id": "2863",
+              "title": "Hard Day's Night, A",
+              "genre": [
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1964,
+              "base_score": 7.887212753295898
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.3555555555555555
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.584245352074504,
+        "hit@10": 1.0,
+        "ndcg@10": 0.5,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 5,
+        "ranking": [
+          {
+            "item_id": "938",
+            "title": "Gigi",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1958,
+            "base_score": 9.045228958129883
+          },
+          {
+            "item_id": "1947",
+            "title": "West Side Story",
+            "genre": [
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1961,
+            "base_score": 8.79794979095459
+          },
+          {
+            "item_id": "3549",
+            "title": "Guys and Dolls",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1955,
+            "base_score": 8.585081100463867
+          },
+          {
+            "item_id": "3545",
+            "title": "Cabaret",
+            "genre": [
+              "Musical",
+              "War"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1972,
+            "base_score": 8.27627944946289
+          },
+          {
+            "item_id": "2863",
+            "title": "Hard Day's Night, A",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1964,
+            "base_score": 7.887212753295898
+          },
+          {
+            "item_id": "199",
+            "title": "Umbrellas of Cherbourg, The (Parapluies de Cherbourg, Les)",
+            "genre": [
+              "Drama",
+              "Musical"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1964,
+            "base_score": 7.757416248321533
+          },
+          {
+            "item_id": "2303",
+            "title": "Nashville",
+            "genre": [
+              "Drama",
+              "Musical"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1975,
+            "base_score": 7.634080410003662
+          },
+          {
+            "item_id": "899",
+            "title": "Singin' in the Rain",
+            "genre": [
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1952,
+            "base_score": 7.5742878913879395
+          },
+          {
+            "item_id": "3199",
+            "title": "Pal Joey",
+            "genre": [
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1957,
+            "base_score": 7.349571704864502
+          },
+          {
+            "item_id": "2971",
+            "title": "All That Jazz",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1979,
+            "base_score": 7.312723636627197
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5092592592592593
+      }
+    ]
+  }
+}

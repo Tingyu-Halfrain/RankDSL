@@ -1,0 +1,765 @@
+{
+  "request_id": "filter_horror-078",
+  "user_id": "1633",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "3578",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-078",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a executive/managerial. No strong historical genre preference.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.533866882324219
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.337459564208984
+      },
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 8.137761116027832
+      },
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.891726970672607
+      },
+      {
+        "item_id": "144",
+        "title": "Brothers McMullen, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.87611198425293
+      },
+      {
+        "item_id": "1965",
+        "title": "Repo Man",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 7.698432445526123
+      },
+      {
+        "item_id": "3160",
+        "title": "Magnolia",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.383445739746094
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 7.337574481964111
+      },
+      {
+        "item_id": "3510",
+        "title": "Frequency",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 7.252734661102295
+      },
+      {
+        "item_id": "2160",
+        "title": "Rosemary's Baby",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1968,
+        "base_score": 7.229665279388428
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8851851851851852
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.533866882324219
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.337459564208984
+      },
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 8.137761116027832
+      },
+      {
+        "item_id": "110",
+        "title": "Braveheart",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.891726970672607
+      },
+      {
+        "item_id": "144",
+        "title": "Brothers McMullen, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.87611198425293
+      },
+      {
+        "item_id": "1965",
+        "title": "Repo Man",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 7.698432445526123
+      },
+      {
+        "item_id": "3160",
+        "title": "Magnolia",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 7.383445739746094
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 7.337574481964111
+      },
+      {
+        "item_id": "3510",
+        "title": "Frequency",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 2000,
+        "base_score": 7.252734661102295
+      },
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 7.079225063323975
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8611111111111113
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.059990234207362,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.533866882324219
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 8.337459564208984
+            },
+            {
+              "item_id": "2791",
+              "title": "Airplane!",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1980,
+              "base_score": 8.137761116027832
+            },
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.891726970672607
+            },
+            {
+              "item_id": "144",
+              "title": "Brothers McMullen, The",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.87611198425293
+            },
+            {
+              "item_id": "1965",
+              "title": "Repo Man",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1984,
+              "base_score": 7.698432445526123
+            },
+            {
+              "item_id": "3160",
+              "title": "Magnolia",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.383445739746094
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 7.337574481964111
+            },
+            {
+              "item_id": "3510",
+              "title": "Frequency",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 7.252734661102295
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 7.079225063323975
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8611111111111113
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.533866882324219
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 8.337459564208984
+            },
+            {
+              "item_id": "2791",
+              "title": "Airplane!",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1980,
+              "base_score": 8.137761116027832
+            },
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.891726970672607
+            },
+            {
+              "item_id": "144",
+              "title": "Brothers McMullen, The",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.87611198425293
+            },
+            {
+              "item_id": "1965",
+              "title": "Repo Man",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1984,
+              "base_score": 7.698432445526123
+            },
+            {
+              "item_id": "3160",
+              "title": "Magnolia",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 7.383445739746094
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 7.337574481964111
+            },
+            {
+              "item_id": "3510",
+              "title": "Frequency",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 2000,
+              "base_score": 7.252734661102295
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 7.079225063323975
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8611111111111113
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.3223091000691056,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "1580",
+            "title": "Men in Black",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 8.337459564208984
+          },
+          {
+            "item_id": "2791",
+            "title": "Airplane!",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1980,
+            "base_score": 8.137761116027832
+          },
+          {
+            "item_id": "110",
+            "title": "Braveheart",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 7.891726970672607
+          },
+          {
+            "item_id": "144",
+            "title": "Brothers McMullen, The",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.87611198425293
+          },
+          {
+            "item_id": "1965",
+            "title": "Repo Man",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1984,
+            "base_score": 7.698432445526123
+          },
+          {
+            "item_id": "3160",
+            "title": "Magnolia",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 7.383445739746094
+          },
+          {
+            "item_id": "2948",
+            "title": "From Russia with Love",
+            "genre": [
+              "Action"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1963,
+            "base_score": 7.337574481964111
+          },
+          {
+            "item_id": "3510",
+            "title": "Frequency",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 2000,
+            "base_score": 7.252734661102295
+          },
+          {
+            "item_id": "480",
+            "title": "Jurassic Park",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 7.069057464599609
+          },
+          {
+            "item_id": "524",
+            "title": "Rudy",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 7.005625247955322
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8177777777777778
+      }
+    ]
+  }
+}

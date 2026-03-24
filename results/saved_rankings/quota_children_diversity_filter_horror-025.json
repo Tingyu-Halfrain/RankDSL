@@ -1,0 +1,886 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-025",
+  "user_id": "1973",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "480",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-025",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a academic/educator. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.38685280723454163,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 2,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 8.637761116027832
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 8.279620170593262
+      },
+      {
+        "item_id": "2455",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1986,
+        "base_score": 8.232755661010742
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.111441612243652
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 7.825060844421387
+      },
+      {
+        "item_id": "3927",
+        "title": "Fantastic Voyage",
+        "genre": [
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1966,
+        "base_score": 7.687745571136475
+      },
+      {
+        "item_id": "2657",
+        "title": "Rocky Horror Picture Show, The",
+        "genre": [
+          "Comedy",
+          "Horror",
+          "Musical",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 7.525875091552734
+      },
+      {
+        "item_id": "2454",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1958,
+        "base_score": 7.443329334259033
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 7.440279006958008
+      },
+      {
+        "item_id": "3450",
+        "title": "Grumpy Old Men",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.32814884185791
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 1,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8055555555555554
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.38685280723454163,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 4,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 1000008.637761116
+      },
+      {
+        "item_id": "661",
+        "title": "James and the Giant Peach",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1996,
+        "base_score": 1000006.8520231247
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 8.279620170593262
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 8.111441612243652
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 7.825060844421387
+      },
+      {
+        "item_id": "3927",
+        "title": "Fantastic Voyage",
+        "genre": [
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1966,
+        "base_score": 7.687745571136475
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 7.440279006958008
+      },
+      {
+        "item_id": "3450",
+        "title": "Grumpy Old Men",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.32814884185791
+      },
+      {
+        "item_id": "3753",
+        "title": "Patriot, The",
+        "genre": [
+          "Action",
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 7.144178867340088
+      },
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 7.051031589508057
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.5,
+    "ild_score": 0.8511111111111112
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 5.072242251131684,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.38685280723454163,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 8.637761116027832
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 8.279620170593262
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.111441612243652
+            },
+            {
+              "item_id": "3927",
+              "title": "Fantastic Voyage",
+              "genre": [
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1966,
+              "base_score": 7.687745571136475
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 7.825060844421387
+            },
+            {
+              "item_id": "3450",
+              "title": "Grumpy Old Men",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.32814884185791
+            },
+            {
+              "item_id": "661",
+              "title": "James and the Giant Peach",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1996,
+              "base_score": 6.852023124694824
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 7.440279006958008
+            },
+            {
+              "item_id": "2791",
+              "title": "Airplane!",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1980,
+              "base_score": 7.051031589508057
+            },
+            {
+              "item_id": "524",
+              "title": "Rudy",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1993,
+              "base_score": 6.998908519744873
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8666666666666667
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.43067655807339306,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 8.279620170593262
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 8.637761116027832
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 8.111441612243652
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 7.825060844421387
+            },
+            {
+              "item_id": "3927",
+              "title": "Fantastic Voyage",
+              "genre": [
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1966,
+              "base_score": 7.687745571136475
+            },
+            {
+              "item_id": "3450",
+              "title": "Grumpy Old Men",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.32814884185791
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 7.440279006958008
+            },
+            {
+              "item_id": "661",
+              "title": "James and the Giant Peach",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1996,
+              "base_score": 6.852023124694824
+            },
+            {
+              "item_id": "2791",
+              "title": "Airplane!",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1980,
+              "base_score": 7.051031589508057
+            },
+            {
+              "item_id": "3753",
+              "title": "Patriot, The",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 7.144178867340088
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 14,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8511111111111112
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8685414800420403,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 2,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "551",
+            "title": "Nightmare Before Christmas, The",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1993,
+            "base_score": 8.637761116027832
+          },
+          {
+            "item_id": "2948",
+            "title": "From Russia with Love",
+            "genre": [
+              "Action"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1963,
+            "base_score": 8.279620170593262
+          },
+          {
+            "item_id": "1035",
+            "title": "Sound of Music, The",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1965,
+            "base_score": 8.111441612243652
+          },
+          {
+            "item_id": "3927",
+            "title": "Fantastic Voyage",
+            "genre": [
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1966,
+            "base_score": 7.687745571136475
+          },
+          {
+            "item_id": "661",
+            "title": "James and the Giant Peach",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1996,
+            "base_score": 6.852023124694824
+          },
+          {
+            "item_id": "3450",
+            "title": "Grumpy Old Men",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 7.32814884185791
+          },
+          {
+            "item_id": "524",
+            "title": "Rudy",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1993,
+            "base_score": 6.998908519744873
+          },
+          {
+            "item_id": "2791",
+            "title": "Airplane!",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1980,
+            "base_score": 7.051031589508057
+          },
+          {
+            "item_id": "1580",
+            "title": "Men in Black",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 7.440279006958008
+          },
+          {
+            "item_id": "3753",
+            "title": "Patriot, The",
+            "genre": [
+              "Action",
+              "Drama",
+              "War"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 7.144178867340088
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.25,
+        "ild_score": 0.8870370370370372
+      }
+    ]
+  }
+}

@@ -1,0 +1,848 @@
+{
+  "request_id": "quota_children-066",
+  "user_id": "2112",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "454",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-066",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a programmer. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "590",
+        "title": "Dances with Wolves",
+        "genre": [
+          "Adventure",
+          "Drama",
+          "Western"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1990,
+        "base_score": 6.225839138031006
+      },
+      {
+        "item_id": "2268",
+        "title": "Few Good Men, A",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1992,
+        "base_score": 5.929757118225098
+      },
+      {
+        "item_id": "733",
+        "title": "Rock, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 5.675693988800049
+      },
+      {
+        "item_id": "3255",
+        "title": "League of Their Own, A",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 5.619386196136475
+      },
+      {
+        "item_id": "1721",
+        "title": "Titanic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 5.589504241943359
+      },
+      {
+        "item_id": "3252",
+        "title": "Scent of a Woman",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 5.556957721710205
+      },
+      {
+        "item_id": "587",
+        "title": "Ghost",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 5.485271453857422
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 5.454855918884277
+      },
+      {
+        "item_id": "597",
+        "title": "Pretty Woman",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 5.375670909881592
+      },
+      {
+        "item_id": "1610",
+        "title": "Hunt for Red October, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 5.341538906097412
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 0,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8292592592592594
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 12,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000005.1418333054
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 1000005.0261850357
+      },
+      {
+        "item_id": "590",
+        "title": "Dances with Wolves",
+        "genre": [
+          "Adventure",
+          "Drama",
+          "Western"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1990,
+        "base_score": 6.225839138031006
+      },
+      {
+        "item_id": "2268",
+        "title": "Few Good Men, A",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1992,
+        "base_score": 5.929757118225098
+      },
+      {
+        "item_id": "733",
+        "title": "Rock, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 5.675693988800049
+      },
+      {
+        "item_id": "3255",
+        "title": "League of Their Own, A",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 5.619386196136475
+      },
+      {
+        "item_id": "1721",
+        "title": "Titanic",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 5.589504241943359
+      },
+      {
+        "item_id": "3252",
+        "title": "Scent of a Woman",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1992,
+        "base_score": 5.556957721710205
+      },
+      {
+        "item_id": "587",
+        "title": "Ghost",
+        "genre": [
+          "Comedy",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 5.485271453857422
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 5.454855918884277
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8600000000000001
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.196279172319919,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 12,
+          "ranking": [
+            {
+              "item_id": "590",
+              "title": "Dances with Wolves",
+              "genre": [
+                "Adventure",
+                "Drama",
+                "Western"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1990,
+              "base_score": 6.225839138031006
+            },
+            {
+              "item_id": "2268",
+              "title": "Few Good Men, A",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1992,
+              "base_score": 5.929757118225098
+            },
+            {
+              "item_id": "733",
+              "title": "Rock, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 5.675693988800049
+            },
+            {
+              "item_id": "3255",
+              "title": "League of Their Own, A",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 5.619386196136475
+            },
+            {
+              "item_id": "1721",
+              "title": "Titanic",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 5.589504241943359
+            },
+            {
+              "item_id": "3252",
+              "title": "Scent of a Woman",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 5.556957721710205
+            },
+            {
+              "item_id": "587",
+              "title": "Ghost",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 5.485271453857422
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 5.454855918884277
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 5.141833305358887
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 5.026185035705566
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8600000000000001
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 12,
+          "ranking": [
+            {
+              "item_id": "590",
+              "title": "Dances with Wolves",
+              "genre": [
+                "Adventure",
+                "Drama",
+                "Western"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1990,
+              "base_score": 6.225839138031006
+            },
+            {
+              "item_id": "2268",
+              "title": "Few Good Men, A",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1992,
+              "base_score": 5.929757118225098
+            },
+            {
+              "item_id": "733",
+              "title": "Rock, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 5.675693988800049
+            },
+            {
+              "item_id": "3255",
+              "title": "League of Their Own, A",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 5.619386196136475
+            },
+            {
+              "item_id": "1721",
+              "title": "Titanic",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 5.589504241943359
+            },
+            {
+              "item_id": "3252",
+              "title": "Scent of a Woman",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1992,
+              "base_score": 5.556957721710205
+            },
+            {
+              "item_id": "587",
+              "title": "Ghost",
+              "genre": [
+                "Comedy",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 5.485271453857422
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 5.454855918884277
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 5.141833305358887
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 5.026185035705566
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8600000000000001
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.9307581670582294,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 11,
+        "ranking": [
+          {
+            "item_id": "1721",
+            "title": "Titanic",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 5.589504241943359
+          },
+          {
+            "item_id": "2268",
+            "title": "Few Good Men, A",
+            "genre": [
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1992,
+            "base_score": 5.929757118225098
+          },
+          {
+            "item_id": "3252",
+            "title": "Scent of a Woman",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1992,
+            "base_score": 5.556957721710205
+          },
+          {
+            "item_id": "62",
+            "title": "Mr. Holland's Opus",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 5.280679702758789
+          },
+          {
+            "item_id": "1271",
+            "title": "Fried Green Tomatoes",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1991,
+            "base_score": 5.241237640380859
+          },
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 5.141833305358887
+          },
+          {
+            "item_id": "588",
+            "title": "Aladdin",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1992,
+            "base_score": 5.026185035705566
+          },
+          {
+            "item_id": "733",
+            "title": "Rock, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 5.675693988800049
+          },
+          {
+            "item_id": "480",
+            "title": "Jurassic Park",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 5.454855918884277
+          },
+          {
+            "item_id": "1610",
+            "title": "Hunt for Red October, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1990,
+            "base_score": 5.341538906097412
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 2,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8111111111111112
+      }
+    ]
+  }
+}

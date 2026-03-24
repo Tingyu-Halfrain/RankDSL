@@ -1,0 +1,736 @@
+{
+  "request_id": "diversity_dominant_genre-079",
+  "user_id": "1326",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "497",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-079",
+      "user_summary": "The user is a Female who is 25-34 years old and works as a other or not specified. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2321",
+        "title": "Pleasantville",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 6.58369779586792
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 6.378178119659424
+      },
+      {
+        "item_id": "2359",
+        "title": "Waking Ned Devine",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 6.29505729675293
+      },
+      {
+        "item_id": "150",
+        "title": "Apollo 13",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 6.2555928230285645
+      },
+      {
+        "item_id": "2336",
+        "title": "Elizabeth",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 6.027705669403076
+      },
+      {
+        "item_id": "2355",
+        "title": "Bug's Life, A",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 5.955992698669434
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 5.863348007202148
+      },
+      {
+        "item_id": "1500",
+        "title": "Grosse Pointe Blank",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 5.824609756469727
+      },
+      {
+        "item_id": "300",
+        "title": "Quiz Show",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 5.807590007781982
+      },
+      {
+        "item_id": "3105",
+        "title": "Awakenings",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1990,
+        "base_score": 5.804409027099609
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.875,
+    "ild_score": 0.6703703703703704
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2321",
+        "title": "Pleasantville",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 6.58369779586792
+      },
+      {
+        "item_id": "1393",
+        "title": "Jerry Maguire",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 6.378178119659424
+      },
+      {
+        "item_id": "2359",
+        "title": "Waking Ned Devine",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 6.29505729675293
+      },
+      {
+        "item_id": "150",
+        "title": "Apollo 13",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1995,
+        "base_score": 6.2555928230285645
+      },
+      {
+        "item_id": "2336",
+        "title": "Elizabeth",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1998,
+        "base_score": 6.027705669403076
+      },
+      {
+        "item_id": "2355",
+        "title": "Bug's Life, A",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 5.955992698669434
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 5.863348007202148
+      },
+      {
+        "item_id": "1500",
+        "title": "Grosse Pointe Blank",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 5.824609756469727
+      },
+      {
+        "item_id": "300",
+        "title": "Quiz Show",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 5.807590007781982
+      },
+      {
+        "item_id": "3105",
+        "title": "Awakenings",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1990,
+        "base_score": 5.804409027099609
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.875,
+    "ild_score": 0.6703703703703704
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.1311201718635857,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2321",
+              "title": "Pleasantville",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 6.58369779586792
+            },
+            {
+              "item_id": "1393",
+              "title": "Jerry Maguire",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 6.378178119659424
+            },
+            {
+              "item_id": "2355",
+              "title": "Bug's Life, A",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 5.955992698669434
+            },
+            {
+              "item_id": "2359",
+              "title": "Waking Ned Devine",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 6.29505729675293
+            },
+            {
+              "item_id": "150",
+              "title": "Apollo 13",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 6.2555928230285645
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.565095901489258
+            },
+            {
+              "item_id": "1784",
+              "title": "As Good As It Gets",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 5.863348007202148
+            },
+            {
+              "item_id": "2336",
+              "title": "Elizabeth",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 6.027705669403076
+            },
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 5.5483012199401855
+            },
+            {
+              "item_id": "1500",
+              "title": "Grosse Pointe Blank",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 5.824609756469727
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7955555555555555
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2321",
+              "title": "Pleasantville",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 6.58369779586792
+            },
+            {
+              "item_id": "1393",
+              "title": "Jerry Maguire",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 6.378178119659424
+            },
+            {
+              "item_id": "2355",
+              "title": "Bug's Life, A",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 5.955992698669434
+            },
+            {
+              "item_id": "2359",
+              "title": "Waking Ned Devine",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1998,
+              "base_score": 6.29505729675293
+            },
+            {
+              "item_id": "150",
+              "title": "Apollo 13",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1995,
+              "base_score": 6.2555928230285645
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 5.565095901489258
+            },
+            {
+              "item_id": "1784",
+              "title": "As Good As It Gets",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 5.863348007202148
+            },
+            {
+              "item_id": "2336",
+              "title": "Elizabeth",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1998,
+              "base_score": 6.027705669403076
+            },
+            {
+              "item_id": "110",
+              "title": "Braveheart",
+              "genre": [
+                "Action",
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 5.5483012199401855
+            },
+            {
+              "item_id": "1500",
+              "title": "Grosse Pointe Blank",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1997,
+              "base_score": 5.824609756469727
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7955555555555555
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.7338871210813522,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 7,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "2321",
+            "title": "Pleasantville",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 6.58369779586792
+          },
+          {
+            "item_id": "1393",
+            "title": "Jerry Maguire",
+            "genre": [
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 6.378178119659424
+          },
+          {
+            "item_id": "2359",
+            "title": "Waking Ned Devine",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 6.29505729675293
+          },
+          {
+            "item_id": "150",
+            "title": "Apollo 13",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 6.2555928230285645
+          },
+          {
+            "item_id": "2336",
+            "title": "Elizabeth",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1998,
+            "base_score": 6.027705669403076
+          },
+          {
+            "item_id": "2355",
+            "title": "Bug's Life, A",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 5.955992698669434
+          },
+          {
+            "item_id": "1784",
+            "title": "As Good As It Gets",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 5.863348007202148
+          },
+          {
+            "item_id": "1500",
+            "title": "Grosse Pointe Blank",
+            "genre": [
+              "Comedy",
+              "Crime"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1997,
+            "base_score": 5.824609756469727
+          },
+          {
+            "item_id": "300",
+            "title": "Quiz Show",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 5.807590007781982
+          },
+          {
+            "item_id": "3105",
+            "title": "Awakenings",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1990,
+            "base_score": 5.804409027099609
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.875,
+        "ild_score": 0.6703703703703704
+      }
+    ]
+  }
+}

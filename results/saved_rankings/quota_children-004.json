@@ -1,0 +1,839 @@
+{
+  "request_id": "quota_children-004",
+  "user_id": "109",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "1028",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-004",
+      "user_summary": "The user is a Male who is 45-49 years old and works as a scientist. Historically prefers Comedy and Adventure titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "2565",
+        "title": "King and I, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1956,
+        "base_score": 8.024967193603516
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 7.677494049072266
+      },
+      {
+        "item_id": "2135",
+        "title": "Doctor Dolittle",
+        "genre": [
+          "Adventure",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1967,
+        "base_score": 7.299386024475098
+      },
+      {
+        "item_id": "3675",
+        "title": "White Christmas",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1954,
+        "base_score": 7.284037113189697
+      },
+      {
+        "item_id": "1022",
+        "title": "Cinderella",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1950,
+        "base_score": 7.183361053466797
+      },
+      {
+        "item_id": "1380",
+        "title": "Grease",
+        "genre": [
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1978,
+        "base_score": 7.14613151550293
+      },
+      {
+        "item_id": "899",
+        "title": "Singin' in the Rain",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1952,
+        "base_score": 7.038020610809326
+      },
+      {
+        "item_id": "3549",
+        "title": "Guys and Dolls",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1955,
+        "base_score": 6.988776683807373
+      },
+      {
+        "item_id": "1947",
+        "title": "West Side Story",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1961,
+        "base_score": 6.810892105102539
+      },
+      {
+        "item_id": "1088",
+        "title": "Dirty Dancing",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1987,
+        "base_score": 6.7000532150268555
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.464074074074074
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "1022",
+        "title": "Cinderella",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1950,
+        "base_score": 1000007.1833610535
+      },
+      {
+        "item_id": "107",
+        "title": "Muppet Treasure Island",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1996,
+        "base_score": 1000006.64884758
+      },
+      {
+        "item_id": "1566",
+        "title": "Hercules",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1997,
+        "base_score": 1000006.5918879509
+      },
+      {
+        "item_id": "1028",
+        "title": "Mary Poppins",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1964,
+        "base_score": 1000006.5544099808
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 1000006.5084176064
+      },
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000006.3647956848
+      },
+      {
+        "item_id": "1024",
+        "title": "Three Caballeros, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1945,
+        "base_score": 1000006.1597180367
+      },
+      {
+        "item_id": "2565",
+        "title": "King and I, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1956,
+        "base_score": 8.024967193603516
+      },
+      {
+        "item_id": "1035",
+        "title": "Sound of Music, The",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1965,
+        "base_score": 7.677494049072266
+      },
+      {
+        "item_id": "2135",
+        "title": "Doctor Dolittle",
+        "genre": [
+          "Adventure",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1967,
+        "base_score": 7.299386024475098
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 7,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4992592592592594
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.108021591324359,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "2565",
+              "title": "King and I, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1956,
+              "base_score": 8.024967193603516
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 7.677494049072266
+            },
+            {
+              "item_id": "1022",
+              "title": "Cinderella",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1950,
+              "base_score": 7.183361053466797
+            },
+            {
+              "item_id": "2135",
+              "title": "Doctor Dolittle",
+              "genre": [
+                "Adventure",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1967,
+              "base_score": 7.299386024475098
+            },
+            {
+              "item_id": "3675",
+              "title": "White Christmas",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1954,
+              "base_score": 7.284037113189697
+            },
+            {
+              "item_id": "1380",
+              "title": "Grease",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1978,
+              "base_score": 7.14613151550293
+            },
+            {
+              "item_id": "899",
+              "title": "Singin' in the Rain",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1952,
+              "base_score": 7.038020610809326
+            },
+            {
+              "item_id": "3549",
+              "title": "Guys and Dolls",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1955,
+              "base_score": 6.988776683807373
+            },
+            {
+              "item_id": "107",
+              "title": "Muppet Treasure Island",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1996,
+              "base_score": 6.648847579956055
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 6.810892105102539
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5207407407407407
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "2565",
+              "title": "King and I, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1956,
+              "base_score": 8.024967193603516
+            },
+            {
+              "item_id": "1035",
+              "title": "Sound of Music, The",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1965,
+              "base_score": 7.677494049072266
+            },
+            {
+              "item_id": "1022",
+              "title": "Cinderella",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1950,
+              "base_score": 7.183361053466797
+            },
+            {
+              "item_id": "2135",
+              "title": "Doctor Dolittle",
+              "genre": [
+                "Adventure",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1967,
+              "base_score": 7.299386024475098
+            },
+            {
+              "item_id": "3675",
+              "title": "White Christmas",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1954,
+              "base_score": 7.284037113189697
+            },
+            {
+              "item_id": "1380",
+              "title": "Grease",
+              "genre": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1978,
+              "base_score": 7.14613151550293
+            },
+            {
+              "item_id": "899",
+              "title": "Singin' in the Rain",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1952,
+              "base_score": 7.038020610809326
+            },
+            {
+              "item_id": "3549",
+              "title": "Guys and Dolls",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1955,
+              "base_score": 6.988776683807373
+            },
+            {
+              "item_id": "107",
+              "title": "Muppet Treasure Island",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1996,
+              "base_score": 6.648847579956055
+            },
+            {
+              "item_id": "1947",
+              "title": "West Side Story",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1961,
+              "base_score": 6.810892105102539
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5207407407407407
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.578928016126156,
+        "hit@10": 1.0,
+        "ndcg@10": 0.43067655807339306,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "2135",
+            "title": "Doctor Dolittle",
+            "genre": [
+              "Adventure",
+              "Musical"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1967,
+            "base_score": 7.299386024475098
+          },
+          {
+            "item_id": "107",
+            "title": "Muppet Treasure Island",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1996,
+            "base_score": 6.648847579956055
+          },
+          {
+            "item_id": "1566",
+            "title": "Hercules",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1997,
+            "base_score": 6.591887950897217
+          },
+          {
+            "item_id": "1028",
+            "title": "Mary Poppins",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1964,
+            "base_score": 6.554409980773926
+          },
+          {
+            "item_id": "1380",
+            "title": "Grease",
+            "genre": [
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1978,
+            "base_score": 7.14613151550293
+          },
+          {
+            "item_id": "1022",
+            "title": "Cinderella",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1950,
+            "base_score": 7.183361053466797
+          },
+          {
+            "item_id": "1032",
+            "title": "Alice in Wonderland",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1951,
+            "base_score": 6.50841760635376
+          },
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 6.364795684814453
+          },
+          {
+            "item_id": "2565",
+            "title": "King and I, The",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1956,
+            "base_score": 8.024967193603516
+          },
+          {
+            "item_id": "1035",
+            "title": "Sound of Music, The",
+            "genre": [
+              "Musical"
+            ],
+            "dominant_genre": "Musical",
+            "release_year": 1965,
+            "base_score": 7.677494049072266
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 6,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5585185185185189
+      }
+    ]
+  }
+}

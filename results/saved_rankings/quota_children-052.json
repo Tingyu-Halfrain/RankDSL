@@ -1,0 +1,882 @@
+{
+  "request_id": "quota_children-052",
+  "user_id": "1913",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "1028",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-052",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a technician/engineer. Historically prefers Animation and Children's titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 8.134499549865723
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 7.450697898864746
+      },
+      {
+        "item_id": "1223",
+        "title": "Grand Day Out, A",
+        "genre": [
+          "Animation",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 7.364559173583984
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 7.354197025299072
+      },
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 7.213631629943848
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 7.178483486175537
+      },
+      {
+        "item_id": "34",
+        "title": "Babe",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1995,
+        "base_score": 7.177574634552002
+      },
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 7.122569561004639
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 7.015012264251709
+      },
+      {
+        "item_id": "2987",
+        "title": "Who Framed Roger Rabbit?",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Film-Noir"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1988,
+        "base_score": 6.757010459899902
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 8,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6801587301587302
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 1000008.1344995499
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000007.4506978989
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 1000007.3541970253
+      },
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000007.21363163
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 1000007.1784834862
+      },
+      {
+        "item_id": "34",
+        "title": "Babe",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1995,
+        "base_score": 1000007.1775746346
+      },
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 1000007.122569561
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 1000007.0150122643
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 1000006.607732296
+      },
+      {
+        "item_id": "531",
+        "title": "Secret Garden, The",
+        "genre": [
+          "Children's",
+          "Drama"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 1000006.5926713943
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 10,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5997883597883598
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.4293537130579352,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2018",
+              "title": "Bambi",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1942,
+              "base_score": 8.134499549865723
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 7.450697898864746
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.354197025299072
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 7.213631629943848
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 7.178483486175537
+            },
+            {
+              "item_id": "34",
+              "title": "Babe",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1995,
+              "base_score": 7.177574634552002
+            },
+            {
+              "item_id": "1223",
+              "title": "Grand Day Out, A",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.364559173583984
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 7.122569561004639
+            },
+            {
+              "item_id": "1032",
+              "title": "Alice in Wonderland",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1951,
+              "base_score": 7.015012264251709
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 6.60773229598999
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 9,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6042328042328042
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2018",
+              "title": "Bambi",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1942,
+              "base_score": 8.134499549865723
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 7.450697898864746
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.354197025299072
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 7.213631629943848
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 7.178483486175537
+            },
+            {
+              "item_id": "34",
+              "title": "Babe",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1995,
+              "base_score": 7.177574634552002
+            },
+            {
+              "item_id": "1223",
+              "title": "Grand Day Out, A",
+              "genre": [
+                "Animation",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.364559173583984
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 7.122569561004639
+            },
+            {
+              "item_id": "1032",
+              "title": "Alice in Wonderland",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1951,
+              "base_score": 7.015012264251709
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 6.60773229598999
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 9,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6042328042328042
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.568750117905438,
+        "hit@10": 1.0,
+        "ndcg@10": 0.2890648263178879,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "2018",
+            "title": "Bambi",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1942,
+            "base_score": 8.134499549865723
+          },
+          {
+            "item_id": "588",
+            "title": "Aladdin",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1992,
+            "base_score": 7.354197025299072
+          },
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 7.213631629943848
+          },
+          {
+            "item_id": "1097",
+            "title": "E.T. the Extra-Terrestrial",
+            "genre": [
+              "Children's",
+              "Drama",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1982,
+            "base_score": 7.178483486175537
+          },
+          {
+            "item_id": "34",
+            "title": "Babe",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1995,
+            "base_score": 7.177574634552002
+          },
+          {
+            "item_id": "551",
+            "title": "Nightmare Before Christmas, The",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1993,
+            "base_score": 7.122569561004639
+          },
+          {
+            "item_id": "3751",
+            "title": "Chicken Run",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 2000,
+            "base_score": 6.60773229598999
+          },
+          {
+            "item_id": "1",
+            "title": "Toy Story",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 6.431848526000977
+          },
+          {
+            "item_id": "2081",
+            "title": "Little Mermaid, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1989,
+            "base_score": 6.08459997177124
+          },
+          {
+            "item_id": "1028",
+            "title": "Mary Poppins",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1964,
+            "base_score": 5.813503742218018
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 10,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5147883597883597
+      }
+    ]
+  }
+}

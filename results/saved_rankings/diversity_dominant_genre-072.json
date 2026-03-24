@@ -1,0 +1,802 @@
+{
+  "request_id": "diversity_dominant_genre-072",
+  "user_id": "1302",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1644",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-072",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a college/grad student. Historically prefers Thriller and Sci-Fi titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1644",
+        "title": "I Know What You Did Last Summer",
+        "genre": [
+          "Horror",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1997,
+        "base_score": 8.234992980957031
+      },
+      {
+        "item_id": "257",
+        "title": "Just Cause",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1995,
+        "base_score": 7.464676380157471
+      },
+      {
+        "item_id": "2126",
+        "title": "Snake Eyes",
+        "genre": [
+          "Action",
+          "Crime",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 7.203937530517578
+      },
+      {
+        "item_id": "1320",
+        "title": "Alien³",
+        "genre": [
+          "Action",
+          "Horror",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 6.999338150024414
+      },
+      {
+        "item_id": "1917",
+        "title": "Armageddon",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 6.943295955657959
+      },
+      {
+        "item_id": "1687",
+        "title": "Jackal, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 6.879656791687012
+      },
+      {
+        "item_id": "1876",
+        "title": "Deep Impact",
+        "genre": [
+          "Action",
+          "Drama",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 6.8620734214782715
+      },
+      {
+        "item_id": "1831",
+        "title": "Lost in Space",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 6.830250263214111
+      },
+      {
+        "item_id": "1479",
+        "title": "Saint, The",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 6.780474662780762
+      },
+      {
+        "item_id": "1779",
+        "title": "Sphere",
+        "genre": [
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1998,
+        "base_score": 6.666094779968262
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.875,
+    "ild_score": 0.5914814814814814
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "1644",
+        "title": "I Know What You Did Last Summer",
+        "genre": [
+          "Horror",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1997,
+        "base_score": 8.234992980957031
+      },
+      {
+        "item_id": "257",
+        "title": "Just Cause",
+        "genre": [
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Mystery",
+        "release_year": 1995,
+        "base_score": 7.464676380157471
+      },
+      {
+        "item_id": "2126",
+        "title": "Snake Eyes",
+        "genre": [
+          "Action",
+          "Crime",
+          "Mystery",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 7.203937530517578
+      },
+      {
+        "item_id": "1320",
+        "title": "Alien³",
+        "genre": [
+          "Action",
+          "Horror",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 6.999338150024414
+      },
+      {
+        "item_id": "1917",
+        "title": "Armageddon",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 6.943295955657959
+      },
+      {
+        "item_id": "1687",
+        "title": "Jackal, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 6.879656791687012
+      },
+      {
+        "item_id": "1876",
+        "title": "Deep Impact",
+        "genre": [
+          "Action",
+          "Drama",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 6.8620734214782715
+      },
+      {
+        "item_id": "1831",
+        "title": "Lost in Space",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 6.830250263214111
+      },
+      {
+        "item_id": "1479",
+        "title": "Saint, The",
+        "genre": [
+          "Action",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 6.780474662780762
+      },
+      {
+        "item_id": "1779",
+        "title": "Sphere",
+        "genre": [
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1998,
+        "base_score": 6.666094779968262
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.875,
+    "ild_score": 0.5914814814814814
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.4250366082414985,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "1644",
+              "title": "I Know What You Did Last Summer",
+              "genre": [
+                "Horror",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1997,
+              "base_score": 8.234992980957031
+            },
+            {
+              "item_id": "257",
+              "title": "Just Cause",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1995,
+              "base_score": 7.464676380157471
+            },
+            {
+              "item_id": "2126",
+              "title": "Snake Eyes",
+              "genre": [
+                "Action",
+                "Crime",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 7.203937530517578
+            },
+            {
+              "item_id": "1779",
+              "title": "Sphere",
+              "genre": [
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1998,
+              "base_score": 6.666094779968262
+            },
+            {
+              "item_id": "2672",
+              "title": "Thirteenth Floor, The",
+              "genre": [
+                "Drama",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.628814220428467
+            },
+            {
+              "item_id": "1320",
+              "title": "Alien³",
+              "genre": [
+                "Action",
+                "Horror",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1992,
+              "base_score": 6.999338150024414
+            },
+            {
+              "item_id": "1459",
+              "title": "Absolute Power",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 6.476846218109131
+            },
+            {
+              "item_id": "407",
+              "title": "In the Mouth of Madness",
+              "genre": [
+                "Horror",
+                "Thriller"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1995,
+              "base_score": 6.423455238342285
+            },
+            {
+              "item_id": "1917",
+              "title": "Armageddon",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 6.943295955657959
+            },
+            {
+              "item_id": "1892",
+              "title": "Perfect Murder, A",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1998,
+              "base_score": 6.42483377456665
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6070370370370372
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "2126",
+              "title": "Snake Eyes",
+              "genre": [
+                "Action",
+                "Crime",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 7.203937530517578
+            },
+            {
+              "item_id": "1644",
+              "title": "I Know What You Did Last Summer",
+              "genre": [
+                "Horror",
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Horror",
+              "release_year": 1997,
+              "base_score": 8.234992980957031
+            },
+            {
+              "item_id": "257",
+              "title": "Just Cause",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1995,
+              "base_score": 7.464676380157471
+            },
+            {
+              "item_id": "1320",
+              "title": "Alien³",
+              "genre": [
+                "Action",
+                "Horror",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1992,
+              "base_score": 6.999338150024414
+            },
+            {
+              "item_id": "1779",
+              "title": "Sphere",
+              "genre": [
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1998,
+              "base_score": 6.666094779968262
+            },
+            {
+              "item_id": "1459",
+              "title": "Absolute Power",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1997,
+              "base_score": 6.476846218109131
+            },
+            {
+              "item_id": "1917",
+              "title": "Armageddon",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 6.943295955657959
+            },
+            {
+              "item_id": "2672",
+              "title": "Thirteenth Floor, The",
+              "genre": [
+                "Drama",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 6.628814220428467
+            },
+            {
+              "item_id": "1892",
+              "title": "Perfect Murder, A",
+              "genre": [
+                "Mystery",
+                "Thriller"
+              ],
+              "dominant_genre": "Mystery",
+              "release_year": 1998,
+              "base_score": 6.42483377456665
+            },
+            {
+              "item_id": "1687",
+              "title": "Jackal, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 6.879656791687012
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6029629629629631
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.7858483819290996,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 4,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "1644",
+            "title": "I Know What You Did Last Summer",
+            "genre": [
+              "Horror",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1997,
+            "base_score": 8.234992980957031
+          },
+          {
+            "item_id": "257",
+            "title": "Just Cause",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1995,
+            "base_score": 7.464676380157471
+          },
+          {
+            "item_id": "2126",
+            "title": "Snake Eyes",
+            "genre": [
+              "Action",
+              "Crime",
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 7.203937530517578
+          },
+          {
+            "item_id": "1320",
+            "title": "Alien³",
+            "genre": [
+              "Action",
+              "Horror",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1992,
+            "base_score": 6.999338150024414
+          },
+          {
+            "item_id": "1779",
+            "title": "Sphere",
+            "genre": [
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1998,
+            "base_score": 6.666094779968262
+          },
+          {
+            "item_id": "1917",
+            "title": "Armageddon",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 6.943295955657959
+          },
+          {
+            "item_id": "1459",
+            "title": "Absolute Power",
+            "genre": [
+              "Mystery",
+              "Thriller"
+            ],
+            "dominant_genre": "Mystery",
+            "release_year": 1997,
+            "base_score": 6.476846218109131
+          },
+          {
+            "item_id": "1687",
+            "title": "Jackal, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 6.879656791687012
+          },
+          {
+            "item_id": "407",
+            "title": "In the Mouth of Madness",
+            "genre": [
+              "Horror",
+              "Thriller"
+            ],
+            "dominant_genre": "Horror",
+            "release_year": 1995,
+            "base_score": 6.423455238342285
+          },
+          {
+            "item_id": "2840",
+            "title": "Stigmata",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 6.4184041023254395
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.5,
+        "ild_score": 0.6159259259259261
+      }
+    ]
+  }
+}

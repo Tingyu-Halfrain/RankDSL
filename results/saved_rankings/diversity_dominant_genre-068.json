@@ -1,0 +1,731 @@
+{
+  "request_id": "diversity_dominant_genre-068",
+  "user_id": "1281",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "3897",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-068",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a unemployed. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 5,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "3851",
+        "title": "I'm the One That I Want",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.9977707862854
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.427433013916016
+      },
+      {
+        "item_id": "3859",
+        "title": "Eyes of Tammy Faye, The",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 2000,
+        "base_score": 6.342044830322266
+      },
+      {
+        "item_id": "3317",
+        "title": "Wonder Boys",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.299087047576904
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 6.245334148406982
+      },
+      {
+        "item_id": "3328",
+        "title": "Ghost Dog: The Way of the Samurai",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1999,
+        "base_score": 5.871959686279297
+      },
+      {
+        "item_id": "3538",
+        "title": "East is East",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.845082759857178
+      },
+      {
+        "item_id": "3852",
+        "title": "Tao of Steve, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.837827682495117
+      },
+      {
+        "item_id": "3747",
+        "title": "Jesus' Son",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.7848687171936035
+      },
+      {
+        "item_id": "3357",
+        "title": "East-West (Est-ouest)",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.7803168296813965
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.625,
+    "ild_score": 0.7314814814814816
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 5,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "3851",
+        "title": "I'm the One That I Want",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.9977707862854
+      },
+      {
+        "item_id": "3481",
+        "title": "High Fidelity",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.427433013916016
+      },
+      {
+        "item_id": "3859",
+        "title": "Eyes of Tammy Faye, The",
+        "genre": [
+          "Documentary"
+        ],
+        "dominant_genre": "Documentary",
+        "release_year": 2000,
+        "base_score": 6.342044830322266
+      },
+      {
+        "item_id": "3317",
+        "title": "Wonder Boys",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 6.299087047576904
+      },
+      {
+        "item_id": "3751",
+        "title": "Chicken Run",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 2000,
+        "base_score": 6.245334148406982
+      },
+      {
+        "item_id": "3328",
+        "title": "Ghost Dog: The Way of the Samurai",
+        "genre": [
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1999,
+        "base_score": 5.871959686279297
+      },
+      {
+        "item_id": "3538",
+        "title": "East is East",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 5.845082759857178
+      },
+      {
+        "item_id": "3852",
+        "title": "Tao of Steve, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 2000,
+        "base_score": 5.837827682495117
+      },
+      {
+        "item_id": "3747",
+        "title": "Jesus' Son",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.7848687171936035
+      },
+      {
+        "item_id": "3357",
+        "title": "East-West (Est-ouest)",
+        "genre": [
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1999,
+        "base_score": 5.7803168296813965
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.625,
+    "ild_score": 0.7314814814814816
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.5107800108380616,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "3851",
+              "title": "I'm the One That I Want",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.9977707862854
+            },
+            {
+              "item_id": "3859",
+              "title": "Eyes of Tammy Faye, The",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 2000,
+              "base_score": 6.342044830322266
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 6.245334148406982
+            },
+            {
+              "item_id": "3481",
+              "title": "High Fidelity",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.427433013916016
+            },
+            {
+              "item_id": "3328",
+              "title": "Ghost Dog: The Way of the Samurai",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1999,
+              "base_score": 5.871959686279297
+            },
+            {
+              "item_id": "3747",
+              "title": "Jesus' Son",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.7848687171936035
+            },
+            {
+              "item_id": "3317",
+              "title": "Wonder Boys",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.299087047576904
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.586997985839844
+            },
+            {
+              "item_id": "3357",
+              "title": "East-West (Est-ouest)",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.7803168296813965
+            },
+            {
+              "item_id": "3538",
+              "title": "East is East",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.845082759857178
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7833333333333334
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 8,
+          "ranking": [
+            {
+              "item_id": "3851",
+              "title": "I'm the One That I Want",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.9977707862854
+            },
+            {
+              "item_id": "3859",
+              "title": "Eyes of Tammy Faye, The",
+              "genre": [
+                "Documentary"
+              ],
+              "dominant_genre": "Documentary",
+              "release_year": 2000,
+              "base_score": 6.342044830322266
+            },
+            {
+              "item_id": "3751",
+              "title": "Chicken Run",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 2000,
+              "base_score": 6.245334148406982
+            },
+            {
+              "item_id": "3481",
+              "title": "High Fidelity",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.427433013916016
+            },
+            {
+              "item_id": "3328",
+              "title": "Ghost Dog: The Way of the Samurai",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1999,
+              "base_score": 5.871959686279297
+            },
+            {
+              "item_id": "3747",
+              "title": "Jesus' Son",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.7848687171936035
+            },
+            {
+              "item_id": "3317",
+              "title": "Wonder Boys",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 2000,
+              "base_score": 6.299087047576904
+            },
+            {
+              "item_id": "3578",
+              "title": "Gladiator",
+              "genre": [
+                "Action",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 5.586997985839844
+            },
+            {
+              "item_id": "3357",
+              "title": "East-West (Est-ouest)",
+              "genre": [
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1999,
+              "base_score": 5.7803168296813965
+            },
+            {
+              "item_id": "3538",
+              "title": "East is East",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 5.845082759857178
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7833333333333334
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.044013184029609,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 2,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "3851",
+            "title": "I'm the One That I Want",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 6.9977707862854
+          },
+          {
+            "item_id": "3481",
+            "title": "High Fidelity",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 6.427433013916016
+          },
+          {
+            "item_id": "3859",
+            "title": "Eyes of Tammy Faye, The",
+            "genre": [
+              "Documentary"
+            ],
+            "dominant_genre": "Documentary",
+            "release_year": 2000,
+            "base_score": 6.342044830322266
+          },
+          {
+            "item_id": "3317",
+            "title": "Wonder Boys",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 6.299087047576904
+          },
+          {
+            "item_id": "3751",
+            "title": "Chicken Run",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 2000,
+            "base_score": 6.245334148406982
+          },
+          {
+            "item_id": "3328",
+            "title": "Ghost Dog: The Way of the Samurai",
+            "genre": [
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1999,
+            "base_score": 5.871959686279297
+          },
+          {
+            "item_id": "3538",
+            "title": "East is East",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 5.845082759857178
+          },
+          {
+            "item_id": "3747",
+            "title": "Jesus' Son",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1999,
+            "base_score": 5.7848687171936035
+          },
+          {
+            "item_id": "3578",
+            "title": "Gladiator",
+            "genre": [
+              "Action",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 5.586997985839844
+          },
+          {
+            "item_id": "3536",
+            "title": "Keeping the Faith",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 2000,
+            "base_score": 5.585397243499756
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.25,
+        "ild_score": 0.7703703703703705
+      }
+    ]
+  }
+}

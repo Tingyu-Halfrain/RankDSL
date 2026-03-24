@@ -1,0 +1,762 @@
+{
+  "request_id": "diversity_dominant_genre-060",
+  "user_id": "1256",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1358",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-060",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a writer. Historically prefers Thriller and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 3,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "3551",
+        "title": "Marathon Man",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1976,
+        "base_score": 8.938616752624512
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 8.501131057739258
+      },
+      {
+        "item_id": "2391",
+        "title": "Simple Plan, A",
+        "genre": [
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1998,
+        "base_score": 8.375865936279297
+      },
+      {
+        "item_id": "111",
+        "title": "Taxi Driver",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1976,
+        "base_score": 7.973053455352783
+      },
+      {
+        "item_id": "2571",
+        "title": "Matrix, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.958005428314209
+      },
+      {
+        "item_id": "1358",
+        "title": "Sling Blade",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.781281471252441
+      },
+      {
+        "item_id": "3505",
+        "title": "No Way Out",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1987,
+        "base_score": 7.763199806213379
+      },
+      {
+        "item_id": "866",
+        "title": "Bound",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1996,
+        "base_score": 7.7409987449646
+      },
+      {
+        "item_id": "1953",
+        "title": "French Connection, The",
+        "genre": [
+          "Action",
+          "Crime",
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1971,
+        "base_score": 7.568624496459961
+      },
+      {
+        "item_id": "2917",
+        "title": "Body Heat",
+        "genre": [
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1981,
+        "base_score": 7.412576198577881
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.375,
+    "ild_score": 0.5333333333333333
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 3,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "3551",
+        "title": "Marathon Man",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1976,
+        "base_score": 8.938616752624512
+      },
+      {
+        "item_id": "2762",
+        "title": "Sixth Sense, The",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1999,
+        "base_score": 8.501131057739258
+      },
+      {
+        "item_id": "2391",
+        "title": "Simple Plan, A",
+        "genre": [
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1998,
+        "base_score": 8.375865936279297
+      },
+      {
+        "item_id": "111",
+        "title": "Taxi Driver",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1976,
+        "base_score": 7.973053455352783
+      },
+      {
+        "item_id": "2571",
+        "title": "Matrix, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1999,
+        "base_score": 7.958005428314209
+      },
+      {
+        "item_id": "1358",
+        "title": "Sling Blade",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.781281471252441
+      },
+      {
+        "item_id": "3505",
+        "title": "No Way Out",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1987,
+        "base_score": 7.763199806213379
+      },
+      {
+        "item_id": "866",
+        "title": "Bound",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1996,
+        "base_score": 7.7409987449646
+      },
+      {
+        "item_id": "1953",
+        "title": "French Connection, The",
+        "genre": [
+          "Action",
+          "Crime",
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1971,
+        "base_score": 7.568624496459961
+      },
+      {
+        "item_id": "2917",
+        "title": "Body Heat",
+        "genre": [
+          "Crime",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1981,
+        "base_score": 7.412576198577881
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.375,
+    "ild_score": 0.5333333333333333
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.070405513048172,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "3551",
+              "title": "Marathon Man",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1976,
+              "base_score": 8.938616752624512
+            },
+            {
+              "item_id": "2391",
+              "title": "Simple Plan, A",
+              "genre": [
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1998,
+              "base_score": 8.375865936279297
+            },
+            {
+              "item_id": "111",
+              "title": "Taxi Driver",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1976,
+              "base_score": 7.973053455352783
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 8.501131057739258
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.958005428314209
+            },
+            {
+              "item_id": "1358",
+              "title": "Sling Blade",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.781281471252441
+            },
+            {
+              "item_id": "3505",
+              "title": "No Way Out",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1987,
+              "base_score": 7.763199806213379
+            },
+            {
+              "item_id": "866",
+              "title": "Bound",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1996,
+              "base_score": 7.7409987449646
+            },
+            {
+              "item_id": "1953",
+              "title": "French Connection, The",
+              "genre": [
+                "Action",
+                "Crime",
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1971,
+              "base_score": 7.568624496459961
+            },
+            {
+              "item_id": "319",
+              "title": "Shallow Grave",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1994,
+              "base_score": 7.199024677276611
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.512962962962963
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "3551",
+              "title": "Marathon Man",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1976,
+              "base_score": 8.938616752624512
+            },
+            {
+              "item_id": "2391",
+              "title": "Simple Plan, A",
+              "genre": [
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1998,
+              "base_score": 8.375865936279297
+            },
+            {
+              "item_id": "111",
+              "title": "Taxi Driver",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1976,
+              "base_score": 7.973053455352783
+            },
+            {
+              "item_id": "2762",
+              "title": "Sixth Sense, The",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1999,
+              "base_score": 8.501131057739258
+            },
+            {
+              "item_id": "2571",
+              "title": "Matrix, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1999,
+              "base_score": 7.958005428314209
+            },
+            {
+              "item_id": "1358",
+              "title": "Sling Blade",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.781281471252441
+            },
+            {
+              "item_id": "866",
+              "title": "Bound",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1996,
+              "base_score": 7.7409987449646
+            },
+            {
+              "item_id": "3505",
+              "title": "No Way Out",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1987,
+              "base_score": 7.763199806213379
+            },
+            {
+              "item_id": "1953",
+              "title": "French Connection, The",
+              "genre": [
+                "Action",
+                "Crime",
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1971,
+              "base_score": 7.568624496459961
+            },
+            {
+              "item_id": "2917",
+              "title": "Body Heat",
+              "genre": [
+                "Crime",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1981,
+              "base_score": 7.412576198577881
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5333333333333333
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.607920513022691,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3562071871080222,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 2,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "3551",
+            "title": "Marathon Man",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1976,
+            "base_score": 8.938616752624512
+          },
+          {
+            "item_id": "2391",
+            "title": "Simple Plan, A",
+            "genre": [
+              "Crime",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1998,
+            "base_score": 8.375865936279297
+          },
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 8.501131057739258
+          },
+          {
+            "item_id": "111",
+            "title": "Taxi Driver",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1976,
+            "base_score": 7.973053455352783
+          },
+          {
+            "item_id": "2571",
+            "title": "Matrix, The",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1999,
+            "base_score": 7.958005428314209
+          },
+          {
+            "item_id": "1358",
+            "title": "Sling Blade",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 7.781281471252441
+          },
+          {
+            "item_id": "866",
+            "title": "Bound",
+            "genre": [
+              "Crime",
+              "Drama",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1996,
+            "base_score": 7.7409987449646
+          },
+          {
+            "item_id": "3505",
+            "title": "No Way Out",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1987,
+            "base_score": 7.763199806213379
+          },
+          {
+            "item_id": "1953",
+            "title": "French Connection, The",
+            "genre": [
+              "Action",
+              "Crime",
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1971,
+            "base_score": 7.568624496459961
+          },
+          {
+            "item_id": "2917",
+            "title": "Body Heat",
+            "genre": [
+              "Crime",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1981,
+            "base_score": 7.412576198577881
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.25,
+        "ild_score": 0.5333333333333333
+      }
+    ]
+  }
+}

@@ -1,0 +1,868 @@
+{
+  "request_id": "quota_comedy_filter_horror-072",
+  "user_id": "1740",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "144",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-072",
+      "user_summary": "The user is a Male who is over 56 years old and works as a academic/educator. Historically prefers Drama and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2454",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1958,
+        "base_score": 7.709474086761475
+      },
+      {
+        "item_id": "2657",
+        "title": "Rocky Horror Picture Show, The",
+        "genre": [
+          "Comedy",
+          "Horror",
+          "Musical",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1975,
+        "base_score": 6.061007976531982
+      },
+      {
+        "item_id": "2455",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1986,
+        "base_score": 5.969179153442383
+      },
+      {
+        "item_id": "2160",
+        "title": "Rosemary's Baby",
+        "genre": [
+          "Horror",
+          "Thriller"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1968,
+        "base_score": 5.5883917808532715
+      },
+      {
+        "item_id": "3450",
+        "title": "Grumpy Old Men",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 5.385018825531006
+      },
+      {
+        "item_id": "3930",
+        "title": "Creature From the Black Lagoon, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1954,
+        "base_score": 5.272492408752441
+      },
+      {
+        "item_id": "3928",
+        "title": "Abbott and Costello Meet Frankenstein",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1948,
+        "base_score": 5.1668806076049805
+      },
+      {
+        "item_id": "1544",
+        "title": "Lost World: Jurassic Park, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 5.019753932952881
+      },
+      {
+        "item_id": "1673",
+        "title": "Boogie Nights",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 4.826723098754883
+      },
+      {
+        "item_id": "1327",
+        "title": "Amityville Horror, The",
+        "genre": [
+          "Horror"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1979,
+        "base_score": 4.81148624420166
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7475661375661377
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3562071871080222,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "3450",
+        "title": "Grumpy Old Men",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 1000005.3850188255
+      },
+      {
+        "item_id": "2792",
+        "title": "Airplane II: The Sequel",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 1000004.6914582253
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 1000004.6840147972
+      },
+      {
+        "item_id": "3921",
+        "title": "Beach Party",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1963,
+        "base_score": 1000004.5088706017
+      },
+      {
+        "item_id": "1965",
+        "title": "Repo Man",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 1000004.4299330711
+      },
+      {
+        "item_id": "144",
+        "title": "Brothers McMullen, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000004.2943377495
+      },
+      {
+        "item_id": "1544",
+        "title": "Lost World: Jurassic Park, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 5.019753932952881
+      },
+      {
+        "item_id": "1673",
+        "title": "Boogie Nights",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 4.826723098754883
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 4.532576560974121
+      },
+      {
+        "item_id": "266",
+        "title": "Legends of the Fall",
+        "genre": [
+          "Drama",
+          "Romance",
+          "War",
+          "Western"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1994,
+        "base_score": 4.411907196044922
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 6,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7266666666666667
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.43962488276884,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3010299956639812,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3450",
+              "title": "Grumpy Old Men",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 5.385018825531006
+            },
+            {
+              "item_id": "1544",
+              "title": "Lost World: Jurassic Park, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 5.019753932952881
+            },
+            {
+              "item_id": "2792",
+              "title": "Airplane II: The Sequel",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 4.691458225250244
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 4.684014797210693
+            },
+            {
+              "item_id": "1673",
+              "title": "Boogie Nights",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 4.826723098754883
+            },
+            {
+              "item_id": "3921",
+              "title": "Beach Party",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1963,
+              "base_score": 4.508870601654053
+            },
+            {
+              "item_id": "1965",
+              "title": "Repo Man",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1984,
+              "base_score": 4.429933071136475
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 4.532576560974121
+            },
+            {
+              "item_id": "144",
+              "title": "Brothers McMullen, The",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 4.294337749481201
+            },
+            {
+              "item_id": "266",
+              "title": "Legends of the Fall",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 4.411907196044922
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 6,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7266666666666667
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3010299956639812,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "3450",
+              "title": "Grumpy Old Men",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 5.385018825531006
+            },
+            {
+              "item_id": "1544",
+              "title": "Lost World: Jurassic Park, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 5.019753932952881
+            },
+            {
+              "item_id": "2792",
+              "title": "Airplane II: The Sequel",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1982,
+              "base_score": 4.691458225250244
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 4.684014797210693
+            },
+            {
+              "item_id": "1673",
+              "title": "Boogie Nights",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 4.826723098754883
+            },
+            {
+              "item_id": "3921",
+              "title": "Beach Party",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1963,
+              "base_score": 4.508870601654053
+            },
+            {
+              "item_id": "1965",
+              "title": "Repo Man",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1984,
+              "base_score": 4.429933071136475
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 4.532576560974121
+            },
+            {
+              "item_id": "144",
+              "title": "Brothers McMullen, The",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 4.294337749481201
+            },
+            {
+              "item_id": "266",
+              "title": "Legends of the Fall",
+              "genre": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1994,
+              "base_score": 4.411907196044922
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 11,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 6,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7266666666666667
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.943109666928649,
+        "hit@10": 1.0,
+        "ndcg@10": 0.38685280723454163,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "3450",
+            "title": "Grumpy Old Men",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 5.385018825531006
+          },
+          {
+            "item_id": "2792",
+            "title": "Airplane II: The Sequel",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 4.691458225250244
+          },
+          {
+            "item_id": "3921",
+            "title": "Beach Party",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1963,
+            "base_score": 4.508870601654053
+          },
+          {
+            "item_id": "1965",
+            "title": "Repo Man",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1984,
+            "base_score": 4.429933071136475
+          },
+          {
+            "item_id": "144",
+            "title": "Brothers McMullen, The",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 4.294337749481201
+          },
+          {
+            "item_id": "1580",
+            "title": "Men in Black",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 4.684014797210693
+          },
+          {
+            "item_id": "1544",
+            "title": "Lost World: Jurassic Park, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 5.019753932952881
+          },
+          {
+            "item_id": "1673",
+            "title": "Boogie Nights",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 4.826723098754883
+          },
+          {
+            "item_id": "266",
+            "title": "Legends of the Fall",
+            "genre": [
+              "Drama",
+              "Romance",
+              "War",
+              "Western"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1994,
+            "base_score": 4.411907196044922
+          },
+          {
+            "item_id": "480",
+            "title": "Jurassic Park",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 4.532576560974121
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 6,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.7266666666666667
+      }
+    ]
+  }
+}

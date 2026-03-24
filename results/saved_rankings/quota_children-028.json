@@ -1,0 +1,882 @@
+{
+  "request_id": "quota_children-028",
+  "user_id": "1557",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "2193",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-028",
+      "user_summary": "The user is a Female who is 18-24 years old and works as a college/grad student. Historically prefers Comedy and Fantasy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "2143",
+        "title": "Legend",
+        "genre": [
+          "Adventure",
+          "Fantasy",
+          "Romance"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 9.897334098815918
+      },
+      {
+        "item_id": "2193",
+        "title": "Willow",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Fantasy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1988,
+        "base_score": 9.570988655090332
+      },
+      {
+        "item_id": "2161",
+        "title": "NeverEnding Story, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 8.943581581115723
+      },
+      {
+        "item_id": "1967",
+        "title": "Labyrinth",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 8.92186164855957
+      },
+      {
+        "item_id": "2021",
+        "title": "Dune",
+        "genre": [
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Fantasy",
+        "release_year": 1984,
+        "base_score": 8.624711990356445
+      },
+      {
+        "item_id": "2005",
+        "title": "Goonies, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 8.138402938842773
+      },
+      {
+        "item_id": "1009",
+        "title": "Escape to Witch Mountain",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1975,
+        "base_score": 7.765084266662598
+      },
+      {
+        "item_id": "317",
+        "title": "Santa Clause, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1994,
+        "base_score": 7.743952751159668
+      },
+      {
+        "item_id": "1920",
+        "title": "Small Soldiers",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Fantasy",
+          "War"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 7.714241027832031
+      },
+      {
+        "item_id": "2105",
+        "title": "Tron",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1982,
+        "base_score": 7.641173839569092
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 6,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5390476190476192
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "2161",
+        "title": "NeverEnding Story, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 1000008.9435815811
+      },
+      {
+        "item_id": "1967",
+        "title": "Labyrinth",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000008.9218616486
+      },
+      {
+        "item_id": "2005",
+        "title": "Goonies, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 1000008.1384029388
+      },
+      {
+        "item_id": "1009",
+        "title": "Escape to Witch Mountain",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1975,
+        "base_score": 1000007.7650842667
+      },
+      {
+        "item_id": "317",
+        "title": "Santa Clause, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1994,
+        "base_score": 1000007.7439527512
+      },
+      {
+        "item_id": "1920",
+        "title": "Small Soldiers",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Fantasy",
+          "War"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 1000007.7142410278
+      },
+      {
+        "item_id": "2140",
+        "title": "Dark Crystal, The",
+        "genre": [
+          "Children's",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 1000007.3618130684
+      },
+      {
+        "item_id": "3438",
+        "title": "Teenage Mutant Ninja Turtles",
+        "genre": [
+          "Action",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 1000007.0436992645
+      },
+      {
+        "item_id": "1702",
+        "title": "Flubber",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1997,
+        "base_score": 1000006.928771019
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000006.899848938
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 10,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.41481481481481486
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.5473942952230573,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2143",
+              "title": "Legend",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 9.897334098815918
+            },
+            {
+              "item_id": "2193",
+              "title": "Willow",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1988,
+              "base_score": 9.570988655090332
+            },
+            {
+              "item_id": "2161",
+              "title": "NeverEnding Story, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.943581581115723
+            },
+            {
+              "item_id": "1967",
+              "title": "Labyrinth",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 8.92186164855957
+            },
+            {
+              "item_id": "2021",
+              "title": "Dune",
+              "genre": [
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Fantasy",
+              "release_year": 1984,
+              "base_score": 8.624711990356445
+            },
+            {
+              "item_id": "2005",
+              "title": "Goonies, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 8.138402938842773
+            },
+            {
+              "item_id": "1009",
+              "title": "Escape to Witch Mountain",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1975,
+              "base_score": 7.765084266662598
+            },
+            {
+              "item_id": "317",
+              "title": "Santa Clause, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1994,
+              "base_score": 7.743952751159668
+            },
+            {
+              "item_id": "1920",
+              "title": "Small Soldiers",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Fantasy",
+                "War"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 7.714241027832031
+            },
+            {
+              "item_id": "2105",
+              "title": "Tron",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1982,
+              "base_score": 7.641173839569092
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 6,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5390476190476192
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2143",
+              "title": "Legend",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 9.897334098815918
+            },
+            {
+              "item_id": "2193",
+              "title": "Willow",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1988,
+              "base_score": 9.570988655090332
+            },
+            {
+              "item_id": "2161",
+              "title": "NeverEnding Story, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.943581581115723
+            },
+            {
+              "item_id": "2105",
+              "title": "Tron",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1982,
+              "base_score": 7.641173839569092
+            },
+            {
+              "item_id": "1967",
+              "title": "Labyrinth",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 8.92186164855957
+            },
+            {
+              "item_id": "2005",
+              "title": "Goonies, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 8.138402938842773
+            },
+            {
+              "item_id": "2021",
+              "title": "Dune",
+              "genre": [
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Fantasy",
+              "release_year": 1984,
+              "base_score": 8.624711990356445
+            },
+            {
+              "item_id": "1009",
+              "title": "Escape to Witch Mountain",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1975,
+              "base_score": 7.765084266662598
+            },
+            {
+              "item_id": "317",
+              "title": "Santa Clause, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1994,
+              "base_score": 7.743952751159668
+            },
+            {
+              "item_id": "1920",
+              "title": "Small Soldiers",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Fantasy",
+                "War"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 7.714241027832031
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 6,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5390476190476192
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.583864611107856,
+        "hit@10": 1.0,
+        "ndcg@10": 0.6309297535714575,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 9,
+        "ranking": [
+          {
+            "item_id": "2143",
+            "title": "Legend",
+            "genre": [
+              "Adventure",
+              "Fantasy",
+              "Romance"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1985,
+            "base_score": 9.897334098815918
+          },
+          {
+            "item_id": "2193",
+            "title": "Willow",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Fantasy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1988,
+            "base_score": 9.570988655090332
+          },
+          {
+            "item_id": "2161",
+            "title": "NeverEnding Story, The",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1984,
+            "base_score": 8.943581581115723
+          },
+          {
+            "item_id": "1967",
+            "title": "Labyrinth",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 8.92186164855957
+          },
+          {
+            "item_id": "2005",
+            "title": "Goonies, The",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1985,
+            "base_score": 8.138402938842773
+          },
+          {
+            "item_id": "317",
+            "title": "Santa Clause, The",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1994,
+            "base_score": 7.743952751159668
+          },
+          {
+            "item_id": "1009",
+            "title": "Escape to Witch Mountain",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1975,
+            "base_score": 7.765084266662598
+          },
+          {
+            "item_id": "1920",
+            "title": "Small Soldiers",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Fantasy",
+              "War"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1998,
+            "base_score": 7.714241027832031
+          },
+          {
+            "item_id": "2140",
+            "title": "Dark Crystal, The",
+            "genre": [
+              "Children's",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1982,
+            "base_score": 7.361813068389893
+          },
+          {
+            "item_id": "1073",
+            "title": "Willy Wonka and the Chocolate Factory",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 6.899848937988281
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 8,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.4707407407407409
+      }
+    ]
+  }
+}

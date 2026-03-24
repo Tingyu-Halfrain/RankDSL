@@ -1,0 +1,501 @@
+{
+  "request_id": "diversity_dominant_genre-083",
+  "user_id": "1332",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2791",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-083",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a executive/managerial. Historically prefers Comedy and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "2716",
+        "title": "Ghostbusters",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 8.638860702514648
+      },
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 8.508668899536133
+      },
+      {
+        "item_id": "2918",
+        "title": "Ferris Bueller's Day Off",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 8.374918937683105
+      },
+      {
+        "item_id": "1968",
+        "title": "Breakfast Club, The",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 7.850762367248535
+      },
+      {
+        "item_id": "1923",
+        "title": "There's Something About Mary",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 7.841867923736572
+      },
+      {
+        "item_id": "1079",
+        "title": "Fish Called Wanda, A",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.727925777435303
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.536783695220947
+      },
+      {
+        "item_id": "3552",
+        "title": "Caddyshack",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 7.278369903564453
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 7.257773399353027
+      },
+      {
+        "item_id": "21",
+        "title": "Get Shorty",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.186025619506836
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.4185185185185185
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 5,
+    "ranking": [
+      {
+        "item_id": "2716",
+        "title": "Ghostbusters",
+        "genre": [
+          "Comedy",
+          "Horror"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 8.638860702514648
+      },
+      {
+        "item_id": "2791",
+        "title": "Airplane!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 8.508668899536133
+      },
+      {
+        "item_id": "2918",
+        "title": "Ferris Bueller's Day Off",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1986,
+        "base_score": 8.374918937683105
+      },
+      {
+        "item_id": "1968",
+        "title": "Breakfast Club, The",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 7.850762367248535
+      },
+      {
+        "item_id": "1923",
+        "title": "There's Something About Mary",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1998,
+        "base_score": 7.841867923736572
+      },
+      {
+        "item_id": "1079",
+        "title": "Fish Called Wanda, A",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.727925777435303
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.536783695220947
+      },
+      {
+        "item_id": "3552",
+        "title": "Caddyshack",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1980,
+        "base_score": 7.278369903564453
+      },
+      {
+        "item_id": "1784",
+        "title": "As Good As It Gets",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1997,
+        "base_score": 7.257773399353027
+      },
+      {
+        "item_id": "21",
+        "title": "Get Shorty",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.186025619506836
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.4185185185185185
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.7551960959099233,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "greedy"
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          }
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.7926314580254257,
+        "hit@10": 1.0,
+        "ndcg@10": 0.5,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 5,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "2716",
+            "title": "Ghostbusters",
+            "genre": [
+              "Comedy",
+              "Horror"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1984,
+            "base_score": 8.638860702514648
+          },
+          {
+            "item_id": "21",
+            "title": "Get Shorty",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 7.186025619506836
+          },
+          {
+            "item_id": "2791",
+            "title": "Airplane!",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1980,
+            "base_score": 8.508668899536133
+          },
+          {
+            "item_id": "34",
+            "title": "Babe",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1995,
+            "base_score": 7.057384490966797
+          },
+          {
+            "item_id": "2918",
+            "title": "Ferris Bueller's Day Off",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1986,
+            "base_score": 8.374918937683105
+          },
+          {
+            "item_id": "2000",
+            "title": "Lethal Weapon",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 7.019964694976807
+          },
+          {
+            "item_id": "1968",
+            "title": "Breakfast Club, The",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 7.850762367248535
+          },
+          {
+            "item_id": "3396",
+            "title": "Muppet Movie, The",
+            "genre": [
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1979,
+            "base_score": 6.863312721252441
+          },
+          {
+            "item_id": "1923",
+            "title": "There's Something About Mary",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1998,
+            "base_score": 7.841867923736572
+          },
+          {
+            "item_id": "1079",
+            "title": "Fish Called Wanda, A",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 7.727925777435303
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.625,
+        "ild_score": 0.5118518518518518
+      }
+    ]
+  }
+}

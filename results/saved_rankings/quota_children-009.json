@@ -1,0 +1,836 @@
+{
+  "request_id": "quota_children-009",
+  "user_id": "1190",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "2006",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-009",
+      "user_summary": "The user is a Male who is 45-49 years old and works as a other or not specified. Historically prefers Adventure and Romance titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.5,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "329",
+        "title": "Star Trek: Generations",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 9.047357559204102
+      },
+      {
+        "item_id": "349",
+        "title": "Clear and Present Danger",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.892181396484375
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 8.673229217529297
+      },
+      {
+        "item_id": "316",
+        "title": "Stargate",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.549308776855469
+      },
+      {
+        "item_id": "10",
+        "title": "GoldenEye",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 8.543034553527832
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.467069625854492
+      },
+      {
+        "item_id": "1015",
+        "title": "Homeward Bound: The Incredible Journey",
+        "genre": [
+          "Adventure",
+          "Children's"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1993,
+        "base_score": 7.995403289794922
+      },
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 7.751214504241943
+      },
+      {
+        "item_id": "1049",
+        "title": "Ghost and the Darkness, The",
+        "genre": [
+          "Action",
+          "Adventure"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 7.747617721557617
+      },
+      {
+        "item_id": "2916",
+        "title": "Total Recall",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.70790958404541
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 2,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5225925925925926
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3333333333333333,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "1015",
+        "title": "Homeward Bound: The Incredible Journey",
+        "genre": [
+          "Adventure",
+          "Children's"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1993,
+        "base_score": 1000007.9954032898
+      },
+      {
+        "item_id": "2046",
+        "title": "Flight of the Navigator",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000007.7512145042
+      },
+      {
+        "item_id": "60",
+        "title": "Indian in the Cupboard, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000007.6155290604
+      },
+      {
+        "item_id": "2",
+        "title": "Jumanji",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000007.4018697739
+      },
+      {
+        "item_id": "329",
+        "title": "Star Trek: Generations",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 9.047357559204102
+      },
+      {
+        "item_id": "349",
+        "title": "Clear and Present Danger",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.892181396484375
+      },
+      {
+        "item_id": "2006",
+        "title": "Mask of Zorro, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 8.673229217529297
+      },
+      {
+        "item_id": "316",
+        "title": "Stargate",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.549308776855469
+      },
+      {
+        "item_id": "10",
+        "title": "GoldenEye",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 8.543034553527832
+      },
+      {
+        "item_id": "380",
+        "title": "True Lies",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1994,
+        "base_score": 8.467069625854492
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 4,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6022222222222224
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 0.0,
+    "canonical_program_agreement": 0.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 7.028397104237229,
+        "raw_dsl": null,
+        "compiled_dsl": null,
+        "compiled_dsl_canonical": null,
+        "compile_error": [
+          {
+            "code": "infeasible_on_candidates",
+            "error_type": "feasibility",
+            "message": "Quota for group quota_genre_value_children requires min_count=2, but only 0 candidates are available",
+            "suggestion": "Relax filters or lower quota requirements so the candidate set can still fill top_k.",
+            "offending_field": null,
+            "details": {
+              "target_group": "quota_genre_value_children",
+              "min_count": 2,
+              "available": 0
+            }
+          }
+        ],
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "compile_parse_error": null,
+        "repair_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_parse_error": null,
+        "fallback_used": true,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "329",
+              "title": "Star Trek: Generations",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 9.047357559204102
+            },
+            {
+              "item_id": "349",
+              "title": "Clear and Present Danger",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.892181396484375
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 8.673229217529297
+            },
+            {
+              "item_id": "316",
+              "title": "Stargate",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.549308776855469
+            },
+            {
+              "item_id": "10",
+              "title": "GoldenEye",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 8.543034553527832
+            },
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.467069625854492
+            },
+            {
+              "item_id": "1015",
+              "title": "Homeward Bound: The Incredible Journey",
+              "genre": [
+                "Adventure",
+                "Children's"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1993,
+              "base_score": 7.995403289794922
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.751214504241943
+            },
+            {
+              "item_id": "1049",
+              "title": "Ghost and the Darkness, The",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 7.747617721557617
+            },
+            {
+              "item_id": "2916",
+              "title": "Total Recall",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.70790958404541
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5225925925925926
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "329",
+              "title": "Star Trek: Generations",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 9.047357559204102
+            },
+            {
+              "item_id": "349",
+              "title": "Clear and Present Danger",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.892181396484375
+            },
+            {
+              "item_id": "2006",
+              "title": "Mask of Zorro, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 8.673229217529297
+            },
+            {
+              "item_id": "316",
+              "title": "Stargate",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.549308776855469
+            },
+            {
+              "item_id": "10",
+              "title": "GoldenEye",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 8.543034553527832
+            },
+            {
+              "item_id": "380",
+              "title": "True Lies",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1994,
+              "base_score": 8.467069625854492
+            },
+            {
+              "item_id": "1015",
+              "title": "Homeward Bound: The Incredible Journey",
+              "genre": [
+                "Adventure",
+                "Children's"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1993,
+              "base_score": 7.995403289794922
+            },
+            {
+              "item_id": "2046",
+              "title": "Flight of the Navigator",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1986,
+              "base_score": 7.751214504241943
+            },
+            {
+              "item_id": "1049",
+              "title": "Ghost and the Darkness, The",
+              "genre": [
+                "Action",
+                "Adventure"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 7.747617721557617
+            },
+            {
+              "item_id": "2916",
+              "title": "Total Recall",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.70790958404541
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 2,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5225925925925926
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.43192240037024,
+        "hit@10": 1.0,
+        "ndcg@10": 1.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "2006",
+            "title": "Mask of Zorro, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 8.673229217529297
+          },
+          {
+            "item_id": "380",
+            "title": "True Lies",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.467069625854492
+          },
+          {
+            "item_id": "329",
+            "title": "Star Trek: Generations",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 9.047357559204102
+          },
+          {
+            "item_id": "316",
+            "title": "Stargate",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.549308776855469
+          },
+          {
+            "item_id": "10",
+            "title": "GoldenEye",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 8.543034553527832
+          },
+          {
+            "item_id": "349",
+            "title": "Clear and Present Danger",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1994,
+            "base_score": 8.892181396484375
+          },
+          {
+            "item_id": "1015",
+            "title": "Homeward Bound: The Incredible Journey",
+            "genre": [
+              "Adventure",
+              "Children's"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1993,
+            "base_score": 7.995403289794922
+          },
+          {
+            "item_id": "2046",
+            "title": "Flight of the Navigator",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 7.751214504241943
+          },
+          {
+            "item_id": "2",
+            "title": "Jumanji",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1995,
+            "base_score": 7.401869773864746
+          },
+          {
+            "item_id": "60",
+            "title": "Indian in the Cupboard, The",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1995,
+            "base_score": 7.6155290603637695
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 4,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6022222222222223
+      }
+    ]
+  }
+}

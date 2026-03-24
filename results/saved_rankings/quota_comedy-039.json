@@ -1,0 +1,820 @@
+{
+  "request_id": "quota_comedy-039",
+  "user_id": "1205",
+  "scenario_id": "quota_comedy",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles.",
+  "target_item_id": "339",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy-039",
+      "user_summary": "The user is a Female who is over 56 years old and works as a other or not specified. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "539",
+        "title": "Sleepless in Seattle",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 8.199639320373535
+      },
+      {
+        "item_id": "339",
+        "title": "While You Were Sleeping",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.774465084075928
+      },
+      {
+        "item_id": "500",
+        "title": "Mrs. Doubtfire",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.767568588256836
+      },
+      {
+        "item_id": "1042",
+        "title": "That Thing You Do!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 7.736796855926514
+      },
+      {
+        "item_id": "597",
+        "title": "Pretty Woman",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 7.629809379577637
+      },
+      {
+        "item_id": "3247",
+        "title": "Sister Act",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 7.458005428314209
+      },
+      {
+        "item_id": "838",
+        "title": "Emma",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 7.424344539642334
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 7.4204277992248535
+      },
+      {
+        "item_id": "141",
+        "title": "Birdcage, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 7.344468593597412
+      },
+      {
+        "item_id": "2671",
+        "title": "Notting Hill",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.330353736877441
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 10,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4074074074074074
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.6309297535714575,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "539",
+        "title": "Sleepless in Seattle",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 1000008.1996393204
+      },
+      {
+        "item_id": "339",
+        "title": "While You Were Sleeping",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000007.7744650841
+      },
+      {
+        "item_id": "500",
+        "title": "Mrs. Doubtfire",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 1000007.7675685883
+      },
+      {
+        "item_id": "1042",
+        "title": "That Thing You Do!",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 1000007.7367968559
+      },
+      {
+        "item_id": "597",
+        "title": "Pretty Woman",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1990,
+        "base_score": 1000007.6298093796
+      },
+      {
+        "item_id": "3247",
+        "title": "Sister Act",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1992,
+        "base_score": 1000007.4580054283
+      },
+      {
+        "item_id": "838",
+        "title": "Emma",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 1000007.4243445396
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000007.4204277992
+      },
+      {
+        "item_id": "141",
+        "title": "Birdcage, The",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1996,
+        "base_score": 1000007.3444685936
+      },
+      {
+        "item_id": "2671",
+        "title": "Notting Hill",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000007.3303537369
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 10,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4074074074074074
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.4244284499436617,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 4,
+          "ranking": [
+            {
+              "item_id": "539",
+              "title": "Sleepless in Seattle",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 8.199639320373535
+            },
+            {
+              "item_id": "339",
+              "title": "While You Were Sleeping",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.774465084075928
+            },
+            {
+              "item_id": "500",
+              "title": "Mrs. Doubtfire",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.767568588256836
+            },
+            {
+              "item_id": "1042",
+              "title": "That Thing You Do!",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.736796855926514
+            },
+            {
+              "item_id": "597",
+              "title": "Pretty Woman",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 7.629809379577637
+            },
+            {
+              "item_id": "3247",
+              "title": "Sister Act",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 7.458005428314209
+            },
+            {
+              "item_id": "838",
+              "title": "Emma",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.424344539642334
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.4204277992248535
+            },
+            {
+              "item_id": "141",
+              "title": "Birdcage, The",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.344468593597412
+            },
+            {
+              "item_id": "2671",
+              "title": "Notting Hill",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.330353736877441
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 10,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4074074074074074
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.6309297535714575,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 4,
+          "ranking": [
+            {
+              "item_id": "539",
+              "title": "Sleepless in Seattle",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 8.199639320373535
+            },
+            {
+              "item_id": "339",
+              "title": "While You Were Sleeping",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.774465084075928
+            },
+            {
+              "item_id": "500",
+              "title": "Mrs. Doubtfire",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1993,
+              "base_score": 7.767568588256836
+            },
+            {
+              "item_id": "1042",
+              "title": "That Thing You Do!",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.736796855926514
+            },
+            {
+              "item_id": "597",
+              "title": "Pretty Woman",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1990,
+              "base_score": 7.629809379577637
+            },
+            {
+              "item_id": "3247",
+              "title": "Sister Act",
+              "genre": [
+                "Comedy",
+                "Crime"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1992,
+              "base_score": 7.458005428314209
+            },
+            {
+              "item_id": "838",
+              "title": "Emma",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.424344539642334
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 7.4204277992248535
+            },
+            {
+              "item_id": "141",
+              "title": "Birdcage, The",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1996,
+              "base_score": 7.344468593597412
+            },
+            {
+              "item_id": "2671",
+              "title": "Notting Hill",
+              "genre": [
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 7.330353736877441
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 10,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4074074074074074
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8104672199115157,
+        "hit@10": 1.0,
+        "ndcg@10": 0.6309297535714575,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 4,
+        "ranking": [
+          {
+            "item_id": "539",
+            "title": "Sleepless in Seattle",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 8.199639320373535
+          },
+          {
+            "item_id": "339",
+            "title": "While You Were Sleeping",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.774465084075928
+          },
+          {
+            "item_id": "500",
+            "title": "Mrs. Doubtfire",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 7.767568588256836
+          },
+          {
+            "item_id": "1042",
+            "title": "That Thing You Do!",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 7.736796855926514
+          },
+          {
+            "item_id": "597",
+            "title": "Pretty Woman",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1990,
+            "base_score": 7.629809379577637
+          },
+          {
+            "item_id": "3247",
+            "title": "Sister Act",
+            "genre": [
+              "Comedy",
+              "Crime"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1992,
+            "base_score": 7.458005428314209
+          },
+          {
+            "item_id": "838",
+            "title": "Emma",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 7.424344539642334
+          },
+          {
+            "item_id": "11",
+            "title": "American President, The",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 7.4204277992248535
+          },
+          {
+            "item_id": "141",
+            "title": "Birdcage, The",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1996,
+            "base_score": 7.344468593597412
+          },
+          {
+            "item_id": "2671",
+            "title": "Notting Hill",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 7.330353736877441
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 10,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.4074074074074074
+      }
+    ]
+  }
+}

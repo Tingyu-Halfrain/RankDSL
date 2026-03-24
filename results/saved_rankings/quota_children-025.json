@@ -1,0 +1,885 @@
+{
+  "request_id": "quota_children-025",
+  "user_id": "1472",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "2081",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-025",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a executive/managerial. Historically prefers Action and Drama titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.38685280723454163,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "783",
+        "title": "Hunchback of Notre Dame, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1996,
+        "base_score": 7.70089054107666
+      },
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 7.556753158569336
+      },
+      {
+        "item_id": "2083",
+        "title": "Muppet Christmas Carol, The",
+        "genre": [
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1992,
+        "base_score": 7.538095474243164
+      },
+      {
+        "item_id": "1416",
+        "title": "Evita",
+        "genre": [
+          "Drama",
+          "Musical"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.44891881942749
+      },
+      {
+        "item_id": "2081",
+        "title": "Little Mermaid, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1989,
+        "base_score": 7.373085021972656
+      },
+      {
+        "item_id": "595",
+        "title": "Beauty and the Beast",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1991,
+        "base_score": 7.246355056762695
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 7.210421562194824
+      },
+      {
+        "item_id": "1688",
+        "title": "Anastasia",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1997,
+        "base_score": 7.1677398681640625
+      },
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 7.065478801727295
+      },
+      {
+        "item_id": "1081",
+        "title": "Victor/Victoria",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1982,
+        "base_score": 7.05247163772583
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 8,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.44518518518518524
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "783",
+        "title": "Hunchback of Notre Dame, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1996,
+        "base_score": 1000007.7008905411
+      },
+      {
+        "item_id": "551",
+        "title": "Nightmare Before Christmas, The",
+        "genre": [
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1993,
+        "base_score": 1000007.5567531586
+      },
+      {
+        "item_id": "2083",
+        "title": "Muppet Christmas Carol, The",
+        "genre": [
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1992,
+        "base_score": 1000007.5380954742
+      },
+      {
+        "item_id": "2081",
+        "title": "Little Mermaid, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1989,
+        "base_score": 1000007.373085022
+      },
+      {
+        "item_id": "595",
+        "title": "Beauty and the Beast",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1991,
+        "base_score": 1000007.2463550568
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 1000007.2104215622
+      },
+      {
+        "item_id": "1688",
+        "title": "Anastasia",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1997,
+        "base_score": 1000007.1677398682
+      },
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 1000007.0654788017
+      },
+      {
+        "item_id": "2099",
+        "title": "Song of the South",
+        "genre": [
+          "Adventure",
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1946,
+        "base_score": 1000006.9232153893
+      },
+      {
+        "item_id": "2078",
+        "title": "Jungle Book, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1967,
+        "base_score": 1000006.7823786736
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 10,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.30148148148148146
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.245286905672401,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.43067655807339306,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "783",
+              "title": "Hunchback of Notre Dame, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1996,
+              "base_score": 7.70089054107666
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 7.556753158569336
+            },
+            {
+              "item_id": "2083",
+              "title": "Muppet Christmas Carol, The",
+              "genre": [
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1992,
+              "base_score": 7.538095474243164
+            },
+            {
+              "item_id": "2081",
+              "title": "Little Mermaid, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1989,
+              "base_score": 7.373085021972656
+            },
+            {
+              "item_id": "1416",
+              "title": "Evita",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.44891881942749
+            },
+            {
+              "item_id": "595",
+              "title": "Beauty and the Beast",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1991,
+              "base_score": 7.246355056762695
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.210421562194824
+            },
+            {
+              "item_id": "1688",
+              "title": "Anastasia",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1997,
+              "base_score": 7.1677398681640625
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 7.065478801727295
+            },
+            {
+              "item_id": "2099",
+              "title": "Song of the South",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1946,
+              "base_score": 6.923215389251709
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 9,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4014814814814815
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.43067655807339306,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "783",
+              "title": "Hunchback of Notre Dame, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1996,
+              "base_score": 7.70089054107666
+            },
+            {
+              "item_id": "551",
+              "title": "Nightmare Before Christmas, The",
+              "genre": [
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1993,
+              "base_score": 7.556753158569336
+            },
+            {
+              "item_id": "2083",
+              "title": "Muppet Christmas Carol, The",
+              "genre": [
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1992,
+              "base_score": 7.538095474243164
+            },
+            {
+              "item_id": "2081",
+              "title": "Little Mermaid, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1989,
+              "base_score": 7.373085021972656
+            },
+            {
+              "item_id": "1416",
+              "title": "Evita",
+              "genre": [
+                "Drama",
+                "Musical"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.44891881942749
+            },
+            {
+              "item_id": "595",
+              "title": "Beauty and the Beast",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1991,
+              "base_score": 7.246355056762695
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 7.210421562194824
+            },
+            {
+              "item_id": "1688",
+              "title": "Anastasia",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1997,
+              "base_score": 7.1677398681640625
+            },
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 7.065478801727295
+            },
+            {
+              "item_id": "2099",
+              "title": "Song of the South",
+              "genre": [
+                "Adventure",
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1946,
+              "base_score": 6.923215389251709
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 9,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4014814814814815
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.5005478551611304,
+        "hit@10": 1.0,
+        "ndcg@10": 0.38685280723454163,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "783",
+            "title": "Hunchback of Notre Dame, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1996,
+            "base_score": 7.70089054107666
+          },
+          {
+            "item_id": "551",
+            "title": "Nightmare Before Christmas, The",
+            "genre": [
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1993,
+            "base_score": 7.556753158569336
+          },
+          {
+            "item_id": "2083",
+            "title": "Muppet Christmas Carol, The",
+            "genre": [
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1992,
+            "base_score": 7.538095474243164
+          },
+          {
+            "item_id": "1416",
+            "title": "Evita",
+            "genre": [
+              "Drama",
+              "Musical"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 7.44891881942749
+          },
+          {
+            "item_id": "2081",
+            "title": "Little Mermaid, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1989,
+            "base_score": 7.373085021972656
+          },
+          {
+            "item_id": "595",
+            "title": "Beauty and the Beast",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1991,
+            "base_score": 7.246355056762695
+          },
+          {
+            "item_id": "588",
+            "title": "Aladdin",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1992,
+            "base_score": 7.210421562194824
+          },
+          {
+            "item_id": "1688",
+            "title": "Anastasia",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1997,
+            "base_score": 7.1677398681640625
+          },
+          {
+            "item_id": "364",
+            "title": "Lion King, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1994,
+            "base_score": 7.065478801727295
+          },
+          {
+            "item_id": "2099",
+            "title": "Song of the South",
+            "genre": [
+              "Adventure",
+              "Animation",
+              "Children's",
+              "Musical"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1946,
+            "base_score": 6.923215389251709
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 9,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.40148148148148155
+      }
+    ]
+  }
+}

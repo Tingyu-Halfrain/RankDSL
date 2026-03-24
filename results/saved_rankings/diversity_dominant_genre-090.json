@@ -1,0 +1,505 @@
+{
+  "request_id": "diversity_dominant_genre-090",
+  "user_id": "1364",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "1234",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-090",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a artist. Historically prefers Horror and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1244",
+        "title": "Manhattan",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 8.267715454101562
+      },
+      {
+        "item_id": "1238",
+        "title": "Local Hero",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1983,
+        "base_score": 7.967625141143799
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.962213039398193
+      },
+      {
+        "item_id": "2064",
+        "title": "Roger & Me",
+        "genre": [
+          "Comedy",
+          "Documentary"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 7.905616760253906
+      },
+      {
+        "item_id": "1235",
+        "title": "Harold and Maude",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1971,
+        "base_score": 7.787896156311035
+      },
+      {
+        "item_id": "2973",
+        "title": "Crimes and Misdemeanors",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 7.743924140930176
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 7.735587120056152
+      },
+      {
+        "item_id": "1230",
+        "title": "Annie Hall",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1977,
+        "base_score": 7.695290565490723
+      },
+      {
+        "item_id": "1234",
+        "title": "Sting, The",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 7.64049768447876
+      },
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.567537307739258
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.5029629629629631
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1244",
+        "title": "Manhattan",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1979,
+        "base_score": 8.267715454101562
+      },
+      {
+        "item_id": "1238",
+        "title": "Local Hero",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1983,
+        "base_score": 7.967625141143799
+      },
+      {
+        "item_id": "1265",
+        "title": "Groundhog Day",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1993,
+        "base_score": 7.962213039398193
+      },
+      {
+        "item_id": "2064",
+        "title": "Roger & Me",
+        "genre": [
+          "Comedy",
+          "Documentary"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 7.905616760253906
+      },
+      {
+        "item_id": "1235",
+        "title": "Harold and Maude",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1971,
+        "base_score": 7.787896156311035
+      },
+      {
+        "item_id": "2973",
+        "title": "Crimes and Misdemeanors",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 7.743924140930176
+      },
+      {
+        "item_id": "1",
+        "title": "Toy Story",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1995,
+        "base_score": 7.735587120056152
+      },
+      {
+        "item_id": "1230",
+        "title": "Annie Hall",
+        "genre": [
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1977,
+        "base_score": 7.695290565490723
+      },
+      {
+        "item_id": "1234",
+        "title": "Sting, The",
+        "genre": [
+          "Comedy",
+          "Crime"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 7.64049768447876
+      },
+      {
+        "item_id": "2997",
+        "title": "Being John Malkovich",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 7.567537307739258
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.5029629629629631
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.4115437413565814,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "greedy"
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 0,
+          "ranking": [],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          }
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.9713311018422246,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 7,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "1244",
+            "title": "Manhattan",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1979,
+            "base_score": 8.267715454101562
+          },
+          {
+            "item_id": "1",
+            "title": "Toy Story",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1995,
+            "base_score": 7.735587120056152
+          },
+          {
+            "item_id": "1238",
+            "title": "Local Hero",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1983,
+            "base_score": 7.967625141143799
+          },
+          {
+            "item_id": "1259",
+            "title": "Stand by Me",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1986,
+            "base_score": 7.458930015563965
+          },
+          {
+            "item_id": "1265",
+            "title": "Groundhog Day",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1993,
+            "base_score": 7.962213039398193
+          },
+          {
+            "item_id": "1278",
+            "title": "Young Frankenstein",
+            "genre": [
+              "Comedy",
+              "Horror"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1974,
+            "base_score": 7.3982720375061035
+          },
+          {
+            "item_id": "2064",
+            "title": "Roger & Me",
+            "genre": [
+              "Comedy",
+              "Documentary"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1989,
+            "base_score": 7.905616760253906
+          },
+          {
+            "item_id": "1235",
+            "title": "Harold and Maude",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1971,
+            "base_score": 7.787896156311035
+          },
+          {
+            "item_id": "2973",
+            "title": "Crimes and Misdemeanors",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1989,
+            "base_score": 7.743924140930176
+          },
+          {
+            "item_id": "1230",
+            "title": "Annie Hall",
+            "genre": [
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1977,
+            "base_score": 7.695290565490723
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 3,
+        "sliding_violation_rate": 0.875,
+        "ild_score": 0.568888888888889
+      }
+    ]
+  }
+}

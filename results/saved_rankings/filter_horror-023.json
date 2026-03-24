@@ -1,0 +1,821 @@
+{
+  "request_id": "filter_horror-023",
+  "user_id": "1245",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "2968",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-023",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a technician/engineer. Historically prefers Sci-Fi and Action titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3010299956639812,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "2985",
+        "title": "Robocop",
+        "genre": [
+          "Action",
+          "Crime",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 9.81692886352539
+      },
+      {
+        "item_id": "2455",
+        "title": "Fly, The",
+        "genre": [
+          "Horror",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Horror",
+        "release_year": 1986,
+        "base_score": 9.66051959991455
+      },
+      {
+        "item_id": "1653",
+        "title": "Gattaca",
+        "genre": [
+          "Drama",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 9.615911483764648
+      },
+      {
+        "item_id": "1240",
+        "title": "Terminator, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 9.56089973449707
+      },
+      {
+        "item_id": "2640",
+        "title": "Superman",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1978,
+        "base_score": 9.253548622131348
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 9.105311393737793
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 9.004114151000977
+      },
+      {
+        "item_id": "1127",
+        "title": "Abyss, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 8.94846248626709
+      },
+      {
+        "item_id": "2968",
+        "title": "Time Bandits",
+        "genre": [
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1981,
+        "base_score": 8.921756744384766
+      },
+      {
+        "item_id": "3070",
+        "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 8.42967414855957
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6808994708994709
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.31546487678572877,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 9,
+    "ranking": [
+      {
+        "item_id": "2985",
+        "title": "Robocop",
+        "genre": [
+          "Action",
+          "Crime",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 9.81692886352539
+      },
+      {
+        "item_id": "1653",
+        "title": "Gattaca",
+        "genre": [
+          "Drama",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 9.615911483764648
+      },
+      {
+        "item_id": "1240",
+        "title": "Terminator, The",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 9.56089973449707
+      },
+      {
+        "item_id": "2640",
+        "title": "Superman",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1978,
+        "base_score": 9.253548622131348
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 9.105311393737793
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 9.004114151000977
+      },
+      {
+        "item_id": "1127",
+        "title": "Abyss, The",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 8.94846248626709
+      },
+      {
+        "item_id": "2968",
+        "title": "Time Bandits",
+        "genre": [
+          "Adventure",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1981,
+        "base_score": 8.921756744384766
+      },
+      {
+        "item_id": "3070",
+        "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+        "genre": [
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 8.42967414855957
+      },
+      {
+        "item_id": "3793",
+        "title": "X-Men",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 2000,
+        "base_score": 8.353340148925781
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6464550264550266
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8572292337194085,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.31546487678572877,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2985",
+              "title": "Robocop",
+              "genre": [
+                "Action",
+                "Crime",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 9.81692886352539
+            },
+            {
+              "item_id": "1653",
+              "title": "Gattaca",
+              "genre": [
+                "Drama",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 9.615911483764648
+            },
+            {
+              "item_id": "1240",
+              "title": "Terminator, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 9.56089973449707
+            },
+            {
+              "item_id": "2640",
+              "title": "Superman",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1978,
+              "base_score": 9.253548622131348
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 9.105311393737793
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 9.004114151000977
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 8.94846248626709
+            },
+            {
+              "item_id": "2968",
+              "title": "Time Bandits",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1981,
+              "base_score": 8.921756744384766
+            },
+            {
+              "item_id": "3070",
+              "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.42967414855957
+            },
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 8.353340148925781
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6464550264550266
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.31546487678572877,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 9,
+          "ranking": [
+            {
+              "item_id": "2985",
+              "title": "Robocop",
+              "genre": [
+                "Action",
+                "Crime",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 9.81692886352539
+            },
+            {
+              "item_id": "1653",
+              "title": "Gattaca",
+              "genre": [
+                "Drama",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 9.615911483764648
+            },
+            {
+              "item_id": "1240",
+              "title": "Terminator, The",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 9.56089973449707
+            },
+            {
+              "item_id": "2640",
+              "title": "Superman",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1978,
+              "base_score": 9.253548622131348
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 9.105311393737793
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 9.004114151000977
+            },
+            {
+              "item_id": "1127",
+              "title": "Abyss, The",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1989,
+              "base_score": 8.94846248626709
+            },
+            {
+              "item_id": "2968",
+              "title": "Time Bandits",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1981,
+              "base_score": 8.921756744384766
+            },
+            {
+              "item_id": "3070",
+              "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+              "genre": [
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1984,
+              "base_score": 8.42967414855957
+            },
+            {
+              "item_id": "3793",
+              "title": "X-Men",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 2000,
+              "base_score": 8.353340148925781
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 17,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6464550264550266
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.0488460669294,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3562071871080222,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "2985",
+            "title": "Robocop",
+            "genre": [
+              "Action",
+              "Crime",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 9.81692886352539
+          },
+          {
+            "item_id": "1653",
+            "title": "Gattaca",
+            "genre": [
+              "Drama",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 9.615911483764648
+          },
+          {
+            "item_id": "1240",
+            "title": "Terminator, The",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1984,
+            "base_score": 9.56089973449707
+          },
+          {
+            "item_id": "2640",
+            "title": "Superman",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1978,
+            "base_score": 9.253548622131348
+          },
+          {
+            "item_id": "1127",
+            "title": "Abyss, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1989,
+            "base_score": 8.94846248626709
+          },
+          {
+            "item_id": "2968",
+            "title": "Time Bandits",
+            "genre": [
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1981,
+            "base_score": 8.921756744384766
+          },
+          {
+            "item_id": "3070",
+            "title": "Adventures of Buckaroo Bonzai Across the 8th Dimension, The",
+            "genre": [
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1984,
+            "base_score": 8.42967414855957
+          },
+          {
+            "item_id": "3793",
+            "title": "X-Men",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 2000,
+            "base_score": 8.353340148925781
+          },
+          {
+            "item_id": "1374",
+            "title": "Star Trek: The Wrath of Khan",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1982,
+            "base_score": 8.351062774658203
+          },
+          {
+            "item_id": "1356",
+            "title": "Star Trek: First Contact",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 8.313390731811523
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5181481481481482
+      }
+    ]
+  }
+}

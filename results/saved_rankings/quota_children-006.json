@@ -1,0 +1,884 @@
+{
+  "request_id": "quota_children-006",
+  "user_id": "1132",
+  "scenario_id": "quota_children",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+  "target_item_id": "60",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children-006",
+      "user_summary": "The user is a Male who is 18-24 years old and works as a programmer. Historically prefers Action and Sci-Fi titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2005",
+        "title": "Goonies, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 8.87790584564209
+      },
+      {
+        "item_id": "2021",
+        "title": "Dune",
+        "genre": [
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Fantasy",
+        "release_year": 1984,
+        "base_score": 8.440123558044434
+      },
+      {
+        "item_id": "2",
+        "title": "Jumanji",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 8.150238037109375
+      },
+      {
+        "item_id": "2143",
+        "title": "Legend",
+        "genre": [
+          "Adventure",
+          "Fantasy",
+          "Romance"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 8.145511627197266
+      },
+      {
+        "item_id": "3438",
+        "title": "Teenage Mutant Ninja Turtles",
+        "genre": [
+          "Action",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 8.094849586486816
+      },
+      {
+        "item_id": "2253",
+        "title": "Toys",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1992,
+        "base_score": 8.087085723876953
+      },
+      {
+        "item_id": "3489",
+        "title": "Hook",
+        "genre": [
+          "Adventure",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1991,
+        "base_score": 7.788686275482178
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 7.761464595794678
+      },
+      {
+        "item_id": "2043",
+        "title": "Darby O'Gill and the Little People",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1959,
+        "base_score": 7.695528984069824
+      },
+      {
+        "item_id": "2054",
+        "title": "Honey, I Shrunk the Kids",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1989,
+        "base_score": 7.546353340148926
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 6,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.5322222222222224
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.2890648263178879,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "2005",
+        "title": "Goonies, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1985,
+        "base_score": 1000008.8779058456
+      },
+      {
+        "item_id": "2",
+        "title": "Jumanji",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000008.1502380371
+      },
+      {
+        "item_id": "3438",
+        "title": "Teenage Mutant Ninja Turtles",
+        "genre": [
+          "Action",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 1000008.0948495865
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000007.7614645958
+      },
+      {
+        "item_id": "2043",
+        "title": "Darby O'Gill and the Little People",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1959,
+        "base_score": 1000007.6955289841
+      },
+      {
+        "item_id": "2054",
+        "title": "Honey, I Shrunk the Kids",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1989,
+        "base_score": 1000007.5463533401
+      },
+      {
+        "item_id": "2161",
+        "title": "NeverEnding Story, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1984,
+        "base_score": 1000007.2426700592
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 1000007.1269993782
+      },
+      {
+        "item_id": "1967",
+        "title": "Labyrinth",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1986,
+        "base_score": 1000007.0735473633
+      },
+      {
+        "item_id": "60",
+        "title": "Indian in the Cupboard, The",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1995,
+        "base_score": 1000006.8031640053
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 10,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.30518518518518517
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.378018447663635,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Children's",
+              "min_count": 2
+            }
+          ],
+          "diversity": []
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "quota_genre_value_children_s",
+              "filter_expression": "genre == \"Children's\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Children's"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "min_count": 2,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_children_s",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[],\"quotas\":[{\"max_count\":null,\"min_count\":2,\"target_group\":\"quota_genre_value_children_s\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Children's\\\"\",\"group_id\":\"quota_genre_value_children_s\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_children_s\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children's\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": []\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "2005",
+              "title": "Goonies, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 8.87790584564209
+            },
+            {
+              "item_id": "2021",
+              "title": "Dune",
+              "genre": [
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Fantasy",
+              "release_year": 1984,
+              "base_score": 8.440123558044434
+            },
+            {
+              "item_id": "2",
+              "title": "Jumanji",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1995,
+              "base_score": 8.150238037109375
+            },
+            {
+              "item_id": "3438",
+              "title": "Teenage Mutant Ninja Turtles",
+              "genre": [
+                "Action",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 8.094849586486816
+            },
+            {
+              "item_id": "2143",
+              "title": "Legend",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 8.145511627197266
+            },
+            {
+              "item_id": "2253",
+              "title": "Toys",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1992,
+              "base_score": 8.087085723876953
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 7.761464595794678
+            },
+            {
+              "item_id": "2043",
+              "title": "Darby O'Gill and the Little People",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1959,
+              "base_score": 7.695528984069824
+            },
+            {
+              "item_id": "3489",
+              "title": "Hook",
+              "genre": [
+                "Adventure",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1991,
+              "base_score": 7.788686275482178
+            },
+            {
+              "item_id": "2054",
+              "title": "Honey, I Shrunk the Kids",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1989,
+              "base_score": 7.546353340148926
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 6,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5322222222222223
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "2005",
+              "title": "Goonies, The",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 8.87790584564209
+            },
+            {
+              "item_id": "2021",
+              "title": "Dune",
+              "genre": [
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Fantasy",
+              "release_year": 1984,
+              "base_score": 8.440123558044434
+            },
+            {
+              "item_id": "2",
+              "title": "Jumanji",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1995,
+              "base_score": 8.150238037109375
+            },
+            {
+              "item_id": "3438",
+              "title": "Teenage Mutant Ninja Turtles",
+              "genre": [
+                "Action",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 8.094849586486816
+            },
+            {
+              "item_id": "2143",
+              "title": "Legend",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Romance"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1985,
+              "base_score": 8.145511627197266
+            },
+            {
+              "item_id": "2253",
+              "title": "Toys",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1992,
+              "base_score": 8.087085723876953
+            },
+            {
+              "item_id": "1073",
+              "title": "Willy Wonka and the Chocolate Factory",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1971,
+              "base_score": 7.761464595794678
+            },
+            {
+              "item_id": "2043",
+              "title": "Darby O'Gill and the Little People",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1959,
+              "base_score": 7.695528984069824
+            },
+            {
+              "item_id": "3489",
+              "title": "Hook",
+              "genre": [
+                "Adventure",
+                "Fantasy"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1991,
+              "base_score": 7.788686275482178
+            },
+            {
+              "item_id": "2054",
+              "title": "Honey, I Shrunk the Kids",
+              "genre": [
+                "Adventure",
+                "Children's",
+                "Comedy",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1989,
+              "base_score": 7.546353340148926
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 6,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5322222222222223
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.905970898922533,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 7,
+        "ranking": [
+          {
+            "item_id": "2005",
+            "title": "Goonies, The",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1985,
+            "base_score": 8.87790584564209
+          },
+          {
+            "item_id": "2021",
+            "title": "Dune",
+            "genre": [
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Fantasy",
+            "release_year": 1984,
+            "base_score": 8.440123558044434
+          },
+          {
+            "item_id": "2",
+            "title": "Jumanji",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1995,
+            "base_score": 8.150238037109375
+          },
+          {
+            "item_id": "3438",
+            "title": "Teenage Mutant Ninja Turtles",
+            "genre": [
+              "Action",
+              "Children's",
+              "Fantasy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1990,
+            "base_score": 8.094849586486816
+          },
+          {
+            "item_id": "2143",
+            "title": "Legend",
+            "genre": [
+              "Adventure",
+              "Fantasy",
+              "Romance"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1985,
+            "base_score": 8.145511627197266
+          },
+          {
+            "item_id": "2253",
+            "title": "Toys",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1992,
+            "base_score": 8.087085723876953
+          },
+          {
+            "item_id": "3489",
+            "title": "Hook",
+            "genre": [
+              "Adventure",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1991,
+            "base_score": 7.788686275482178
+          },
+          {
+            "item_id": "1073",
+            "title": "Willy Wonka and the Chocolate Factory",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 7.761464595794678
+          },
+          {
+            "item_id": "2054",
+            "title": "Honey, I Shrunk the Kids",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1989,
+            "base_score": 7.546353340148926
+          },
+          {
+            "item_id": "2105",
+            "title": "Tron",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1982,
+            "base_score": 6.855881690979004
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 5,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.5685185185185188
+      }
+    ]
+  }
+}

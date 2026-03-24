@@ -1,0 +1,850 @@
+{
+  "request_id": "quota_comedy_filter_horror-040",
+  "user_id": "1410",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "1225",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-040",
+      "user_summary": "The user is a Male who is 50-55 years old and works as a executive/managerial. Historically prefers Sci-Fi and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.3333333333333333,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 10,
+    "ranking": [
+      {
+        "item_id": "3214",
+        "title": "American Flyers",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 7.587376117706299
+      },
+      {
+        "item_id": "2971",
+        "title": "All That Jazz",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1979,
+        "base_score": 6.995481967926025
+      },
+      {
+        "item_id": "3363",
+        "title": "American Graffiti",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 6.986015319824219
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 6.973779201507568
+      },
+      {
+        "item_id": "3701",
+        "title": "Alien Nation",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1988,
+        "base_score": 6.868618011474609
+      },
+      {
+        "item_id": "1214",
+        "title": "Alien",
+        "genre": [
+          "Action",
+          "Horror",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1979,
+        "base_score": 6.849119186401367
+      },
+      {
+        "item_id": "1225",
+        "title": "Amadeus",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1984,
+        "base_score": 6.830357551574707
+      },
+      {
+        "item_id": "1208",
+        "title": "Apocalypse Now",
+        "genre": [
+          "Drama",
+          "War"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1979,
+        "base_score": 6.661251068115234
+      },
+      {
+        "item_id": "900",
+        "title": "American in Paris, An",
+        "genre": [
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1951,
+        "base_score": 6.607612133026123
+      },
+      {
+        "item_id": "2788",
+        "title": "And Now for Something Completely Different",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1971,
+        "base_score": 6.589316368103027
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 3,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.8214814814814815
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.2890648263178879,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 8,
+    "ranking": [
+      {
+        "item_id": "3363",
+        "title": "American Graffiti",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1973,
+        "base_score": 1000006.9860153198
+      },
+      {
+        "item_id": "11",
+        "title": "American President, The",
+        "genre": [
+          "Comedy",
+          "Drama",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1995,
+        "base_score": 1000006.9737792015
+      },
+      {
+        "item_id": "2788",
+        "title": "And Now for Something Completely Different",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1971,
+        "base_score": 1000006.5893163681
+      },
+      {
+        "item_id": "2539",
+        "title": "Analyze This",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1999,
+        "base_score": 1000006.4398393631
+      },
+      {
+        "item_id": "2141",
+        "title": "American Tail, An",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1986,
+        "base_score": 1000006.3562159538
+      },
+      {
+        "item_id": "3599",
+        "title": "Anchors Aweigh",
+        "genre": [
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1945,
+        "base_score": 1000006.3161730766
+      },
+      {
+        "item_id": "3214",
+        "title": "American Flyers",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 7.587376117706299
+      },
+      {
+        "item_id": "2971",
+        "title": "All That Jazz",
+        "genre": [
+          "Musical"
+        ],
+        "dominant_genre": "Musical",
+        "release_year": 1979,
+        "base_score": 6.995481967926025
+      },
+      {
+        "item_id": "3701",
+        "title": "Alien Nation",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1988,
+        "base_score": 6.868618011474609
+      },
+      {
+        "item_id": "1225",
+        "title": "Amadeus",
+        "genre": [
+          "Drama"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1984,
+        "base_score": 6.830357551574707
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 6,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.7651851851851851
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.990369461942464,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "3214",
+              "title": "American Flyers",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 7.587376117706299
+            },
+            {
+              "item_id": "3363",
+              "title": "American Graffiti",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1973,
+              "base_score": 6.986015319824219
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 6.973779201507568
+            },
+            {
+              "item_id": "2971",
+              "title": "All That Jazz",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1979,
+              "base_score": 6.995481967926025
+            },
+            {
+              "item_id": "3701",
+              "title": "Alien Nation",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1988,
+              "base_score": 6.868618011474609
+            },
+            {
+              "item_id": "1225",
+              "title": "Amadeus",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1984,
+              "base_score": 6.830357551574707
+            },
+            {
+              "item_id": "2788",
+              "title": "And Now for Something Completely Different",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1971,
+              "base_score": 6.589316368103027
+            },
+            {
+              "item_id": "1208",
+              "title": "Apocalypse Now",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1979,
+              "base_score": 6.661251068115234
+            },
+            {
+              "item_id": "2539",
+              "title": "Analyze This",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.4398393630981445
+            },
+            {
+              "item_id": "900",
+              "title": "American in Paris, An",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1951,
+              "base_score": 6.607612133026123
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 4,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7844444444444444
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.3562071871080222,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 7,
+          "ranking": [
+            {
+              "item_id": "3214",
+              "title": "American Flyers",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 7.587376117706299
+            },
+            {
+              "item_id": "3363",
+              "title": "American Graffiti",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1973,
+              "base_score": 6.986015319824219
+            },
+            {
+              "item_id": "11",
+              "title": "American President, The",
+              "genre": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1995,
+              "base_score": 6.973779201507568
+            },
+            {
+              "item_id": "2971",
+              "title": "All That Jazz",
+              "genre": [
+                "Musical"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1979,
+              "base_score": 6.995481967926025
+            },
+            {
+              "item_id": "3701",
+              "title": "Alien Nation",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1988,
+              "base_score": 6.868618011474609
+            },
+            {
+              "item_id": "1225",
+              "title": "Amadeus",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1984,
+              "base_score": 6.830357551574707
+            },
+            {
+              "item_id": "2788",
+              "title": "And Now for Something Completely Different",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1971,
+              "base_score": 6.589316368103027
+            },
+            {
+              "item_id": "1208",
+              "title": "Apocalypse Now",
+              "genre": [
+                "Drama",
+                "War"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1979,
+              "base_score": 6.661251068115234
+            },
+            {
+              "item_id": "2539",
+              "title": "Analyze This",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1999,
+              "base_score": 6.4398393630981445
+            },
+            {
+              "item_id": "900",
+              "title": "American in Paris, An",
+              "genre": [
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Musical",
+              "release_year": 1951,
+              "base_score": 6.607612133026123
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 18,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 4,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.7844444444444444
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.779613143298775,
+        "hit@10": 1.0,
+        "ndcg@10": 0.3010299956639812,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 8,
+        "ranking": [
+          {
+            "item_id": "3701",
+            "title": "Alien Nation",
+            "genre": [
+              "Crime",
+              "Drama",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1988,
+            "base_score": 6.868618011474609
+          },
+          {
+            "item_id": "3363",
+            "title": "American Graffiti",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1973,
+            "base_score": 6.986015319824219
+          },
+          {
+            "item_id": "11",
+            "title": "American President, The",
+            "genre": [
+              "Comedy",
+              "Drama",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1995,
+            "base_score": 6.973779201507568
+          },
+          {
+            "item_id": "2788",
+            "title": "And Now for Something Completely Different",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1971,
+            "base_score": 6.589316368103027
+          },
+          {
+            "item_id": "2539",
+            "title": "Analyze This",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1999,
+            "base_score": 6.4398393630981445
+          },
+          {
+            "item_id": "2141",
+            "title": "American Tail, An",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1986,
+            "base_score": 6.356215953826904
+          },
+          {
+            "item_id": "3599",
+            "title": "Anchors Aweigh",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1945,
+            "base_score": 6.316173076629639
+          },
+          {
+            "item_id": "3214",
+            "title": "American Flyers",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1985,
+            "base_score": 7.587376117706299
+          },
+          {
+            "item_id": "1225",
+            "title": "Amadeus",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1984,
+            "base_score": 6.830357551574707
+          },
+          {
+            "item_id": "150",
+            "title": "Apollo 13",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1995,
+            "base_score": 6.355897426605225
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 6,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.705925925925926
+      }
+    ]
+  }
+}

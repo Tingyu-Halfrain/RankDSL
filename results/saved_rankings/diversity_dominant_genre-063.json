@@ -1,0 +1,752 @@
+{
+  "request_id": "diversity_dominant_genre-063",
+  "user_id": "127",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "2871",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-063",
+      "user_summary": "The user is a Female who is 45-49 years old and works as a clerical/admin. Historically prefers Action and Thriller titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 3,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "1674",
+        "title": "Witness",
+        "genre": [
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 9.584247589111328
+      },
+      {
+        "item_id": "3551",
+        "title": "Marathon Man",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1976,
+        "base_score": 8.620648384094238
+      },
+      {
+        "item_id": "2819",
+        "title": "Three Days of the Condor",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1975,
+        "base_score": 8.357637405395508
+      },
+      {
+        "item_id": "2871",
+        "title": "Deliverance",
+        "genre": [
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1972,
+        "base_score": 8.182903289794922
+      },
+      {
+        "item_id": "457",
+        "title": "Fugitive, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.111763000488281
+      },
+      {
+        "item_id": "3505",
+        "title": "No Way Out",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1987,
+        "base_score": 7.891480445861816
+      },
+      {
+        "item_id": "1834",
+        "title": "Spanish Prisoner, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 7.7319135665893555
+      },
+      {
+        "item_id": "293",
+        "title": "Professional, The (a.k.a. Leon: The Professional)",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1994,
+        "base_score": 7.647085666656494
+      },
+      {
+        "item_id": "628",
+        "title": "Primal Fear",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.477306842803955
+      },
+      {
+        "item_id": "474",
+        "title": "In the Line of Fire",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 7.373058319091797
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.375,
+    "ild_score": 0.5255555555555557
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 3,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "1674",
+        "title": "Witness",
+        "genre": [
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1985,
+        "base_score": 9.584247589111328
+      },
+      {
+        "item_id": "3551",
+        "title": "Marathon Man",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1976,
+        "base_score": 8.620648384094238
+      },
+      {
+        "item_id": "2819",
+        "title": "Three Days of the Condor",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1975,
+        "base_score": 8.357637405395508
+      },
+      {
+        "item_id": "2871",
+        "title": "Deliverance",
+        "genre": [
+          "Adventure",
+          "Thriller"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1972,
+        "base_score": 8.182903289794922
+      },
+      {
+        "item_id": "457",
+        "title": "Fugitive, The",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.111763000488281
+      },
+      {
+        "item_id": "3505",
+        "title": "No Way Out",
+        "genre": [
+          "Thriller"
+        ],
+        "dominant_genre": "Thriller",
+        "release_year": 1987,
+        "base_score": 7.891480445861816
+      },
+      {
+        "item_id": "1834",
+        "title": "Spanish Prisoner, The",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1997,
+        "base_score": 7.7319135665893555
+      },
+      {
+        "item_id": "293",
+        "title": "Professional, The (a.k.a. Leon: The Professional)",
+        "genre": [
+          "Crime",
+          "Drama",
+          "Romance",
+          "Thriller"
+        ],
+        "dominant_genre": "Crime",
+        "release_year": 1994,
+        "base_score": 7.647085666656494
+      },
+      {
+        "item_id": "628",
+        "title": "Primal Fear",
+        "genre": [
+          "Drama",
+          "Thriller"
+        ],
+        "dominant_genre": "Drama",
+        "release_year": 1996,
+        "base_score": 7.477306842803955
+      },
+      {
+        "item_id": "474",
+        "title": "In the Line of Fire",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 7.373058319091797
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 2,
+    "sliding_violation_rate": 0.375,
+    "ild_score": 0.5255555555555557
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.2657209606841207,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [],
+          "constraints": {
+            "filters": [],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[],\"quotas\":[]},\"groups\":[],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1674",
+              "title": "Witness",
+              "genre": [
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 9.584247589111328
+            },
+            {
+              "item_id": "3551",
+              "title": "Marathon Man",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1976,
+              "base_score": 8.620648384094238
+            },
+            {
+              "item_id": "2871",
+              "title": "Deliverance",
+              "genre": [
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1972,
+              "base_score": 8.182903289794922
+            },
+            {
+              "item_id": "457",
+              "title": "Fugitive, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.111763000488281
+            },
+            {
+              "item_id": "2819",
+              "title": "Three Days of the Condor",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1975,
+              "base_score": 8.357637405395508
+            },
+            {
+              "item_id": "1834",
+              "title": "Spanish Prisoner, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 7.7319135665893555
+            },
+            {
+              "item_id": "293",
+              "title": "Professional, The (a.k.a. Leon: The Professional)",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1994,
+              "base_score": 7.647085666656494
+            },
+            {
+              "item_id": "3505",
+              "title": "No Way Out",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1987,
+              "base_score": 7.891480445861816
+            },
+            {
+              "item_id": "628",
+              "title": "Primal Fear",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.477306842803955
+            },
+            {
+              "item_id": "474",
+              "title": "In the Line of Fire",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 7.373058319091797
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5255555555555556
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 0.5,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1674",
+              "title": "Witness",
+              "genre": [
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1985,
+              "base_score": 9.584247589111328
+            },
+            {
+              "item_id": "3551",
+              "title": "Marathon Man",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1976,
+              "base_score": 8.620648384094238
+            },
+            {
+              "item_id": "2871",
+              "title": "Deliverance",
+              "genre": [
+                "Adventure",
+                "Thriller"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1972,
+              "base_score": 8.182903289794922
+            },
+            {
+              "item_id": "457",
+              "title": "Fugitive, The",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.111763000488281
+            },
+            {
+              "item_id": "2819",
+              "title": "Three Days of the Condor",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1975,
+              "base_score": 8.357637405395508
+            },
+            {
+              "item_id": "1834",
+              "title": "Spanish Prisoner, The",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1997,
+              "base_score": 7.7319135665893555
+            },
+            {
+              "item_id": "293",
+              "title": "Professional, The (a.k.a. Leon: The Professional)",
+              "genre": [
+                "Crime",
+                "Drama",
+                "Romance",
+                "Thriller"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1994,
+              "base_score": 7.647085666656494
+            },
+            {
+              "item_id": "3505",
+              "title": "No Way Out",
+              "genre": [
+                "Thriller"
+              ],
+              "dominant_genre": "Thriller",
+              "release_year": 1987,
+              "base_score": 7.891480445861816
+            },
+            {
+              "item_id": "628",
+              "title": "Primal Fear",
+              "genre": [
+                "Drama",
+                "Thriller"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1996,
+              "base_score": 7.477306842803955
+            },
+            {
+              "item_id": "474",
+              "title": "In the Line of Fire",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 7.373058319091797
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 20,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.5255555555555556
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.5770400427281857,
+        "hit@10": 1.0,
+        "ndcg@10": 0.5,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 3,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "1674",
+            "title": "Witness",
+            "genre": [
+              "Drama",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1985,
+            "base_score": 9.584247589111328
+          },
+          {
+            "item_id": "3551",
+            "title": "Marathon Man",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1976,
+            "base_score": 8.620648384094238
+          },
+          {
+            "item_id": "2871",
+            "title": "Deliverance",
+            "genre": [
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1972,
+            "base_score": 8.182903289794922
+          },
+          {
+            "item_id": "2819",
+            "title": "Three Days of the Condor",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1975,
+            "base_score": 8.357637405395508
+          },
+          {
+            "item_id": "457",
+            "title": "Fugitive, The",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1993,
+            "base_score": 8.111763000488281
+          },
+          {
+            "item_id": "293",
+            "title": "Professional, The (a.k.a. Leon: The Professional)",
+            "genre": [
+              "Crime",
+              "Drama",
+              "Romance",
+              "Thriller"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1994,
+            "base_score": 7.647085666656494
+          },
+          {
+            "item_id": "3505",
+            "title": "No Way Out",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1987,
+            "base_score": 7.891480445861816
+          },
+          {
+            "item_id": "1834",
+            "title": "Spanish Prisoner, The",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1997,
+            "base_score": 7.7319135665893555
+          },
+          {
+            "item_id": "628",
+            "title": "Primal Fear",
+            "genre": [
+              "Drama",
+              "Thriller"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1996,
+            "base_score": 7.477306842803955
+          },
+          {
+            "item_id": "2762",
+            "title": "Sixth Sense, The",
+            "genre": [
+              "Thriller"
+            ],
+            "dominant_genre": "Thriller",
+            "release_year": 1999,
+            "base_score": 7.351876735687256
+          }
+        ],
+        "has_filter_constraints": false,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 0.0,
+        "sliding_window_ok": false,
+        "max_rep_in_any_window": 2,
+        "sliding_violation_rate": 0.375,
+        "ild_score": 0.4892592592592592
+      }
+    ]
+  }
+}

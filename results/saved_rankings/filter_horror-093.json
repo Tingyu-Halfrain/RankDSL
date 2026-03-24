@@ -1,0 +1,817 @@
+{
+  "request_id": "filter_horror-093",
+  "user_id": "1742",
+  "scenario_id": "filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must exclude Horror titles.",
+  "target_item_id": "377",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "filter_horror-093",
+      "user_summary": "The user is a Male who is 25-34 years old and works as a scientist. Historically prefers Drama and Action titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 1,
+    "genre_coverage": 7,
+    "ranking": [
+      {
+        "item_id": "1527",
+        "title": "Fifth Element, The",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.901466369628906
+      },
+      {
+        "item_id": "1356",
+        "title": "Star Trek: First Contact",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.478509902954102
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.302389144897461
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.301168441772461
+      },
+      {
+        "item_id": "1573",
+        "title": "Face/Off",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 7.948874473571777
+      },
+      {
+        "item_id": "1372",
+        "title": "Star Trek VI: The Undiscovered Country",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 7.848798751831055
+      },
+      {
+        "item_id": "1370",
+        "title": "Die Hard 2",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.821014404296875
+      },
+      {
+        "item_id": "2916",
+        "title": "Total Recall",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.733245372772217
+      },
+      {
+        "item_id": "2167",
+        "title": "Blade",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Horror"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 7.6905741691589355
+      },
+      {
+        "item_id": "112",
+        "title": "Rumble in the Bronx",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Crime"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.352226257324219
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": false,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4807407407407409
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 6,
+    "ranking": [
+      {
+        "item_id": "1527",
+        "title": "Fifth Element, The",
+        "genre": [
+          "Action",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.901466369628906
+      },
+      {
+        "item_id": "1356",
+        "title": "Star Trek: First Contact",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1996,
+        "base_score": 8.478509902954102
+      },
+      {
+        "item_id": "1580",
+        "title": "Men in Black",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 8.302389144897461
+      },
+      {
+        "item_id": "480",
+        "title": "Jurassic Park",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1993,
+        "base_score": 8.301168441772461
+      },
+      {
+        "item_id": "1573",
+        "title": "Face/Off",
+        "genre": [
+          "Action",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1997,
+        "base_score": 7.948874473571777
+      },
+      {
+        "item_id": "1372",
+        "title": "Star Trek VI: The Undiscovered Country",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1991,
+        "base_score": 7.848798751831055
+      },
+      {
+        "item_id": "1370",
+        "title": "Die Hard 2",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.821014404296875
+      },
+      {
+        "item_id": "2916",
+        "title": "Total Recall",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1990,
+        "base_score": 7.733245372772217
+      },
+      {
+        "item_id": "112",
+        "title": "Rumble in the Bronx",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Crime"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1995,
+        "base_score": 7.352226257324219
+      },
+      {
+        "item_id": "2353",
+        "title": "Enemy of the State",
+        "genre": [
+          "Action",
+          "Thriller"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1998,
+        "base_score": 7.349193096160889
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.4762962962962964
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.102087538689375,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1527",
+              "title": "Fifth Element, The",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 8.901466369628906
+            },
+            {
+              "item_id": "1356",
+              "title": "Star Trek: First Contact",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.478509902954102
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 8.302389144897461
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.301168441772461
+            },
+            {
+              "item_id": "1573",
+              "title": "Face/Off",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 7.948874473571777
+            },
+            {
+              "item_id": "1372",
+              "title": "Star Trek VI: The Undiscovered Country",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 7.848798751831055
+            },
+            {
+              "item_id": "1370",
+              "title": "Die Hard 2",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.821014404296875
+            },
+            {
+              "item_id": "2916",
+              "title": "Total Recall",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.733245372772217
+            },
+            {
+              "item_id": "112",
+              "title": "Rumble in the Bronx",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Crime"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.352226257324219
+            },
+            {
+              "item_id": "2353",
+              "title": "Enemy of the State",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 7.349193096160889
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4762962962962964
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 6,
+          "ranking": [
+            {
+              "item_id": "1527",
+              "title": "Fifth Element, The",
+              "genre": [
+                "Action",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 8.901466369628906
+            },
+            {
+              "item_id": "1356",
+              "title": "Star Trek: First Contact",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1996,
+              "base_score": 8.478509902954102
+            },
+            {
+              "item_id": "1580",
+              "title": "Men in Black",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 8.302389144897461
+            },
+            {
+              "item_id": "480",
+              "title": "Jurassic Park",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1993,
+              "base_score": 8.301168441772461
+            },
+            {
+              "item_id": "1573",
+              "title": "Face/Off",
+              "genre": [
+                "Action",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1997,
+              "base_score": 7.948874473571777
+            },
+            {
+              "item_id": "1372",
+              "title": "Star Trek VI: The Undiscovered Country",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1991,
+              "base_score": 7.848798751831055
+            },
+            {
+              "item_id": "1370",
+              "title": "Die Hard 2",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.821014404296875
+            },
+            {
+              "item_id": "2916",
+              "title": "Total Recall",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1990,
+              "base_score": 7.733245372772217
+            },
+            {
+              "item_id": "112",
+              "title": "Rumble in the Bronx",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Crime"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1995,
+              "base_score": 7.352226257324219
+            },
+            {
+              "item_id": "2353",
+              "title": "Enemy of the State",
+              "genre": [
+                "Action",
+                "Thriller"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1998,
+              "base_score": 7.349193096160889
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.4762962962962964
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.8415865479037166,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 6,
+        "ranking": [
+          {
+            "item_id": "1527",
+            "title": "Fifth Element, The",
+            "genre": [
+              "Action",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 8.901466369628906
+          },
+          {
+            "item_id": "1356",
+            "title": "Star Trek: First Contact",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 8.478509902954102
+          },
+          {
+            "item_id": "1580",
+            "title": "Men in Black",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 8.302389144897461
+          },
+          {
+            "item_id": "1573",
+            "title": "Face/Off",
+            "genre": [
+              "Action",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1997,
+            "base_score": 7.948874473571777
+          },
+          {
+            "item_id": "1372",
+            "title": "Star Trek VI: The Undiscovered Country",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1991,
+            "base_score": 7.848798751831055
+          },
+          {
+            "item_id": "1370",
+            "title": "Die Hard 2",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1990,
+            "base_score": 7.821014404296875
+          },
+          {
+            "item_id": "2916",
+            "title": "Total Recall",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Sci-Fi",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1990,
+            "base_score": 7.733245372772217
+          },
+          {
+            "item_id": "112",
+            "title": "Rumble in the Bronx",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Crime"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1995,
+            "base_score": 7.352226257324219
+          },
+          {
+            "item_id": "2353",
+            "title": "Enemy of the State",
+            "genre": [
+              "Action",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1998,
+            "base_score": 7.349193096160889
+          },
+          {
+            "item_id": "733",
+            "title": "Rock, The",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Thriller"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1996,
+            "base_score": 6.902777194976807
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": false,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.49703703703703705
+      }
+    ]
+  }
+}

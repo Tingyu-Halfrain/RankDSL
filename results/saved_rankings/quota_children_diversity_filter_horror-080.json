@@ -1,0 +1,872 @@
+{
+  "request_id": "quota_children_diversity_filter_horror-080",
+  "user_id": "4050",
+  "scenario_id": "quota_children_diversity_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 2 Children's titles, exclude Horror titles, and within any window of 3 ranked items dominant_genre cannot repeat.",
+  "target_item_id": "2949",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_children_diversity_filter_horror-080",
+      "user_summary": "The user is a Male who is 35-44 years old and works as a doctor/health care. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "children",
+        "filter_expression": "genre == \"Children's\"",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Children's"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "children",
+          "min_count": 2,
+          "max_count": null
+        }
+      ],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "children",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 1.0,
+    "ndcg@10": 1.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 7,
+    "genre_coverage": 12,
+    "ranking": [
+      {
+        "item_id": "2949",
+        "title": "Dr. No",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1962,
+        "base_score": 5.718179225921631
+      },
+      {
+        "item_id": "2000",
+        "title": "Lethal Weapon",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 5.713665962219238
+      },
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 5.522603988647461
+      },
+      {
+        "item_id": "1220",
+        "title": "Blues Brothers, The",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1980,
+        "base_score": 5.195986270904541
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 5.105947971343994
+      },
+      {
+        "item_id": "1210",
+        "title": "Star Wars: Episode VI - Return of the Jedi",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1983,
+        "base_score": 5.097082614898682
+      },
+      {
+        "item_id": "2951",
+        "title": "Fistful of Dollars, A",
+        "genre": [
+          "Action",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1964,
+        "base_score": 5.083179473876953
+      },
+      {
+        "item_id": "553",
+        "title": "Tombstone",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1993,
+        "base_score": 5.07207727432251
+      },
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 5.054619789123535
+      },
+      {
+        "item_id": "592",
+        "title": "Batman",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1989,
+        "base_score": 5.040318489074707
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 1,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": false
+      }
+    ],
+    "quota_satisfaction": 0.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.75,
+    "ild_score": 0.8185714285714286
+  },
+  "score_adjust_greedy": {
+    "hit@10": 1.0,
+    "ndcg@10": 0.43067655807339306,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 6,
+    "genre_coverage": 13,
+    "ranking": [
+      {
+        "item_id": "1097",
+        "title": "E.T. the Extra-Terrestrial",
+        "genre": [
+          "Children's",
+          "Drama",
+          "Fantasy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Children's",
+        "release_year": 1982,
+        "base_score": 1000005.5226039886
+      },
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 1000004.6224865913
+      },
+      {
+        "item_id": "1073",
+        "title": "Willy Wonka and the Chocolate Factory",
+        "genre": [
+          "Adventure",
+          "Children's",
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Adventure",
+        "release_year": 1971,
+        "base_score": 1000004.5103244781
+      },
+      {
+        "item_id": "2949",
+        "title": "Dr. No",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1962,
+        "base_score": 5.718179225921631
+      },
+      {
+        "item_id": "2000",
+        "title": "Lethal Weapon",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 5.713665962219238
+      },
+      {
+        "item_id": "1220",
+        "title": "Blues Brothers, The",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1980,
+        "base_score": 5.195986270904541
+      },
+      {
+        "item_id": "2948",
+        "title": "From Russia with Love",
+        "genre": [
+          "Action"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1963,
+        "base_score": 5.105947971343994
+      },
+      {
+        "item_id": "1210",
+        "title": "Star Wars: Episode VI - Return of the Jedi",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Romance",
+          "Sci-Fi",
+          "War"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1983,
+        "base_score": 5.097082614898682
+      },
+      {
+        "item_id": "2951",
+        "title": "Fistful of Dollars, A",
+        "genre": [
+          "Action",
+          "Western"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1964,
+        "base_score": 5.083179473876953
+      },
+      {
+        "item_id": "553",
+        "title": "Tombstone",
+        "genre": [
+          "Western"
+        ],
+        "dominant_genre": "Western",
+        "release_year": 1993,
+        "base_score": 5.07207727432251
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "children",
+        "actual_count": 3,
+        "required_min": 2,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 0.75,
+    "ild_score": 0.8491798941798943
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 9.24200702086091,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [],
+          "diversity": [
+            {
+              "field": "dominant_genre",
+              "window_size": 3,
+              "max_repetition": 1
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [],
+            "diversity": [
+              {
+                "attribute": "dominant_genre",
+                "window_size": 3,
+                "max_repetition": 1
+              }
+            ]
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": []
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[{\"attribute\":\"dominant_genre\",\"max_repetition\":1,\"window_size\":3}],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Children\",\n      \"min_count\": 2\n    }\n  ],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "repair_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [],\n  \"diversity\": [\n    {\n      \"field\": \"dominant_genre\",\n      \"window_size\": 3,\n      \"max_repetition\": 1\n    }\n  ]\n}",
+        "greedy": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 1,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2949",
+              "title": "Dr. No",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1962,
+              "base_score": 5.718179225921631
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 5.522603988647461
+            },
+            {
+              "item_id": "553",
+              "title": "Tombstone",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1993,
+              "base_score": 5.07207727432251
+            },
+            {
+              "item_id": "2000",
+              "title": "Lethal Weapon",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 5.713665962219238
+            },
+            {
+              "item_id": "2797",
+              "title": "Big",
+              "genre": [
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 5.054619789123535
+            },
+            {
+              "item_id": "2268",
+              "title": "Few Good Men, A",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1992,
+              "base_score": 4.757287502288818
+            },
+            {
+              "item_id": "1220",
+              "title": "Blues Brothers, The",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1980,
+              "base_score": 5.195986270904541
+            },
+            {
+              "item_id": "1246",
+              "title": "Dead Poets Society",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1989,
+              "base_score": 4.749787330627441
+            },
+            {
+              "item_id": "2968",
+              "title": "Time Bandits",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1981,
+              "base_score": 4.716897010803223
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 5.105947971343994
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 1,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": false
+            }
+          ],
+          "quota_satisfaction": 0.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8731216931216932
+        },
+        "ilp": {
+          "hit@10": 1.0,
+          "ndcg@10": 1.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 1,
+          "genre_coverage": 10,
+          "ranking": [
+            {
+              "item_id": "2949",
+              "title": "Dr. No",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1962,
+              "base_score": 5.718179225921631
+            },
+            {
+              "item_id": "1097",
+              "title": "E.T. the Extra-Terrestrial",
+              "genre": [
+                "Children's",
+                "Drama",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Children's",
+              "release_year": 1982,
+              "base_score": 5.522603988647461
+            },
+            {
+              "item_id": "553",
+              "title": "Tombstone",
+              "genre": [
+                "Western"
+              ],
+              "dominant_genre": "Western",
+              "release_year": 1993,
+              "base_score": 5.07207727432251
+            },
+            {
+              "item_id": "2000",
+              "title": "Lethal Weapon",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 5.713665962219238
+            },
+            {
+              "item_id": "2797",
+              "title": "Big",
+              "genre": [
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 5.054619789123535
+            },
+            {
+              "item_id": "2268",
+              "title": "Few Good Men, A",
+              "genre": [
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Crime",
+              "release_year": 1992,
+              "base_score": 4.757287502288818
+            },
+            {
+              "item_id": "1220",
+              "title": "Blues Brothers, The",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1980,
+              "base_score": 5.195986270904541
+            },
+            {
+              "item_id": "1246",
+              "title": "Dead Poets Society",
+              "genre": [
+                "Drama"
+              ],
+              "dominant_genre": "Drama",
+              "release_year": 1989,
+              "base_score": 4.749787330627441
+            },
+            {
+              "item_id": "2968",
+              "title": "Time Bandits",
+              "genre": [
+                "Adventure",
+                "Fantasy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Adventure",
+              "release_year": 1981,
+              "base_score": 4.716897010803223
+            },
+            {
+              "item_id": "2948",
+              "title": "From Russia with Love",
+              "genre": [
+                "Action"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1963,
+              "base_score": 5.105947971343994
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "children",
+              "actual_count": 1,
+              "required_min": 2,
+              "required_max": null,
+              "satisfied": false
+            }
+          ],
+          "quota_satisfaction": 0.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 1,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.8731216931216932
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 3.461641159839928,
+        "hit@10": 1.0,
+        "ndcg@10": 0.31546487678572877,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "1097",
+            "title": "E.T. the Extra-Terrestrial",
+            "genre": [
+              "Children's",
+              "Drama",
+              "Fantasy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Children's",
+            "release_year": 1982,
+            "base_score": 5.522603988647461
+          },
+          {
+            "item_id": "2000",
+            "title": "Lethal Weapon",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1987,
+            "base_score": 5.713665962219238
+          },
+          {
+            "item_id": "2797",
+            "title": "Big",
+            "genre": [
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 5.054619789123535
+          },
+          {
+            "item_id": "553",
+            "title": "Tombstone",
+            "genre": [
+              "Western"
+            ],
+            "dominant_genre": "Western",
+            "release_year": 1993,
+            "base_score": 5.07207727432251
+          },
+          {
+            "item_id": "1246",
+            "title": "Dead Poets Society",
+            "genre": [
+              "Drama"
+            ],
+            "dominant_genre": "Drama",
+            "release_year": 1989,
+            "base_score": 4.749787330627441
+          },
+          {
+            "item_id": "2018",
+            "title": "Bambi",
+            "genre": [
+              "Animation",
+              "Children's"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1942,
+            "base_score": 4.622486591339111
+          },
+          {
+            "item_id": "2268",
+            "title": "Few Good Men, A",
+            "genre": [
+              "Crime",
+              "Drama"
+            ],
+            "dominant_genre": "Crime",
+            "release_year": 1992,
+            "base_score": 4.757287502288818
+          },
+          {
+            "item_id": "2949",
+            "title": "Dr. No",
+            "genre": [
+              "Action"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1962,
+            "base_score": 5.718179225921631
+          },
+          {
+            "item_id": "3039",
+            "title": "Trading Places",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1983,
+            "base_score": 4.7137908935546875
+          },
+          {
+            "item_id": "1073",
+            "title": "Willy Wonka and the Chocolate Factory",
+            "genre": [
+              "Adventure",
+              "Children's",
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Adventure",
+            "release_year": 1971,
+            "base_score": 4.510324478149414
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": true,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "children",
+            "actual_count": 3,
+            "required_min": 2,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 1,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.8917989417989418
+      }
+    ]
+  }
+}

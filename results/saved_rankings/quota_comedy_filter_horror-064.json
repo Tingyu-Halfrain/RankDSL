@@ -1,0 +1,898 @@
+{
+  "request_id": "quota_comedy_filter_horror-064",
+  "user_id": "1670",
+  "scenario_id": "quota_comedy_filter_horror",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Top-10 must contain at least 3 Comedy titles and exclude Horror titles.",
+  "target_item_id": "1081",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "quota_comedy_filter_horror-064",
+      "user_summary": "The user is a Female who is over 56 years old and works as a retired. Historically prefers Drama and Comedy titles.",
+      "top_k": 10
+    },
+    "groups": [
+      {
+        "group_id": "comedy",
+        "filter_expression": "genre == 'Comedy'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Comedy"
+        }
+      },
+      {
+        "group_id": "horror",
+        "filter_expression": "genre == 'Horror'",
+        "ast": {
+          "type": "atom",
+          "field": "genre",
+          "op": "==",
+          "value": "Horror"
+        }
+      }
+    ],
+    "constraints": {
+      "filters": [
+        {
+          "action": "exclude",
+          "target_group": "horror"
+        }
+      ],
+      "quotas": [
+        {
+          "target_group": "comedy",
+          "min_count": 3,
+          "max_count": null
+        }
+      ],
+      "diversity": []
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": [
+        {
+          "target_group": "comedy",
+          "weight": 0.2
+        }
+      ]
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 9.105269432067871
+      },
+      {
+        "item_id": "2406",
+        "title": "Romancing the Stone",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 8.864121437072754
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 8.580339431762695
+      },
+      {
+        "item_id": "1220",
+        "title": "Blues Brothers, The",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1980,
+        "base_score": 8.273537635803223
+      },
+      {
+        "item_id": "3039",
+        "title": "Trading Places",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1983,
+        "base_score": 8.209476470947266
+      },
+      {
+        "item_id": "2100",
+        "title": "Splash",
+        "genre": [
+          "Comedy",
+          "Fantasy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 8.07799243927002
+      },
+      {
+        "item_id": "2011",
+        "title": "Back to the Future Part II",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 8.05386734008789
+      },
+      {
+        "item_id": "2245",
+        "title": "Working Girl",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 7.998006343841553
+      },
+      {
+        "item_id": "2000",
+        "title": "Lethal Weapon",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 7.949747085571289
+      },
+      {
+        "item_id": "2081",
+        "title": "Little Mermaid, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1989,
+        "base_score": 7.919549465179443
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 10,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6890211640211642
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 1.0,
+    "violation_count": 0,
+    "genre_coverage": 11,
+    "ranking": [
+      {
+        "item_id": "2797",
+        "title": "Big",
+        "genre": [
+          "Comedy",
+          "Fantasy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 1000009.1052694321
+      },
+      {
+        "item_id": "2406",
+        "title": "Romancing the Stone",
+        "genre": [
+          "Action",
+          "Adventure",
+          "Comedy",
+          "Romance"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1984,
+        "base_score": 1000008.8641214371
+      },
+      {
+        "item_id": "2407",
+        "title": "Cocoon",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1985,
+        "base_score": 1000008.5803394318
+      },
+      {
+        "item_id": "1220",
+        "title": "Blues Brothers, The",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1980,
+        "base_score": 1000008.2735376358
+      },
+      {
+        "item_id": "3039",
+        "title": "Trading Places",
+        "genre": [
+          "Comedy"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1983,
+        "base_score": 1000008.209476471
+      },
+      {
+        "item_id": "2100",
+        "title": "Splash",
+        "genre": [
+          "Comedy",
+          "Fantasy",
+          "Romance"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1984,
+        "base_score": 1000008.0779924393
+      },
+      {
+        "item_id": "2011",
+        "title": "Back to the Future Part II",
+        "genre": [
+          "Comedy",
+          "Sci-Fi"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1989,
+        "base_score": 1000008.0538673401
+      },
+      {
+        "item_id": "2245",
+        "title": "Working Girl",
+        "genre": [
+          "Comedy",
+          "Drama"
+        ],
+        "dominant_genre": "Comedy",
+        "release_year": 1988,
+        "base_score": 1000007.9980063438
+      },
+      {
+        "item_id": "2000",
+        "title": "Lethal Weapon",
+        "genre": [
+          "Action",
+          "Comedy",
+          "Crime",
+          "Drama"
+        ],
+        "dominant_genre": "Action",
+        "release_year": 1987,
+        "base_score": 1000007.9497470856
+      },
+      {
+        "item_id": "2081",
+        "title": "Little Mermaid, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical",
+          "Romance"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1989,
+        "base_score": 1000007.9195494652
+      }
+    ],
+    "has_filter_constraints": true,
+    "has_quota_constraints": true,
+    "has_diversity_constraints": false,
+    "filter_ok": true,
+    "quota_status": [
+      {
+        "target_group": "comedy",
+        "actual_count": 10,
+        "required_min": 3,
+        "required_max": null,
+        "satisfied": true
+      }
+    ],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 1.0,
+    "sliding_window_ok": true,
+    "max_rep_in_any_window": 0,
+    "sliding_violation_rate": 0.0,
+    "ild_score": 0.6890211640211642
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 1.0,
+    "canonical_program_agreement": 1.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 4.0797751671634614,
+        "raw_dsl": {
+          "top_k": 10,
+          "filters": [
+            {
+              "field": "genre",
+              "op": "==",
+              "value": "Horror"
+            }
+          ],
+          "quotas": [
+            {
+              "field": "genre",
+              "value": "Comedy",
+              "min_count": 3
+            }
+          ]
+        },
+        "compiled_dsl": {
+          "meta": {
+            "request_id": "",
+            "user_summary": "",
+            "top_k": 10
+          },
+          "groups": [
+            {
+              "group_id": "filter_genre_value_horror",
+              "filter_expression": "genre == \"Horror\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Horror"
+              }
+            },
+            {
+              "group_id": "quota_genre_value_comedy",
+              "filter_expression": "genre == \"Comedy\"",
+              "ast": {
+                "type": "atom",
+                "field": "genre",
+                "op": "==",
+                "value": "Comedy"
+              }
+            }
+          ],
+          "constraints": {
+            "filters": [
+              {
+                "action": "exclude",
+                "target_group": "filter_genre_value_horror"
+              }
+            ],
+            "quotas": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "min_count": 3,
+                "max_count": null
+              }
+            ],
+            "diversity": []
+          },
+          "objective": {
+            "base_score_weight": 1.0,
+            "group_boosts": [
+              {
+                "target_group": "quota_genre_value_comedy",
+                "weight": 0.2
+              }
+            ]
+          },
+          "tie_break": [
+            "base_score desc",
+            "item_id asc"
+          ]
+        },
+        "compiled_dsl_canonical": "{\"constraints\":{\"diversity\":[],\"filters\":[{\"action\":\"exclude\",\"target_group\":\"filter_genre_value_horror\"}],\"quotas\":[{\"max_count\":null,\"min_count\":3,\"target_group\":\"quota_genre_value_comedy\"}]},\"groups\":[{\"filter_expression\":\"genre == \\\"Horror\\\"\",\"group_id\":\"filter_genre_value_horror\"},{\"filter_expression\":\"genre == \\\"Comedy\\\"\",\"group_id\":\"quota_genre_value_comedy\"}],\"meta\":{\"request_id\":\"\",\"top_k\":10,\"user_summary\":\"\"},\"objective\":{\"base_score_weight\":1.0,\"group_boosts\":[{\"target_group\":\"quota_genre_value_comedy\",\"weight\":0.2}]},\"tie_break\":[\"base_score desc\",\"item_id asc\"]}",
+        "compile_raw_response": "{\n  \"top_k\": 10,\n  \"filters\": [\n    {\n      \"field\": \"genre\",\n      \"op\": \"==\",\n      \"value\": \"Horror\"\n    }\n  ],\n  \"quotas\": [\n    {\n      \"field\": \"genre\",\n      \"value\": \"Comedy\",\n      \"min_count\": 3\n    }\n  ]\n}",
+        "repair_raw_response": null,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "2797",
+              "title": "Big",
+              "genre": [
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 9.105269432067871
+            },
+            {
+              "item_id": "2406",
+              "title": "Romancing the Stone",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 8.864121437072754
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 8.580339431762695
+            },
+            {
+              "item_id": "1220",
+              "title": "Blues Brothers, The",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1980,
+              "base_score": 8.273537635803223
+            },
+            {
+              "item_id": "3039",
+              "title": "Trading Places",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1983,
+              "base_score": 8.209476470947266
+            },
+            {
+              "item_id": "2100",
+              "title": "Splash",
+              "genre": [
+                "Comedy",
+                "Fantasy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1984,
+              "base_score": 8.07799243927002
+            },
+            {
+              "item_id": "2011",
+              "title": "Back to the Future Part II",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1989,
+              "base_score": 8.05386734008789
+            },
+            {
+              "item_id": "2245",
+              "title": "Working Girl",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.998006343841553
+            },
+            {
+              "item_id": "2000",
+              "title": "Lethal Weapon",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 7.949747085571289
+            },
+            {
+              "item_id": "2081",
+              "title": "Little Mermaid, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1989,
+              "base_score": 7.919549465179443
+            }
+          ],
+          "solver": "greedy",
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 10,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6890211640211642
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 1.0,
+          "violation_count": 0,
+          "genre_coverage": 11,
+          "ranking": [
+            {
+              "item_id": "2797",
+              "title": "Big",
+              "genre": [
+                "Comedy",
+                "Fantasy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 9.105269432067871
+            },
+            {
+              "item_id": "2406",
+              "title": "Romancing the Stone",
+              "genre": [
+                "Action",
+                "Adventure",
+                "Comedy",
+                "Romance"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1984,
+              "base_score": 8.864121437072754
+            },
+            {
+              "item_id": "2407",
+              "title": "Cocoon",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1985,
+              "base_score": 8.580339431762695
+            },
+            {
+              "item_id": "1220",
+              "title": "Blues Brothers, The",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1980,
+              "base_score": 8.273537635803223
+            },
+            {
+              "item_id": "3039",
+              "title": "Trading Places",
+              "genre": [
+                "Comedy"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1983,
+              "base_score": 8.209476470947266
+            },
+            {
+              "item_id": "2100",
+              "title": "Splash",
+              "genre": [
+                "Comedy",
+                "Fantasy",
+                "Romance"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1984,
+              "base_score": 8.07799243927002
+            },
+            {
+              "item_id": "2011",
+              "title": "Back to the Future Part II",
+              "genre": [
+                "Comedy",
+                "Sci-Fi"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1989,
+              "base_score": 8.05386734008789
+            },
+            {
+              "item_id": "2245",
+              "title": "Working Girl",
+              "genre": [
+                "Comedy",
+                "Drama"
+              ],
+              "dominant_genre": "Comedy",
+              "release_year": 1988,
+              "base_score": 7.998006343841553
+            },
+            {
+              "item_id": "2000",
+              "title": "Lethal Weapon",
+              "genre": [
+                "Action",
+                "Comedy",
+                "Crime",
+                "Drama"
+              ],
+              "dominant_genre": "Action",
+              "release_year": 1987,
+              "base_score": 7.949747085571289
+            },
+            {
+              "item_id": "2081",
+              "title": "Little Mermaid, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical",
+                "Romance"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1989,
+              "base_score": 7.919549465179443
+            }
+          ],
+          "solver": "ilp_fallback_exact",
+          "solver_metadata": {
+            "search_space": 19,
+            "exact": true,
+            "solver_requested": "ilp_fallback_exact",
+            "solver_effective": "ilp_fallback_exact",
+            "solver": "ilp_fallback_exact"
+          },
+          "has_filter_constraints": true,
+          "has_quota_constraints": true,
+          "has_diversity_constraints": false,
+          "filter_ok": true,
+          "quota_status": [
+            {
+              "target_group": "comedy",
+              "actual_count": 10,
+              "required_min": 3,
+              "required_max": null,
+              "satisfied": true
+            }
+          ],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 1.0,
+          "sliding_window_ok": true,
+          "max_rep_in_any_window": 0,
+          "sliding_violation_rate": 0.0,
+          "ild_score": 0.6890211640211642
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 2.839266488328576,
+        "hit@10": 1.0,
+        "ndcg@10": 0.2890648263178879,
+        "constraint_satisfaction": 1.0,
+        "violation_count": 0,
+        "genre_coverage": 10,
+        "ranking": [
+          {
+            "item_id": "2797",
+            "title": "Big",
+            "genre": [
+              "Comedy",
+              "Fantasy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 9.105269432067871
+          },
+          {
+            "item_id": "2406",
+            "title": "Romancing the Stone",
+            "genre": [
+              "Action",
+              "Adventure",
+              "Comedy",
+              "Romance"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1984,
+            "base_score": 8.864121437072754
+          },
+          {
+            "item_id": "2407",
+            "title": "Cocoon",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1985,
+            "base_score": 8.580339431762695
+          },
+          {
+            "item_id": "1220",
+            "title": "Blues Brothers, The",
+            "genre": [
+              "Action",
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Action",
+            "release_year": 1980,
+            "base_score": 8.273537635803223
+          },
+          {
+            "item_id": "3039",
+            "title": "Trading Places",
+            "genre": [
+              "Comedy"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1983,
+            "base_score": 8.209476470947266
+          },
+          {
+            "item_id": "2100",
+            "title": "Splash",
+            "genre": [
+              "Comedy",
+              "Fantasy",
+              "Romance"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1984,
+            "base_score": 8.07799243927002
+          },
+          {
+            "item_id": "2011",
+            "title": "Back to the Future Part II",
+            "genre": [
+              "Comedy",
+              "Sci-Fi"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1989,
+            "base_score": 8.05386734008789
+          },
+          {
+            "item_id": "2245",
+            "title": "Working Girl",
+            "genre": [
+              "Comedy",
+              "Drama"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1988,
+            "base_score": 7.998006343841553
+          },
+          {
+            "item_id": "2081",
+            "title": "Little Mermaid, The",
+            "genre": [
+              "Animation",
+              "Children's",
+              "Comedy",
+              "Musical",
+              "Romance"
+            ],
+            "dominant_genre": "Animation",
+            "release_year": 1989,
+            "base_score": 7.919549465179443
+          },
+          {
+            "item_id": "1081",
+            "title": "Victor/Victoria",
+            "genre": [
+              "Comedy",
+              "Musical"
+            ],
+            "dominant_genre": "Comedy",
+            "release_year": 1982,
+            "base_score": 7.789155960083008
+          }
+        ],
+        "has_filter_constraints": true,
+        "has_quota_constraints": true,
+        "has_diversity_constraints": false,
+        "filter_ok": true,
+        "quota_status": [
+          {
+            "target_group": "comedy",
+            "actual_count": 10,
+            "required_min": 3,
+            "required_max": null,
+            "satisfied": true
+          }
+        ],
+        "quota_satisfaction": 1.0,
+        "diversity_satisfaction": 1.0,
+        "sliding_window_ok": true,
+        "max_rep_in_any_window": 0,
+        "sliding_violation_rate": 0.0,
+        "ild_score": 0.6673544973544975
+      }
+    ]
+  }
+}
