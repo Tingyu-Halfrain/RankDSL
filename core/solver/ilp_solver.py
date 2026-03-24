@@ -1,20 +1,36 @@
 from __future__ import annotations
 
-from typing import Dict, List, Sequence, Tuple
+from typing import Any, Dict, List, Sequence, Tuple
 
 from .base_solver import BaseSolver, SolverResult, can_extend_prefix, score_ranking
+from .greedy_solver import GreedySolver
 from ..runtime import CandidateItem, candidate_adjusted_score
 
 
 class ILPSolver(BaseSolver):
     name = "ilp_fallback_exact"
 
+    def __init__(self, max_candidates: int = 500):
+        self.max_candidates = max_candidates
+        self._greedy_fallback = GreedySolver()
+
     def _solve(
         self,
-        dsl: Dict[str, any],
+        dsl: Dict[str, Any],
         candidates: Sequence[CandidateItem],
         memberships: Dict[str, set[str]],
     ) -> SolverResult:
+        if len(candidates) > self.max_candidates:
+            fallback = self._greedy_fallback._solve(dsl, candidates, memberships)
+            fallback.metadata.update(
+                {
+                    "solver_requested": self.name,
+                    "solver_effective": self._greedy_fallback.name,
+                    "fallback_reason": f"candidate_count>{self.max_candidates}",
+                }
+            )
+            return fallback
+
         top_k = dsl["meta"]["top_k"]
         best_ranking: List[CandidateItem] = []
         best_score = float("-inf")
@@ -71,5 +87,10 @@ class ILPSolver(BaseSolver):
             score=best_score if best_score != float("-inf") else 0.0,
             feasible=False,
             violations=[],
-            metadata={"search_space": len(candidates), "exact": True},
+            metadata={
+                "search_space": len(candidates),
+                "exact": True,
+                "solver_requested": self.name,
+                "solver_effective": self.name,
+            },
         )

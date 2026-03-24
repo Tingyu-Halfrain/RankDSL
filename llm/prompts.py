@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
-from typing import Dict, List, Sequence
+from typing import Any, Dict, List, Sequence
 
-from ..core.dsl_parser import dump_example_schema
+from ..core.dsl_lite import dump_example_lite_schema, rankdsl_lite_response_format
 
 
 RANKDSL_PARAPHRASES = [
@@ -24,18 +24,21 @@ def build_rankdsl_messages(
     paraphrase_index: int,
     repair_error: str | None = None,
 ) -> List[Dict[str, str]]:
-    schema_example = json.dumps(dump_example_schema(), ensure_ascii=False, indent=2)
+    schema_example = json.dumps(dump_example_lite_schema(), ensure_ascii=False, indent=2)
     allowed_fields = ", ".join(request.get("schema_fields", ["genre", "dominant_genre", "release_year"]))
     system_prompt = (
-        "You are RankDSLCompiler.\n"
+        "You are RankDSLLiteCompiler.\n"
         f"Allowed fields in filter_expression: {allowed_fields}.\n"
-        "Allowed boolean operators: and, or.\n"
-        "Allowed filter action: exclude.\n"
+        "Output a lightweight RankDSL-Lite JSON object that only declares constraints.\n"
+        "Do not output rankings, candidate lists, user profiles, scoring pipelines, or explanations.\n"
+        "Allowed top-level keys: top_k, filters, quotas, diversity.\n"
+        "Do not output any other top-level keys.\n"
+        "Filters are atomic exclude rules and will be compiled into executable RankDSL later.\n"
+        "Quotas are atomic min-count rules and will receive deterministic boosts automatically.\n"
         "Allowed output format: one JSON object only.\n"
         'The first character of your response must be "{", and the last character must be "}".\n'
-        'Tie break must be ["base_score desc", "item_id asc"].\n'
         "Do not output markdown fences, prose, explanations, or extra text.\n"
-        f"Reference schema example:\n{schema_example}"
+        f"Reference RankDSL-Lite example:\n{schema_example}"
     )
     user_prompt = (
         f"{RANKDSL_PARAPHRASES[paraphrase_index % len(RANKDSL_PARAPHRASES)]}\n"
@@ -49,10 +52,16 @@ def build_rankdsl_messages(
     if repair_error:
         user_prompt += (
             "\nPrevious output failed verification."
-            f"\nError: {repair_error}"
+            f"\nVerificationError(JSON): {repair_error}"
+            "\nUse the error_type, offending_field, and suggestion to repair the program."
+            "\nKeep only the allowed top-level keys: top_k, filters, quotas, diversity."
             "\nReturn one corrected JSON object only. Do not wrap it in ```json fences."
         )
     return [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
+
+
+def build_rankdsl_response_format() -> Dict[str, Any]:
+    return rankdsl_lite_response_format()
 
 
 def build_direct_rerank_messages(

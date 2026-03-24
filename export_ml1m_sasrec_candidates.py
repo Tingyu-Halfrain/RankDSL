@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
@@ -12,11 +13,14 @@ from RankDSL.experiments.candidate_builder import ensure_candidate_metadata
 
 
 def main() -> None:
+    project_root = Path(__file__).resolve().parent
+    os.chdir(project_root)
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="RankDSL/configs/sasrec_ml1m.yaml")
-    parser.add_argument("--checkpoint", default="RankDSL/saved_ckpt/SASRec_ml1m_top50.pth")
-    parser.add_argument("--dataset-dir", default="RankDSL/dataset/ml-1m")
-    parser.add_argument("--output", default="RankDSL/outputs/ml1m_candidates_sasrec.jsonl")
+    parser.add_argument("--config", default="configs/sasrec_ml1m.yaml")
+    parser.add_argument("--checkpoint", default="saved_ckpt/SASRec_ml1m_top50.pth")
+    parser.add_argument("--dataset-dir", default="dataset/ml-1m")
+    parser.add_argument("--output", default="outputs/ml1m_candidates_sasrec.jsonl")
     parser.add_argument("--topk", type=int, default=20)
     args = parser.parse_args()
 

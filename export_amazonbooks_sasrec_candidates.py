@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
@@ -12,12 +13,15 @@ from RankDSL.experiments.candidate_builder import ensure_candidate_metadata
 
 
 def main() -> None:
+    project_root = Path(__file__).resolve().parent
+    os.chdir(project_root)
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="RankDSL/configs/sasrec_amazonbooks.yaml")
-    parser.add_argument("--checkpoint", default="RankDSL/saved_ckpt/SASRec_amazonbooks_top50.pth")
-    parser.add_argument("--dataset-dir", default="RankDSL/dataset/amazon-books")
-    parser.add_argument("--semantic-cache", default="RankDSL/outputs/amazon_books_semantics.jsonl")
-    parser.add_argument("--output", default="RankDSL/outputs/amazon_books_candidates_sasrec.jsonl")
+    parser.add_argument("--config", default="configs/sasrec_amazonbooks.yaml")
+    parser.add_argument("--checkpoint", default="saved_ckpt/SASRec_amazonbooks_top50.pth")
+    parser.add_argument("--dataset-dir", default="dataset/amazon-books")
+    parser.add_argument("--semantic-cache", default="outputs/amazon_books_semantics.jsonl")
+    parser.add_argument("--output", default="outputs/amazon_books_candidates_sasrec.jsonl")
     parser.add_argument("--topk", type=int, default=20)
     args = parser.parse_args()
 
@@ -30,4 +34,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

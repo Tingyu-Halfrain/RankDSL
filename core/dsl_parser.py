@@ -4,6 +4,10 @@ import json
 import re
 from typing import Any, Dict, List, Sequence, Tuple
 
+from pydantic import ValidationError
+
+from .dsl_lite import compile_rankdsl_lite, is_rankdsl_lite_payload
+from .dsl_schema import DSLProgram
 from .runtime import ALLOWED_DIVERSITY_ATTRIBUTES, ALLOWED_FILTER_FIELDS, RankDSLError
 
 
@@ -181,10 +185,35 @@ def parse_ranking_dsl(payload: str | Dict[str, Any]) -> Dict[str, Any]:
     if not isinstance(raw, dict):
         raise RankDSLError("syntax_error", "DSL payload must be a JSON object")
 
+    if is_rankdsl_lite_payload(raw):
+        try:
+            raw = compile_rankdsl_lite(
+                raw,
+                request_id=str(raw.get("request_id", "")),
+                user_summary=str(raw.get("user_summary", "")),
+            )
+        except ValidationError as exc:
+            first_error = exc.errors()[0] if exc.errors() else {}
+            location = ".".join(str(part) for part in first_error.get("loc", ()))
+            raise RankDSLError(
+                "schema_error",
+                first_error.get("msg", "RankDSL-Lite schema validation failed"),
+                {"location": location, "errors": exc.errors()},
+            ) from exc
+
+    try:
+        raw = DSLProgram.model_validate(raw).model_dump()
+    except ValidationError as exc:
+        first_error = exc.errors()[0] if exc.errors() else {}
+        location = ".".join(str(part) for part in first_error.get("loc", ()))
+        raise RankDSLError(
+            "schema_error",
+            first_error.get("msg", "DSL schema validation failed"),
+            {"location": location, "errors": exc.errors()},
+        ) from exc
+
     meta = raw.get("meta") or {}
     top_k = int(meta.get("top_k", 10))
-    if top_k <= 0:
-        raise RankDSLError("invalid_topk", "top_k must be positive", {"top_k": top_k})
 
     groups: List[Dict[str, Any]] = []
     seen_group_ids = set()

@@ -6,9 +6,9 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
-from .prompts import build_direct_rerank_messages, build_rankdsl_messages
+from .prompts import build_direct_rerank_messages, build_rankdsl_messages, build_rankdsl_response_format
 
 try:
     from openai import APIConnectionError, OpenAI
@@ -31,6 +31,12 @@ class LLMResponse:
     model: str
 
 
+class JSONParseError(ValueError):
+    def __init__(self, message: str, debug: Dict[str, Any]):
+        super().__init__(message)
+        self.debug = debug
+
+
 class RankDSLLLMClient:
     def __init__(
         self,
@@ -39,6 +45,7 @@ class RankDSLLLMClient:
         model: str = "claude-opus-4-6",
         mode: Optional[str] = None,
         log_path: str | Path | None = None,
+        parse_log_path: str | Path | None = None,
     ):
         self.mode = mode or os.environ.get("RANKDSL_LLM_MODE", "stub")
         self.model = model
@@ -46,6 +53,7 @@ class RankDSLLLMClient:
         self.api_key = api_key or os.environ.get("RANKDSL_API_KEY") or fallback_config.get("api_key")
         self.base_url = base_url or os.environ.get("RANKDSL_BASE_URL") or fallback_config.get("base_url")
         self.log_path = Path(log_path) if log_path else None
+        self.parse_log_path = Path(parse_log_path) if parse_log_path else None
         self._client = None
         if self.mode == "api":
             if OpenAI is None:
@@ -57,12 +65,16 @@ class RankDSLLLMClient:
                 )
             self._client = OpenAI(api_key=self.api_key, base_url=self.base_url)
 
-    def _append_log(self, payload: Dict[str, Any]) -> None:
-        if self.log_path is None:
+    @staticmethod
+    def _append_jsonl(path: Path | None, payload: Dict[str, Any]) -> None:
+        if path is None:
             return
-        self.log_path.parent.mkdir(parents=True, exist_ok=True)
-        with self.log_path.open("a", encoding="utf-8") as handle:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
+
+    def _append_log(self, payload: Dict[str, Any]) -> None:
+        self._append_jsonl(self.log_path, payload)
 
     def _log_interaction(
         self,
@@ -85,17 +97,49 @@ class RankDSLLLMClient:
             payload["error"] = error
         self._append_log(payload)
 
-    def _chat(self, messages: List[Dict[str, str]], meta: Dict[str, Any] | None = None) -> LLMResponse:
+    def _log_parse_attempt(self, payload: Dict[str, Any]) -> None:
+        log_payload = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "mode": self.mode,
+            "model": self.model,
+            **payload,
+        }
+        self._append_jsonl(self.parse_log_path, log_payload)
+
+    def log_debug_event(self, payload: Dict[str, Any]) -> None:
+        self._log_parse_attempt(payload)
+
+    def _chat(
+        self,
+        messages: List[Dict[str, str]],
+        meta: Dict[str, Any] | None = None,
+        response_format: Dict[str, Any] | None = None,
+    ) -> LLMResponse:
         if self.mode != "api":
             raise RuntimeError("Direct API calls are only available in api mode")
+        request_kwargs: Dict[str, Any] = {
+            "model": self.model,
+            "max_tokens": 1024,
+            "temperature": 0,
+            "messages": messages,
+        }
+        if response_format is not None:
+            request_kwargs["response_format"] = response_format
         try:
-            response = self._client.chat.completions.create(
-                model=self.model,
-                max_tokens=1024,
-                temperature=0,
-                messages=messages,
-            )
+            response = self._client.chat.completions.create(**request_kwargs)
         except Exception as exc:
+            if response_format is not None and any(token in repr(exc).lower() for token in ("response_format", "json_schema")):
+                fallback_meta = dict(meta or {})
+                fallback_meta["response_format_fallback"] = True
+                response = self._client.chat.completions.create(
+                    model=self.model,
+                    max_tokens=1024,
+                    temperature=0,
+                    messages=messages,
+                )
+                response_text = response.choices[0].message.content
+                self._log_interaction(messages, response_text=response_text, meta=fallback_meta)
+                return LLMResponse(text=response_text, model=self.model)
             self._log_interaction(messages, meta=meta, error=repr(exc))
             if APIConnectionError is not None and isinstance(exc, APIConnectionError):
                 raise RuntimeError(
@@ -108,23 +152,48 @@ class RankDSLLLMClient:
         return LLMResponse(text=response_text, model=self.model)
 
     @staticmethod
-    def _extract_json_block(text: str) -> str:
+    def _extract_json_block_with_debug(text: str) -> Tuple[str, Dict[str, Any]]:
         stripped = text.strip()
+        debug: Dict[str, Any] = {
+            "raw_length": len(text),
+            "stripped_length": len(stripped),
+            "raw_preview": text[:400],
+            "stripped_preview": stripped[:400],
+            "had_code_fence_wrapper": False,
+            "candidate_positions": [],
+            "decode_attempts": [],
+        }
         fenced = CODE_FENCE_RE.match(stripped)
         if fenced:
+            debug["had_code_fence_wrapper"] = True
             stripped = fenced.group(1).strip()
+            debug["unwrapped_preview"] = stripped[:400]
 
         decoder = json.JSONDecoder()
         candidate_positions = [
             index for index, char in enumerate(stripped) if char in {"{", "["}
         ]
+        debug["candidate_positions"] = candidate_positions[:20]
         for start in candidate_positions:
             try:
-                _, end = decoder.raw_decode(stripped[start:])
-                return stripped[start : start + end]
-            except json.JSONDecodeError:
-                continue
-        raise ValueError("No valid JSON block found in LLM response")
+                parsed, end = decoder.raw_decode(stripped[start:])
+                extracted = stripped[start : start + end]
+                debug["selected_start"] = start
+                debug["selected_end"] = start + end
+                debug["extracted_preview"] = extracted[:400]
+                debug["parsed_type"] = type(parsed).__name__
+                return extracted, debug
+            except json.JSONDecodeError as exc:
+                debug["decode_attempts"].append(
+                    {
+                        "start": start,
+                        "position": exc.pos,
+                        "message": exc.msg,
+                    }
+                )
+                if len(debug["decode_attempts"]) >= 10:
+                    break
+        raise JSONParseError("No valid JSON block found in LLM response", debug)
 
     @staticmethod
     def _load_legacy_api_config() -> Dict[str, str]:
@@ -162,7 +231,7 @@ class RankDSLLLMClient:
             response_text = json.dumps(self._stub_compile(request), ensure_ascii=False)
             self._log_interaction(messages, response_text=response_text, meta=meta)
             return LLMResponse(text=response_text, model="stub")
-        return self._chat(messages, meta=meta)
+        return self._chat(messages, meta=meta, response_format=build_rankdsl_response_format())
 
     def direct_rerank(
         self,
@@ -186,8 +255,32 @@ class RankDSLLLMClient:
             return LLMResponse(text=response_text, model="stub")
         return self._chat(messages, meta=meta)
 
-    def parse_json_response(self, text: str):
-        return json.loads(self._extract_json_block(text))
+    def parse_json_response(self, text: str, meta: Optional[Dict[str, Any]] = None):
+        debug_payload: Dict[str, Any] = {
+            "event": "json_parse_attempt",
+            **(meta or {}),
+        }
+        try:
+            extracted, extraction_debug = self._extract_json_block_with_debug(text)
+            debug_payload.update(extraction_debug)
+            parsed = json.loads(extracted)
+            debug_payload["parse_ok"] = True
+            debug_payload["parsed_root_type"] = type(parsed).__name__
+            self._log_parse_attempt(debug_payload)
+            return parsed
+        except JSONParseError as exc:
+            debug_payload.update(exc.debug)
+            debug_payload["parse_ok"] = False
+            debug_payload["error"] = str(exc)
+            self._log_parse_attempt(debug_payload)
+            raise
+        except Exception as exc:
+            debug_payload["parse_ok"] = False
+            debug_payload["error"] = str(exc)
+            debug_payload["raw_preview"] = text[:400]
+            debug_payload["raw_length"] = len(text)
+            self._log_parse_attempt(debug_payload)
+            raise
 
     @staticmethod
     def _stub_compile(request: Dict[str, str]) -> Dict[str, object]:

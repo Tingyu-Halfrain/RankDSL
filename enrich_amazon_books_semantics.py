@@ -4,6 +4,7 @@ import argparse
 import csv
 import html
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -14,9 +15,12 @@ from RankDSL.data.book_metadata_enricher import enrich_book_rows, write_enriched
 
 
 def main() -> None:
+    project_root = Path(__file__).resolve().parent
+    os.chdir(project_root)
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--item-path", default="RankDSL/dataset/amazon-books/amazon-books.item")
-    parser.add_argument("--output", default="RankDSL/outputs/amazon_books_semantics.jsonl")
+    parser.add_argument("--item-path", default="dataset/amazon-books/amazon-books.item")
+    parser.add_argument("--output", default="outputs/amazon_books_semantics.jsonl")
     parser.add_argument("--limit", type=int, default=500)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--sleep-seconds", type=float, default=0.2)

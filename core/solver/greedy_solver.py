@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List, Sequence
+from typing import Any, Dict, List, Sequence
 
 from .base_solver import BaseSolver, SolverResult, exists_feasible_completion, score_ranking
 from ..runtime import CandidateItem, candidate_adjusted_score
@@ -11,7 +11,7 @@ class GreedySolver(BaseSolver):
 
     def _solve(
         self,
-        dsl: Dict[str, any],
+        dsl: Dict[str, Any],
         candidates: Sequence[CandidateItem],
         memberships: Dict[str, set[str]],
     ) -> SolverResult:
@@ -40,8 +40,8 @@ class GreedySolver(BaseSolver):
             feasible=False,
             violations=[],
             metadata={
-                "selected_scores": [
-                    candidate_adjusted_score(candidate, dsl, memberships) for candidate in ranking
-                ]
+                "selected_scores": [candidate_adjusted_score(candidate, dsl, memberships) for candidate in ranking],
+                "solver_requested": self.name,
+                "solver_effective": self.name,
             },
         )

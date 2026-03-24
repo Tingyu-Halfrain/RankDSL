@@ -44,6 +44,8 @@ def needs_request_regeneration(
     dataset_dir: str | Path,
     requests_path: str | Path,
     scenario_size: int,
+    candidate_lookup: Dict[str, Dict[str, Any]] | None = None,
+    hit_users_only: bool = True,
 ) -> tuple[bool, str]:
     requests_path = Path(requests_path)
     if not requests_path.exists():
@@ -71,6 +73,18 @@ def needs_request_regeneration(
 
     if any(request.get("dataset_name") != dataset_name for request in requests):
         return True, f"dataset mismatch: expected dataset_name={dataset_name}"
+
+    if hit_users_only and candidate_lookup is not None:
+        for request in requests:
+            candidate_row = candidate_lookup.get(request["user_id"])
+            if not candidate_row:
+                return True, f"request file contains users without candidates: user_id={request['user_id']}"
+            candidate_ids = {candidate["item_id"] for candidate in candidate_row["candidates"]}
+            if request["target_item_id"] not in candidate_ids:
+                return True, (
+                    "request file contains non-hit users while hit_users_only=True: "
+                    f"request_id={request['request_id']}"
+                )
 
     return False, "matches requested scenario_size"
 
@@ -169,25 +183,77 @@ def run_request(
         compile_payload: Any = compile_response.text
         initial_parse_error: str | None = None
         try:
-            compile_payload = client.parse_json_response(compile_response.text)
+            compile_payload = client.parse_json_response(
+                compile_response.text,
+                meta={
+                    "interaction_type": "compile_rankdsl",
+                    "request_id": request["request_id"],
+                    "user_id": request["user_id"],
+                    "scenario_id": request["scenario_id"],
+                    "paraphrase_index": paraphrase_index,
+                    "stage": "initial_compile",
+                },
+            )
         except Exception as exc:
             initial_parse_error = str(exc)
         verification = verify_dsl(compile_payload, candidates)
+        client.log_debug_event(
+            {
+                "event": "compile_verification",
+                "interaction_type": "compile_rankdsl",
+                "request_id": request["request_id"],
+                "user_id": request["user_id"],
+                "scenario_id": request["scenario_id"],
+                "paraphrase_index": paraphrase_index,
+                "stage": "initial_compile",
+                "verification_ok": verification.ok,
+                "verification_errors": verification.errors,
+            }
+        )
         repair_raw_response: str | None = None
         repair_parse_error: str | None = None
         if not verification.ok:
+            repair_error_payload = verification.errors[0] if verification.errors else {
+                "code": "unknown_compile_error",
+                "error_type": "schema",
+                "message": "Compilation failed verification",
+                "suggestion": "Return one corrected RankDSL JSON object only.",
+            }
             compile_response = client.compile_rankdsl(
                 request,
                 paraphrase_index=paraphrase_index,
-                repair_error=verification.errors[0]["message"],
+                repair_error=json.dumps(repair_error_payload, ensure_ascii=False, default=str),
             )
             repair_raw_response = compile_response.text
             compile_payload = compile_response.text
             try:
-                compile_payload = client.parse_json_response(compile_response.text)
+                compile_payload = client.parse_json_response(
+                    compile_response.text,
+                    meta={
+                        "interaction_type": "compile_rankdsl",
+                        "request_id": request["request_id"],
+                        "user_id": request["user_id"],
+                        "scenario_id": request["scenario_id"],
+                        "paraphrase_index": paraphrase_index,
+                        "stage": "repair_compile",
+                    },
+                )
             except Exception as exc:
                 repair_parse_error = str(exc)
             verification = verify_dsl(compile_payload, candidates)
+            client.log_debug_event(
+                {
+                    "event": "compile_verification",
+                    "interaction_type": "compile_rankdsl",
+                    "request_id": request["request_id"],
+                    "user_id": request["user_id"],
+                    "scenario_id": request["scenario_id"],
+                    "paraphrase_index": paraphrase_index,
+                    "stage": "repair_compile",
+                    "verification_ok": verification.ok,
+                    "verification_errors": verification.errors,
+                }
+            )
         latency = time.perf_counter() - start
         if verbose:
             status = "ok" if verification.ok else "compile_failed"
@@ -212,6 +278,7 @@ def run_request(
                         "violation_count": len(greedy_reference_violations),
                         "genre_coverage": ranking_genre_coverage(greedy_result.ranking),
                         "ranking": top10_item_dicts(greedy_result.ranking),
+                        "solver": greedy_result.metadata.get("solver_effective", greedy_result.metadata.get("solver")),
                     },
                     "ilp": {
                         "hit@10": hit_at_10(ilp_result.ranking, target_item_id),
@@ -220,6 +287,8 @@ def run_request(
                         "violation_count": len(ilp_reference_violations),
                         "genre_coverage": ranking_genre_coverage(ilp_result.ranking),
                         "ranking": top10_item_dicts(ilp_result.ranking),
+                        "solver": ilp_result.metadata.get("solver_effective", ilp_result.metadata.get("solver")),
+                        "solver_metadata": ilp_result.metadata,
                     },
                 }
             )
@@ -313,27 +382,12 @@ def run_experiment(
     sample_seed: int = 2026,
     show_progress: bool = True,
     llm_log_path: str | Path | None = None,
+    llm_parse_log_path: str | Path | None = None,
 ) -> Dict[str, Any]:
     requests_path = Path(requests_path)
     candidates_path = Path(candidates_path)
     output_path = Path(output_path)
 
-    should_regenerate_requests, request_reason = needs_request_regeneration(
-        dataset_dir,
-        requests_path,
-        scenario_size,
-    )
-    if should_regenerate_requests:
-        if show_progress:
-            log_progress(f"generating requests at {requests_path} ({request_reason})")
-        export_requests(
-            dataset_dir,
-            requests_path,
-            scenario_size=scenario_size,
-            semantic_cache_path=semantic_cache_path,
-        )
-    elif show_progress:
-        log_progress(f"using existing requests file {requests_path} ({request_reason})")
     if not candidates_path.exists():
         if show_progress:
             log_progress(f"candidates file missing, building candidates at {candidates_path}")
@@ -350,10 +404,31 @@ def run_experiment(
         log_progress("hydrating candidate metadata")
     ensure_candidate_metadata(dataset_dir, candidates_path, semantic_cache_path=semantic_cache_path)
 
+    candidate_lookup = load_candidate_lookup(candidates_path)
+    should_regenerate_requests, request_reason = needs_request_regeneration(
+        dataset_dir,
+        requests_path,
+        scenario_size,
+        candidate_lookup=candidate_lookup,
+        hit_users_only=hit_users_only,
+    )
+    if should_regenerate_requests:
+        if show_progress:
+            log_progress(f"generating requests at {requests_path} ({request_reason})")
+        export_requests(
+            dataset_dir,
+            requests_path,
+            scenario_size=scenario_size,
+            semantic_cache_path=semantic_cache_path,
+            candidate_lookup=candidate_lookup,
+            hit_users_only=hit_users_only,
+        )
+    elif show_progress:
+        log_progress(f"using existing requests file {requests_path} ({request_reason})")
+
     if show_progress:
         log_progress("loading requests and candidates")
     requests = load_jsonl(requests_path)
-    candidate_lookup = load_candidate_lookup(candidates_path)
     selected_requests, selection_info = select_requests_for_evaluation(
         requests,
         candidate_lookup,
@@ -377,9 +452,12 @@ def run_experiment(
         model=model,
         mode=llm_mode,
         log_path=llm_log_path,
+        parse_log_path=llm_parse_log_path,
     )
     if show_progress and llm_log_path:
         log_progress(f"writing llm interaction log to {llm_log_path}")
+    if show_progress and llm_parse_log_path:
+        log_progress(f"writing llm parse debug log to {llm_parse_log_path}")
 
     results = []
     total_selected = len(selected_requests)

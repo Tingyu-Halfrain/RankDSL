@@ -1,24 +1,43 @@
 # RankDSL Operation Guide
 
-本文档按“从仓库根目录 `/mnt/data/binbin/mmm` 直接执行命令”的口径写。除非特别说明，不需要先 `cd RankDSL`。
+本文档按“先进入仓库根目录 `mmm/RankDSL` 再执行命令”的口径写。下面所有路径都是相对当前仓库根目录的相对路径，不再依赖本地绝对路径。
+
+先进入项目：
+
+```bash
+cd path/to/mmm/RankDSL
+```
+
+为了减少路径问题，仓库里现在提供了两个包装脚本：
+
+- `./run_sasrec_recall.sh`
+- `./run_rankdsl_experiment.sh`
+
+这两个脚本都会先切到脚本所在目录，再调用对应的 Python 入口，所以在 `mmm/RankDSL` 内直接执行即可。
+
+如果你的环境禁止直接执行工作区脚本，也可以写成：
+
+```bash
+bash run_rankdsl_experiment.sh --help
+```
 
 ## 1. 当前代码结构
 
-- `RankDSL/core/`
+- `core/`
   - DSL 解析、约束校验、求解器。
-- `RankDSL/data/`
+- `data/`
   - 数据读取与候选导出。
   - `ml1m_reader.py` 负责用户画像、历史文本、item metadata。
   - `recbole_export.py` 负责从 `SASRec` 导出 top-k candidates。
-- `RankDSL/experiments/`
+- `experiments/`
   - 请求构造、candidate 构造、baseline、实验 runner。
-- `RankDSL/evaluation/`
+- `evaluation/`
   - 指标计算与聚合。
-- `RankDSL/llm/`
+- `llm/`
   - Claude/API 客户端和 prompt。
-- `RankDSL/run_rankdsl_experiment.py`
+- `run_rankdsl_experiment.py`
   - 主实验入口。
-- `RankDSL/export_ml1m_sasrec_candidates.py`
+- `export_ml1m_sasrec_candidates.py`
   - 真实 `SASRec top-k` 候选导出入口。
 
 ## 2. 最快自检：先跑 stub 版本
@@ -28,13 +47,13 @@
 先跑单测：
 
 ```bash
-python -m unittest RankDSL.tests.test_rankdsl_core
+PYTHONPATH=.. python -m unittest tests.test_rankdsl_core
 ```
 
 再跑一个小规模 smoke test：
 
 ```bash
-python RankDSL/run_rankdsl_experiment.py \
+./run_rankdsl_experiment.sh \
   --scenario-size 1 \
   --candidate-topn 12 \
   --max-eval-users 0 \
@@ -78,13 +97,13 @@ PY
 
 先确认这两个文件存在：
 
-- `RankDSL/configs/sasrec_ml1m.yaml`
-- `RankDSL/dataset/ml-1m/*`
+- `configs/sasrec_ml1m.yaml`
+- `dataset/ml-1m/*`
 
 然后训练：
 
 ```bash
-python RankDSL/Recall_SASRec.py \
+./run_sasrec_recall.sh \
   --dataset ml-1m \
   --config configs/sasrec_ml1m.yaml \
   --save_name SASRec_ml1m_top20.pth
@@ -93,30 +112,30 @@ python RankDSL/Recall_SASRec.py \
 训练完成后，期望 checkpoint 在：
 
 ```bash
-RankDSL/saved_ckpt/SASRec_ml1m_top20.pth
+saved_ckpt/SASRec_ml1m_top20.pth
 ```
 
 注意：
 
-- 这个脚本现在会自动把工作目录切到 `RankDSL/`，所以可以从仓库根目录直接执行。
-- 如果你想改 GPU，用 `RankDSL/configs/sasrec_ml1m.yaml` 里的 `gpu_id`。
+- 这个脚本会自动把工作目录切到仓库根目录，所以在 `mmm/RankDSL` 内直接执行即可。
+- 如果你想改 GPU，用 `configs/sasrec_ml1m.yaml` 里的 `gpu_id`。
 
 ## 5. 第二步：导出真实 SASRec top-20 candidates
 
 训练完成后，导出真实候选：
 
 ```bash
-python RankDSL/export_ml1m_sasrec_candidates.py \
-  --config RankDSL/configs/sasrec_ml1m.yaml \
-  --checkpoint RankDSL/saved_ckpt/SASRec_ml1m_top20.pth \
-  --dataset-dir RankDSL/dataset/ml-1m \
-  --output RankDSL/outputs/ml1m_candidates_sasrec.jsonl \
+python export_ml1m_sasrec_candidates.py \
+  --config configs/sasrec_ml1m.yaml \
+  --checkpoint saved_ckpt/SASRec_ml1m_top20.pth \
+  --dataset-dir dataset/ml-1m \
+  --output outputs/ml1m_candidates_sasrec.jsonl \
   --topk 20
 ```
 
 输出文件：
 
-- `RankDSL/outputs/ml1m_candidates_sasrec.jsonl`
+- `outputs/ml1m_candidates_sasrec.jsonl`
 
 这个文件导出后会自动补齐：
 
@@ -135,7 +154,7 @@ python RankDSL/export_ml1m_sasrec_candidates.py \
 默认 request 文件建议用：
 
 ```bash
-RankDSL/outputs/ml1m_requests.jsonl
+outputs/ml1m_requests.jsonl
 ```
 
 request 中已经包含：
@@ -163,23 +182,31 @@ export RANKDSL_API_KEY="cr_e8fdb7d247ccec1edfed8ade3fb489b560a5fca09c0f5e4ffb591
 export RANKDSL_BASE_URL="https://cursor.scihub.edu.kg/api/v1"
 ```
 
+```bash
+export RANKDSL_API_KEY="sk-88eaede7830d4200bdc72765074cb705"
+export RANKDSL_BASE_URL="https://api.deepseek.com/v1"
+```
+
 如果你已经在 `AIresearcher/testAPI.py` 里验证过接口，可以直接复用那套配置；这里只是建议改成环境变量，不要把 key 再复制到新代码里。
 
 然后跑实验：
 
 ```bash
-python RankDSL/run_rankdsl_experiment.py \
-  --dataset-dir RankDSL/dataset/ml-1m \
-  --requests RankDSL/outputs/ml1m_requests.jsonl \
-  --candidates RankDSL/outputs/ml1m_candidates_sasrec.jsonl \
-  --output RankDSL/outputs/experiment_results_api.json \
-  --llm-log-path RankDSL/outputs/llm_interactions.jsonl \
+./run_rankdsl_experiment.sh \
+  --dataset-dir dataset/ml-1m \
+  --requests outputs/ml1m_requests.jsonl \
+  --candidates outputs/ml1m_candidates_sasrec.jsonl \
+  --output outputs/experiment_results_api.json \
+  --llm-log-path outputs/llm_interactions.jsonl \
   --scenario-size 50 \
   --candidate-topn 20 \
   --max-eval-users 0 \
   --llm-mode api \
   --model claude-opus-4-6
 ```
+
+--model claude-opus-4-6 // 
+--model deepseek-chat
 
 说明：
 
@@ -188,19 +215,26 @@ python RankDSL/run_rankdsl_experiment.py \
 - `--llm-mode api` 会调用真实 Claude。
 - `--model` 默认就是 `claude-opus-4-6`，这里只是显式写出来。
 - `--llm-log-path` 会把每次 LLM 的输入 messages 和原始输出追加写到 JSONL，方便排查 JSON 解析失败。
+- `--llm-parse-log-path` 会把 JSON 提取与解析细节单独写到 JSONL，包括 `raw_preview`、候选 JSON 起始位置、提取出的 JSON 片段预览、parse error、verifier error。
+
+例如：
+
+```bash
+rg 'diversity_dominant_genre-005' outputs/llm_parse_debug.jsonl
+```
 
 ## 8. 第五步：看结果
 
 结果文件：
 
-- `RankDSL/outputs/experiment_results_api.json`
+- `outputs/experiment_results_api.json`
 
 建议先只看 summary：
 
 ```bash
 python - <<'PY'
 import json
-with open('RankDSL/outputs/experiment_results_api.json', 'r', encoding='utf-8') as f:
+with open('outputs/experiment_results_api.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 print(json.dumps(data['summary'], ensure_ascii=False, indent=2))
 PY
@@ -228,7 +262,7 @@ PY
 ### 8A.1 训练 Amazon-Books SASRec
 
 ```bash
-python RankDSL/Recall_SASRec.py \
+./run_sasrec_recall.sh \
   --dataset amazon-books \
   --config configs/sasrec_amazonbooks.yaml \
   --save_name SASRec_amazonbooks_top50.pth
@@ -237,7 +271,7 @@ python RankDSL/Recall_SASRec.py \
 checkpoint 期望路径：
 
 ```bash
-RankDSL/saved_ckpt/SASRec_amazonbooks_top50.pth
+saved_ckpt/SASRec_amazonbooks_top50.pth
 ```
 
 ### 8A.2 在线抓取书籍语义
@@ -247,9 +281,9 @@ RankDSL/saved_ckpt/SASRec_amazonbooks_top50.pth
 先抓一小批调试：
 
 ```bash
-python RankDSL/enrich_amazon_books_semantics.py \
-  --item-path RankDSL/dataset/amazon-books/amazon-books.item \
-  --output RankDSL/outputs/amazon_books_semantics.jsonl \
+python enrich_amazon_books_semantics.py \
+  --item-path dataset/amazon-books/amazon-books.item \
+  --output outputs/amazon_books_semantics.jsonl \
   --offset 0 \
   --limit 500 \
   --sleep-seconds 0.2
@@ -266,28 +300,28 @@ python RankDSL/enrich_amazon_books_semantics.py \
 ### 8A.3 导出 Amazon-Books SASRec top-20 candidates
 
 ```bash
-python RankDSL/export_amazonbooks_sasrec_candidates.py \
-  --config RankDSL/configs/sasrec_amazonbooks.yaml \
-  --checkpoint RankDSL/saved_ckpt/SASRec_amazonbooks_top50.pth \
-  --dataset-dir RankDSL/dataset/amazon-books \
-  --semantic-cache RankDSL/outputs/amazon_books_semantics.jsonl \
-  --output RankDSL/outputs/amazon_books_candidates_sasrec.jsonl \
+python export_amazonbooks_sasrec_candidates.py \
+  --config configs/sasrec_amazonbooks.yaml \
+  --checkpoint saved_ckpt/SASRec_amazonbooks_top50.pth \
+  --dataset-dir dataset/amazon-books \
+  --semantic-cache outputs/amazon_books_semantics.jsonl \
+  --output outputs/amazon_books_candidates_sasrec.jsonl \
   --topk 20
 ```
 
 输出文件：
 
-- `RankDSL/outputs/amazon_books_candidates_sasrec.jsonl`
+- `outputs/amazon_books_candidates_sasrec.jsonl`
 
 ### 8A.4 跑 Amazon-Books 实验
 
 ```bash
-python RankDSL/run_rankdsl_experiment.py \
-  --dataset-dir RankDSL/dataset/amazon-books \
-  --semantic-cache RankDSL/outputs/amazon_books_semantics.jsonl \
-  --requests RankDSL/outputs/amazon_books_requests.jsonl \
-  --candidates RankDSL/outputs/amazon_books_candidates_sasrec.jsonl \
-  --output RankDSL/outputs/amazon_books_experiment_results.json \
+./run_rankdsl_experiment.sh \
+  --dataset-dir dataset/amazon-books \
+  --semantic-cache outputs/amazon_books_semantics.jsonl \
+  --requests outputs/amazon_books_requests.jsonl \
+  --candidates outputs/amazon_books_candidates_sasrec.jsonl \
+  --output outputs/amazon_books_experiment_results.json \
   --scenario-size 50 \
   --candidate-topn 20 \
   --max-eval-users 100 \
@@ -315,11 +349,11 @@ python RankDSL/run_rankdsl_experiment.py \
 5. 跑一小批真实 API 实验：
 
 ```bash
-python RankDSL/run_rankdsl_experiment.py \
-  --dataset-dir RankDSL/dataset/ml-1m \
-  --requests RankDSL/outputs/ml1m_requests_small.jsonl \
-  --candidates RankDSL/outputs/ml1m_candidates_sasrec.jsonl \
-  --output RankDSL/outputs/experiment_results_small.json \
+./run_rankdsl_experiment.sh \
+  --dataset-dir dataset/ml-1m \
+  --requests outputs/ml1m_requests_small.jsonl \
+  --candidates outputs/ml1m_candidates_sasrec.jsonl \
+  --output outputs/experiment_results_small.json \
   --scenario-size 2 \
   --candidate-topn 20 \
   --max-eval-users 20 \
@@ -339,7 +373,7 @@ python RankDSL/run_rankdsl_experiment.py \
 说明你还没有训练出：
 
 ```bash
-RankDSL/saved_ckpt/SASRec_ml1m_top50.pth
+saved_ckpt/SASRec_ml1m_top50.pth
 ```
 
 先执行第 4 节的训练命令。
@@ -370,9 +404,9 @@ RankDSL/saved_ckpt/SASRec_ml1m_top50.pth
 
 通常先从这三处改：
 
-- `RankDSL/llm/prompts.py`
-- `RankDSL/core/dsl_parser.py`
-- `RankDSL/core/verifier.py`
+- `llm/prompts.py`
+- `core/dsl_parser.py`
+- `core/verifier.py`
 
 ## 11. 现在这套代码的边界
 
@@ -397,14 +431,14 @@ RankDSL/saved_ckpt/SASRec_ml1m_top50.pth
 如果你只是验证工程通路：
 
 ```bash
-python -m unittest RankDSL.tests.test_rankdsl_core
-python RankDSL/run_rankdsl_experiment.py --scenario-size 1 --candidate-topn 12 --max-eval-users 100 --llm-mode stub --requests /tmp/rankdsl_requests.jsonl --candidates /tmp/rankdsl_candidates.jsonl --output /tmp/rankdsl_smoke.json
+PYTHONPATH=.. python -m unittest tests.test_rankdsl_core
+./run_rankdsl_experiment.sh --scenario-size 1 --candidate-topn 12 --max-eval-users 100 --llm-mode stub --requests /tmp/rankdsl_requests.jsonl --candidates /tmp/rankdsl_candidates.jsonl --output /tmp/rankdsl_smoke.json
 ```
 
 如果你要进入真实实验：
 
 ```bash
-python RankDSL/Recall_SASRec.py --dataset ml-1m --config configs/sasrec_ml1m.yaml --save_name SASRec_ml1m_top50.pth
-python RankDSL/export_ml1m_sasrec_candidates.py --config RankDSL/configs/sasrec_ml1m.yaml --checkpoint RankDSL/saved_ckpt/SASRec_ml1m_top50.pth --dataset-dir RankDSL/dataset/ml-1m --output RankDSL/outputs/ml1m_candidates_sasrec.jsonl --topk 20
-python RankDSL/run_rankdsl_experiment.py --dataset-dir RankDSL/dataset/ml-1m --requests RankDSL/outputs/ml1m_requests.jsonl --candidates RankDSL/outputs/ml1m_candidates_sasrec.jsonl --output RankDSL/outputs/experiment_results_api.json --scenario-size 50 --candidate-topn 20 --max-eval-users 100 --llm-mode api --model claude-opus-4-6
+./run_sasrec_recall.sh --dataset ml-1m --config configs/sasrec_ml1m.yaml --save_name SASRec_ml1m_top50.pth
+python export_ml1m_sasrec_candidates.py --config configs/sasrec_ml1m.yaml --checkpoint saved_ckpt/SASRec_ml1m_top50.pth --dataset-dir dataset/ml-1m --output outputs/ml1m_candidates_sasrec.jsonl --topk 20
+./run_rankdsl_experiment.sh --dataset-dir dataset/ml-1m --requests outputs/ml1m_requests.jsonl --candidates outputs/ml1m_candidates_sasrec.jsonl --output outputs/experiment_results_api.json --scenario-size 50 --candidate-topn 20 --max-eval-users 100 --llm-mode api --model claude-opus-4-6
 ```
