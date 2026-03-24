@@ -5,14 +5,23 @@ import random
 import statistics
 import time
 from collections import Counter
+from copy import deepcopy
 from pathlib import Path
 from typing import Any, Dict, List
 
 from ..core.dsl_parser import canonicalize_dsl, parse_ranking_dsl
-from ..core.runtime import build_group_memberships, normalize_candidates, ranking_genre_coverage, ranking_violations
+from ..core.runtime import (
+    build_group_memberships,
+    load_ranking_from_disk,
+    normalize_candidates,
+    ranking_genre_coverage,
+    ranking_violations,
+    save_ranking_to_disk,
+)
 from ..core.solver import GreedySolver, ILPSolver
 from ..core.verifier import verify_dsl
-from ..evaluation.metrics import aggregate_method, hit_at_10, ndcg_at_10
+from ..evaluation.detailed_metrics import enrich_request_result
+from ..evaluation.metrics import calculate_summary, hit_at_10, ndcg_at_10
 from ..llm.client import RankDSLLLMClient
 from .baselines import align_candidate_order, parse_direct_rerank_ids, score_adjust_baseline
 from .candidate_builder import build_popularity_candidates, ensure_candidate_metadata
@@ -38,6 +47,10 @@ def top10_item_dicts(ranking) -> List[Dict[str, Any]]:
         }
         for candidate in ranking[:10]
     ]
+
+
+def request_result_cache_path(results_cache_dir: str | Path, request_id: str) -> Path:
+    return Path(results_cache_dir) / f"{request_id}.json"
 
 
 def needs_request_regeneration(
@@ -136,19 +149,23 @@ def run_request(
     candidate_row: Dict[str, Any],
     client: RankDSLLLMClient,
     verbose: bool = False,
+    num_paraphrases: int = 3,
 ) -> Dict[str, Any]:
     candidates = candidate_row["candidates"]
     greedy_solver = GreedySolver()
     ilp_solver = ILPSolver()
     target_item_id = request["target_item_id"]
+    reference_dsl = parse_ranking_dsl(request.get("reference_dsl") or RankDSLLLMClient._stub_compile(request))
 
     result: Dict[str, Any] = {
         "request_id": request["request_id"],
         "user_id": request["user_id"],
         "scenario_id": request["scenario_id"],
+        "dataset_name": request.get("dataset_name", ""),
+        "constraint_text": request.get("constraint_text", ""),
         "target_item_id": target_item_id,
+        "reference_dsl": reference_dsl,
     }
-    reference_dsl = parse_ranking_dsl(request.get("reference_dsl") or RankDSLLLMClient._stub_compile(request))
     reference_memberships = build_group_memberships(reference_dsl, normalize_candidates(candidates))
 
     base_ranking = normalize_candidates(candidates[:10])
@@ -159,6 +176,7 @@ def run_request(
         "constraint_satisfaction": float(not base_violations),
         "violation_count": len(base_violations),
         "genre_coverage": ranking_genre_coverage(base_ranking),
+        "ranking": top10_item_dicts(base_ranking),
     }
 
     score_adjusted = normalize_candidates(score_adjust_baseline(request, candidates))
@@ -169,6 +187,7 @@ def run_request(
         "constraint_satisfaction": float(not score_adjust_violations),
         "violation_count": len(score_adjust_violations),
         "genre_coverage": ranking_genre_coverage(score_adjusted),
+        "ranking": top10_item_dicts(score_adjusted),
     }
 
     rankdsl_runs = []
@@ -176,7 +195,7 @@ def run_request(
     canonical_programs = []
     compile_successes = 0
 
-    for paraphrase_index in range(3):
+    for paraphrase_index in range(num_paraphrases):
         start = time.perf_counter()
         compile_response = client.compile_rankdsl(request, paraphrase_index=paraphrase_index)
         initial_raw_response = compile_response.text
@@ -258,7 +277,7 @@ def run_request(
         if verbose:
             status = "ok" if verification.ok else "compile_failed"
             log_progress(
-                f"request={request['request_id']} paraphrase={paraphrase_index + 1}/3 compile_status={status} compile_latency={latency:.2f}s"
+                f"request={request['request_id']} paraphrase={paraphrase_index + 1}/{num_paraphrases} compile_status={status} compile_latency={latency:.2f}s"
             )
 
         if verification.ok and verification.dsl is not None:
@@ -271,6 +290,11 @@ def run_request(
             rankdsl_runs.append(
                 {
                     "latency": latency,
+                    "raw_dsl": compile_payload if isinstance(compile_payload, dict) else None,
+                    "compiled_dsl": verification.dsl,
+                    "compiled_dsl_canonical": canonicalize_dsl(verification.dsl),
+                    "compile_raw_response": initial_raw_response,
+                    "repair_raw_response": repair_raw_response,
                     "greedy": {
                         "hit@10": hit_at_10(greedy_result.ranking, target_item_id),
                         "ndcg@10": ndcg_at_10(greedy_result.ranking, target_item_id),
@@ -293,16 +317,31 @@ def run_request(
                 }
             )
         else:
+            fallback_record = {
+                "hit@10": result["base_recall"]["hit@10"],
+                "ndcg@10": result["base_recall"]["ndcg@10"],
+                "constraint_satisfaction": result["base_recall"]["constraint_satisfaction"],
+                "violation_count": result["base_recall"]["violation_count"],
+                "genre_coverage": result["base_recall"]["genre_coverage"],
+                "ranking": deepcopy(result["base_recall"]["ranking"]),
+                "solver": "base_recall_fallback",
+                "fallback_used": True,
+                "fallback_source": "base_recall",
+            }
             rankdsl_runs.append(
                 {
                     "latency": latency,
+                    "raw_dsl": None,
+                    "compiled_dsl": None,
+                    "compiled_dsl_canonical": None,
                     "compile_error": verification.errors,
                     "compile_raw_response": initial_raw_response,
                     "compile_parse_error": initial_parse_error,
                     "repair_raw_response": repair_raw_response,
                     "repair_parse_error": repair_parse_error,
-                    "greedy": {"constraint_satisfaction": 0.0, "violation_count": 1, "ranking": []},
-                    "ilp": {"constraint_satisfaction": 0.0, "violation_count": 1, "ranking": []},
+                    "fallback_used": True,
+                    "greedy": dict(fallback_record),
+                    "ilp": dict(fallback_record),
                 }
             )
 
@@ -338,7 +377,8 @@ def run_request(
             )
 
     result["rankdsl"] = {
-        "compile_success_rate": compile_successes / 3.0,
+        "num_paraphrases": num_paraphrases,
+        "compile_success_rate": compile_successes / float(num_paraphrases),
         "canonical_program_agreement": float(len(set(canonical_programs)) == 1) if canonical_programs else 0.0,
         "constraint_satisfaction_variance": statistics.pvariance(
             [run["ilp"]["constraint_satisfaction"] for run in rankdsl_runs]
@@ -362,7 +402,7 @@ def run_request(
             f"ilp_constraint={best_ilp.get('constraint_satisfaction', 0.0):.2f} "
             f"ilp_ndcg={best_ilp.get('ndcg@10', 0.0):.4f}"
         )
-    return result
+    return enrich_request_result(result)
 
 
 def run_experiment(
@@ -378,11 +418,16 @@ def run_experiment(
     model: str = "claude-opus-4-6",
     semantic_cache_path: str | Path | None = None,
     max_eval_users: int = 0,
+    num_paraphrases: int = 3,
     hit_users_only: bool = True,
     sample_seed: int = 2026,
     show_progress: bool = True,
     llm_log_path: str | Path | None = None,
     llm_parse_log_path: str | Path | None = None,
+    use_existing_requests: bool = False,
+    save_results: bool = False,
+    load_from_cache: bool = False,
+    results_cache_dir: str | Path = "results/saved_rankings",
 ) -> Dict[str, Any]:
     requests_path = Path(requests_path)
     candidates_path = Path(candidates_path)
@@ -405,26 +450,32 @@ def run_experiment(
     ensure_candidate_metadata(dataset_dir, candidates_path, semantic_cache_path=semantic_cache_path)
 
     candidate_lookup = load_candidate_lookup(candidates_path)
-    should_regenerate_requests, request_reason = needs_request_regeneration(
-        dataset_dir,
-        requests_path,
-        scenario_size,
-        candidate_lookup=candidate_lookup,
-        hit_users_only=hit_users_only,
-    )
-    if should_regenerate_requests:
+    if use_existing_requests:
+        if not requests_path.exists():
+            raise FileNotFoundError(f"Prebuilt requests file not found: {requests_path}")
         if show_progress:
-            log_progress(f"generating requests at {requests_path} ({request_reason})")
-        export_requests(
+            log_progress(f"using prebuilt requests file {requests_path}")
+    else:
+        should_regenerate_requests, request_reason = needs_request_regeneration(
             dataset_dir,
             requests_path,
-            scenario_size=scenario_size,
-            semantic_cache_path=semantic_cache_path,
+            scenario_size,
             candidate_lookup=candidate_lookup,
             hit_users_only=hit_users_only,
         )
-    elif show_progress:
-        log_progress(f"using existing requests file {requests_path} ({request_reason})")
+        if should_regenerate_requests:
+            if show_progress:
+                log_progress(f"generating requests at {requests_path} ({request_reason})")
+            export_requests(
+                dataset_dir,
+                requests_path,
+                scenario_size=scenario_size,
+                semantic_cache_path=semantic_cache_path,
+                candidate_lookup=candidate_lookup,
+                hit_users_only=hit_users_only,
+            )
+        elif show_progress:
+            log_progress(f"using existing requests file {requests_path} ({request_reason})")
 
     if show_progress:
         log_progress("loading requests and candidates")
@@ -458,18 +509,37 @@ def run_experiment(
         log_progress(f"writing llm interaction log to {llm_log_path}")
     if show_progress and llm_parse_log_path:
         log_progress(f"writing llm parse debug log to {llm_parse_log_path}")
+    if show_progress and (save_results or load_from_cache):
+        log_progress(f"using request result cache dir {results_cache_dir}")
 
     results = []
     total_selected = len(selected_requests)
     for index, request in enumerate(selected_requests, start=1):
         candidate_row = candidate_lookup.get(request["user_id"])
         if candidate_row:
+            cache_path = request_result_cache_path(results_cache_dir, request["request_id"])
+            if load_from_cache and cache_path.exists():
+                if show_progress:
+                    log_progress(
+                        f"loading cached result {index}/{total_selected} request={request['request_id']} cache={cache_path}"
+                    )
+                results.append(load_ranking_from_disk(cache_path))
+                continue
             if show_progress:
                 log_progress(
                     f"evaluating {index}/{total_selected} request={request['request_id']} "
                     f"user={request['user_id']} scenario={request['scenario_id']}"
                 )
-            results.append(run_request(request, candidate_row, client, verbose=show_progress))
+            request_result = run_request(
+                request,
+                candidate_row,
+                client,
+                verbose=show_progress,
+                num_paraphrases=num_paraphrases,
+            )
+            if save_results:
+                save_ranking_to_disk(cache_path, request_result)
+            results.append(request_result)
 
     if not results:
         summary = {
@@ -482,6 +552,12 @@ def run_experiment(
             "canonical_program_agreement": 0.0,
             "rankdsl_constraint_satisfaction_variance": 0.0,
             "prompt_only_constraint_satisfaction_variance": 0.0,
+            "filter_satisfaction": 0.0,
+            "quota_satisfaction": 0.0,
+            "diversity_satisfaction": 0.0,
+            "sliding_window_ok_rate": 0.0,
+            "ild_score_avg": 0.0,
+            "ndcg_only_successful": 0.0,
         }
         payload = {"selection": selection_info, "summary": summary, "results": results}
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -491,23 +567,7 @@ def run_experiment(
             log_progress(f"no eligible requests were evaluated; wrote empty result to {output_path}")
         return payload
 
-    summary = {
-        "base_recall": aggregate_method(results, lambda row: row["base_recall"]),
-        "score_adjust_greedy": aggregate_method(results, lambda row: row["score_adjust_greedy"]),
-        "prompt_only_direct_rerank": aggregate_method(results, lambda row: row["prompt_only_direct_rerank"]["runs"]),
-        "rankdsl_greedy": aggregate_method(results, lambda row: [run["greedy"] for run in row["rankdsl"]["runs"]]),
-        "rankdsl_ilp": aggregate_method(results, lambda row: [run["ilp"] for run in row["rankdsl"]["runs"]]),
-        "compile_success_rate": sum(row["rankdsl"]["compile_success_rate"] for row in results) / len(results),
-        "canonical_program_agreement": sum(row["rankdsl"]["canonical_program_agreement"] for row in results) / len(results),
-        "rankdsl_constraint_satisfaction_variance": sum(
-            row["rankdsl"]["constraint_satisfaction_variance"] for row in results
-        )
-        / len(results),
-        "prompt_only_constraint_satisfaction_variance": sum(
-            row["prompt_only_direct_rerank"]["constraint_satisfaction_variance"] for row in results
-        )
-        / len(results),
-    }
+    summary = calculate_summary(results)
 
     payload = {"selection": selection_info, "summary": summary, "results": results}
     output_path.parent.mkdir(parents=True, exist_ok=True)

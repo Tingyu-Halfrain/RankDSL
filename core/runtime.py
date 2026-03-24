@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import json
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 
@@ -112,6 +114,18 @@ class CandidateItem:
 
 def derive_dominant_genre(genres: Sequence[str]) -> str:
     return sorted(genres)[0] if genres else "UNKNOWN"
+
+
+def save_ranking_to_disk(path: str | Path, payload: Dict[str, Any]) -> None:
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+
+
+def load_ranking_from_disk(path: str | Path) -> Dict[str, Any]:
+    with Path(path).open("r", encoding="utf-8") as handle:
+        return json.load(handle)
 
 
 def normalize_candidates(candidates: Iterable[Dict[str, Any]]) -> List[CandidateItem]:

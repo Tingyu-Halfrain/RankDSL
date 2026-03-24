@@ -5,11 +5,15 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from RankDSL.core.dsl_parser import canonicalize_dsl, parse_ranking_dsl
+from RankDSL.core.runtime import load_ranking_from_disk, save_ranking_to_disk
 from RankDSL.core.solver import GreedySolver, ILPSolver
 from RankDSL.core.verifier import verify_dsl
+from RankDSL.data.select_suitable_users import build_ml1m_suitable_requests, candidate_pool_stats
+from RankDSL.evaluation.detailed_metrics import detailed_constraint_status
+from RankDSL.evaluation.metrics import calculate_summary
 from RankDSL.experiments.io import write_jsonl
 from RankDSL.experiments.request_builder import generate_requests
-from RankDSL.experiments.runner import needs_request_regeneration, run_request, select_requests_for_evaluation
+from RankDSL.experiments.runner import needs_request_regeneration, run_experiment, run_request, select_requests_for_evaluation
 from RankDSL.llm.client import LLMResponse, RankDSLLLMClient
 
 
@@ -22,6 +26,12 @@ TOY_CANDIDATES = [
     {"item_id": "6", "title": "Kids B", "genre": ["Children's"], "release_year": 2003, "base_score": 0.84},
     {"item_id": "7", "title": "Action A", "genre": ["Action"], "release_year": 2001, "base_score": 0.83},
     {"item_id": "8", "title": "Romance A", "genre": ["Romance"], "release_year": 2001, "base_score": 0.81},
+]
+
+TOY_SUITABLE_CANDIDATES = TOY_CANDIDATES + [
+    {"item_id": "9", "title": "Kids C", "genre": ["Children's"], "release_year": 2004, "base_score": 0.8},
+    {"item_id": "10", "title": "Mystery A", "genre": ["Mystery"], "release_year": 2005, "base_score": 0.79},
+    {"item_id": "11", "title": "Drama B", "genre": ["Drama"], "release_year": 2006, "base_score": 0.78},
 ]
 
 
@@ -225,6 +235,277 @@ class RankDSLCoreTests(unittest.TestCase):
         )
         self.assertEqual([row["request_id"] for row in selected], ["a", "b"])
         self.assertEqual(info["eligible_total"], 2)
+
+    def test_candidate_pool_stats_counts_filter_quota_diversity_signals(self):
+        stats = candidate_pool_stats(TOY_SUITABLE_CANDIDATES)
+        self.assertEqual(stats["horror_count"], 1)
+        self.assertEqual(stats["children_count"], 3)
+        self.assertGreaterEqual(stats["distinct_dominant_genres"], 5)
+        self.assertGreaterEqual(stats["non_horror_count"], 10)
+
+    def test_build_ml1m_suitable_requests_repeats_shared_user_pool_across_three_scenarios(self):
+        class FakeReader:
+            test_target_map = {"u1": "1", "u2": "1"}
+
+            def get_user_profile(self, user_id):
+                return f"profile-{user_id}"
+
+            def build_user_summary(self, user_id):
+                return f"summary-{user_id}"
+
+            def render_history(self, user_id, max_events=20):
+                return f"history-{user_id}"
+
+        fake_spec = {
+            "dataset_name": "ml-1m",
+            "schema_fields": ["genre", "dominant_genre", "release_year"],
+            "scenarios": [
+                {"scenario_id": "filter_horror", "constraint_text": "Top-10 must exclude Horror titles."},
+                {"scenario_id": "quota_children", "constraint_text": "Top-10 must contain at least 2 Children's titles."},
+                {"scenario_id": "diversity_dominant_genre", "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat."},
+            ],
+            "reference_builder": lambda request_id, user_summary, scenario_id: {
+                "filter_horror": {
+                    "meta": {"request_id": request_id, "user_summary": user_summary, "top_k": 4},
+                    "groups": [{"group_id": "horror", "filter_expression": "genre == 'Horror'"}],
+                    "constraints": {"filters": [{"action": "exclude", "target_group": "horror"}], "quotas": [], "diversity": []},
+                    "objective": {"base_score_weight": 1.0, "group_boosts": []},
+                    "tie_break": ["base_score desc", "item_id asc"],
+                },
+                "quota_children": {
+                    "meta": {"request_id": request_id, "user_summary": user_summary, "top_k": 4},
+                    "groups": [{"group_id": "children", "filter_expression": 'genre == "Children\'s"'}],
+                    "constraints": {"filters": [], "quotas": [{"target_group": "children", "min_count": 2}], "diversity": []},
+                    "objective": {"base_score_weight": 1.0, "group_boosts": [{"target_group": "children", "weight": 0.2}]},
+                    "tie_break": ["base_score desc", "item_id asc"],
+                },
+                "diversity_dominant_genre": {
+                    "meta": {"request_id": request_id, "user_summary": user_summary, "top_k": 4},
+                    "groups": [],
+                    "constraints": {"filters": [], "quotas": [], "diversity": [{"attribute": "dominant_genre", "window_size": 3, "max_repetition": 1}]},
+                    "objective": {"base_score_weight": 1.0, "group_boosts": []},
+                    "tie_break": ["base_score desc", "item_id asc"],
+                },
+            }[scenario_id],
+        }
+
+        candidate_rows = [
+            {"user_id": "u1", "target_item_id": "1", "candidates": TOY_SUITABLE_CANDIDATES},
+            {"user_id": "u2", "target_item_id": "1", "candidates": TOY_SUITABLE_CANDIDATES},
+        ]
+        with patch("RankDSL.data.select_suitable_users.get_dataset_spec", return_value=fake_spec):
+            requests = build_ml1m_suitable_requests(
+                candidate_rows,
+                FakeReader(),
+                users_per_scenario=2,
+                min_horror_candidates=1,
+                min_children_candidates=3,
+                min_dominant_genres=3,
+                top_k=4,
+            )
+        self.assertEqual(len(requests), 6)
+        self.assertEqual({request["scenario_type"] for request in requests}, {"filter", "quota", "diversity"})
+        self.assertEqual({request["scenario_id"] for request in requests}, {"filter_horror", "quota_children", "diversity_dominant_genre"})
+        self.assertTrue(all(request["candidates"] for request in requests))
+
+    def test_run_experiment_accepts_prebuilt_requests_file(self):
+        with TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            requests_path = tmp / "custom_requests.jsonl"
+            candidates_path = tmp / "candidates.jsonl"
+            output_path = tmp / "results.json"
+            request = {
+                "request_id": "custom-000",
+                "dataset_name": "ml-1m",
+                "scenario_id": "filter_horror",
+                "user_id": "u1",
+                "target_item_id": "3",
+                "constraint_text": "Top-10 must exclude Horror titles.",
+                "user_summary": "Likes family movies",
+                "reference_dsl": VALID_DSL,
+            }
+            write_jsonl(requests_path, [request])
+            write_jsonl(candidates_path, [{"user_id": "u1", "target_item_id": "3", "candidates": TOY_CANDIDATES}])
+            with patch("RankDSL.experiments.runner.ensure_candidate_metadata"), patch(
+                "RankDSL.experiments.runner.needs_request_regeneration",
+                side_effect=AssertionError("should not regenerate prebuilt requests"),
+            ):
+                payload = run_experiment(
+                    dataset_dir="dataset/ml-1m",
+                    requests_path=requests_path,
+                    candidates_path=candidates_path,
+                    output_path=output_path,
+                    llm_mode="stub",
+                    show_progress=False,
+                    use_existing_requests=True,
+                )
+            self.assertEqual(payload["selection"]["requested_total"], 1)
+            self.assertTrue(output_path.exists())
+
+    def test_runtime_can_save_and_load_ranking_payload(self):
+        with TemporaryDirectory() as tmpdir:
+            cache_path = Path(tmpdir) / "saved_rankings" / "req-1.json"
+            payload = {"request_id": "req-1", "rankdsl": {"compile_success_rate": 1.0}}
+            save_ranking_to_disk(cache_path, payload)
+            loaded = load_ranking_from_disk(cache_path)
+            self.assertEqual(loaded, payload)
+
+    def test_detailed_constraint_status_reports_component_metrics(self):
+        ranking = GreedySolver().solve(parse_ranking_dsl(VALID_DSL), TOY_CANDIDATES).ranking
+        status = detailed_constraint_status(VALID_DSL, ranking)
+        self.assertTrue(status["has_filter_constraints"])
+        self.assertTrue(status["has_quota_constraints"])
+        self.assertTrue(status["has_diversity_constraints"])
+        self.assertTrue(status["filter_ok"])
+        self.assertEqual(len(status["quota_status"]), 1)
+        self.assertGreaterEqual(status["ild_score"], 0.0)
+
+    def test_calculate_summary_includes_detailed_metric_fields(self):
+        request = {
+            "request_id": "req-5",
+            "user_id": "u1",
+            "scenario_id": "quota_children",
+            "target_item_id": "3",
+            "dataset_name": "ml-1m",
+            "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+            "user_summary": "Likes family movies",
+            "reference_dsl": VALID_DSL,
+        }
+        result = run_request(
+            request,
+            {"user_id": "u1", "candidates": TOY_CANDIDATES},
+            RankDSLLLMClient(mode="stub"),
+            verbose=False,
+        )
+        summary = calculate_summary([result])
+        for key in (
+            "filter_satisfaction",
+            "quota_satisfaction",
+            "diversity_satisfaction",
+            "sliding_window_ok_rate",
+            "ild_score_avg",
+            "ndcg_only_successful",
+        ):
+            self.assertIn(key, summary)
+
+    def test_run_request_respects_num_paraphrases(self):
+        request = {
+            "request_id": "req-num-1",
+            "user_id": "u1",
+            "scenario_id": "quota_children",
+            "target_item_id": "3",
+            "dataset_name": "ml-1m",
+            "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+            "user_summary": "Likes family movies",
+            "reference_dsl": VALID_DSL,
+        }
+        result = run_request(
+            request,
+            {"user_id": "u1", "candidates": TOY_CANDIDATES},
+            RankDSLLLMClient(mode="stub"),
+            verbose=False,
+            num_paraphrases=1,
+        )
+        self.assertEqual(result["rankdsl"]["num_paraphrases"], 1)
+        self.assertEqual(len(result["rankdsl"]["runs"]), 1)
+        self.assertEqual(result["rankdsl"]["compile_success_rate"], 1.0)
+
+    def test_run_request_falls_back_to_base_recall_when_compile_fails(self):
+        class AlwaysFailClient(RankDSLLLMClient):
+            def __init__(self):
+                super().__init__(mode="stub")
+
+            def compile_rankdsl(self, request, paraphrase_index=0, repair_error=None):
+                return LLMResponse(text='{"top_k": 4, "filters": [', model="fake")
+
+            def direct_rerank(self, request, candidates, paraphrase_index=0):
+                ranking = [candidate["item_id"] for candidate in candidates]
+                return LLMResponse(text=str(ranking).replace("'", '"'), model="fake")
+
+        request = {
+            "request_id": "req-fallback-1",
+            "user_id": "u1",
+            "scenario_id": "quota_children",
+            "target_item_id": "3",
+            "dataset_name": "ml-1m",
+            "constraint_text": "Top-10 must contain at least 2 Children's titles.",
+            "user_summary": "Likes family movies",
+            "reference_dsl": VALID_DSL,
+        }
+        result = run_request(
+            request,
+            {"user_id": "u1", "candidates": TOY_CANDIDATES},
+            AlwaysFailClient(),
+            verbose=False,
+            num_paraphrases=1,
+        )
+        fallback_ilp = result["rankdsl"]["runs"][0]["ilp"]
+        self.assertEqual(result["rankdsl"]["compile_success_rate"], 0.0)
+        self.assertTrue(result["rankdsl"]["runs"][0]["fallback_used"])
+        self.assertEqual(fallback_ilp["solver"], "base_recall_fallback")
+        self.assertEqual(fallback_ilp["ranking"], result["base_recall"]["ranking"])
+        self.assertEqual(fallback_ilp["hit@10"], result["base_recall"]["hit@10"])
+
+    def test_run_experiment_loads_request_result_from_cache(self):
+        with TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            requests_path = tmp / "custom_requests.jsonl"
+            candidates_path = tmp / "candidates.jsonl"
+            output_path = tmp / "results.json"
+            cache_dir = tmp / "saved_rankings"
+            request = {
+                "request_id": "custom-000",
+                "dataset_name": "ml-1m",
+                "scenario_id": "filter_horror",
+                "user_id": "u1",
+                "target_item_id": "3",
+                "constraint_text": "Top-10 must exclude Horror titles.",
+                "user_summary": "Likes family movies",
+                "reference_dsl": VALID_DSL,
+            }
+            cached_result = {
+                "request_id": "custom-000",
+                "user_id": "u1",
+                "scenario_id": "filter_horror",
+                "target_item_id": "3",
+                "base_recall": {"hit@10": 1.0, "ndcg@10": 1.0, "constraint_satisfaction": 1.0, "violation_count": 0.0, "genre_coverage": 4.0},
+                "score_adjust_greedy": {"hit@10": 1.0, "ndcg@10": 1.0, "constraint_satisfaction": 1.0, "violation_count": 0.0, "genre_coverage": 4.0},
+                "prompt_only_direct_rerank": {
+                    "constraint_satisfaction_variance": 0.0,
+                    "runs": [{"hit@10": 1.0, "ndcg@10": 1.0, "constraint_satisfaction": 1.0, "violation_count": 0.0, "genre_coverage": 4.0, "latency": 0.1}],
+                },
+                "rankdsl": {
+                    "compile_success_rate": 1.0,
+                    "canonical_program_agreement": 1.0,
+                    "constraint_satisfaction_variance": 0.0,
+                    "runs": [
+                        {
+                            "greedy": {"hit@10": 1.0, "ndcg@10": 1.0, "constraint_satisfaction": 1.0, "violation_count": 0.0, "genre_coverage": 4.0, "ranking": []},
+                            "ilp": {"hit@10": 1.0, "ndcg@10": 1.0, "constraint_satisfaction": 1.0, "violation_count": 0.0, "genre_coverage": 4.0, "ranking": []},
+                        }
+                    ],
+                },
+            }
+            write_jsonl(requests_path, [request])
+            write_jsonl(candidates_path, [{"user_id": "u1", "target_item_id": "3", "candidates": TOY_CANDIDATES}])
+            save_ranking_to_disk(cache_dir / "custom-000.json", cached_result)
+            with patch("RankDSL.experiments.runner.ensure_candidate_metadata"), patch(
+                "RankDSL.experiments.runner.run_request",
+                side_effect=AssertionError("should not execute run_request when cache exists"),
+            ):
+                payload = run_experiment(
+                    dataset_dir="dataset/ml-1m",
+                    requests_path=requests_path,
+                    candidates_path=candidates_path,
+                    output_path=output_path,
+                    llm_mode="stub",
+                    show_progress=False,
+                    use_existing_requests=True,
+                    load_from_cache=True,
+                    results_cache_dir=cache_dir,
+                )
+            self.assertEqual(payload["selection"]["requested_total"], 1)
+            self.assertEqual(payload["summary"]["compile_success_rate"], 1.0)
 
     def test_request_regeneration_detects_scenario_size_mismatch(self):
         with TemporaryDirectory() as tmpdir:

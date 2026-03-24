@@ -1,0 +1,645 @@
+{
+  "request_id": "diversity_dominant_genre-000",
+  "user_id": "1",
+  "scenario_id": "diversity_dominant_genre",
+  "dataset_name": "ml-1m",
+  "constraint_text": "Enforce diversity: within any window of 3 ranked items, dominant_genre cannot repeat.",
+  "target_item_id": "48",
+  "reference_dsl": {
+    "meta": {
+      "request_id": "diversity_dominant_genre-000",
+      "user_summary": "The user is a Female who is under 18 years old and works as a K-12 student. Historically prefers Drama and Children's titles.",
+      "top_k": 10
+    },
+    "groups": [],
+    "constraints": {
+      "filters": [],
+      "quotas": [],
+      "diversity": [
+        {
+          "attribute": "dominant_genre",
+          "window_size": 3,
+          "max_repetition": 1
+        }
+      ]
+    },
+    "objective": {
+      "base_score_weight": 1.0,
+      "group_boosts": []
+    },
+    "tie_break": [
+      "base_score desc",
+      "item_id asc"
+    ]
+  },
+  "base_recall": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 8.864689826965332
+      },
+      {
+        "item_id": "1907",
+        "title": "Mulan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 8.003463745117188
+      },
+      {
+        "item_id": "2394",
+        "title": "Prince of Egypt, The",
+        "genre": [
+          "Animation",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 7.145549297332764
+      },
+      {
+        "item_id": "1022",
+        "title": "Cinderella",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1950,
+        "base_score": 7.025487899780273
+      },
+      {
+        "item_id": "2294",
+        "title": "Antz",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 6.943503379821777
+      },
+      {
+        "item_id": "2687",
+        "title": "Tarzan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.9263834953308105
+      },
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 6.813825607299805
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 6.6876373291015625
+      },
+      {
+        "item_id": "1029",
+        "title": "Dumbo",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1941,
+        "base_score": 6.56222677230835
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 6.543215751647949
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.28518518518518526
+  },
+  "score_adjust_greedy": {
+    "hit@10": 0.0,
+    "ndcg@10": 0.0,
+    "constraint_satisfaction": 0.0,
+    "violation_count": 8,
+    "genre_coverage": 4,
+    "ranking": [
+      {
+        "item_id": "364",
+        "title": "Lion King, The",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1994,
+        "base_score": 8.864689826965332
+      },
+      {
+        "item_id": "1907",
+        "title": "Mulan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 8.003463745117188
+      },
+      {
+        "item_id": "2394",
+        "title": "Prince of Egypt, The",
+        "genre": [
+          "Animation",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 7.145549297332764
+      },
+      {
+        "item_id": "1022",
+        "title": "Cinderella",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1950,
+        "base_score": 7.025487899780273
+      },
+      {
+        "item_id": "2294",
+        "title": "Antz",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1998,
+        "base_score": 6.943503379821777
+      },
+      {
+        "item_id": "2687",
+        "title": "Tarzan",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1999,
+        "base_score": 6.9263834953308105
+      },
+      {
+        "item_id": "2018",
+        "title": "Bambi",
+        "genre": [
+          "Animation",
+          "Children's"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1942,
+        "base_score": 6.813825607299805
+      },
+      {
+        "item_id": "588",
+        "title": "Aladdin",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Comedy",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1992,
+        "base_score": 6.6876373291015625
+      },
+      {
+        "item_id": "1029",
+        "title": "Dumbo",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1941,
+        "base_score": 6.56222677230835
+      },
+      {
+        "item_id": "1032",
+        "title": "Alice in Wonderland",
+        "genre": [
+          "Animation",
+          "Children's",
+          "Musical"
+        ],
+        "dominant_genre": "Animation",
+        "release_year": 1951,
+        "base_score": 6.543215751647949
+      }
+    ],
+    "has_filter_constraints": false,
+    "has_quota_constraints": false,
+    "has_diversity_constraints": true,
+    "filter_ok": true,
+    "quota_status": [],
+    "quota_satisfaction": 1.0,
+    "diversity_satisfaction": 0.0,
+    "sliding_window_ok": false,
+    "max_rep_in_any_window": 3,
+    "sliding_violation_rate": 1.0,
+    "ild_score": 0.28518518518518526
+  },
+  "rankdsl": {
+    "num_paraphrases": 1,
+    "compile_success_rate": 0.0,
+    "canonical_program_agreement": 0.0,
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 18.50378637528047,
+        "raw_dsl": null,
+        "compiled_dsl": null,
+        "compiled_dsl_canonical": null,
+        "compile_error": [
+          {
+            "code": "schema_error",
+            "error_type": "schema",
+            "message": "Input should be a valid list",
+            "suggestion": "Return one JSON object that matches the RankDSL schema exactly. Do not add extra keys or prose.",
+            "offending_field": "diversity",
+            "details": {
+              "location": "diversity",
+              "errors": [
+                {
+                  "type": "list_type",
+                  "loc": [
+                    "diversity"
+                  ],
+                  "msg": "Input should be a valid list",
+                  "input": {
+                    "attribute": "dominant_genre",
+                    "window_size": 3,
+                    "max_repeats": 1
+                  },
+                  "url": "https://errors.pydantic.dev/2.12/v/list_type"
+                }
+              ]
+            }
+          }
+        ],
+        "compile_raw_response": "I need to analyze this request carefully.\n\n**User Profile Analysis:**\n- Young female K-12 student, under 18\n- Historically prefers Drama and Children's titles\n- High ratings for Animation/Children's films (Toy Story, Bug's Life, Pocahontas, Beauty and the Beast, Dumbo all rated 5)\n- Also appreciates Drama (Schindler's List rated 5)\n\n**Dominant Genre Identification:**\nThe \"dominant genre\" for each item would be the primary/first-listed genre or the most characteristic genre. Looking at the history, the dominant genres are primarily \"Animation\" and \"Drama\" with some \"Comedy.\"\n\n**Constraint:** Within any window of 3 ranked items, the dominant_genre cannot repeat.\n\nLet me build the RankDSL program:\n\n```json\n{\n  \"program_id\": \"diversity_dominant_genre-000\",\n  \"top_k\": 10,\n  \"scoring\": {\n    \"method\": \"weighted_sum\",\n    \"weights\": {\n      \"genre_pref\": 0.45,\n      \"demo_fit\": 0.30,\n      \"popularity\": 0.15,\n      \"freshness\": 0.10\n    },\n    \"features\": {\n      \"genre_pref\": {\n        \"type\": \"genre_affinity\",\n        \"profile_genres\": {\n          \"Children's\": 0.95,\n          \"Animation\": 0.90,\n          \"Drama\": 0.85,\n          \"Musical\": 0.70,\n          \"Comedy\": 0.60,\n          \"Romance\": 0.45,\n          \"Adventure\": 0.40,\n          \"Action\": 0.30,\n          \"Thriller\": 0.20,\n          \"War\": 0.25\n        }\n      },\n      \"demo_fit\": {\n        \"type\": \"demographic_match\",\n        \"age_group\": \"under_18\",\n        \"gender\": \"Female\",\n        \"occupation\": \"K-12 student\"\n      },\n      \"popularity\": {\n        \"type\": \"item_popularity\",\n        \"normalize\": true\n      },\n      \"freshness\": {\n        \"type\": \"release_recency\",\n        \"decay\": \"linear\",\n        \"reference_year\": 2000\n      }\n    }\n  },\n  \"constraints\": [\n    {\n      \"type\": \"sliding_window_diversity\",\n      \"window_size\": 3,\n      \"attribute\": \"dominant_genre\",\n      \"max_repeats\": 1\n    }\n  ],\n  \"reranking\": {\n    \"method\": \"greedy_rerank\",\n    \"objective\": \"maximize_score_under_constraints\",\n    \"steps\": [\n      {\n        \"step\": 1,\n        \"action\": \"score_all_candidates\"\n      },\n      {\n        \"step\": 2,\n        \"action\": \"sort_by_score_descending\"\n      },\n      {\n        \"step\": 3,\n        \"action\": \"apply_sliding_window_constraint\",\n        \"params\": {\n          \"window_size\": 3,\n          \"attribute\": \"dominant_genre\",\n          \"max_repeats_in_window\": 1,\n          \"fallback\": \"skip_and_continue\"\n        }\n      }\n    ]\n  },\n  \"output\": {\n    \"top_k\": 10,\n    \"format\": \"ranked_list\",\n    \"include_fields\": [\"item_id\", \"title\", \"dominant_genre\", \"score\", \"rank\"]\n  }\n}\n```",
+        "compile_parse_error": null,
+        "repair_raw_response": "{\"diversity\": {\"attribute\": \"dominant_genre\", \"window_size\": 3, \"max_repeats\": 1}, \"top_k\": 10}",
+        "repair_parse_error": null,
+        "fallback_used": true,
+        "greedy": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 8,
+          "genre_coverage": 4,
+          "ranking": [
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 8.864689826965332
+            },
+            {
+              "item_id": "1907",
+              "title": "Mulan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 8.003463745117188
+            },
+            {
+              "item_id": "2394",
+              "title": "Prince of Egypt, The",
+              "genre": [
+                "Animation",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 7.145549297332764
+            },
+            {
+              "item_id": "1022",
+              "title": "Cinderella",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1950,
+              "base_score": 7.025487899780273
+            },
+            {
+              "item_id": "2294",
+              "title": "Antz",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 6.943503379821777
+            },
+            {
+              "item_id": "2687",
+              "title": "Tarzan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.9263834953308105
+            },
+            {
+              "item_id": "2018",
+              "title": "Bambi",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1942,
+              "base_score": 6.813825607299805
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 6.6876373291015625
+            },
+            {
+              "item_id": "1029",
+              "title": "Dumbo",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1941,
+              "base_score": 6.56222677230835
+            },
+            {
+              "item_id": "1032",
+              "title": "Alice in Wonderland",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1951,
+              "base_score": 6.543215751647949
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 0.0,
+          "sliding_window_ok": false,
+          "max_rep_in_any_window": 3,
+          "sliding_violation_rate": 1.0,
+          "ild_score": 0.28518518518518526
+        },
+        "ilp": {
+          "hit@10": 0.0,
+          "ndcg@10": 0.0,
+          "constraint_satisfaction": 0.0,
+          "violation_count": 8,
+          "genre_coverage": 4,
+          "ranking": [
+            {
+              "item_id": "364",
+              "title": "Lion King, The",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1994,
+              "base_score": 8.864689826965332
+            },
+            {
+              "item_id": "1907",
+              "title": "Mulan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 8.003463745117188
+            },
+            {
+              "item_id": "2394",
+              "title": "Prince of Egypt, The",
+              "genre": [
+                "Animation",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 7.145549297332764
+            },
+            {
+              "item_id": "1022",
+              "title": "Cinderella",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1950,
+              "base_score": 7.025487899780273
+            },
+            {
+              "item_id": "2294",
+              "title": "Antz",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1998,
+              "base_score": 6.943503379821777
+            },
+            {
+              "item_id": "2687",
+              "title": "Tarzan",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1999,
+              "base_score": 6.9263834953308105
+            },
+            {
+              "item_id": "2018",
+              "title": "Bambi",
+              "genre": [
+                "Animation",
+                "Children's"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1942,
+              "base_score": 6.813825607299805
+            },
+            {
+              "item_id": "588",
+              "title": "Aladdin",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Comedy",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1992,
+              "base_score": 6.6876373291015625
+            },
+            {
+              "item_id": "1029",
+              "title": "Dumbo",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1941,
+              "base_score": 6.56222677230835
+            },
+            {
+              "item_id": "1032",
+              "title": "Alice in Wonderland",
+              "genre": [
+                "Animation",
+                "Children's",
+                "Musical"
+              ],
+              "dominant_genre": "Animation",
+              "release_year": 1951,
+              "base_score": 6.543215751647949
+            }
+          ],
+          "solver": "base_recall_fallback",
+          "fallback_used": true,
+          "fallback_source": "base_recall",
+          "has_filter_constraints": false,
+          "has_quota_constraints": false,
+          "has_diversity_constraints": true,
+          "filter_ok": true,
+          "quota_status": [],
+          "quota_satisfaction": 1.0,
+          "diversity_satisfaction": 0.0,
+          "sliding_window_ok": false,
+          "max_rep_in_any_window": 3,
+          "sliding_violation_rate": 1.0,
+          "ild_score": 0.28518518518518526
+        }
+      }
+    ]
+  },
+  "prompt_only_direct_rerank": {
+    "constraint_satisfaction_variance": 0.0,
+    "runs": [
+      {
+        "latency": 23.478905606549233,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "constraint_satisfaction": 0.0,
+        "violation_count": 1,
+        "genre_coverage": 0.0,
+        "ranking": []
+      }
+    ]
+  }
+}

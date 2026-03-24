@@ -136,6 +136,7 @@ python export_ml1m_sasrec_candidates.py \
 输出文件：
 
 - `outputs/ml1m_candidates_sasrec.jsonl`
+- `outputs/ml1m_suitable_requests_600.jsonl`
 
 这个文件导出后会自动补齐：
 
@@ -145,33 +146,61 @@ python export_ml1m_sasrec_candidates.py \
 - `release_year`
 - `base_score`
 
+同时脚本会额外生成一个经过可行性筛选的 request 文件：
+
+- `outputs/ml1m_suitable_requests_600.jsonl`
+
+默认配置下，这个文件会按 6 个场景各导出 100 条，总计 600 条 request：
+
+- `filter_horror`
+- `quota_comedy`
+- `quota_children`
+- `quota_comedy_filter_horror`
+- `diversity_dominant_genre`
+- `quota_children_diversity_filter_horror`
+
+这里的 `600` 指的是 `6 个场景 x 每个场景 100 条可行 request`，不是 `600 个互不重复的用户`。
+
+筛选标准来自 `data/select_suitable_users.py`，默认阈值是：
+
+- `filter_horror`: 候选池里至少有 `1` 个 `Horror`，并且至少有 `10` 个非 `Horror` 候选，确保 top-10 可排出“完全无 Horror”的结果。
+- `quota_comedy`: 候选池里至少有 `3` 个 `Comedy`。
+- `quota_children`: 候选池里至少有 `2` 个 `Children's`。
+- `quota_comedy_filter_horror`: 同时满足 `Comedy >= 3`、`Horror >= 1`、`non-Horror >= 10`。
+- `diversity_dominant_genre`: 候选池里 `distinct_dominant_genres >= 3`。
+- `quota_children_diversity_filter_horror`: 同时满足 `Children's >= 2`、`Horror >= 1`、`non-Horror >= 10`、`distinct_dominant_genres >= 3`。
+
+除了这些阈值之外，脚本还会对每条 request 的 `reference_dsl` 调用 `verify_dsl(...)` 做可行性检查；只有 verifier 通过的样本才会被写入 `outputs/ml1m_suitable_requests_600.jsonl`。
+
 如果 checkpoint 不存在，脚本会直接报错并提示你先训练。
 
-## 6. 第三步：生成实验 requests
+## 6. 第三步：使用预构造 suitable requests
 
-主 runner 会自动生成 request 文件；如果目标路径不存在，它会自动创建。
-
-默认 request 文件建议用：
+现在推荐直接使用上一步自动生成的：
 
 ```bash
-outputs/ml1m_requests.jsonl
+outputs/ml1m_suitable_requests_600.jsonl
 ```
 
-request 中已经包含：
+这个文件已经包含：
 
 - `user_profile`
 - `user_summary`
 - `history_text`
 - `constraint_text`
 - `target_item_id`
+- `candidates`
+- `candidate_stats`
 
-注意：
+并且 `run_rankdsl_experiment.py` 支持通过 `--requests-file` 直接消费这个文件，不再触发自动 request 重建。
 
-- request 文件本身会先生成完整样本。
-- 真正跑实验时，默认会评估全部符合条件的用户。
-- `--max-eval-users 0` 表示不设上限。
-- 如果你想限制评估人数，再显式传 `--max-eval-users N`。
-- 如果你明确想把未命中的用户也纳入评估，传 `--allow-miss-users`。
+如果你只想快速试论文设置里的一次 compile，可以额外传：
+
+```bash
+--num-paraphrases 1
+```
+
+默认仍然是 `3`。
 
 ## 7. 第四步：跑真实 Claude API 实验
 
@@ -194,13 +223,14 @@ export RANKDSL_BASE_URL="https://api.deepseek.com/v1"
 ```bash
 ./run_rankdsl_experiment.sh \
   --dataset-dir dataset/ml-1m \
-  --requests outputs/ml1m_requests.jsonl \
+  --requests-file outputs/ml1m_suitable_requests_600.jsonl \
   --candidates outputs/ml1m_candidates_sasrec.jsonl \
   --output outputs/experiment_results_api.json \
   --llm-log-path outputs/llm_interactions.jsonl \
-  --scenario-size 50 \
   --candidate-topn 20 \
   --max-eval-users 0 \
+  --num-paraphrases 1 \
+  --save-results \
   --llm-mode api \
   --model claude-opus-4-6
 ```
@@ -210,12 +240,16 @@ export RANKDSL_BASE_URL="https://api.deepseek.com/v1"
 
 说明：
 
-- `--scenario-size 50` 会生成 `6 × 50 = 300 requests`；如果旧 request 文件和这次设定不匹配，runner 会自动重建。
+- `--requests-file` 会直接使用预构造的 suitable request 文件，不再按 `scenario-size` 自动生成样本。
+- `--num-paraphrases` 默认是 `3`；如果你要提速做 ablation，可改成 `1`。
+- `--save-results` 会把每个 request 的完整结果保存到 `results/saved_rankings/{request_id}.json`，后续改指标不需要重新调用 LLM。
+- `--load-from-cache` 会优先读取 `results/saved_rankings/` 里的文件，命中时不再跑 LLM。
 - 默认会评估全部符合条件的用户；`--max-eval-users 0` 表示不设上限。
 - `--llm-mode api` 会调用真实 Claude。
 - `--model` 默认就是 `claude-opus-4-6`，这里只是显式写出来。
 - `--llm-log-path` 会把每次 LLM 的输入 messages 和原始输出追加写到 JSONL，方便排查 JSON 解析失败。
 - `--llm-parse-log-path` 会把 JSON 提取与解析细节单独写到 JSONL，包括 `raw_preview`、候选 JSON 起始位置、提取出的 JSON 片段预览、parse error、verifier error。
+- compile 失败时，`RankDSL` 现在会自动 fallback 到 `base_recall` ranking，而不是直接记成空 ranking 和硬 0。
 
 例如：
 
@@ -250,6 +284,66 @@ PY
 - `canonical_program_agreement`
 - `rankdsl_constraint_satisfaction_variance`
 - `prompt_only_constraint_satisfaction_variance`
+
+## 9. V2 指标说明
+
+除了原来的整体 `constraint_satisfaction` 和 `genre_coverage`，现在还支持更细粒度的离线指标：
+
+- `filter_satisfaction`
+- `quota_satisfaction`
+- `diversity_satisfaction`
+- `sliding_window_ok_rate`
+- `ild_score_avg`
+- `ndcg_only_successful`
+
+单条 ranking 里还会额外记录：
+
+- `filter_ok`
+- `quota_status`
+- `sliding_window_ok`
+- `max_rep_in_any_window`
+- `sliding_violation_rate`
+- `ild_score`
+
+这些指标会直接写进缓存结果文件，方便后处理。
+
+## 10. 离线分析流程
+
+第一次真实跑实验时建议把缓存一起打开：
+
+```bash
+./run_rankdsl_experiment.sh \
+  --dataset-dir dataset/ml-1m \
+  --requests-file outputs/ml1m_suitable_requests_600.jsonl \
+  --candidates outputs/ml1m_candidates_sasrec.jsonl \
+  --output outputs/experiment_results_api.json \
+  --llm-mode api \
+  --save-results
+```
+
+之后如果你只是改指标，不想重新调用 LLM：
+
+```bash
+./run_rankdsl_experiment.sh \
+  --dataset-dir dataset/ml-1m \
+  --requests-file outputs/ml1m_suitable_requests_600.jsonl \
+  --candidates outputs/ml1m_candidates_sasrec.jsonl \
+  --output outputs/experiment_results_api.json \
+  --llm-mode api \
+  --load-from-cache
+```
+
+批量离线重算细粒度 summary：
+
+```bash
+python analysis/compute_metrics_offline.py \
+  --input-dir results/saved_rankings \
+  --output summary_detailed.json
+```
+
+可视化分析入口：
+
+- `analysis/inspect_results.ipynb`
 
 ## 8A. Amazon-Books：训练、在线语义 enrichment、候选导出、实验
 

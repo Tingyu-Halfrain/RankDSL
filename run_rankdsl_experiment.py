@@ -18,6 +18,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset-dir", default="dataset/ml-1m")
     parser.add_argument("--requests", default="outputs/ml1m_requests.jsonl")
+    parser.add_argument("--requests-file", default=None)
     parser.add_argument("--candidates", default="outputs/ml1m_candidates_popularity.jsonl")
     parser.add_argument("--output", default="outputs/experiment_results.json")
     parser.add_argument("--candidate-topn", type=int, default=20)
@@ -29,15 +30,20 @@ def main() -> None:
     parser.add_argument("--scenario-size", type=int, default=50)
     parser.add_argument("--max-eval-users", type=int, default=0)
     parser.add_argument("--sample-seed", type=int, default=2026)
+    parser.add_argument("--num-paraphrases", type=int, default=3)
     parser.add_argument("--allow-miss-users", action="store_true")
     parser.add_argument("--llm-log-path", default=None)
     parser.add_argument("--llm-parse-log-path", default="outputs/llm_parse_debug.jsonl")
+    parser.add_argument("--save-results", action="store_true")
+    parser.add_argument("--load-from-cache", action="store_true")
+    parser.add_argument("--results-cache-dir", default="results/saved_rankings")
     parser.add_argument("--quiet", action="store_true")
     args = parser.parse_args()
+    requests_path = args.requests_file or args.requests
 
     run_experiment(
         dataset_dir=args.dataset_dir,
-        requests_path=args.requests,
+        requests_path=requests_path,
         candidates_path=args.candidates,
         output_path=args.output,
         scenario_size=args.scenario_size,
@@ -48,11 +54,16 @@ def main() -> None:
         base_url=args.base_url,
         model=args.model,
         max_eval_users=args.max_eval_users,
+        num_paraphrases=args.num_paraphrases,
         hit_users_only=not args.allow_miss_users,
         sample_seed=args.sample_seed,
         show_progress=not args.quiet,
         llm_log_path=args.llm_log_path,
         llm_parse_log_path=args.llm_parse_log_path,
+        use_existing_requests=bool(args.requests_file),
+        save_results=args.save_results,
+        load_from_cache=args.load_from_cache,
+        results_cache_dir=args.results_cache_dir,
     )
 
 
